@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-// import { render } from "react-dom";
 
-// import * as mediasoupClient from "mediasoup-client";
 import {
   PeerConsumers,
   PeerPlayerPositions,
@@ -13,8 +11,6 @@ import Environment from "./EnvironmentAndFodAndAmbientLight";
 import { Canvas, useThree } from "@react-three/fiber";
 import styles from "../css/space.module.scss";
 
-// import { SceneControls } from "./Controls/SceneControls";
-// import Elements from "./Elements";
 import {
   Camera,
   sRGBEncoding,
@@ -28,16 +24,10 @@ import {
 
 import { UserInfo, PeerAndDistance } from "../communicationTypes";
 import SetRaycasterFromMouse from "./SetRaycasterFromMouse";
-// import useSharedMedia from "../hooks/useSharedMedia";
 import { ControlsSettings, IJoystickUpdateEvent } from "./componentTypes";
-import // useBroadcasters,
-// useMediaFromBroadcasters,
-"../hooks/useBroadcasters";
+import "../hooks/useBroadcasters";
 import { EnvironmentConfig, IVector3, SpawnConfig } from "../spaceTypes";
-// import useActivePresence from "../hooks/useActivePresence";
-// import KeyboardMovementControls from "./Controls/KeyboardMovementControls";
 import SetCameraInitialLookAtAndInitialPosition from "./Controls/SetCameraInitialLookAtAndInitialPosition";
-// import useMeshes from "../hooks/useMeshes";
 import { defaultGraphicsConfig, defaultSpawnConfig } from "../defaultConfigs";
 import { useConfigOrDefault } from "../hooks/spaceHooks";
 import { ShadowMapType } from "../spaceTypes/environment";
@@ -56,15 +46,12 @@ import useEnvironment from "hooks/useEnvironment";
 import PostProcessing from "./PostProcessing";
 import { AdaptiveDpr, useContextBridge } from "@react-three/drei";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
-import dynamic from "next/dynamic";
 import InSpaceControls from "./Controls/InSpaceControls";
 import { EditorContext } from "./InSpaceEditor/hooks/useEditorState";
 import { Context as WagmiContext } from "wagmi";
 import { SpaceAccessContext } from "hooks/auth/useSpaceAccess";
 import { UpdateRemotePlayerStateFromPositionAndCameraLookAt } from "./Controls/SyncCameraPositionAndPlayerState";
 import ThreeContext from "./ThreeContext";
-
-const MaxxiValentinaElements = dynamic(() => import("./Boids"));
 
 export type SetScene = ({
   scene,
@@ -308,11 +295,6 @@ const SceneContainer = ({
   // });
 
   const cameraOffset = avatarMeshes?.cameraPosition;
-  const isMaxxiSpace = useMemo(() => {
-    return ["better", "chance", "gain", "enough", "entropy"].includes(
-      spaceId.toLowerCase()
-    );
-  }, [spaceId]);
 
   useGlobalPointerOverObject$();
   return (
@@ -381,7 +363,6 @@ const SceneContainer = ({
               </group>
             </>
           )}
-          {isMaxxiSpace && <MaxxiValentinaElements spaceId={spaceId} />}
           <SpaceContext.Consumer>
             {(spaceContext) =>
               spaceContext?.activeSessions$ &&
@@ -399,13 +380,10 @@ const SceneContainer = ({
                   avatarMeshes={avatarMeshes}
                   peerConsumers={peerConsumers}
                   sessionPaths$={spaceContext?.sessionPaths$}
-                  // peersMetadata={spaceContext?.peersMetadata}
                 />
               )
             }
           </SpaceContext.Consumer>
-
-          {/* {!documentation && <SelfAvatar metadata={selfMetadata} />} */}
         </>
       )}
     </>
@@ -434,16 +412,6 @@ const SceneContainerWrapper = (props: SceneContainerWrapperProps) => {
     [graphicsConfig.shadowMapType]
   );
 
-  // const ctx = useContext(Web3Context);
-
-  // const library = ctx.library;
-
-  // useEffect(() => {
-  //   if (library)
-  //     console.log('library', library);
-
-  // }, [library])
-
   const ContextBridge = useContextBridge(
     SpaceContext,
     EditorContext,
@@ -451,24 +419,6 @@ const SceneContainerWrapper = (props: SceneContainerWrapperProps) => {
     SpaceAccessContext,
     ThreeContext
   );
-
-  // const web3React = useWeb3React<Web3Provider>();
-
-  // const getLibrary = useCallback(() => {
-  //   return new Web3Provider(web3React.)
-
-  // const useEthersContext = useMemo(() => {
-  //   const useEthers = () => {
-  //     return sourceUseEthers();
-  //   };
-
-  //   return { useEthers }
-  // }, []);
-
-  // const Web3ReactContext = getWeb3ReactContext()
-
-  // }, [web3React]);
-  // const enableWeb3 = useShouldWeb3BeEnabled({ spaceId: props.spaceId });
 
   return (
     <Canvas

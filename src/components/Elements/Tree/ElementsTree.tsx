@@ -11,13 +11,8 @@ import { Vector3 } from "three";
 
 import { EditorContext } from "components/InSpaceEditor/hooks/useEditorState";
 import ElementsChildren from "./ElementsChildren";
-import { visualMassageSpaceIds } from "web3/contexts";
-import dynamic from "next/dynamic";
 import useElementsTree from "./useElementsTree";
 import useLoadedState from "./useLoadedState";
-const VisualMassageElements = dynamic(
-  () => import("components/SpaceSpecific/VisualMassage/index")
-);
 
 type ElementsProps = {
   spaceId: string;
@@ -43,12 +38,6 @@ const Elements = memo((props: ElementsProps) => {
         .collection("elementsTree") as unknown) as CollectionReference,
     [spaceId]
   );
-
-  const isVisualMassageSpace = useMemo(() => {
-    const result = visualMassageSpaceIds.includes(spaceId);
-
-    return result;
-  }, [spaceId]);
 
   const elementsTree = useElementsTree({ spaceId });
 
@@ -83,7 +72,6 @@ const Elements = memo((props: ElementsProps) => {
                     handleElementLoaded: loadedState.handleLoaded,
                   }}
                 />
-                {isVisualMassageSpace && <VisualMassageElements />}
               </>
             </ElementsContext.Provider>
             {editorState && (

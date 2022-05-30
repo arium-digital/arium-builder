@@ -5,7 +5,6 @@ import {
 import { AnimatedAriumLogo } from "./AnimatedAriumLogo";
 import Space from "./Space";
 import dynamic from "next/dynamic";
-import { useShouldWeb3BeEnabled } from "web3/contexts";
 import { useBehaviorSubjectAndSetterFromCurrentValue } from "hooks/useObservable";
 import { defaultPlayerLocation } from "hooks/useUpdateRemotePlayerPosition";
 import { PlayerLocation } from "types";
@@ -15,7 +14,7 @@ const SpaceWithWeb3 = dynamic(() => import("./SpaceRoute/SpaceWithWeb3"));
 const FullSpacePreview = ({ spaceId }: { spaceId: string }) => {
   const authState = useAuthentication({ ensureSignedInAnonymously: true });
 
-  const shouldWeb3BeEnabled = useShouldWeb3BeEnabled({ spaceId });
+  const shouldWeb3BeEnabled = true;
 
   const [
     playerLocation$,
