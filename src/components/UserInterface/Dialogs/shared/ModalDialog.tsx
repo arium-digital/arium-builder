@@ -1,6 +1,6 @@
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import styles from "../dialog.module.scss";
-import { AriumCloseIcon } from "website/landing/NewMarketingSite/Icons";
+import { AriumCloseIcon } from "website/home/Icons";
 import Fade from "@material-ui/core/Fade";
 import { lightTheme } from "website/themes/lightTheme";
 import clsx from "clsx";

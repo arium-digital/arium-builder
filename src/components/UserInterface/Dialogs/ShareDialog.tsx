@@ -8,7 +8,7 @@ import React, {
   useEffect,
 } from "react";
 import styles from "./dialog.module.scss";
-import { IconBetaSignUp } from "website/landing/NewMarketingSite/utils";
+import { IconBetaSignUp } from "website/home/utils";
 import { EditorState } from "components/InSpaceEditor/types";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";

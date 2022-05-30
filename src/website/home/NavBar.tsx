@@ -101,28 +101,12 @@ const BtnMobile = ({ label, ...rest }: BtnProps) => (
   </Grid>
 );
 
-const createBetaSignUpButton = (onClick: () => void): BtnProps => ({
-  label: "Want Your Own Space?",
-  onClick,
-  color: "primary",
-});
-
-const DeskTopNav = ({
-  onClickBetaSignUp,
-  authState,
-}: {
-  onClickBetaSignUp: () => void;
-  authState: AuthState;
-}) => {
+const DeskTopNav = ({ authState }: { authState: AuthState }) => {
   const isLoggedIn = authState.authenticated && !authState.isAnonymous;
   return (
     <>
       {!isLoggedIn && (
         <>
-          <BtnDesktop
-            className={styles.navBtn}
-            {...createBetaSignUpButton(onClickBetaSignUp)}
-          />
           <a
             className={styles.navBtn}
             style={{ color: ariumBlack, position: "relative", top: 4 }}
@@ -154,13 +138,7 @@ const DeskTopNav = ({
   );
 };
 
-const MobileNav = ({
-  onClickBetaSignUp,
-  authState,
-}: {
-  onClickBetaSignUp: () => void;
-  authState: AuthState;
-}) => {
+const MobileNav = () => {
   const [open, setOpen] = useState(false);
   const excuteAndCloseNav = useCallback((func?: MouseEventHandler) => {
     return (e: any) => {
@@ -198,10 +176,6 @@ const MobileNav = ({
           >
             <AriumCloseIcon color="white" />
           </IconButton>
-          <BtnMobile
-            className={styles.mobileNavBtn}
-            {...createBetaSignUpButton(onClickBetaSignUp)}
-          />
           {buttons.map(({ onClick, ...rest }, i) => (
             <BtnMobile
               key={i}
@@ -216,11 +190,7 @@ const MobileNav = ({
   );
 };
 
-export const NavBar = ({
-  onClickBetaSignUp,
-}: {
-  onClickBetaSignUp: () => void;
-}) => {
+export const NavBar = () => {
   const trigger = useScrollTrigger();
   const authState = useAuthentication({ ensureSignedInAnonymously: false });
   return (
@@ -231,16 +201,10 @@ export const NavBar = ({
             <AriumLogo />
             <DivGrow />
             <Hidden smDown>
-              <DeskTopNav
-                onClickBetaSignUp={onClickBetaSignUp}
-                authState={authState}
-              />
+              <DeskTopNav authState={authState} />
             </Hidden>
             <Hidden mdUp>
-              <MobileNav
-                onClickBetaSignUp={onClickBetaSignUp}
-                authState={authState}
-              />
+              <MobileNav />
             </Hidden>
           </Toolbar>
         </AppBar>

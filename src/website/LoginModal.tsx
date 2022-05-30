@@ -4,8 +4,8 @@ import styleUtils from "css/styleUtils.module.scss";
 import { AuthState } from "hooks/auth/useAuthentication";
 import React, { useMemo } from "react";
 import Login from "./components/Login";
-import { AriumLogo } from "./landing/NewMarketingSite/AriumLogo";
-import { Centered } from "./landing/NewMarketingSite/utils";
+import { AriumLogo } from "./home/AriumLogo";
+import { Centered } from "./home/utils";
 /**
  * Notes:
  * I want to turn login into a modal so that it doesn't need to manage nav and footer

@@ -4,12 +4,9 @@ import SpacePreview from "components/SpacePreview";
 import React, { useCallback, useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import styles from "website/css/flow.module.scss";
-import { AriumCloseIcon } from "website/landing/NewMarketingSite/Icons";
+import { AriumCloseIcon } from "website/home/Icons";
 import { LoadingLinear } from "components/Loading";
-import {
-  Centered,
-  IconBetaSignUp,
-} from "website/landing/NewMarketingSite/utils";
+import { Centered, IconBetaSignUp } from "website/home/utils";
 import cta from "css/cta.module.scss";
 import { usePrimaryColor } from "website/themes/hooks";
 import { SpaceTemplateConfig } from "./types";

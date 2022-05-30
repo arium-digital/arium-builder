@@ -10,10 +10,10 @@ import {
   useScrollTrigger,
 } from "@material-ui/core";
 import React from "react";
-import { AriumLogo } from "website/landing/NewMarketingSite/AriumLogo";
-import { LoginButton } from "website/landing/NewMarketingSite/NavBar";
+import { AriumLogo } from "website/home/AriumLogo";
+import { LoginButton } from "website/home/NavBar";
 import { lightTheme } from "website/themes/lightTheme";
-import { DivGrow } from "website/landing/NewMarketingSite/utils";
+import { DivGrow } from "website/home/utils";
 import styles from "./styles.module.scss";
 import { Footer } from "components/EventRoute/Footer";
 import { useAuthentication } from "hooks/auth/useAuthentication";
