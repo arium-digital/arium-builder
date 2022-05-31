@@ -14,7 +14,6 @@ import { useBehaviorSubjectFromCurrentValue } from "hooks/useObservable";
 import { switchMap } from "rxjs/operators";
 import { combineLatest, EMPTY } from "rxjs";
 import NonTransformedHtml from "components/utils/NonTransformedHtml";
-import { trackIfEnabled } from "analytics/init";
 // import { tryPlayWithBackoffRetry } from "components/Consumers/useStreamPlayer";
 
 const LiveStreamVideoSource = dynamic(() => import("./LiveStreamVideoSource"));
@@ -73,10 +72,6 @@ const StoredVideoElement = memo(
 
     const videoSource =
       storedVideoSource || legacyStoredVideoSource || placeholderVideoSource;
-
-    useEffect(() => {
-      trackIfEnabled("Viewed video", { video: videoSource });
-    }, [videoSource]);
 
     if (!videoSource) return null;
 

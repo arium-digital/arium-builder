@@ -23,14 +23,12 @@ import clsx from "clsx";
 import Grid from "@material-ui/core/Grid";
 import AssetDetails from "./AssetDetails";
 import useResizeObserver from "use-resize-observer";
-import { trackLinksIfEnabled } from "analytics/init";
 import classes from "./interactionModal.module.scss";
 import { getModuleColumnSizes, getMediaElementSize } from "./utils";
 import modalClasses from "css/modal.module.scss";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
 import { InteractableContext } from "hooks/useInteractable";
 import NonTransformedHtml from "components/utils/NonTransformedHtml";
-import { trackOpenedModal } from "analytics/inSpaceBehavior";
 
 const errorMessage = `
 <p>Failed loading content.</p>
@@ -96,12 +94,6 @@ export const TransitionsModal = memo(
       });
       setMediaElementSize(mediaElementSize);
     }, [containerSize, mediaSize]);
-
-    useLayoutEffect(() => {
-      setTimeout(() => {
-        trackLinksIfEnabled(`.${classes.modal} a`, "Modal link clicked");
-      }, 250);
-    }, []);
 
     const columnSizes = useMemo(
       () => getModuleColumnSizes({ showAssetDetails }),
@@ -269,13 +261,11 @@ const ModelInteraction = ({
   const handleClick = useCallback(() => {
     setShowModal(true);
 
-    trackOpenedModal(elementType);
-
     if (!setModalOpen) return;
 
     setModalOpen(true);
     onModalOpen && onModalOpen();
-  }, [elementType, setModalOpen, onModalOpen]);
+  }, [setModalOpen, onModalOpen]);
 
   const handleClose = useCallback(() => {
     setShowModal(false);

@@ -6,7 +6,6 @@ import styles from "./css/layout.module.scss";
 import { useEffect, useState } from "react";
 import { useAuthentication } from "hooks/auth/useAuthentication";
 import Login from "./components/Login";
-import { useInitAnalyticsAndIdentify } from "analytics/init";
 
 export default function Layout({
   children,
@@ -28,8 +27,6 @@ export default function Layout({
     isNewUser,
     pending,
   } = useAuthentication({ ensureSignedInAnonymously: false });
-
-  useInitAnalyticsAndIdentify({ userId, isAnonymous, isNewUser });
 
   useEffect(() => {
     if (pending) return;

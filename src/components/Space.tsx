@@ -45,14 +45,12 @@ import useEnablePositionalAudio from "../hooks/useEnableSpatialAudio";
 import styles from "../css/space.module.scss";
 import { useObserveAndSendDeviceOrientation } from "../hooks/useDeviceOrientation";
 import { LoadingSpinContainer } from "./UserInterface/LoadingSpinAnimation";
-import useSpaceAnalytics from "hooks/useSpaceAnalytics";
 import { SpaceAccessContext } from "hooks/auth/useSpaceAccess";
 import Chat from "./Chat";
 import useServerTimeOffset from "hooks/useServerTimeOffset";
 import EntranceFlow from "./UserInterface/EntranceFlow";
 import { useCanvasAndModalContext } from "hooks/useCanvasAndModalContext";
 import useControlsSettings from "hooks/useControlsSettings";
-import { useGoogleAnalyticsBeacon } from "hooks/useGoogleAnalyticsBeacon";
 import clsx from "clsx";
 import {
   useProfileSetter,
@@ -121,8 +119,6 @@ export const Space = ({
   const canInviteToEdit =
     !!spaceAccessContext?.editor || !!spaceAccessContext?.isAdmin;
 
-  const owner = !!spaceAccessContext?.owner;
-  const editor = !!spaceAccessContext?.editor;
   // const { owner, editor } = useSpaceAccess({
   //   userId,
   //   spaceId: spaceId || "",
@@ -186,8 +182,6 @@ export const Space = ({
     enteredSpaceSubject.next(true);
   }, [enteredSpaceSubject]);
 
-  useGoogleAnalyticsBeacon(spaceId);
-
   const userId$ = useBehaviorSubjectFromCurrentValue(userId);
 
   const { sessionId$, routerId$, joinStatus$ } = useJoinSpace({
@@ -214,7 +208,7 @@ export const Space = ({
     spaceId,
   });
 
-  const { metadata, setMetadata } = useMetadata({
+  const { setMetadata } = useMetadata({
     userId$,
     sessionId$,
     spaceId$,
@@ -335,15 +329,6 @@ export const Space = ({
     spaceSettings: spaceSettingsOrDefault,
   });
 
-  useSpaceAnalytics({
-    spaceId,
-    spaceSlug,
-    eventSlug,
-    enteredSpace,
-    userInfo: { user: user || undefined, authenticated, owner, editor },
-    metadata,
-  });
-
   const {
     distancesByPeer$,
     allVisiblePeers$,
@@ -358,23 +343,6 @@ export const Space = ({
   });
 
   const producingPeers = useProducingPeers({ spaceId$ });
-
-  // useConsumersToRequest({
-  //   validPeersSortedByDistance$: peersToHear$,
-  //   peersSettings$,
-  //   sessionPaths$,
-  //   spaceId$,
-  //   kind: "webcamAudio",
-  //   muted,
-  // });
-
-  // useConsumersToRequest({
-  //   validPeersSortedByDistance$: peersToSee$,
-  //   peersSettings$,
-  //   sessionPaths$,
-  //   spaceId$,
-  //   kind: "webcamVideo",
-  // });
 
   const [consumers$] = useState(new Subject<ObservedConsumer>());
 

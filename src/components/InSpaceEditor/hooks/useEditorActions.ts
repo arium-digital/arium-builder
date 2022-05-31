@@ -8,7 +8,6 @@ import { Object3D } from "three";
 import { EditorState, EditorStatus } from "../types";
 import { PushUndoItemFunction } from "Editor/hooks/useUndo";
 import { useCurrentValueFromObservable } from "hooks/useObservable";
-import { trackCreatedElement } from "analytics/hosts";
 
 export const useStartAddingNewElementAction = ({
   editorState,
@@ -84,21 +83,6 @@ export const useOpenEditorAction = (editorState: EditorState) => {
   return action;
 };
 
-// export const useEditElementAction = (editorState: EditorState) => {
-//   const action = useCallback(
-//     (
-//       elementPath: string[],
-//       elementConfig: ElementConfig,
-//       elementGroup: Object3D
-//     ) => {
-//       editorState.setCurrentEditingElementPath(elementPath);
-//       editorState.setCurrentEditingElementData(elementConfig);
-//       editorState.transformControls?.attach(elementGroup);
-//     },
-//     [editorState]
-//   );
-//   return action;
-// };
 export const useToggleEditorAction = (editorState: EditorState) => {
   const open = useOpenEditorAction(editorState);
   const close = useCloseEditorAction(editorState);
@@ -176,10 +160,6 @@ export const useSaveCurrentPreviewToDB = ({
         });
         editorState.setStatus(EditorStatus.editingElement);
         editorState.setSaving(false);
-        trackCreatedElement({
-          elementType: elementConfig.elementType,
-          userInterface: "in space",
-        });
         return newId;
       }
     },

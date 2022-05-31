@@ -26,7 +26,6 @@ import { useContext } from "react";
 import { ElementsContext } from "./Tree/ElementsTree";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
 import { PointerOverContext } from "hooks/useGlobalPointerOver";
-import { trackEnteredPortal } from "analytics/inSpaceBehavior";
 import { spaceSlugForId } from "hooks/useSpaceIdForSlug";
 
 const portalColor = "#2c62d7";
@@ -148,11 +147,6 @@ const Portal = ({
         }
 
         const queryString = toQuery(query);
-
-        trackEnteredPortal({
-          fromSpace: spaceSlugFromPath,
-          toSpace: targetSpaceId,
-        });
 
         router.push(`/spaces/${spaceSlugFromPath}?${queryString}`, undefined, {
           shallow: true,

@@ -25,15 +25,12 @@ import { ArrowForwardRounded, Event } from "@material-ui/icons";
 import { EventInfo } from "../../../shared/sharedTypes";
 import parse from "html-react-parser";
 import {
+  EventRegistrationState,
   EventRegistrationStatus,
   useEventRegistrationForm,
 } from "./useEventRegistrationForm";
 import { LoadingLinear } from "components/Loading";
 import { useGetServerTime } from "hooks/useServerTimeOffset";
-import {
-  EventRegistrationState,
-  useEventAnalytics,
-} from "hooks/useEventAnalytics";
 import { formatDatetime, getDurationDaysHoursMinuesSeconds } from "./utils";
 import { AriumLogo } from "website/AriumLogo";
 import { useFileDownloadUrl } from "fileUtils";
@@ -339,12 +336,8 @@ export const EventLandingPage = ({ event }: { event: EventInfo }) => {
   const [joinedSpace, setJoinedSpace] = useState<boolean | undefined>(
     undefined
   );
-  const [eventRegistrationState, setEventRegistrationState] = useState<
-    EventRegistrationState | undefined
-  >(undefined);
-  const onSubmitEmail = useCallback((state: EventRegistrationState) => {
-    setEventRegistrationState(state);
-  }, []);
+
+  const onSubmitEmail = useCallback((state: EventRegistrationState) => {}, []);
 
   const handleJoinSpace = useCallback(() => {
     setJoinedSpace(true);
@@ -353,12 +346,6 @@ export const EventLandingPage = ({ event }: { event: EventInfo }) => {
       query: { [SpaceRouteKeys.eventSlug]: event.slug },
     });
   }, [event.slug, event.spaceId]);
-
-  useEventAnalytics({
-    event,
-    joinedSpace,
-    eventRegistrationState,
-  });
 
   const coverUrl = useFileDownloadUrl(event.coverImage);
   const started = eventStatus !== EventStatus.scheduled;

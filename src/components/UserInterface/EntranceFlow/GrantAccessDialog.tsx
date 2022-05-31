@@ -4,38 +4,30 @@ import { Row, Col } from "react-bootstrap";
 import styles from "../styles/entranceFlow.module.scss";
 import cta from "css/cta.module.scss";
 import clsx from "clsx";
-import { trackClickedToInitialized } from "analytics/onboarding";
 
 const GrantAccessDialog = ({
   headingText = "Please allow Arium to access your camera and microphone",
   close,
-  spaceSlug,
-  spaceId,
 }: {
   headingText?: string;
   close: (skipAccess: boolean) => void;
-  spaceSlug: string;
-  spaceId: string;
 }) => {
   const handleGrantAccessClicked = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
 
-      trackClickedToInitialized({ spaceSlug, spaceId, grantAccess: true });
-
       close(false);
     },
-    [close, spaceSlug, spaceId]
+    [close]
   );
 
   const handleSkipClicked = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
-      trackClickedToInitialized({ spaceSlug, spaceId, grantAccess: false });
 
       close(true);
     },
-    [close, spaceSlug, spaceId]
+    [close]
   );
 
   return (

@@ -1,5 +1,3 @@
-import { trackIfEnabled } from "analytics/init";
-import { spaceLoadedEvent } from "analytics/onboarding";
 import { useCallback, useEffect, useState } from "react";
 
 type LoadingState = {
@@ -83,8 +81,6 @@ const useLoadedState = ({
       totalInitialElements === 0
         ? 1
         : (numberLoaded || 0) / totalInitialElements;
-
-    if (percentLoaded >= 1) trackIfEnabled(spaceLoadedEvent);
 
     handleProgressChanged(percentLoaded);
   }, [numberLoaded, totalInitialElements, handleProgressChanged]);

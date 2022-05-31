@@ -1,7 +1,6 @@
 import { Box, Button, IconButton } from "@material-ui/core";
-import { trackPreviewedSpace } from "analytics/acquisition";
 import SpacePreview from "components/SpacePreview";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import styles from "website/css/flow.module.scss";
 import { AriumCloseIcon } from "website/home/Icons";
@@ -34,10 +33,6 @@ export const PreviewModal = ({
   const handleSelectSpace = useCallback(() => {
     createSpace(space.spaceId);
   }, [createSpace, space]);
-
-  useEffect(() => {
-    trackPreviewedSpace({ spaceId, spaceSlug: spaceId });
-  }, [spaceId]);
 
   const primaryColor = usePrimaryColor();
 

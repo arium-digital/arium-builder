@@ -1,8 +1,6 @@
 import { Divider, Typography } from "@material-ui/core";
-import { trackLandedOnSpaceSelectionPage } from "analytics/acquisition";
-import { useInitAnalyticsAndIdentify } from "analytics/init";
 import { useAuthentication } from "hooks/auth/useAuthentication";
-import React, { useEffect } from "react";
+import React from "react";
 import { SpaceTemplateList } from "./SpaceTemplateList";
 import { SpaceTemplateConfig } from "./types";
 
@@ -63,13 +61,10 @@ const SelectSpace = ({
   setPreviewSpace: (space: SpaceTemplateConfig) => void;
   creating: boolean;
 }) => {
-  const { userId, isAnonymous, isNewUser } = useAuthentication({
+  useAuthentication({
     ensureSignedInAnonymously: false,
   });
-  useInitAnalyticsAndIdentify({ userId, isAnonymous, isNewUser });
-  useEffect(() => {
-    trackLandedOnSpaceSelectionPage();
-  }, []);
+
   return (
     <>
       <div className="text-center">

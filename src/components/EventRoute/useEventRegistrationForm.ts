@@ -4,7 +4,6 @@ import * as yup from "yup";
 import { error as logError } from "firebase-functions/lib/logger";
 import { firestoreTimeNow } from "db";
 import { useState } from "react";
-import { EventRegistrationState } from "hooks/useEventAnalytics";
 type FormData = {
   email: string;
 };
@@ -43,6 +42,12 @@ const saveToDB = (vals: {
       })
   );
 };
+export type EventRegistrationState = {
+  optInAriumUpdates: boolean;
+  email: string;
+  eventReminder: boolean;
+};
+
 export const useEventRegistrationForm = (
   eventId: string,
   similarEvents: boolean,

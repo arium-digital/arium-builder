@@ -28,7 +28,6 @@ import { setNullIfUndefined } from "libs/utils";
 import { runValidation } from "./validation";
 import throttledBuffer from "libs/throttledBuffer";
 import { PushUndoItemFunction } from "./useUndo";
-import { throttledTrackEditContent } from "analytics/hosts";
 import { Optional } from "types";
 
 const applyChanges = <T>(current: T, updates: UpdateDict): T => {
@@ -416,7 +415,6 @@ export const useValidateAndUpdate = <T>({
             ref.set(updates);
           } else {
             ref.update(updates);
-            throttledTrackEditContent();
           }
         },
       });

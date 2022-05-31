@@ -1,8 +1,3 @@
-import { setSuperPropertiesIfEnabled } from "analytics/init";
-import {
-  trackFailedRequestingMedia,
-  trackSucceededRequestingMedia,
-} from "analytics/onboarding";
 import { AudioQuality, VideoResolution } from "communicationTypes";
 import { UserMedia } from "components/componentTypes";
 import { useState, useEffect, useCallback, useMemo } from "react";
@@ -73,50 +68,6 @@ export const useMediaDevices = (externalVideoElement?: HTMLVideoElement) => {
     ...devices,
     refreshAvailableDevices,
   };
-};
-
-const useTrackMediaStatus = ({
-  micCaptureFailed,
-  webcamCaptureFailed,
-  micStreamSet,
-  webcamStreamSet,
-}: {
-  micStreamSet: boolean;
-  webcamStreamSet: boolean;
-  micCaptureFailed: boolean;
-  webcamCaptureFailed: boolean;
-}) => {
-  useEffect(() => {
-    let microphoneStatus: string | undefined;
-
-    if (micStreamSet) {
-      microphoneStatus = "succeeded";
-    } else if (micCaptureFailed) {
-      microphoneStatus = "failed";
-    } else {
-      microphoneStatus = "pending";
-    }
-
-    setSuperPropertiesIfEnabled({
-      microphoneStatus,
-    });
-  }, [micStreamSet, micCaptureFailed]);
-
-  useEffect(() => {
-    let webcamStatus: string | undefined;
-
-    if (webcamStreamSet) {
-      webcamStatus = "succeeded";
-    } else if (webcamCaptureFailed) {
-      webcamStatus = "failed";
-    } else {
-      webcamStatus = "pending";
-    }
-
-    setSuperPropertiesIfEnabled({
-      webcamStatus,
-    });
-  }, [webcamStreamSet, webcamCaptureFailed]);
 };
 
 export const useUserMediaAndProduce = ({
@@ -246,10 +197,8 @@ export const useUserMediaAndProduce = ({
         getting: false,
       });
 
-      trackFailedRequestingMedia({ kind: "webcamAndMic" });
       return;
     }
-    trackSucceededRequestingMedia({ kind: "webcamAndMic" });
     const videoTrack = stream.getVideoTracks()[0];
     const audioTrack = stream.getAudioTracks()[0];
 
@@ -284,11 +233,6 @@ export const useUserMediaAndProduce = ({
     if (!externalVideoElement) return;
     updateStreamsFromExternalVideo(externalVideoElement);
   }, [initialized, externalVideoElement, updateStreamsFromExternalVideo]);
-
-  const webcamStream = webcam.sendingStream;
-  const micStream = mic.sendingStream;
-  const failedGettingAudioStream = mic.failedGettingStream;
-  const failedGettingWebcamStream = webcam.failedGettingStream;
 
   const [hasRequestedInitialDevices, setHasRequestedInitialDevices] = useState(
     false
@@ -326,13 +270,6 @@ export const useUserMediaAndProduce = ({
       updateStreamsFromWebcamAndMic();
     }, 200);
   }, [updateStreamsFromWebcamAndMic]);
-
-  useTrackMediaStatus({
-    micCaptureFailed: failedGettingAudioStream,
-    webcamCaptureFailed: failedGettingWebcamStream,
-    micStreamSet: !!micStream,
-    webcamStreamSet: !!webcamStream,
-  });
 
   return {
     mic,

@@ -19,7 +19,6 @@ import {
 } from "components/InSpaceEditor/hooks/useEditorState";
 import { SpaceAccessContext, useSpaceAccess } from "hooks/auth/useSpaceAccess";
 import Space from "../Space";
-import { useInitAnalyticsAndIdentify } from "analytics/init";
 import { useShouldWeb3BeEnabled } from "web3/contexts";
 import dynamic from "next/dynamic";
 import { spaceIdForSlug } from "hooks/useSpaceIdForSlug";
@@ -59,7 +58,6 @@ const SpaceRoute = ({
     three: three,
   };
 
-  useInitAnalyticsAndIdentify(authState);
   const [passwordValidated, setPasswordValidated] = useState(false);
 
   const promptPassword = requirePassword && !passwordValidated;

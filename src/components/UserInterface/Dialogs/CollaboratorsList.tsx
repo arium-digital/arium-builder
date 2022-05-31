@@ -34,7 +34,6 @@ import FormGroup from "@material-ui/core/FormGroup";
 import LinkIcon from "@material-ui/icons/Link";
 import Tooltip from "@material-ui/core/Tooltip";
 import { SpaceRouteKeys } from "components/SpaceRoute/useSpaceQueryParams";
-import { trackSentCollaboratorInvite } from "analytics/acquisition";
 
 type FormData = Pick<SpaceInvite, "role" | "email">;
 
@@ -66,7 +65,6 @@ const addInvite = ({
     spaceInvitesCollection(spaceId)
       .add(spaceInvite)
       .then(() => {
-        trackSentCollaboratorInvite({ editor: true });
         setTimeout(res, 300);
       })
       .catch((err) => {

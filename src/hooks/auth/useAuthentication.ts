@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { auth, signInAnonymously, User } from "db";
 import { UserAuthClaims } from "../../../shared/sharedTypes";
 import { Optional } from "types";
-import { registerNewUserIfMixpanelEnabled } from "analytics/init";
 
 export type AuthState = {
   authenticated: boolean;
@@ -142,7 +141,6 @@ export const buildConfig = (): firebaseui.auth.Config => {
         const isNewUser = authResult.additionalUserInfo.isNewUser;
 
         if (isNewUser) {
-          registerNewUserIfMixpanelEnabled(user.uid);
           user.sendEmailVerification();
         }
         // Do something with the returned AuthResult.
@@ -189,7 +187,6 @@ export const buildSignUpConfig = (
         const isNewUser = authResult.additionalUserInfo.isNewUser;
 
         if (isNewUser) {
-          registerNewUserIfMixpanelEnabled(user.uid);
           if (user.providerId === auth.EmailAuthProvider.PROVIDER_ID)
             user.sendEmailVerification();
         }

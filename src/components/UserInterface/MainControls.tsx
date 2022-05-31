@@ -11,9 +11,7 @@ import clsx from "clsx";
 
 import styles from "../../css/controls.module.scss";
 
-import BetaSignupModal from "components/BetaSignUpModal";
 import FooterControls from "./FooterControls";
-
 import dynamic from "next/dynamic";
 import { EditorContext } from "components/InSpaceEditor/hooks/useEditorState";
 import SelectDevices from "./SelectDevices";
@@ -62,7 +60,7 @@ const MainControls = memo((props: UserInterfaceProps) => {
 
   const { refreshAvailableDevices } = userMedia;
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal] = useState(false);
 
   useEffect(() => {
     if (showModal) {
@@ -154,12 +152,6 @@ const MainControls = memo((props: UserInterfaceProps) => {
           fullScreenElement={fullScreenElement}
           openShareDialog={openShareDialog}
           captureScreenshot={captureScreenshotAndOpen}
-        />
-        <BetaSignupModal
-          onClose={(e) => {
-            setShowModal(false);
-          }}
-          show={showModal}
         />
       </div>
       <ShareDialog

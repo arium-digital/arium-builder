@@ -16,10 +16,6 @@ import { buildSignUpConfig } from "hooks/auth/useAuthentication";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import authStyles from "website/css/auth.module.scss";
 import { Optional } from "types";
-import {
-  trackAcceptedSpaceInvite,
-  trackViewedInviteDialog,
-} from "analytics/acquisition";
 
 const RegisterToCollaborate = () => {
   const uiConfig = useMemo(
@@ -135,7 +131,6 @@ const SpaceInvite = ({
       };
 
       if (result.success) {
-        trackAcceptedSpaceInvite({ spaceId, spaceSlug });
         handleComplete();
       } else {
         setSpaceInviteError(result.error);
@@ -145,11 +140,7 @@ const SpaceInvite = ({
     } finally {
       setSubmitting(false);
     }
-  }, [inviteId, spaceId, spaceSlug, handleComplete]);
-
-  useEffect(() => {
-    if (spaceSlug) trackViewedInviteDialog({ spaceSlug, spaceId });
-  }, [spaceSlug, spaceId]);
+  }, [inviteId, spaceId, handleComplete]);
 
   if (!spaceInvite || !userProfile || !open) return null;
 

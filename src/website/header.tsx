@@ -3,13 +3,9 @@ import clsx from "clsx";
 import styles from "./css/header.module.scss";
 import { useAuthentication } from "hooks/auth/useAuthentication";
 import CircularImageClip from "components/UserInterface/CircularImageClip";
-import React, { useCallback, useEffect, useState, MouseEvent } from "react";
-import { preventHighlight } from "components/utils/controls";
-import BetaSignupModal from "components/BetaSignUpModal";
-import { store, auth, User } from "db";
-import { Space } from "../../shared/sharedTypes";
+import React, { useCallback, useState, MouseEvent } from "react";
+import { auth, User } from "db";
 import { Nav, OverlayTrigger, Table, Tooltip } from "react-bootstrap";
-import { trackBetaSignupModalOpened } from "analytics/acquisition";
 import { Optional } from "types";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -126,10 +122,6 @@ export const LoginStatus = ({
     setAnchorEl(null);
   };
 
-  if (!authenticated || isAnonymous) {
-    return <SignUp spaceId={spaceId} />;
-  }
-
   return (
     <>
       {user && <UserInfo user={user} />}
@@ -214,72 +206,6 @@ export const SignUpHeader = ({ spaceId }: { spaceId?: string }) => {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  );
-};
-
-// const BadgeSvg = () => (
-//   <svg
-//     width="34"
-//     height="34"
-//     viewBox="0 0 34 34"
-//     fill="none"
-//     xmlns="http://www.w3.org/2000/svg"
-//     style={{ position: "absolute", top: "12px" }}
-//   >
-//     <path
-//       d="M17 0L19.8276 3.69719L23.9145 1.46973L24.9939 5.99737L29.6335 5.62478L28.7779 10.2L33.168 11.7467L30.5255 15.5784L33.9069 18.777L29.9344 21.2026L31.7224 25.5L27.1068 26.1002L26.9923 30.7533L22.5316 29.4242L20.5345 33.6285L17 30.6L13.4655 33.6285L11.4684 29.4242L7.00765 30.7533L6.89323 26.1002L2.27757 25.5L4.06563 21.2026L0.0931282 18.777L3.4745 15.5784L0.832039 11.7467L5.22205 10.2L4.36654 5.62478L9.00612 5.99737L10.0855 1.46973L14.1724 3.69719L17 0Z"
-//       fill="#F29F05"
-//     />
-//   </svg>
-// );
-
-export const SignUp = ({ spaceId }: { spaceId?: string }) => {
-  const [showModal, setShowModal] = useState(false);
-
-  const openBetaSignupModule = useCallback((e: React.SyntheticEvent) => {
-    preventHighlight(e);
-    setShowModal(true);
-    trackBetaSignupModalOpened();
-  }, []);
-
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    if (!spaceId) {
-      setShow(false);
-      return;
-    }
-
-    (async () => {
-      const spaceDoc = await store.collection("spaces").doc(spaceId).get();
-      if (!spaceDoc.exists) setShow(true);
-
-      const space = spaceDoc.data() as Space;
-
-      const show = space.promoteArium === true;
-
-      setShow(show);
-    })();
-  }, [spaceId]);
-
-  if (!show) return null;
-
-  return (
-    <>
-      <Nav.Item>
-        <Nav.Link href={`/`} className="mx-3" onClick={openBetaSignupModule}>
-          <span className="mx-1" style={{ textTransform: "none" }}>
-            Want your own space?
-          </span>
-        </Nav.Link>
-      </Nav.Item>
-      <BetaSignupModal
-        onClose={(e) => {
-          setShowModal(false);
-        }}
-        show={showModal}
-      />
-    </>
   );
 };
 

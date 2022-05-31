@@ -10,7 +10,6 @@ import { useStyles } from "../../styles";
 import ElementForm from "./ElementForm";
 import { PushUndoItemFunction } from "Editor/hooks/useUndo";
 import { useEffect } from "react";
-import { trackCreatedElement } from "analytics/hosts";
 import { CurrentEditingElementAndPath } from "components/InSpaceEditor/types";
 
 const defaultElementConfig = (): ElementConfig => ({
@@ -41,11 +40,6 @@ export const saveNewElement = async (
   });
 
   const pushedRef = await collectionRef.add(toInsert);
-
-  trackCreatedElement({
-    elementType: newElement.elementType,
-    userInterface: "advanced",
-  });
 
   pushUndoItem && pushUndoItem(pushedRef, {}, toInsert, true);
   const newId = pushedRef.id;

@@ -130,8 +130,6 @@ const Onboarding = ({
         <GrantAccessDialog
           close={handleWebcamDialogClose}
           headingText={welcomeMessageText}
-          spaceSlug={spaceSlug}
-          spaceId={spaceId}
         />
       )}
       {initialized && !deviceSelectionComplete && (

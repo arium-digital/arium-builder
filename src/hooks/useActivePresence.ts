@@ -1,4 +1,3 @@
-import { setSuperPropertiesIfEnabled } from "analytics/init";
 import { useState, useEffect } from "react";
 import {
   from,
@@ -16,12 +15,8 @@ import {
   map,
   mapTo,
   mergeMap,
-  pairwise,
-  publishReplay,
   scan,
   switchMap,
-  tap,
-  // tap,
 } from "rxjs/operators";
 import { communicationDb, DataSnapshot, serverTime } from "../db";
 import { subscribeToActiveSessionChanges } from "../stateFromDb";
@@ -255,33 +250,6 @@ const observeActiveSessions = (
   );
 };
 
-function useActiveSessionsAnalytics(activePresence$: Observable<Set<string>>) {
-  useEffect(() => {
-    const peerCountSub = activePresence$
-      .pipe(
-        map((x) => x.size),
-        distinctUntilChanged(),
-        publishReplay(1, undefined, (peerCount$) => {
-          const peersCoundRegister = peerCount$.pipe(
-            tap((peers) => setSuperPropertiesIfEnabled({ peers }))
-          );
-
-          const peerJoinedRegister = peerCount$.pipe(
-            pairwise(),
-            filter(([previousCount, currentCount]) => {
-              return currentCount > previousCount;
-            })
-          );
-
-          return merge(peersCoundRegister, peerJoinedRegister);
-        })
-      )
-      .subscribe();
-
-    return () => peerCountSub.unsubscribe();
-  }, [activePresence$]);
-}
-
 const useActiveSessions = ({
   spaceId$,
   sessionId$,
@@ -316,8 +284,6 @@ const useActiveSessions = ({
       sub.unsubscribe();
     };
   }, [spaceId$, activePresence$, sessionId$, serverTimeOffset$]);
-
-  useActiveSessionsAnalytics(activePresence$);
 
   return activePresence$;
 };

@@ -1,7 +1,3 @@
-import {
-  trackFailedRequestingMedia,
-  trackSucceededRequestingMedia,
-} from "analytics/onboarding";
 import { AudioQuality, VideoResolution } from "communicationTypes";
 import { UserMediaForDevice } from "components/componentTypes";
 import { useBehaviorSubjectFromCurrentValue } from "hooks/useObservable";
@@ -131,11 +127,8 @@ const useUserMediaForDeviceAndProduce = ({
           failedGetting: true,
           getting: false,
         });
-        trackFailedRequestingMedia({ kind: track });
         return;
       }
-
-      trackSucceededRequestingMedia({ kind: track });
 
       setStreamAndDeviceId(({ stream: existing }) => {
         if (existing) existing.stop();

@@ -33,7 +33,6 @@ import {
 import { producingPeer, SessionPaths } from "../../shared/dbPaths";
 import { communicationDb, producingPeersDb } from "../../db";
 import debug from "debug";
-import { setSuperPropertiesIfEnabled } from "analytics/init";
 const debugProducer = (kind: string) => debug(`producer:${kind}`);
 
 export interface TransportAndCanProduce {
@@ -272,11 +271,6 @@ export const useProducer = ({
           }
 
           return pause;
-        }),
-        tap((paused) => {
-          setSuperPropertiesIfEnabled({
-            [`Sending ${kind}`]: !!paused,
-          });
         })
       )
       .subscribe(producerPaused$);

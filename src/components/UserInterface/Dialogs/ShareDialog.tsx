@@ -1,12 +1,6 @@
 import { Button, Grid, ModalProps, Typography } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
-import React, {
-  useCallback,
-  useState,
-  MouseEvent,
-  ChangeEvent,
-  useEffect,
-} from "react";
+import React, { useCallback, useState, MouseEvent, ChangeEvent } from "react";
 import styles from "./dialog.module.scss";
 import { IconBetaSignUp } from "website/home/utils";
 import { EditorState } from "components/InSpaceEditor/types";
@@ -20,11 +14,6 @@ import { HasPlayerLocationObservable, PlayerLocation } from "types";
 import { useCurrentValueFromObservable } from "hooks/useObservable";
 import { SpaceRouteKeys } from "components/SpaceRoute/useSpaceQueryParams";
 import { roundToPrecision } from "Editor/components/Form/NumberField";
-import {
-  trackChoseToShareAtLocation,
-  trackOpenedShareDialog,
-  trackShareLinkCopiedToClipboard,
-} from "analytics/acquisition";
 import Collaborators, { CollaboratorsProps } from "./CollaboratorsList";
 import CopyPopover from "./shared/CopyPopover";
 import ModalDialog from "./shared/ModalDialog";
@@ -101,13 +90,9 @@ const ShareFooter = ({
 
       if (shareLinkResult) navigator.clipboard.writeText(shareLinkResult.url);
 
-      trackShareLinkCopiedToClipboard({
-        shareAtLocation,
-      });
-
       setCopied(true);
     },
-    [shareAtLocation, shareLinkResult]
+    [shareLinkResult]
   );
 
   const handleClosePopover = useCallback(() => {
@@ -116,13 +101,7 @@ const ShareFooter = ({
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setShareAtLocation(event.target.checked as boolean);
-    if (event.target.checked) {
-      trackChoseToShareAtLocation();
-    }
-    // setState({ ...state, [event.target.name]: event.target.checked });
   }, []);
-
-  // if (!spaceSlug) return null;
 
   return (
     <>
@@ -272,12 +251,6 @@ const ShareDialog = ({
   spaceId: string | undefined;
   userId: string | undefined;
 } & HasPlayerLocationObservable) => {
-  useEffect(() => {
-    if (open) {
-      trackOpenedShareDialog({ canInviteToEdit });
-    }
-  }, [open, canInviteToEdit]);
-
   return (
     <ModalDialog open={open} handleClose={handleClose} size="small">
       <>
