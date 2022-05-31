@@ -5,11 +5,9 @@ import React, { SetStateAction } from "react";
 import { Object3D } from "three";
 import { SessionPaths } from "shared/dbPaths";
 import {
-  AggregateObservedConsumers,
   FilteredPeersWithDistance,
   PeersMetaData,
   ProducingPeers,
-  TransportsObservables,
 } from "communicationTypes";
 import { EditorState } from "components/InSpaceEditor/types";
 import { SelfAvatar } from "components/Consumers/SelfAvatar";
@@ -142,14 +140,11 @@ export type SpaceContextType = {
   interactable?: boolean;
   activeSessions$?: Observable<Set<string>>;
   sessionPaths$?: Observable<SessionPaths | undefined>;
-  consumers$?: Observable<AggregateObservedConsumers>;
-  transports$?: TransportsObservables;
   spatialAudioEnabled?: boolean;
   editorState?: EditorState;
   selfAvatar?: SelfAvatar;
   theme$: Observable<Theme>;
   avatarMeshes: AvatarMeshes | undefined;
-  screenSharing?: ScreenSharingContext;
   canEdit?: boolean;
   peersMetadata: PeersMetaData | undefined;
   audioContext: AudioContext | undefined;

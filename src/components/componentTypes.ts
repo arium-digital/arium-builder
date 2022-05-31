@@ -9,7 +9,6 @@ import {
 } from "../types";
 import { User } from "db";
 import { ProfileSetter } from "./UserInterface/Profile/hooks";
-import { VIDEO_RESOLUTIONS } from "hooks/userMedia/useUserMediaForDeviceAndProduce";
 import { Observable } from "rxjs";
 import { SpaceQueryParams } from "./SpaceRoute/useSpaceQueryParams";
 import { AuthState } from "hooks/auth/useAuthentication";
@@ -41,7 +40,6 @@ export interface UserMedia {
   webcam: UserMediaForDevice;
   mic: UserMediaForDevice;
   refreshAvailableDevices: () => void;
-  switchResolution: (res: VIDEO_RESOLUTIONS) => void;
   rerequestMedia: () => void;
   grantAccessRequestForWebcamAndMic: () => void;
   grantedAccessRequestForWebcamAndMic: boolean;
@@ -52,7 +50,6 @@ export type EntranceFlowProps = {
   initialize: (skipAccess: boolean) => void;
   initialized: boolean;
   enterSpace: () => void;
-  userMedia: UserMedia;
   setKeyboardControlsDisabled: (disabled: boolean) => void;
   spaceMetadata: SpaceMeta | undefined;
   profileSetter: ProfileSetter;
@@ -69,7 +66,6 @@ export interface BroadcastingControlsState {
 }
 
 export type UserInterfaceProps = {
-  userMedia: UserMedia;
   audioContext: AudioContext | undefined;
   joystickMove: HandleJoystickMove;
   joinStatus: JoinStatus | undefined;

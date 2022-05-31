@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react";
-import { PeerConsumers, PeerPlayerPositions, PeersSettings } from "../../types";
+import { PeerPlayerPositions, PeersSettings } from "../../types";
 import { BehaviorSubject, combineLatest, Observable } from "rxjs";
 import {
   useBehaviorSubjectFromCurrentValue,
@@ -9,10 +9,7 @@ import usePeerModerationControls from "hooks/usePeerModerationContrrols";
 import ModerationDisplay from "./ModerationDisplay";
 import PositionedAvatar, { InstancedComponent } from "./PositionedAvatar";
 import { useObservePlayerQuaternion } from "hooks/usePeerInSpace";
-import {
-  AggregateObservedConsumers,
-  PeerAndDistance,
-} from "communicationTypes";
+import { PeerAndDistance } from "communicationTypes";
 import { useEffect } from "react";
 import { distinctUntilChanged, map, pluck } from "rxjs/operators";
 import { usePeerMetadata } from "hooks/usePeersMetadata";
@@ -33,7 +30,6 @@ const emptySet = new Set<string>();
 const PeerAvatars = memo(
   ({
     peerPositions$,
-    consumers$,
     visiblePeersSortedByDistance$,
     activeSessions$,
     spaceId,
@@ -41,19 +37,16 @@ const PeerAvatars = memo(
     spaceId$,
     peersSettings$,
     avatarMeshes,
-    peerConsumers,
     sessionPaths$,
   }: {
     visiblePeersSortedByDistance$: Observable<PeerAndDistance[]>;
     peerPositions$: Observable<PeerPlayerPositions>;
     peersSettings$: Observable<PeersSettings>;
     activeSessions$: Observable<Set<string>>;
-    consumers$: Observable<AggregateObservedConsumers>;
     spaceId: string | undefined;
     sessionId$: Observable<string | undefined>;
     spaceId$: Observable<string>;
     avatarMeshes: AvatarMeshes | undefined;
-    peerConsumers: PeerConsumers;
     sessionPaths$: Observable<SessionPaths | undefined>;
   }) => {
     const moderation = usePeerModerationControls({ spaceId });
@@ -167,11 +160,9 @@ const PeerAvatars = memo(
                   cameraSurfaces={avatarMeshes.cameraSurfaces}
                   visiblePeers$={visiblePeers$}
                   tweenedPeers$={tweenedPeers$}
-                  consumers$={consumers$}
                   peerMetadata$={peerMetadata$}
                   textVisiblePeers$={textVisiblePeers$}
                   namePosition={avatarMeshes.namePosition}
-                  peerConsumers={peerConsumers}
                   sessionPaths$={sessionPaths$}
                 />
               ))

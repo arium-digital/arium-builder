@@ -2,116 +2,43 @@ import React, { useEffect, useState, memo, useMemo } from "react";
 import { PossiblyNullStringDict } from "../../types";
 import { AvatarMeshes } from "./AvatarMesh";
 import { METADATA_KEYS } from "hooks/usePeersMetadata";
-import {
-  AudioPreviewFromMesh,
-  NameDisplay,
-} from "components/Consumers/AvatarMesh";
+import { NameDisplay } from "components/Consumers/AvatarMesh";
 import AvatarCameraSurfaces from "./AvatarCameraSurfaces";
 import { Color, Material, Mesh, Object3D, Texture, Vector3 } from "three";
-import { useBehaviorSubjectFromCurrentValue } from "hooks/useObservable";
-import {
-  imageTextureForPhotoUrl$,
-  videoTextureForElement$,
-} from "hooks/usePeerInSpace";
-import { combineLatest, Observable } from "rxjs";
+import { imageTextureForPhotoUrl$ } from "hooks/usePeerInSpace";
+import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { useAudioMeter } from "components/utils/audio-meter";
 import { useFrame, useThree } from "@react-three/fiber";
-import { createMediaElement } from "./hooks/useConsumers";
 
 export interface AvatarTextures {
-  toShow: Texture | null | undefined;
-  videoTexture: Texture | null | undefined;
   imageTexture: Texture | null | undefined;
 }
 
 export interface SelfAvatar {
-  volume$: Observable<number>;
   textures: AvatarTextures;
-  videoElement: HTMLVideoElement | null | undefined;
-  videoTrack: MediaStreamTrack | null | undefined;
 }
 
 export const useSelfAvatar = ({
-  audioContext,
-  videoTrack,
-  audioStream,
   selfMetadata$,
-  videoPaused,
 }: {
-  audioContext: AudioContext | undefined;
-  videoTrack: MediaStreamTrack | undefined;
-  audioStream: MediaStreamTrack | undefined;
   selfMetadata$: Observable<PossiblyNullStringDict | undefined>;
-  videoPaused: boolean;
 }): SelfAvatar => {
-  const [videoElement, setVideoElement] = useState<HTMLVideoElement>();
-
-  const videoElement$ = useBehaviorSubjectFromCurrentValue(videoElement);
-
-  const cameraPaused$ = useBehaviorSubjectFromCurrentValue(videoPaused);
-
-  const volume$ = useAudioMeter({
-    audioContext,
-    audioStreamTrack: audioStream,
-  });
-
-  useEffect(() => {
-    if (videoTrack) {
-      const videoElement = createMediaElement({
-        kind: "webcamVideo",
-        track: videoTrack,
-      });
-
-      setVideoElement(videoElement as HTMLVideoElement);
-
-      return () => {
-        setTimeout(() => {
-          videoElement.pause();
-          document.body.removeChild(videoElement);
-        }, 2000);
-      };
-    }
-  }, [videoTrack]);
-
   const [textures, setTextures] = useState<AvatarTextures>({
     imageTexture: null,
-    videoTexture: null,
-    toShow: null,
   });
 
   useEffect(() => {
-    const videoTexture$ = videoTextureForElement$(videoElement$);
-
     const imageTexture$ = imageTextureForPhotoUrl$(selfMetadata$);
 
-    const sub = combineLatest([videoTexture$, imageTexture$, cameraPaused$])
-      .pipe(
-        map(([videoTexture, imageTexture, cameraPaused]) => {
-          let toShow: Texture | null | undefined;
-          if (cameraPaused) {
-            toShow = imageTexture;
-          } else {
-            toShow = videoTexture || imageTexture;
-          }
-
-          return {
-            toShow,
-            videoTexture,
-            imageTexture,
-          };
-        })
-      )
+    const sub = imageTexture$
+      .pipe(map((imageTexture) => ({ imageTexture })))
       .subscribe(setTextures);
 
     return () => sub.unsubscribe();
-  }, [cameraPaused$, selfMetadata$, videoElement$]);
+  }, [selfMetadata$]);
 
   return {
     textures,
-    volume$,
-    videoElement,
-    videoTrack,
   };
 };
 
@@ -124,12 +51,7 @@ function getTextureToShow(
   preferVideoOrPhotoTexture: string | undefined,
   textures: AvatarTextures
 ) {
-  if (preferVideoOrPhotoTexture) {
-    if (preferVideoOrPhotoTexture === "photo") return textures.imageTexture;
-    return textures.videoTexture;
-  }
-
-  return textures.toShow;
+  return textures.imageTexture;
 }
 
 const SetPositionFromCamera = ({
@@ -166,7 +88,7 @@ const SelfAvatarComponent = memo(
     avatarMeshes: AvatarMeshes | undefined;
     setPositionFromCamera?: boolean;
   }): JSX.Element | null => {
-    const { textures, volume$ } = selfAvatar;
+    const { textures } = selfAvatar;
 
     const bodyColorValue = metadata?.[METADATA_KEYS.bodyColor];
     const color = useMemo(() => {
@@ -219,12 +141,6 @@ const SelfAvatarComponent = memo(
                 <group position={avatarMeshes.namePosition}>
                   <NameDisplay name={metadata[METADATA_KEYS.name]} visible />
                 </group>
-              )}
-              {avatarMeshes.audioPreview && (
-                <AudioPreviewFromMesh
-                  mesh={avatarMeshes.audioPreview}
-                  volume$={volume$}
-                />
               )}
             </>
           )}

@@ -7,7 +7,7 @@ import {
   Observable,
   ReplaySubject,
 } from "rxjs";
-import { AggregateObservedConsumers, PeersMetaData } from "communicationTypes";
+import { PeersMetaData } from "communicationTypes";
 import { useEffect, useState } from "react";
 import {
   filter,
@@ -141,7 +141,6 @@ export const imageTextureForPhotoUrl$ = (
 
 const usePeerInSpace = ({
   sessionId,
-  consumers$,
   peerPositions$,
   peerMetadata$,
   visiblePeers$,
@@ -152,7 +151,6 @@ const usePeerInSpace = ({
   sessionId: string;
   visiblePeers$: Observable<Set<string>>;
   tweenedPeers$: Observable<Set<string>>;
-  consumers$: Observable<AggregateObservedConsumers>;
   peerPositions$: Observable<PeerPlayerPositions>;
   peerMetadata$: Observable<PeersMetaData | undefined>;
   playerQuaternions$: Observable<QuaternionUpdate>;
@@ -193,49 +191,11 @@ const usePeerInSpace = ({
       })
     );
 
-    const webcamConsumer$ = consumers$.pipe(
-      pluck(sessionId),
-      distinctUntilChanged(),
-      pluck("webcamVideo"),
-      distinctUntilChanged()
-    );
-
-    const consumerWithTexture$ = webcamConsumer$
+    const sub = combineLatest([avatarInfoFromMetaData$, visible$])
       .pipe(
-        publishReplay(1, undefined, (consumer$) => {
-          const videoElement$ = consumer$.pipe(
-            filterUndefined(),
-            map((consumer) => consumer.mediaElement as HTMLVideoElement),
-            distinctUntilChanged()
-          );
-
-          const texture$ = videoTextureForElement$(videoElement$);
-
-          return combineLatest([consumer$, texture$]).pipe(
-            map(([consumer, texture]) => ({
-              ...consumer,
-              texture,
-            }))
-          );
-        })
-      )
-      .pipe(startWith(undefined));
-
-    const sub = combineLatest([
-      avatarInfoFromMetaData$,
-      consumerWithTexture$,
-      visible$,
-    ])
-      .pipe(
-        map(([{ imageTexture, metadata }, webcamConsumer, visible]) => {
-          const showVideo = !webcamConsumer?.paused && webcamConsumer?.texture;
-
-          const textureToUse = showVideo
-            ? webcamConsumer?.texture
-            : imageTexture || null;
-
+        map(([{ imageTexture, metadata }, visible]) => {
           return {
-            textureToUse,
+            textureToUse: imageTexture,
             metadata,
             visible,
           };
@@ -254,7 +214,7 @@ const usePeerInSpace = ({
       sub.unsubscribe();
       subB.unsubscribe();
     };
-  }, [consumers$, peerMetadata$, sessionId, visible$, visiblePeers$]);
+  }, [peerMetadata$, sessionId, visible$, visiblePeers$]);
 
   const [targetPosition, setPosition] = useState<PlayerPosition>();
   const [targetQuaternion, setQuarternion] = useState<PlayerQuaternion>();

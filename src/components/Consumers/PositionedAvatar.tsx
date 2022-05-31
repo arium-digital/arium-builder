@@ -7,16 +7,10 @@ import React, {
 } from "react";
 import { Color, Mesh, Object3D, Quaternion, Vector3 } from "three";
 import { Observable } from "rxjs";
-import { useBehaviorSubjectFromCurrentValue } from "../../hooks/useObservable";
 import { ModerationState } from "hooks/usePeerModerationContrrols";
 import usePeerInSpace, { QuaternionUpdate } from "hooks/usePeerInSpace";
-import { AggregateObservedConsumers, PeersMetaData } from "communicationTypes";
-import {
-  PeerConsumers,
-  PeerPlayerPositions,
-  PlayerPosition,
-  PlayerQuaternion,
-} from "types";
+import { PeersMetaData } from "communicationTypes";
+import { PeerPlayerPositions, PlayerPosition, PlayerQuaternion } from "types";
 import { useSpring } from "react-spring";
 import { PLAYER_UPDATE_INTERVAL } from "hooks/useUpdateRemotePlayerPosition";
 import { METADATA_KEYS } from "hooks/usePeersMetadata";
@@ -24,7 +18,6 @@ import AvatarCameraSurfaces from "./AvatarCameraSurfaces";
 import { NameDisplay } from "./AvatarMesh";
 import { distanceSquared } from "hooks/usePlayerLocations";
 import { SessionPaths } from "shared/dbPaths";
-import useRequestConsumersForPeer from "components/Consumers/hooks/useRequestsConsumersForPeer";
 import { ErrorBoundary } from "react-error-boundary";
 
 const SetPositionFromTargets = ({
@@ -171,7 +164,6 @@ export type PositionedAvatarProps = {
   visiblePeers$: Observable<Set<string>>;
   tweenedPeers$: Observable<Set<string>>;
   textVisiblePeers$: Observable<Set<string>>;
-  consumers$: Observable<AggregateObservedConsumers>;
   peerPositions$: Observable<PeerPlayerPositions>;
   peerMetadata$: Observable<PeersMetaData | undefined>;
   instancedMeshes: InstancedComponent[];
@@ -182,7 +174,6 @@ export type PositionedAvatarProps = {
   bodyScaleOverride?: number;
   cameraSurfaces: Mesh[];
   namePosition: Vector3;
-  peerConsumers: PeerConsumers;
   sessionPaths$: Observable<SessionPaths | undefined>;
 };
 
@@ -191,7 +182,6 @@ const PositionedAvatar = ({
   visiblePeers$,
   tweenedPeers$,
   textVisiblePeers$,
-  consumers$,
   peerPositions$,
   peerMetadata$,
   playerQuaternions$,
@@ -202,7 +192,6 @@ const PositionedAvatar = ({
   bodyScaleOverride,
   cameraSurfaces,
   namePosition,
-  peerConsumers,
   sessionPaths$,
 }: PositionedAvatarProps) => {
   const [object3dRef, setObject3dRef] = useState<Object3D | null>(null);
@@ -215,7 +204,6 @@ const PositionedAvatar = ({
     animate,
     textVisible,
   } = usePeerInSpace({
-    consumers$,
     peerMetadata$,
     peerPositions$,
     playerQuaternions$,
@@ -226,8 +214,6 @@ const PositionedAvatar = ({
   });
 
   const [onClickHandler, setOnClick] = useState<{ onClick: () => void }>();
-
-  const peerId$ = useBehaviorSubjectFromCurrentValue(sessionId);
 
   useEffect(() => {
     if (!moderation.enable) setOnClick(undefined);
@@ -246,16 +232,6 @@ const PositionedAvatar = ({
     if (!bodyColorValue) return undefined;
     return new Color(bodyColorValue);
   }, [bodyColorValue]);
-
-  useRequestConsumersForPeer({
-    peerConsumers,
-    sessionPaths$,
-    peerId$,
-  });
-
-  // const shouldBeVisible = !!(targetQuaternion && targetPosition && visible);
-
-  // console.log({ shouldBeVisible, targetQuaternion, targetPosition, visible, color });
 
   return (
     <group
@@ -309,7 +285,7 @@ const PositionedAvatarWithBoundary = (props: PositionedAvatarProps) => {
   return (
     <ErrorBoundary
       fallback={<group></group>}
-      resetKeys={[props.sessionId, props.cameraSurfaces, props.peerConsumers]}
+      resetKeys={[props.sessionId, props.cameraSurfaces]}
     >
       <PositionedAvatar {...props} />
     </ErrorBoundary>

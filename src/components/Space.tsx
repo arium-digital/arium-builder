@@ -9,8 +9,6 @@ import React, {
 
 import SceneContainer from "./SceneContainer";
 
-import { useUserMediaAndProduce } from "../hooks/userMedia/useUserMediaAndProduce";
-
 import { HasAuthenticatedAuthState } from "../hooks/auth/useAuthentication";
 import { useConfigOrDefault } from "../hooks/spaceHooks";
 import { defaultSpaceSettings } from "../defaultConfigs";
@@ -21,7 +19,7 @@ import useActivePresence, {
   useUpdateActivePresence,
 } from "../hooks/useActivePresence";
 import { useMetadata, usePeerMetadata } from "../hooks/usePeersMetadata";
-import { BehaviorSubject, Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import {
   useBehaviorSubjectFromCurrentValue,
   useCurrentValueFromBehaviorSubject,
@@ -35,11 +33,8 @@ import {
 } from "../hooks/usePlayerLocations";
 import { useBroadcasters } from "../hooks/useBroadcasters";
 import usePeersSettings from "../hooks/usePeersSettings";
-import { useTransports } from "../hooks/useTransports";
 import { useJoinSpace } from "../hooks/useJoinSpace";
 import { useAudioAndListener } from "../hooks/useListener";
-import { ObservedConsumer } from "../communicationTypes";
-import { usePeerPositionalAudio } from "../hooks/usePeerPositionalAudio";
 import useEnablePositionalAudio from "../hooks/useEnableSpatialAudio";
 
 import styles from "../css/space.module.scss";
@@ -62,9 +57,6 @@ import { SpaceContext } from "hooks/useCanvasAndModalContext";
 import { useSelfAvatar } from "./Consumers/SelfAvatar";
 import useTheme from "hooks/useTheme";
 import { useAvatarMeshes } from "./Consumers/AvatarMesh";
-import { useProducingPeers } from "hooks/userMedia/useProducingPeers";
-import useCaptureScreenshareAndProduce from "hooks/userMedia/useCaptureScreenshareAndProduce";
-import { useConsumers } from "./Consumers/hooks/useConsumers";
 import useReloadIfUserIdChanged from "hooks/auth/useReloadIfUserIdChanged";
 import { AnimatedAriumLogo } from "./AnimatedAriumLogo";
 import { useElementsLoadedProgress } from "./Elements/Tree/useLoadedState";
@@ -108,10 +100,6 @@ export const Space = ({
 }: SpaceProps & HasAuthenticatedAuthState & { hideUI?: boolean }) => {
   const { userId, authenticated, user } = authState;
 
-  const authenticated$ = useBehaviorSubjectFromCurrentValue(
-    authState.authenticated
-  );
-
   const spaceId$ = useBehaviorSubjectFromCurrentValue(spaceId);
 
   const spaceAccessContext = useContext(SpaceAccessContext);
@@ -131,16 +119,6 @@ export const Space = ({
     return () => {
       document.body.className = "";
     };
-  }, []);
-
-  const [
-    externalVideoElement,
-    setExternalVideoElement,
-  ] = useState<HTMLVideoElement>();
-
-  const externalVideoRef = useCallback((node: HTMLVideoElement) => {
-    // console.log("setting external", node);
-    setExternalVideoElement(node);
   }, []);
 
   const [initialized, setInitialized] = useState<boolean>(autoInitialize);
@@ -184,7 +162,7 @@ export const Space = ({
 
   const userId$ = useBehaviorSubjectFromCurrentValue(userId);
 
-  const { sessionId$, routerId$, joinStatus$ } = useJoinSpace({
+  const { sessionId$, joinStatus$ } = useJoinSpace({
     userId$,
     spaceId$,
     initialized$,
@@ -251,46 +229,11 @@ export const Space = ({
   });
   const audioContext = useCurrentValueFromObservable(audioContext$, undefined);
 
-  const transports$ = useTransports({
-    sessionPaths$,
-    routerId$,
-  });
-
-  const {
-    producer: producingTransport$,
-    consumer: consumerTransport$,
-  } = transports$;
-
   const enteredSpace$ = useBehaviorSubjectFromCurrentValue(enteredSpace);
 
-  const userMedia = useUserMediaAndProduce({
-    initialized,
-    invisible,
-    videoResolution,
-    micQuality: micQuality,
-    useExternalVideo: !!externalVideo,
-    externalVideoElement,
-    sessionPaths$,
-    producingTransport$,
-    produce$: enteredSpace$,
-    spaceId$,
-  });
-
-  const screenShare = useCaptureScreenshareAndProduce({
-    producingTransport$,
-    sessionPaths$,
-    spaceId$,
-  });
-
-  const { grantAccessRequestForWebcamAndMic } = userMedia;
-
-  const initialize = useCallback(
-    (skipAccess: boolean) => {
-      if (!skipAccess) grantAccessRequestForWebcamAndMic();
-      setInitialized(true);
-    },
-    [grantAccessRequestForWebcamAndMic]
-  );
+  const initialize = useCallback(() => {
+    setInitialized(true);
+  }, []);
 
   useUpdateRemotePlayerLocation({
     spaceId$,
@@ -329,12 +272,7 @@ export const Space = ({
     spaceSettings: spaceSettingsOrDefault,
   });
 
-  const {
-    distancesByPeer$,
-    allVisiblePeers$,
-    peersToSee$,
-    peersToHear$,
-  } = usePeerDistanceCalculations({
+  const { allVisiblePeers$ } = usePeerDistanceCalculations({
     playerLocation$,
     activeSessions$,
     peerPositions$,
@@ -342,29 +280,7 @@ export const Space = ({
     peersSettings$,
   });
 
-  const producingPeers = useProducingPeers({ spaceId$ });
-
-  const [consumers$] = useState(new Subject<ObservedConsumer>());
-
   const enableSpatialAudio = useEnablePositionalAudio({ initialized });
-
-  usePeerPositionalAudio({
-    authenticated$,
-    consumers$,
-    broadcasters$: broadcastingPeers$,
-    distancesByPeer$,
-    enableSpatialAudio,
-    peerPositions$,
-    listener$,
-    spaceId$,
-  });
-
-  const aggregateConsumers$ = useConsumers({
-    consumerTransport$,
-    consumers$,
-    sessionPaths$,
-    enteredSpace$,
-  });
 
   useObserveAndSendDeviceOrientation({
     sessionId$,
@@ -392,11 +308,7 @@ export const Space = ({
   const avatarMeshes = useAvatarMeshes(theme$);
 
   const selfAvatar = useSelfAvatar({
-    audioContext,
-    audioStream: userMedia.mic.sendingStream,
     selfMetadata$: profileSetter.metaDataWithUpdates$,
-    videoPaused: userMedia.webcam.paused,
-    videoTrack: userMedia.webcam.sendingStream,
   });
 
   const peersMetadata = usePeerMetadata({ spaceId });
@@ -412,17 +324,14 @@ export const Space = ({
     spaceSlugFromPath,
     spaceSlug,
     activeSessions$,
-    consumers$: aggregateConsumers$,
     interactable: enteredSpace,
     listener$,
     sessionPaths$,
     spatialAudioEnabled: enableSpatialAudio,
-    transports$,
     spaceId,
     selfAvatar,
     theme$,
     avatarMeshes,
-    screenSharing: screenShare,
     canEdit,
     peersMetadata,
     audioContext,
@@ -460,11 +369,6 @@ export const Space = ({
       documentation={documentation}
       loadingComplete={fullyLoaded}
       setLoadedProgress={setElementLoadedProgress}
-      peerConsumers={{
-        peersToHear$,
-        peersToSee$,
-        producingPeers,
-      }}
     />
   );
   return (
@@ -494,7 +398,6 @@ export const Space = ({
           {!enteredSpace && (
             <EntranceFlow
               spaceId={spaceId}
-              userMedia={userMedia}
               initialize={initialize}
               initialized={initialized}
               enterSpace={enterSpace}
@@ -512,7 +415,6 @@ export const Space = ({
             // Workaround. if we unmount this component, the selfview video will disappear.
             <div className={clsx(hideUI && styles.opacityZero)}>
               <UserInterface
-                userMedia={userMedia}
                 audioContext={audioContext}
                 setKeyboardControlsDisabled={setKeyboardControlsDisabled}
                 joystickMove={handleJoystickMove}
@@ -539,17 +441,6 @@ export const Space = ({
             </div>
           )}
           {!fullScreen && sceneContainer}
-          {externalVideo && initialized && (
-            <video
-              crossOrigin="anonymous"
-              src={externalVideo}
-              ref={externalVideoRef}
-              controls
-              loop
-              playsInline
-              autoPlay
-            />
-          )}
         </SpaceContext.Provider>
       </div>
     </>

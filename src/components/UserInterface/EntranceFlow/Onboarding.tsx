@@ -5,8 +5,6 @@ import styles from "../styles/entranceFlow.module.scss";
 import clsx from "clsx";
 import WelcomMessage from "./WelcomeMessage";
 import { SpaceMeta } from "../../../../shared/spaceMeta";
-import { UserMedia } from "components/componentTypes";
-import SelectDevices from "../SelectDevices";
 import SetProfile from "../Profile/SetProfile";
 import { useAuthentication } from "hooks/auth/useAuthentication";
 import { ProfileSetter } from "../Profile/hooks";
@@ -32,7 +30,6 @@ const Onboarding = ({
   spaceId,
   spaceSlug,
   enterSpace,
-  mediaDevices,
   setKeyboardControlsDisabled,
   initialized,
   spaceMetadata,
@@ -45,7 +42,6 @@ const Onboarding = ({
 }: {
   spaceId: string;
   enterSpace: () => void;
-  mediaDevices: UserMedia;
   setKeyboardControlsDisabled: (disabled: boolean) => void;
   initialized: boolean;
   initialize: (skipAccess: boolean) => void;
@@ -64,15 +60,6 @@ const Onboarding = ({
     setDeviceSelectionComplete(true);
   }, [setDeviceSelectionComplete]);
 
-  const failedGettingWebcamStream = mediaDevices.webcam.failedGettingStream;
-  const failedGettingMicStream = mediaDevices.mic.failedGettingStream;
-
-  useEffect(() => {
-    if (failedGettingWebcamStream && failedGettingMicStream) {
-      setDeviceSelectionComplete(true);
-    }
-  }, [failedGettingWebcamStream, failedGettingMicStream]);
-
   const handleProfileContinue = useCallback(() => {
     setProfileSet(true);
   }, [setProfileSet]);
@@ -90,14 +77,11 @@ const Onboarding = ({
 
   const { user } = useAuthentication({ ensureSignedInAnonymously: false });
 
-  const handleWebcamDialogClose = useCallback(
-    (skipAccess: boolean) => {
-      initialize(skipAccess);
-      if (skipAccess) handleDeviceSelectionContinue();
-      setInviteDialogComplete(true);
-    },
-    [initialize, handleDeviceSelectionContinue]
-  );
+  const handleWebcamDialogClose = useCallback(() => {
+    initialize(true);
+    handleDeviceSelectionContinue();
+    setInviteDialogComplete(true);
+  }, [initialize, handleDeviceSelectionContinue]);
 
   const handleInviteComplete = useCallback(() => {
     setInviteDialogComplete(true);
@@ -132,15 +116,9 @@ const Onboarding = ({
           headingText={welcomeMessageText}
         />
       )}
-      {initialized && !deviceSelectionComplete && (
-        <SelectDevices
-          mediaDevices={mediaDevices}
-          handleContinue={handleDeviceSelectionContinue}
-        />
-      )}
       {deviceSelectionComplete && user && (
         <SetProfile
-          hasWebcamStream={!!mediaDevices.webcam.sendingStream}
+          hasWebcamStream={false}
           handleContinue={handleProfileContinue}
           profileSetter={profileSetter}
           setKeyboardControlsDisabled={setKeyboardControlsDisabled}

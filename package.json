@@ -68,7 +68,6 @@
     "lodash": "^4.17.20",
     "material-ui-color": "^1.1.0",
     "material-ui-dropzone": "^3.5.0",
-    "mediasoup-client": "^3.6.5",
     "mousetrap": "^1.6.5",
     "next": "^12.1.2",
     "next-compose-plugins": "^2.2.1",

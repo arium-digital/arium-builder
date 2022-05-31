@@ -1,11 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 
-import {
-  PeerConsumers,
-  PeerPlayerPositions,
-  PeersSettings,
-  PlayerLocation,
-} from "../types";
+import { PeerPlayerPositions, PeersSettings, PlayerLocation } from "../types";
 import Environment from "./EnvironmentAndFodAndAmbientLight";
 
 import { Canvas, useThree } from "@react-three/fiber";
@@ -191,7 +186,6 @@ type SceneContainerWrapperProps = {
   sessionId$: Observable<string | undefined>;
   joystickMoveRef: React.MutableRefObject<IJoystickUpdateEvent | undefined>;
   documentation?: boolean;
-  peerConsumers: PeerConsumers;
   loadingComplete: boolean;
   setLoadedProgress: (progress: number) => void;
 };
@@ -224,7 +218,6 @@ const SceneContainer = ({
   sessionId$,
   joystickMoveRef,
   documentation,
-  peerConsumers,
   loadingComplete,
   setLoadedProgress,
 }: SceneContainerProps) => {
@@ -366,11 +359,9 @@ const SceneContainer = ({
           <SpaceContext.Consumer>
             {(spaceContext) =>
               spaceContext?.activeSessions$ &&
-              spaceContext?.consumers$ &&
               spaceContext?.sessionPaths$ && (
                 <PeerAvatars
                   activeSessions$={spaceContext.activeSessions$}
-                  consumers$={spaceContext.consumers$}
                   peerPositions$={peerLocations$}
                   visiblePeersSortedByDistance$={visiblePeersSortedByDistance$}
                   peersSettings$={peersSettings$}
@@ -378,7 +369,6 @@ const SceneContainer = ({
                   sessionId$={sessionId$}
                   spaceId={spaceId}
                   avatarMeshes={avatarMeshes}
-                  peerConsumers={peerConsumers}
                   sessionPaths$={spaceContext?.sessionPaths$}
                 />
               )

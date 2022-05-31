@@ -14,7 +14,6 @@ import styles from "../../css/controls.module.scss";
 import FooterControls from "./FooterControls";
 import dynamic from "next/dynamic";
 import { EditorContext } from "components/InSpaceEditor/hooks/useEditorState";
-import SelectDevices from "./SelectDevices";
 import StandaloneModuleWrapper from "./EntranceFlow/StandaloneModuleWrapper";
 import SetProfile from "./Profile/SetProfile";
 import ShareDialog from "./Dialogs/ShareDialog";
@@ -46,10 +45,7 @@ const MainControls = memo((props: UserInterfaceProps) => {
   const {
     joystickMove,
     setKeyboardControlsDisabled,
-    userMedia,
     user,
-    broadcasting,
-    disableUserMediaControls,
     profileSetter,
     fullScreenElement,
     spaceSlug,
@@ -57,8 +53,6 @@ const MainControls = memo((props: UserInterfaceProps) => {
     playerLocation$,
     spaceId,
   } = props;
-
-  const { refreshAvailableDevices } = userMedia;
 
   const [showModal] = useState(false);
 
@@ -72,11 +66,7 @@ const MainControls = memo((props: UserInterfaceProps) => {
 
   const editorSidebarOpen = !!editorState?.contentsTreeOpen;
 
-  const {
-    open: settingsOpen,
-    handleOpen: handleOpenSettings,
-    handleClose: handleCloseSettings,
-  } = useOpenDialog();
+  const { open: settingsOpen } = useOpenDialog();
 
   const {
     open: profileOpen,
@@ -114,15 +104,6 @@ const MainControls = memo((props: UserInterfaceProps) => {
 
   return (
     <>
-      {settingsOpen && (
-        <StandaloneModuleWrapper>
-          <SelectDevices
-            mediaDevices={userMedia}
-            handleContinue={handleCloseSettings}
-            buttonText="Close"
-          />
-        </StandaloneModuleWrapper>
-      )}
       {profileOpen && user && (
         <StandaloneModuleWrapper>
           <SetProfile
@@ -141,14 +122,9 @@ const MainControls = memo((props: UserInterfaceProps) => {
         <FooterControls
           joystickMove={joystickMove}
           openProfileModule={openProfileModule}
-          userMedia={userMedia}
           peerMetadata$={props.profileSetter.metaDataWithUpdates$}
           hide={editorSidebarOpen || settingsOpen || profileOpen}
           sidebarOpen={false}
-          refreshAvailableDevices={refreshAvailableDevices}
-          broadcasting={broadcasting}
-          disableUserMediaControls={disableUserMediaControls}
-          handleOpenSettings={handleOpenSettings}
           fullScreenElement={fullScreenElement}
           openShareDialog={openShareDialog}
           captureScreenshot={captureScreenshotAndOpen}
