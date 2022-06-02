@@ -162,7 +162,7 @@ export const Space = ({
 
   const userId$ = useBehaviorSubjectFromCurrentValue(userId);
 
-  const { sessionId$, joinStatus$ } = useJoinSpace({
+  const { sessionId$ } = useJoinSpace({
     userId$,
     spaceId$,
     initialized$,
@@ -175,7 +175,6 @@ export const Space = ({
     attemptedToJoin: initialized,
   });
 
-  const joinStatus = useCurrentValueFromObservable(joinStatus$, undefined);
   const sessionId = useCurrentValueFromObservable(sessionId$, undefined);
 
   useUpdateActivePresence({
@@ -418,7 +417,6 @@ export const Space = ({
                 audioContext={audioContext}
                 setKeyboardControlsDisabled={setKeyboardControlsDisabled}
                 joystickMove={handleJoystickMove}
-                joinStatus={joinStatus}
                 fullScreenElement={fullScreenElement}
                 spaceId={spaceId}
                 user={user || undefined}

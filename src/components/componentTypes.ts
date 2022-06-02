@@ -1,5 +1,4 @@
 import { ComponentType } from "react";
-import { JoinStatus } from "../../shared/sharedTypes";
 import { SpaceMeta } from "../../shared/spaceMeta";
 import { BroadcastersAndMedia } from "../communicationTypes";
 import {
@@ -68,7 +67,6 @@ export interface BroadcastingControlsState {
 export type UserInterfaceProps = {
   audioContext: AudioContext | undefined;
   joystickMove: HandleJoystickMove;
-  joinStatus: JoinStatus | undefined;
   fullScreenElement: HTMLElement | null;
   spaceId: string | undefined;
   user: User | undefined;

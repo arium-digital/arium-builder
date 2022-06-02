@@ -40,13 +40,6 @@ service cloud.firestore {
       allow read: if
           request.auth.uid == userId;
     }
-    match /communication/{userId}/{document=**} {
-      allow read: if
-          request.auth.uid == userId;
-      allow write: if
-          request.auth.uid == userId;
-
-    }
     match /testAgentCalls/{document=**} {
       allow read, write: if request.auth.token.admin == true
     }
@@ -64,9 +57,9 @@ service cloud.firestore {
           request.auth.uid == userId;
     }
 
-    match /joinRequests/{document=**} {
+    match /userSessions/{document=**} {
       allow create: if
-          request.auth.uid != null;
+          request.auth.uid != null && resource.data.userId == request.auth.uid;
 
       allow read: if
           resource.data.userId == request.auth.uid;
@@ -75,12 +68,6 @@ service cloud.firestore {
     match /unjoinRequests/{document=**} {
       allow create: if
           request.auth.uid != null;
-    }
-
-    match /routerRtpCapabilities/{document=**} {
-      allow read: if
-          request.auth.uid != null;
-      
     }
 
     match /spaces/{spaceId}/spaceInvites/{document=**} {
@@ -152,11 +139,6 @@ service cloud.firestore {
       }
       allow write: if isSpaceEditor(resource.data.spaceId);
       allow read: if isSpaceEditor(resource.data.spaceId);
-    }
-
-    match /homePageSettings/{document=**} {
-      allow read: if
-          request.auth.uid != null;
     }
   }
 }

@@ -41,48 +41,6 @@
           "order": "ASCENDING"
         }
       ]
-    },
-    {
-      "collectionGroup": "joinRequests",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "spaceId",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "status",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "joinRequests",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "status",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "updateTime",
-          "order": "ASCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "routerSessions",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "spaces",
-          "arrayConfig": "CONTAINS"
-        },
-        {
-          "fieldPath": "group",
-          "order": "DESCENDING"
-        }
-      ]
     }
   ],
   "fieldOverrides": [

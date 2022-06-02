@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Observable, combineLatest, from, BehaviorSubject, EMPTY } from "rxjs";
+import { Observable, combineLatest, BehaviorSubject, EMPTY } from "rxjs";
 import {
   switchMap,
   distinctUntilChanged,
@@ -9,47 +9,11 @@ import {
 import { useTakeUntilUnmount } from "./useObservable";
 import { firestoreTimeNow, store } from "../db";
 import { filterUndefined } from "libs/rx";
-import { functions } from "db";
 
 export type JoinStatus = "joined" | "full" | "disconnected" | "error";
 
-interface JoinRequest {
-  spaceId: string;
-  userId: string;
-  routerId?: string;
-  status?: JoinStatus;
-}
-
-const requestToJoin = async ({ spaceId }: { spaceId: string }) => {
-  const response = await functions().httpsCallable("joinSpace")({
-    spaceId,
-  });
-
-  const joinRequestId = response.data.joinRequestId as string;
-
-  return joinRequestId;
-};
-
-// const observeJoinRequestStatus = (joinDoc: firebase.firestore.DocumentReference) => {
-
-// }
-function observeJoinRequestChanges(sessionId: string): Observable<JoinRequest> {
-  return new Observable<JoinRequest>((subscribe) => {
-    const unsub = store
-      .collection("joinRequests")
-      .doc(sessionId)
-      .onSnapshot((snapshot) => {
-        subscribe.next(snapshot.data() as JoinRequest);
-      });
-
-    return () => {
-      unsub();
-    };
-  });
-}
-
-const unjoinSession = (sessionId: string) => {
-  store.collection("unjoinRequests").add({ sessionId });
+const unjoinSession = (sessionId: string, userId: string) => {
+  store.collection("unjoinRequests").add({ sessionId, userId });
 };
 
 export const useJoinSpace = ({
@@ -69,12 +33,7 @@ export const useJoinSpace = ({
   const [sessionId$] = useState(
     new BehaviorSubject<string | undefined>(undefined)
   );
-  const [routerId$] = useState(
-    new BehaviorSubject<string | undefined>(undefined)
-  );
-  const [joinStatus$] = useState(
-    new BehaviorSubject<JoinStatus | undefined>(undefined)
-  );
+
   const takeUntilUnmount = useTakeUntilUnmount();
 
   useEffect(() => {
@@ -92,14 +51,14 @@ export const useJoinSpace = ({
         })
       )
       .subscribe({
-        next: ([spaceId, userId]) => {
+        next: async ([spaceId, userId]) => {
           const spaceVisitsDocRef = store
             .collection("users")
             .doc(userId)
             .collection("visits");
 
           try {
-            spaceVisitsDocRef.add({
+            await spaceVisitsDocRef.add({
               spaceId,
               time: firestoreTimeNow(),
             });
@@ -127,60 +86,62 @@ export const useJoinSpace = ({
             userId$.pipe(distinctUntilChanged()),
           ])
             .pipe(
-              switchMap(([spaceId, userId]) => {
+              switchMap(async ([spaceId, userId]) => {
                 // if (process.env.NEXT_PUBLIC_DONT_JOIN === 'true') return from([undefined]);
-                if (!userId) return from([undefined]);
+                const spaceVisitsDocRef = store.collection("userSessions");
 
-                return from(requestToJoin({ spaceId })).pipe(filterUndefined());
+                let joinSessionId: string;
+
+                let session = {
+                  spaceId,
+                  userId,
+                  time: firestoreTimeNow(),
+                };
+
+                try {
+                  const joinSessionDoc = await spaceVisitsDocRef.add(session);
+
+                  joinSessionId = joinSessionDoc.id;
+
+                  return joinSessionId;
+                } catch (e) {
+                  console.error(e);
+                  return undefined;
+                }
               })
             )
-            .pipe(distinctUntilChanged(), takeUntilUnmount());
+            .pipe(
+              filterUndefined(),
+              distinctUntilChanged(),
+              takeUntilUnmount()
+            );
         })
       )
       .subscribe(sessionId$);
 
-    const subB = sessionId$.pipe(pairwise()).subscribe({
-      next: ([lastSessionId]) => {
+    const subB = combineLatest([
+      sessionId$.pipe(pairwise()),
+      userId$.pipe(filterUndefined()),
+    ]).subscribe({
+      next: ([[lastSessionId], userId]) => {
         if (lastSessionId) {
-          unjoinSession(lastSessionId);
+          unjoinSession(lastSessionId, userId);
         }
       },
     });
 
-    const subC = sessionId$
-      .pipe(
-        switchMap((sessionId) => {
-          if (!sessionId) return EMPTY;
-
-          return observeJoinRequestChanges(sessionId);
-        }),
-        takeUntilUnmount()
-      )
-      .subscribe({
-        next: (joinRequest) => {
-          const { status, routerId } = joinRequest;
-          joinStatus$.next(status);
-          joined$.next(status === "joined");
-          routerId$.next(routerId);
-        },
-      });
-
     return () => {
       subA.unsubscribe();
       subB.unsubscribe();
-      subC.unsubscribe();
     };
   }, [
+    authenticated,
     initialized$,
-    joinStatus$,
-    joined$,
-    routerId$,
     sessionId$,
     spaceId$,
     takeUntilUnmount,
     userId$,
-    authenticated,
   ]);
 
-  return { sessionId$, joined$, routerId$, joinStatus$ };
+  return { sessionId$, joined$ };
 };
