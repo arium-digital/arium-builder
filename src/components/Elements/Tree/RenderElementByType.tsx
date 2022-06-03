@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useMemo } from "react";
+import React, { useCallback, useLayoutEffect } from "react";
 
 import Placard from "../Placard";
 import Model from "../Model";
@@ -17,9 +17,9 @@ const NftDisplay = dynamic(() => import("../Nft/NftDisplay"));
 const Portal = dynamic(() => import("components/Elements/Portal"));
 const ImageDisplay = dynamic(() => import("components/Elements/ImageDisplay"));
 const TextDisplay = dynamic(() => import("../TextDisplay"));
-const BroadcastZone = dynamic(() => import("../BroadcastZone"));
-const ReflectorSurface = dynamic(() => import("components/ReflectorSurface"));
-const ScreenShare = dynamic(() => import("../ScreenSharing/ScreenShare"));
+const ReflectorSurface = dynamic(
+  () => import("components/Elements/ReflectorSurface")
+);
 const Water = dynamic(() => import("components/Elements/Water"));
 
 export type MinimalElementProps = Omit<
@@ -36,10 +36,6 @@ const RenderElementByTypeInner = (
   }
 ): JSX.Element | null => {
   const { elementConfig } = props;
-  const path = useMemo(() => [...props.parentPath, props.elementId], [
-    props.elementId,
-    props.parentPath,
-  ]);
 
   return (
     <>
@@ -82,20 +78,6 @@ const RenderElementByTypeInner = (
           {...props}
           config={elementConfig.nft}
           elementTransform={elementConfig.transform}
-        />
-      )}
-      {typeChecks.isScreenShare(elementConfig) && (
-        <ScreenShare
-          {...props}
-          path={path}
-          config={elementConfig.screenShare}
-        />
-      )}
-      {typeChecks.isBroadcastZone(elementConfig) && (
-        <BroadcastZone
-          {...props}
-          path={path}
-          config={elementConfig.broadcastZone}
         />
       )}
       {typeChecks.isReflectorSurface(elementConfig) && (

@@ -2,15 +2,15 @@ import React, { Suspense, useEffect, useMemo, useState } from "react";
 
 // THREE.js imports:
 import { CubeTextureLoader } from "three/src/loaders/CubeTextureLoader";
-import { EnvironmentConfig } from "../spaceTypes";
+import { EnvironmentConfig } from "../../spaceTypes";
 import {
   extractExt,
   getDownloadUrl,
   getFileDownloadUrlAsync,
-} from "../fileUtils";
+} from "../../fileUtils";
 
 import { useThree } from "@react-three/fiber";
-import { FileLocation, StoredFileLocation } from "../../shared/sharedTypes";
+import { FileLocation, StoredFileLocation } from "../../../shared/sharedTypes";
 import { getAssetPath } from "media/assetPaths";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 import {

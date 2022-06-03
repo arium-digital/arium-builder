@@ -6,7 +6,6 @@ export const useUserProfile = () => {
   const [isAnonymous, setIsAnonymous] = useState(true);
   const [userId, setUserId] = useState<string>();
   const [user, setUser] = useState<User>();
-  const [emailVerified, setEmailVerified] = useState(false);
   const [photoUrl] = useState<string>("");
   const [spaceIds, setSpaceIds] = useState<string[]>([]);
 
@@ -39,7 +38,6 @@ export const useUserProfile = () => {
         setUserId(user.uid);
         setUser(user);
         setIsAnonymous(user.isAnonymous);
-        setEmailVerified(user.emailVerified);
       } else {
         setAuthenticated(false);
         setUserId(undefined);
@@ -53,7 +51,6 @@ export const useUserProfile = () => {
     userId,
     isAnonymous,
     user,
-    emailVerified,
     photoUrl,
     spaceIds,
   };

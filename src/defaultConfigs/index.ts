@@ -9,8 +9,6 @@ import {
   PlaySurfaceConfig,
   PlaySettings,
   LiveStreamConfig,
-  ScreenShareConfig,
-  BroadcastZoneConfig,
   FlatShapeConfig,
   CircleConfig,
   RectangleConfig,
@@ -42,7 +40,6 @@ import {
   LightElementConfig,
   ModelElementConfig,
   PortalElementConfig,
-  ScreenShareElementConfig,
   TerrainElementConfig,
 } from "spaceTypes/Element";
 import { TerrainConfig } from "spaceTypes/terrain";
@@ -228,10 +225,6 @@ export const DEFAULT_PLAY_SURFACES_TYPE = "plane";
 //   },
 // });
 
-export const defaultScreenShareConfig = (): ScreenShareConfig => ({
-  aspect: "4:3",
-});
-
 export const defaultCircleConfig = (): CircleConfig => ({
   radius: 5,
   segments: 20,
@@ -248,18 +241,6 @@ export const defaultFlatShapeConfig = (): FlatShapeConfig => ({
     radius: 5,
     segments: 20,
   },
-});
-
-export const defaultBroadcastZoneSoundConfig = (): PositionalAudioConfig => ({
-  distanceModel: "exponential",
-  refDistance: 100,
-  rollOffFactor: 2,
-  maxDistance: 100000,
-});
-
-export const defaultBroadcastZoneConfig = (): BroadcastZoneConfig => ({
-  shape: defaultFlatShapeConfig(),
-  sound: defaultBroadcastZoneSoundConfig(),
 });
 
 export const defaultSpawnConfig = (): SpawnConfig => ({
@@ -362,20 +343,6 @@ export const placeholderImageFile = (text: string): FileLocation => ({
   url: placeholderImageUrl(text),
 });
 
-// export const defaultVideo = (): VideoConfig => ({
-//   width: DEFAULT_VIDEO_WIDTH,
-//   type: "stored video",
-//   sound: defaultVideoSoundConfig(),
-//   playSettings: defaultPlaySettings(),
-//   playSurfaces: {
-//     main: defaultSurfaceConfig(),
-//   },
-//   storedVideo: {
-//     fileType: "external",
-//     url: "https://assets.vlts.pw/public/videoPlaceholder.mp4",
-//   },
-// });
-
 export const defaultTerrainConfig = (): TerrainConfig => ({
   maxHeight: 10,
   minHeight: 0,
@@ -394,13 +361,6 @@ export const defaultTransform = (): Required<Transform> => ({
 
 export const DEFAULT_NFT_TYPE: NftType = "ethereum";
 export const DEFAULT_SUPERRARE_VERSION = "v2";
-
-// export const defaultArtworkDisplayConfig = (): Concrete<ArtworkDisplayConfig> => ({
-//   showMedia: true,
-//   mediaDisplay: defaultMediaDisplayConfig(),
-//   showPlacard: true,
-//   placardDisplay: defaultPlacardDisplayConfig(),
-// });
 
 export const defaultModelElement = (): ModelElementConfig => ({
   name: `model`,
@@ -434,13 +394,6 @@ export const defaultGroupElement = (): GroupElementConfig => ({
   name: `group`,
   elementType: ElementType.group,
   active: true,
-});
-
-export const defaultScreenshareElement = (): ScreenShareElementConfig => ({
-  name: "screenshare",
-  elementType: ElementType.screenShare,
-  active: true,
-  screenShare: {},
 });
 
 export const defaultAudioElement = (): AudioElementConfig => ({

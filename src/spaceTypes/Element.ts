@@ -1,9 +1,7 @@
-import { BroadcastZoneConfig } from "./broadcastZone";
 import { ImageConfig } from "./image";
 import { LightConfig } from "./light";
 import { ModelConfig } from "./model";
 import { ReflectorSurfaceConfig } from "./reflectorSurface";
-import { ScreenShareConfig } from "./screenShare";
 import { Transform } from "./shared";
 import { PlacardConfig, TextConfig } from "./text";
 import { PortalConfig } from "./portal";
@@ -21,7 +19,6 @@ export enum ElementType {
   image = "image",
   light = "light",
   group = "group",
-  screenShare = "screen share",
   video = "video",
   audio = "audio",
   broadcastZone = "broadcast zone",
@@ -50,8 +47,6 @@ export interface BaseElementConfig {
   light?: LightConfig;
   video?: VideoConfig;
   audio?: AudioConfig;
-  broadcastZone?: BroadcastZoneConfig;
-  screenShare?: ScreenShareConfig;
   reflectorSurface?: ReflectorSurfaceConfig;
   portal?: PortalConfig;
   terrain?: TerrainConfig;
@@ -87,10 +82,6 @@ export interface LightElementConfig extends BaseElementConfig {
   light: LightConfig;
 }
 
-export interface ScreenShareElementConfig extends BaseElementConfig {
-  elementType: ElementType.screenShare;
-  screenShare: ScreenShareConfig;
-}
 export interface VideoElementConfig extends BaseElementConfig {
   elementType: ElementType.video;
   video: VideoConfig;
@@ -100,10 +91,6 @@ export interface AudioElementConfig extends BaseElementConfig {
   audio: AudioConfig;
 }
 
-export interface BroadcastZoneElementConfig extends BaseElementConfig {
-  elementType: ElementType.broadcastZone;
-  broadcastZone: BroadcastZoneConfig;
-}
 export interface ReflectorSurfaceElementConfig extends BaseElementConfig {
   elementType: ElementType.reflectorSurface;
   reflectorSurface: ReflectorSurfaceConfig;
@@ -135,11 +122,9 @@ export type ElementConfig = {
   | GroupElementConfig
   | ModelElementConfig
   | TextElementConfig
-  | BroadcastZoneElementConfig
   | LightElementConfig
   | VideoElementConfig
   | AudioElementConfig
-  | ScreenShareElementConfig
   | ImageElementConfig
   | ReflectorSurfaceElementConfig
   | PortalElementConfig
@@ -149,10 +134,6 @@ export type ElementConfig = {
   | BaseElementConfig
   | WaterElementConfig
 );
-
-export type PolyModelConfig = ElementConfig & {
-  id: string;
-};
 
 export type ElementNode = {
   parentId?: string;

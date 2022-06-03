@@ -1,5 +1,5 @@
 import { PlayerPosition, PlayerQuaternion, StringDict } from "./types";
-import { communicationDb, peersDb } from "./db";
+import { communicationDb } from "./db";
 import { Dispatch, SetStateAction } from "react";
 import { MediaTrackKind } from "../shared/communication";
 import { PeersMetaData, PeerPresence, ProducerIds } from "./communicationTypes";
@@ -115,7 +115,7 @@ export const observePeerSessionStateChanges = <T>({
   converter: (data: any) => T;
 }) => {
   return new Observable<StateRemoval | StateChange<T>>((subscribe) => {
-    const ref = peersDb.ref(parentPath);
+    const ref = communicationDb.ref(parentPath);
 
     ref.on("value", (snapshot) => {
       snapshot.forEach((child) => {
@@ -319,7 +319,7 @@ export const subscribeToProducerIds = ({
 };
 
 const broadcasterRef = (sessionId: string) =>
-  peersDb.ref(`broadcasters/${sessionId}`);
+  communicationDb.ref(`broadcasters/${sessionId}`);
 
 export const setIsBroadcastingInZone = (
   {
@@ -392,7 +392,7 @@ export type BroadcastingRecords = {
   [peerId: string]: BroadcastingRecord;
 };
 export const observeBroadcasters = ({ spaceId }: { spaceId: string }) => {
-  const broadcastersRef = peersDb
+  const broadcastersRef = communicationDb
     .ref(`broadcasters`)
     .orderByChild("spaceId")
     .equalTo(spaceId);

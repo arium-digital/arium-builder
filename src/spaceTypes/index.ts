@@ -10,15 +10,10 @@ export type {
   IVector3,
   IVector2,
 } from "./shared";
-export type { ScreenShareConfig, VideoAspect } from "./screenShare";
 
 export { ElementType } from "./Element";
 
-export type {
-  BaseElementConfig,
-  ElementConfig,
-  PolyModelConfig,
-} from "./Element";
+export type { BaseElementConfig, ElementConfig } from "./Element";
 export type {
   VideoConfig,
   LiveStreamConfig,
@@ -57,5 +52,3 @@ export type {
   CircleConfig,
   RectangleConfig,
 } from "./flatShape";
-
-export type { BroadcastZoneConfig } from "./broadcastZone";

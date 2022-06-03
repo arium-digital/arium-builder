@@ -9,6 +9,7 @@ images/project_thumbnails.cache
 parcel-cache
 yarn-error.log
 .env.https
+serviceAccount*
 serviceAccount.jsonparcel-cache
 .parcel-cache
 dist

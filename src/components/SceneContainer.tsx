@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 
 import { PeerPlayerPositions, PeersSettings, PlayerLocation } from "../types";
-import Environment from "./EnvironmentAndFodAndAmbientLight";
+import Environment from "./Environment/EnvironmentAndFodAndAmbientLight";
 
 import { Canvas, useThree } from "@react-three/fiber";
 import styles from "../css/space.module.scss";

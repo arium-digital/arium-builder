@@ -22,7 +22,7 @@ import useMeshes from "hooks/useMeshes";
 import { EnvironmentConfig } from "spaceTypes";
 import SphericalDragControls from "components/Controls/SphericalDragControls";
 import SetRaycasterFromMouse from "components/SetRaycasterFromMouse";
-import Environment from "components/EnvironmentAndFodAndAmbientLight";
+import Environment from "components/Environment/EnvironmentAndFodAndAmbientLight";
 import SyncCameraAndPlayerPosition from "./Controls/SyncCameraPositionAndPlayerState";
 import spaceStyles from "css/space.module.scss";
 import { FullScreenTopRightContainer } from "./Controls/FullScreenToggle";

@@ -25,7 +25,6 @@ import { InteractableContext } from "hooks/useInteractable";
 import { degreesToRadians } from "libs/utils";
 import { Orientation } from "spaceTypes/video";
 import { DEFAULT_CURVE_ORIENTATION } from "defaultConfigs";
-import { useLegacyRotation } from "./Video/videoUtils";
 
 const LoadingMaterial = () => {
   const [flip, set] = useState(false);
@@ -136,16 +135,9 @@ const NonCurvedPlane = ({
   hasFrame,
   loading,
   dimensionsArray,
-  legacyRotation,
 }: Pick<
   InteractableTextureDisplayProps,
-  | "texture"
-  | "side"
-  | "transparent"
-  | "hasFrame"
-  | "frameConfig"
-  | "loading"
-  | "legacyRotation"
+  "texture" | "side" | "transparent" | "hasFrame" | "frameConfig" | "loading"
 > & {
   dimensionsArray: [number, number];
 }) => {
@@ -156,11 +148,9 @@ const NonCurvedPlane = ({
 
   const setMesh = useGlobalPointerOverLayer(enablePointerOverLayer$);
 
-  const rotation = useLegacyRotation(legacyRotation);
-
   return (
     <>
-      <mesh ref={setMesh} rotation-y={rotation}>
+      <mesh ref={setMesh}>
         {dimensionsArray && (
           <>
             <planeBufferGeometry attach="geometry" args={dimensionsArray} />
@@ -181,7 +171,6 @@ const NonCurvedPlane = ({
           config={frameConfig}
           imageDimensions={dimensionsArray}
           boxFront={transparent}
-          rotationY={rotation}
         />
       )}
       {dimensionsArray && (
@@ -189,7 +178,6 @@ const NonCurvedPlane = ({
           elementWidth={dimensionsArray[0]}
           elementHeight={dimensionsArray[1]}
           frameConfig={frameConfig && hasFrame ? frameConfig : undefined}
-          rotationY={rotation}
           visible={pointerOver}
         />
       )}

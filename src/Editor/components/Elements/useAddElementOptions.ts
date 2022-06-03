@@ -7,7 +7,6 @@ import {
   defaultPortalElement,
   defaultLightElement,
   defaultGroupElement,
-  defaultScreenshareElement,
   defaultAudioElement,
 } from "defaultConfigs";
 import { ElementType, MaterialConfig } from "spaceTypes";
@@ -197,12 +196,6 @@ const useAddElementOptions = () => {
         toolTip: "Add a Light",
         defaultElementConfig: defaultLightElement,
         newElementConfig: newLightConfig,
-      },
-      {
-        elementType: ElementType.screenShare,
-        toolTip: "Add a Screenshare",
-        defaultElementConfig: defaultScreenshareElement,
-        newElementConfig: defaultScreenshareElement,
       },
       {
         elementType: ElementType.group,

@@ -1,19 +1,19 @@
 // import { Reflector as DreiReflector } from "@react-three/drei";
-import { Reflector as DreiReflector } from "components/LegacyDreiReflector";
+import { Reflector as DreiReflector } from "components/Elements/LegacyDreiReflector";
 import { PointerOverContext } from "hooks/useGlobalPointerOver";
 import { useGlobalPointerOverLayer } from "hooks/useLayers";
 import { useCreateMeshAndSetIsGroundAndIsCollidable } from "hooks/useSetIsGroundAndIsCollidable";
 import React, { FC, useContext, useEffect, useMemo } from "react";
-import { useConfigOrDefaultRecursive } from "../hooks/spaceHooks";
-import { Transform } from "../spaceTypes";
+import { useConfigOrDefaultRecursive } from "../../hooks/spaceHooks";
+import { Transform } from "../../spaceTypes";
 import {
   defaultReflectorSurfaceConfig,
   ReflectorConfig,
   ReflectorMaterialConfig,
   ReflectorSurfaceConfig,
-} from "../spaceTypes/reflectorSurface";
-import { ElementsContext } from "./Elements/Tree/ElementsTree";
-import Frame from "./Elements/Frame";
+} from "../../spaceTypes/reflectorSurface";
+import { ElementsContext } from "./Tree/ElementsTree";
+import Frame from "./Frame";
 
 interface IReflectorSurfaceProps {
   transform?: Transform;

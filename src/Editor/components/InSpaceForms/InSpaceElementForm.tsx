@@ -19,7 +19,6 @@ import {
   defaultModel,
   defaultTerrainConfig,
   defaultLightConfig,
-  defaultScreenShareConfig,
 } from "defaultConfigs";
 import { SimplifiedVideoForm } from "./SimplifiedVideoForm";
 import { SimplifiedNftForm } from "./SimplifiedNftForm";
@@ -41,7 +40,6 @@ import {
   useDefaultThemedConfigs,
 } from "defaultConfigs/useDefaultNewElements";
 import { EditingElementContext } from "Editor/components/Elements/EditiingElementContext";
-import SimplifiedScreenshareForm from "./SimplifiedScreenshareForm";
 import { ErrorBoundary } from "react-error-boundary";
 import {
   useRefreshIfChanged,
@@ -63,7 +61,6 @@ const SupportedElementTypes = new Set([
   ElementType.group,
   ElementType.water,
   ElementType.reflectorSurface,
-  ElementType.screenShare,
 ]);
 
 const TinyElementForm = ({
@@ -164,13 +161,6 @@ const TinyElementForm = ({
         <SimplifiedReflectorForm
           nestedForm={makeNestedFormProps("reflectorSurface")}
           defaults={defaultReflectorSurfaceConfig}
-          refresh={refresh}
-        />
-      )}
-      {values.elementType === ElementType.screenShare && (
-        <SimplifiedScreenshareForm
-          nestedForm={makeNestedFormProps("screenShare")}
-          defaults={defaultScreenShareConfig}
           refresh={refresh}
         />
       )}

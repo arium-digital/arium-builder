@@ -11,15 +11,11 @@ import ImageForm from "./ImageForm";
 import { useChangeHandlers } from "../Form/helpers";
 import LightForm from "./Light/LightForm";
 import VideoForm from "./Video/VideoForm";
-import ScreenShareForm from "./ScreenShareForm";
-import BroadcastZoneForm from "./BroadcastZoneForm";
 import ReflectorSurfaceForm from "./ReflectorSurfaceForm";
 import { defaultReflectorSurfaceConfig } from "../../../spaceTypes/reflectorSurface";
 import PortalForm from "./PortalForm";
 import {
-  defaultBroadcastZoneConfig,
   defaultLightConfig,
-  defaultScreenShareConfig,
   defaultText,
   defaultTerrainConfig,
   defaultModel,
@@ -213,18 +209,6 @@ const ElementForm = ({
                   <VideoForm
                     nestedForm={makeNestedFormProps("video")}
                     defaults={themedConfigs.video}
-                  />
-                )}
-                {typeChecks.isScreenShare(values) && (
-                  <ScreenShareForm
-                    nestedForm={makeNestedFormProps("screenShare")}
-                    defaults={defaultScreenShareConfig}
-                  />
-                )}
-                {typeChecks.isBroadcastZone(values) && (
-                  <BroadcastZoneForm
-                    nestedForm={makeNestedFormProps("broadcastZone")}
-                    defaults={defaultBroadcastZoneConfig}
                   />
                 )}
                 {typeChecks.isReflectorSurface(values) && (

@@ -37,12 +37,6 @@ export const isLight = (
   return elementConfig.elementType === elementTypes.ElementType.light;
 };
 
-export const isScreenShare = (
-  elementConfig: ElementConfig
-): elementConfig is elementTypes.ScreenShareElementConfig => {
-  return elementConfig.elementType === elementTypes.ElementType.screenShare;
-};
-
 export const isVideo = (
   elementConfig: ElementConfig
 ): elementConfig is elementTypes.VideoElementConfig => {
@@ -53,12 +47,6 @@ export const isAudio = (
   elementConfig: ElementConfig
 ): elementConfig is elementTypes.AudioElementConfig => {
   return elementConfig.elementType === elementTypes.ElementType.audio;
-};
-
-export const isBroadcastZone = (
-  elementConfig: ElementConfig
-): elementConfig is elementTypes.BroadcastZoneElementConfig => {
-  return elementConfig.elementType === elementTypes.ElementType.broadcastZone;
 };
 
 export const isReflectorSurface = (
