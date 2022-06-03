@@ -1,4 +1,3 @@
-import debug from "debug";
 import { useEffect, useState } from "react";
 import {
   BehaviorSubject,
@@ -18,7 +17,6 @@ import {
   mergeScan,
   retryWhen,
   switchMap,
-  tap,
   zip,
 } from "rxjs/operators";
 import { useBehaviorSubjectFromCurrentValue } from "../../hooks/useObservable";
@@ -73,21 +71,12 @@ export const playOrPause = ({
   // pause video
   if (!play) {
     element.pause();
-    debug("stream:pause")({ tag: element.tagName, element });
 
     return from([false]);
   }
 
   // try playing up to 3 times with a 1 second delay
-  const tryPlayResult$ = tryPlayWithBackoffRetry(element).pipe(
-    tap((succeeded) =>
-      debug("stream:playResult")({
-        succeeded,
-        element,
-        elementId: element.tagName,
-      })
-    )
-  );
+  const tryPlayResult$ = tryPlayWithBackoffRetry(element);
 
   return tryPlayResult$;
 };

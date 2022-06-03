@@ -256,16 +256,7 @@ export const Space = ({
     activeSessions$,
   });
 
-  const {
-    broadcasters$: broadcastingPeers$,
-    controls: broadcastingControls,
-  } = useBroadcasters({
-    canManuallyBroadcast: canEdit,
-    activePresence$: activeSessions$,
-    sessionId$,
-    spaceId$,
-    userId$,
-  });
+  const { broadcasters$: broadcastingPeers$ } = useBroadcasters();
 
   const { peersSettings$ } = usePeersSettings({
     spaceSettings: spaceSettingsOrDefault,
@@ -421,7 +412,6 @@ export const Space = ({
                 spaceId={spaceId}
                 user={user || undefined}
                 profileSetter={profileSetter}
-                broadcasting={broadcastingControls}
                 disableUserMediaControls={disableUserMediaControls}
                 canInviteToEdit={canInviteToEdit}
                 spaceSlug={spaceSlug}

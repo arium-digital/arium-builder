@@ -1,6 +1,5 @@
 import { ComponentType } from "react";
 import { SpaceMeta } from "../../shared/spaceMeta";
-import { BroadcastersAndMedia } from "../communicationTypes";
 import {
   HasPlayerLocationObservable,
   Optional,
@@ -23,27 +22,6 @@ export interface IJoystickUpdateEvent {
 
 export type HandleJoystickMove = (event: IJoystickUpdateEvent) => void;
 
-export interface UserMediaForDevice {
-  sendingStream: MediaStreamTrack | undefined;
-  deviceList: MediaDeviceInfo[];
-  gettingStream: boolean;
-  selectSendingDevice: (deviceId: string) => Promise<void>;
-  sendingDeviceId: string | undefined;
-  failedGettingStream: boolean;
-  pause: () => Promise<void>;
-  resume: () => Promise<void>;
-  paused: boolean;
-}
-
-export interface UserMedia {
-  webcam: UserMediaForDevice;
-  mic: UserMediaForDevice;
-  refreshAvailableDevices: () => void;
-  rerequestMedia: () => void;
-  grantAccessRequestForWebcamAndMic: () => void;
-  grantedAccessRequestForWebcamAndMic: boolean;
-}
-
 export type EntranceFlowProps = {
   spaceId: string;
   initialize: (skipAccess: boolean) => void;
@@ -58,12 +36,6 @@ export type EntranceFlowProps = {
   userId: Optional<string>;
 } & Pick<AuthState, "isAnonymous">;
 
-export interface BroadcastingControlsState {
-  broadcasting: boolean;
-  canManuallyBroadcast: boolean | undefined;
-  toggleBroadcasting: () => void;
-}
-
 export type UserInterfaceProps = {
   audioContext: AudioContext | undefined;
   joystickMove: HandleJoystickMove;
@@ -71,23 +43,17 @@ export type UserInterfaceProps = {
   spaceId: string | undefined;
   user: User | undefined;
   profileSetter: ProfileSetter;
-  broadcasting: BroadcastingControlsState;
   setKeyboardControlsDisabled: (disabled: boolean) => void;
   disableUserMediaControls: boolean;
   spaceSlug: string;
   canInviteToEdit: boolean;
 } & HasPlayerLocationObservable;
 
-// export interface AvatarMeshes {
-//   lower:
-// }
-
 export interface SceneModifierProps {
   userId?: string;
   spaceId: string | undefined;
   setSpaceId: (spaceId: string) => void;
   pushState?: (path: string) => void;
-  mediaFromBroadcasters: BroadcastersAndMedia;
 }
 
 export interface PhysicsSettings {
