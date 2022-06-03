@@ -1,0 +1,23 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "cli": "ts-node cli",
+    "startboids": "ts-node oneOffs/runBoids.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/yargs": "^15.0.7",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3",
+    "yargs": "^16.0.3"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^5.3.0",
+    "@mux/mux-node": "^3.1.0",
+    "firebase-admin": "^9.2.0"
+  }
+}
