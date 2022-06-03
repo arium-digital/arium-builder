@@ -15,11 +15,6 @@ export const firebaseConfig = {
 };
 
 const communicationUrl = "https://arium-communication.firebaseio.com";
-const peersUrl = "https://arium-peers.firebaseio.com/";
-const consumersUrl = "https://arium-consumers.firebaseio.com/";
-const createdConsumersUrl = "https://arium-created-consumers.firebaseio.com/";
-const producingPeersUrl = "https://arium-producing-peers.firebaseio.com/";
-const boidsUrl = "https://arium-boids-test.firebaseio.com/";
 
 // Initialize Firebase
 const communicationApp = !firebase.apps.length
@@ -31,29 +26,9 @@ const communicationApp = !firebase.apps.length
 const store = firebase.firestore();
 
 const communicationDb = communicationApp.database(communicationUrl);
-const producingPeersDb = communicationApp.database(producingPeersUrl);
-
-const peersDb = communicationApp.database(peersUrl);
-const consumersDb = communicationApp.database(consumersUrl);
-const createdConsumersDb = communicationApp.database(createdConsumersUrl);
-
-const boidsDb = communicationApp.database(boidsUrl);
 
 if (process.env.NEXT_PUBLIC_DB_EMULATOR_PORT) {
   communicationDb.useEmulator(
-    "localhost",
-    +process.env.NEXT_PUBLIC_DB_EMULATOR_PORT
-  );
-  producingPeersDb.useEmulator(
-    "localhost",
-    +process.env.NEXT_PUBLIC_DB_EMULATOR_PORT
-  );
-  peersDb.useEmulator("localhost", +process.env.NEXT_PUBLIC_DB_EMULATOR_PORT);
-  consumersDb.useEmulator(
-    "localhost",
-    +process.env.NEXT_PUBLIC_DB_EMULATOR_PORT
-  );
-  createdConsumersDb.useEmulator(
     "localhost",
     +process.env.NEXT_PUBLIC_DB_EMULATOR_PORT
   );
@@ -96,15 +71,7 @@ export declare type DocumentReference = firebase.firestore.DocumentReference;
 
 export const increment = firebase.firestore.FieldValue.increment;
 
-export {
-  communicationDb,
-  producingPeersDb,
-  peersDb,
-  consumersDb,
-  createdConsumersDb,
-  boidsDb,
-  store,
-};
+export { communicationDb, store };
 export declare type DocumentRef = Omit<
   firebase.firestore.DocumentReference,
   "listCollections" | "create"

@@ -20,7 +20,7 @@ export const uploadProfilePhoto = async ({
   const path = profileImagePath(userId, fileName);
 
   await storage().ref(path).putString(photoDataUri, "data_url");
-  const url = `https://assets.vlts.pw${path}`;
+  const url = await storage().ref(path).getDownloadURL();
 
   return {
     fileName,

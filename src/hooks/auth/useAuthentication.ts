@@ -9,7 +9,6 @@ export type AuthState = {
   isNewUser: boolean;
   userId?: string;
   user?: Optional<User>;
-  emailVerified: boolean;
   isAdmin: boolean;
   ensureSignedInAnonymously: boolean;
   claims: Optional<UserAuthClaims>;
@@ -38,7 +37,6 @@ export const useAuthentication = ({
   const [authState, setAuthState] = useState<AuthState>({
     authenticated: false,
     isAnonymous: true,
-    emailVerified: false,
     pending: true,
     isNewUser: false,
     // claimsLoaded: false,
@@ -78,7 +76,6 @@ export const useAuthentication = ({
           userId: user.uid,
           user: user,
           isAnonymous: user.isAnonymous,
-          emailVerified: user.emailVerified,
           isNewUser,
           panding: false,
         }));
@@ -133,22 +130,6 @@ export const buildConfig = (): firebaseui.auth.Config => {
     ],
     tosUrl: "https://www.arium.xyz/terms",
     privacyPolicyUrl: "https://arium.xyz/privacy",
-
-    callbacks: {
-      // Avoid redirects after sign-in.
-      signInSuccessWithAuthResult: function (authResult) {
-        const user = authResult.user;
-        const isNewUser = authResult.additionalUserInfo.isNewUser;
-
-        if (isNewUser) {
-          user.sendEmailVerification();
-        }
-        // Do something with the returned AuthResult.
-        // Return type determines whether we continue the redirect
-        // automatically or whether we leave that to developer to handle.
-        return true;
-      },
-    },
   };
 
   return config;

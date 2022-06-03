@@ -1,39 +1,40 @@
-# Arium Events
+# Arium Metaverse Builder 
 
-### Running just the front-end
+This repository contains an open-source, collaborative, real-time metaverse world builder with basic multiplayer functionality.
 
-If you don't need any back-end functionality, you can easily start just the front end development server:
+It contains much of the code used to run the [Arium](https://twitter.com/ariumspaces) platform, including:
 
-[Follow the instructions to install yarn](https://classic.yarnpkg.com/en/docs/install/)
+* Browser-based, collaborative, and real-time metaverse world builder.
+* Ability to invite collaborators to edit a space with you.
+* Ability for multiple spaces to exists, and for each user to be owner of multiple spaces.
+* Ability to connect spaces together with portals.
+* Ability to enter the space with a cube , and upload a photo as a custom avatar.
+* Ability to see others in the space in real-time.
+* Ability to live edit a space when other are in it.
 
-In the root of the directory, install all dependencies:
+It **does not** contain the following features from the Arium platform:
+* Peer to peer webcam and mic spatial communication.
+* Broadcasting
+* Screensharing
 
-    yarn
+## Example Experiences Built Using the Arium Platform
 
-or if using npm:
+## Underlying Frameworks
 
-    npm install
+Most of the application is built in typescript and react.  It is serverless, relying on a few Firebase Cloud Functions to perform any backend needs, and uses Firebase Firestore and RealtimeDB for data storage and syncing state across user sessions.
 
-Start the node.js server, and start the javascript development server:
+* [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
+* [React Three Drei](https://github.com/pmndrs/drei)
+* [react](https://reactjs.org/)
+* [next](https://nextjs.org/)
+* [rxjs](https://rxjs.dev/)
+* [typescript]
 
-    yarn start
+## Setup
 
-Or if using npm:
+## Setting up Firebase
 
-    npm start
-
-Open the page at `https://localhost:3000`
-
-### Running the back-end node server
-
-If you want to develop the node.js server, and connect the front end to it, follow these instructions.
-We use a local firebase emulator to communicate between the server and the browser.
-
-#### Prerequisites
-
-[Download and install docker on your computer](https://docs.docker.com/get-docker/)
-
-[Install the firebase cli](https://firebase.google.com/docs/cli)
+ToDO: fill out
 
 #### Generate a service account key
 
@@ -59,11 +60,31 @@ We use a local firebase emulator to communicate between the server and the brows
 
     yarn start:emulator
 
-#### Start up the server
+### Running just the front-end
 
-In the root of the directory:
+If you don't need any back-end functionality, you can easily start just the front end development server:
 
-    docker-compose up
+[Follow the instructions to install yarn](https://classic.yarnpkg.com/en/docs/install/)
+
+In the root of the directory, install all dependencies:
+
+    yarn
+
+or if using npm:
+
+    npm install
+
+Start the node.js server, and start the javascript development server:
+
+    yarn start
+
+Or if using npm:
+
+    npm start
+
+Open the page at `https://localhost:3000`
+
+
 
 ## Deploying
 

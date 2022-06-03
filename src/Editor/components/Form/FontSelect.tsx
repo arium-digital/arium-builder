@@ -1,5 +1,4 @@
-import { SpaceContext } from "hooks/useCanvasAndModalContext";
-import React, { useContext, useMemo } from "react";
+import React, { useMemo } from "react";
 import fonts from "shared/fonts";
 import DropdownSelect from "./DropdownSelect";
 import { useEditingElementStatus } from "./useEditingElementState";
@@ -13,18 +12,9 @@ const FontSelect = ({
   handleChanged: (updated: string) => void;
   error?: string;
 }) => {
-  const spaceId = useContext(SpaceContext)?.spaceId;
-
   const fontOptions = useMemo(() => {
-    let result = Object.keys(fonts);
-    if (!spaceId?.includes("shantell")) {
-      result = result.filter((x) => !x.includes("Shantell"));
-    }
-    if (!spaceId?.includes("genuino")) {
-      result = result.filter((x) => !x.includes("Genuino"));
-    }
-    return result;
-  }, [spaceId]);
+    return Object.keys(fonts);
+  }, []);
   const { locked } = useEditingElementStatus();
 
   return (

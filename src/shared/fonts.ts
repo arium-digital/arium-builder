@@ -37,16 +37,5 @@ const fonts = {
     "https://fonts.gstatic.com/s/wallpoet/v9/f0X10em2_8RnXVVdUObp58I.woff",
   "Sirin Stencil":
     "https://fonts.gstatic.com/s/sirinstencil/v6/mem4YaWwznmLx-lzGfN7MdRyRc9MAQ.woff",
-  ShantellSans: "https://assets.vlts.pw/standardAssets/fonts/ShantellSans.woff",
-  "ShantellSans-SemiBold":
-    "https://assets.vlts.pw/standardAssets/fonts/ShantellSans-Normal-SemiBold.woff",
-  "ShantellSans-Bold":
-    "https://assets.vlts.pw/standardAssets/fonts/ShantellSans-Normal-Bold.woff",
-  GenuinoAlaskaBetaBold:
-    "https://assets.vlts.pw/standardAssets/fonts/AlaskaBeta-Bold.woff",
-  GenuinoAlaskaBetaRegular:
-    "https://assets.vlts.pw/standardAssets/fonts/AlaskaBeta-Regular.woff",
-  GenuinoAlaskaBetaMedium:
-    "https://assets.vlts.pw/standardAssets/fonts/AlaskaBeta-Medium.woff",
 };
 export default fonts;
