@@ -1,7 +1,7 @@
 {
-  "name": "@arium-digital/arium",
+  "name": "@arium-digital/arium-buidler",
   "repository": {
-    "url": "git://github.com/arium-digital/arium-sdk.git"
+    "url": "git://github.com/arium-digital/arium-builder.git"
   },
   "main": "dist_pkg/arium.js",
   "module": "src/arium.esm.js",
@@ -9,7 +9,6 @@
   "scripts": {
     "test:client": "jest --verbose --config jest.client.config.js",
     "test:client:watch": "jest --watch --verbose --config jest.client.config.js",
-    "test:backend": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src",
     "lint-watch": "esw ./src",
     "start": "next dev",
@@ -18,9 +17,6 @@
     "build-performance": "node postinstall.js && next build --profile",
     "serve": "next start -p 3001",
     "db:clear-export": "gsutil -m rm -r gs://arium-backups/exports",
-    "db:export": "gcloud firestore export gs://arium-backups/exports --collection-ids=admins,defaultSettings,elements,elementsTree,devEnvironments,globalSettings,routerGroups,settings,userRoles,spaces,userProfiles,users,betaSignUps,invites,spaceRoles",
-    "db:copy-export-data": "gsutil -m cp -r gs://arium-backups/exports ./",
-    "db:copy-export-to-backup": "gcloud config set project arium-backups-test && gcloud firestore import gs://arium-backups/exports --collection-ids=spaces,elementsTree,settings && gcloud config set project volta-events-294715",
     "start:emulator": "firebase emulators:start --import ./exports --only functions,hosting,database,firestore",
     "prepare": "husky install"
   },
