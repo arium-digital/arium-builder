@@ -1,0 +1,22 @@
+@import "../pages/styles/variables.scss";
+
+.legalLinks {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  margin-right: 30px;
+
+  &,
+  a {
+    color: $arium-cream;
+    font-weight: normal;
+    font-size: 1em;
+    font-family: $primary-font;
+    margin-right: 20px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

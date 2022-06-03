@@ -1,0 +1,58 @@
+@font-face {
+  font-family: DeValencia;
+  src: url("https://assets.vlts.pw/standardAssets/fonts/DeValencia.otf")
+    format("opentype");
+}
+
+$margin: 20px;
+$font-color: #f0f0f0;
+
+.contents {
+  font-family: "DeValencia", serif;
+  color: $font-color;
+  .top {
+    text-align: right;
+  }
+
+  h2 {
+    font-style: 40px;
+    font-size: 40pt;
+    font-weight: normal;
+    margin-bottom: $margin;
+    margin-bottom: $margin;
+  }
+
+  p {
+    margin-top: $margin;
+    margin-bottom: $margin;
+  }
+}
+
+.connecToMetamaskButton {
+  font-size: 20pt;
+  button {
+    background-image: url("https://assets.vlts.pw/spaceAssets/visual-massage/button-toggle-v3.png");
+    width: 120px;
+    height: 70px;
+    border: none;
+    position: relative;
+    top: 5px;
+  }
+}
+
+.connected {
+  background-position: 100% 0;
+}
+
+.mintButton {
+  background-color: #323232;
+  border: none;
+  color: $font-color;
+  font-size: 40pt;
+  line-height: 42pt;
+
+  &:disabled {
+    opacity: 0.4;
+    // color: #848484;
+  }
+}

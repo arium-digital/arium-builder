@@ -1,0 +1,28 @@
+.main {
+  background-color: none;
+}
+
+.mainContainer {
+  padding-top: 33px;
+  padding-bottom: 33px;
+}
+
+.mainActions {
+  h3,
+  h4,
+  h5 {
+    margin: 33px auto;
+  }
+}
+
+.loadingWrapper {
+  margin: 50px 0;
+  svg {
+    width: 100px;
+    margin: auto;
+  }
+}
+
+.alignCenter {
+  text-align: center !important;
+}

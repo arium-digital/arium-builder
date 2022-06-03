@@ -1,0 +1,17 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read: if request.auth!=null;
+    }
+    match /spaceAssets/{spaceId}/{allPaths=**} {
+      allow write: if spaceId in request.auth.token.spaces || request.auth.token.spaceEditor[spaceId] == true || request.auth.token.admin == true || request.auth.token.spaceOwner[spaceId] == true
+    }
+    match /spaceUserAssets/{spaceId}/{userId}/{allPaths=**} {
+        allow write: if request.auth.uid == userId
+    }
+    match /profileImages/{userId}/{allPaths=**} {
+      allow write: if request.auth.uid == userId && request.resource.contentType.matches('image/.+');
+    }
+  }
+}

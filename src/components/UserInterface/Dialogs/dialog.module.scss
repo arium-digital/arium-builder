@@ -1,0 +1,153 @@
+@import "css/fontFamilies.module.scss";
+@import "css/breakpoints.module.scss";
+@import "pages/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .closeButton {
+    position: absolute;
+
+    // top: 0px;
+    @media (min-width: $sm) {
+      top: 16px;
+    }
+    @media (max-width: $sm) {
+      // transform: scale(1.5);
+    }
+    right: 16px;
+    float: right;
+    pointer-events: stroke;
+    padding: 0;
+    min-width: 0;
+
+    @include media-breakpoint-down(xs) {
+      right: 16px;
+      top: 16px;
+    }
+  }
+}
+
+$modalBoxShadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+  0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+.modalPaper {
+  background-color: $arium-cream;
+  border: 2px solid #000;
+  position: fixed;
+  z-index: 999;
+  color: $arium-black;
+  box-shadow: $modalBoxShadow;
+  label {
+    color: $arium-black;
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+  outline: none; /*https://github.com/mui-org/material-ui/issues/11504*/
+}
+
+$paperPadding: 60px;
+
+.copyLinkHolder {
+  margin-top: 8px;
+}
+
+.modalPaperSmaller {
+  @extend .modalPaper;
+  position: absolute;
+  width: 600px;
+  padding: $paperPadding;
+  @include media-breakpoint-down(xs) {
+    width: 95%;
+    padding: $paperPadding/2;
+  }
+}
+
+.centeredContents {
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    text-align: center;
+  }
+}
+
+.modalPaperLarge {
+  @extend .modalPaper;
+  padding: $paperPadding/2;
+
+  width: 60%;
+  @include media-breakpoint-down(xs) {
+    width: 95%;
+    height: 95%;
+    padding: $paperPadding/2;
+  }
+}
+
+.screenshotImage {
+  width: 100%;
+  margin: auto;
+  @include media-breakpoint-down(sm) {
+    width: 95%;
+  }
+}
+
+.copyButton {
+  @include media-breakpoint-down(sm) {
+    span {
+      font-size: 1rem;
+    }
+  }
+}
+
+.listForm {
+  padding-left: 16px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  padding-right: 0;
+  margin-top: 8px;
+}
+
+.formButtonContainer {
+  width: 100%;
+  height: 40px;
+  border-radius: 0;
+  top: -6px;
+  border: none;
+  font-family: $secondary-font;
+  position: relative;
+}
+
+.formButton {
+  background-color: $arium-red;
+  color: $arium-cream;
+
+  border: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.listButtonText,
+.formLink {
+  font-size: 16px;
+  font-family: $primary-font;
+}
+
+.formLink {
+  &,
+  &:visited {
+    color: $arium-red;
+    text-decoration: underline;
+  }
+}
+
+.headerForList {
+  padding-left: 16px;
+}

@@ -1,0 +1,24 @@
+@import "pages/styles/variables.scss";
+
+.welcomeScreenContainers {
+  overflow-x: hidden;
+  max-height: 80vh;
+  height: auto;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
+}
+
+.welcomeMessageContainer {
+  overflow-y: auto;
+}
+
+.welcomeScreenContent {
+  height: auto;
+  color: $arium-black;
+  & * {
+    background-color: transparent !important;
+  }
+}

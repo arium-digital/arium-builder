@@ -1,0 +1,272 @@
+{
+  "experiences": [
+    {
+      "spaceId": "visual-massage",
+      "meta": {
+        "welcomeHTML": "<p>Visual Massage<br>A collection of 300 1/1 gif art pieces.</p>\n<p>View an accessible 2d version of the collection <a href=\"https://www.visual-massage.com\" target=\"_blank\">here.</a><br><br>The  whole project was designed and created as a Virtual Space and a Web3 site where the 300 pieces are showcased and available to be minted directly into the Ethereum blockchain under a custom ERC721 smart contract. The whole space interacts with the minting process so when a piece is acquired the frame of the door where it’s being exhibited illuminates and a white window appears in the external side of the room. There are three different ‘h3lix’ with 100 pieces on each one. Since the first day, one is open but is not until all the pieces are minted that the pieces in the second ‘h3lix’ are unveiled. The same happens with the third one.<br><br>The process for all the ‘Visual Massage’ series was repeated and developed over a year: Giftillism. The only element of these works is the main one of Digital Art: the white pixel, light. Deconstruction of photographies into pure white pixels. No grayscale, the brightness is defined by the density of the white pixels. The loop animation is created in video using the own shapes of the still image as reference. The final format is gif, allowing these works to run seamlessly and generating a ‘Visual Mantra’ feeling using its main characteristic that is the perfect loop. -<br><br>Series created from 10/2020 to 10/2021.<br>Part of ‘Helix’ VR exhibition.<br>Hosted by <a href=\"https://twitter.com/ariumspaces\" target=\"_self\">Arium</a><br>3D architecture and Sculptures: <a href=\"https://twitter.com/twothreefourd\" target=\"_self\">234D</a><br>Blockchain developer: <a href=\"https://twitter.com/dievardump\" target=\"_self\">dievarump</a></p>\n",
+        "metaImage": {
+          "fileName": "default-meta-5Ssdskx6.jpg",
+          "spaceId": "visual-massage",
+          "fileLocation": "spaceUserAssets",
+          "fileType": "stored",
+          "folder": "FALZQmkbeRMgHten7UM938OboZH3"
+        },
+        "hostName": "A.L. Crego x 234D x dievardump x Arium",
+        "name": "Visual Massage"
+      }
+    },
+    {
+      "spaceId": "portal",
+      "meta": {
+        "hostName": "Arium",
+        "name": "The Portal",
+        "welcomeHTML": "<p>A collection of cryptoart experiences created on Arium throughout 2021.  Explore these experiences and connect with the Arium community by <a href=\"https://discord.gg/hY55z4gkXD\" target=\"_self\">joining our discord</a>.</p>\n<p></p>\n<p><strong>With thanks to...</strong></p>\n<p><a href=\"https://twitter.com/eleonorabrizi\" target=\"_self\">@eleonorabrizi</a><br><a href=\"https://twitter.com/Hackatao\" target=\"_self\">@hackatao</a> <br><a href=\"https://twitter.com/pupiladilatada\" target=\"_self\">@pupiladilatada</a><br><a href=\"https://twitter.com/verticalcrypto\" target=\"_self\">@verticalcrypto</a><br><a href=\"https://twitter.com/institutco\" target=\"_self\">@institutco</a><br><a href=\"https://twitter.com/weareunitlondon\" target=\"_self\">@weareunitlondon</a><br><a href=\"https://twitter.com/SerenaTabacchi\" target=\"_self\">@serenatabacchi</a><br><a href=\"https://twitter.com/andreabonac\" target=\"_self\">@andreabonac</a><br><a href=\"https://twitter.com/whale_community\" target=\"_self\">@whale_community</a><br><a href=\"https://twitter.com/ClitSplash\" target=\"_self\">@ClitSplash</a><br><a href=\"https://twitter.com/themyntlab\" target=\"_self\">@themyntlab</a><br><br>and many others!</p>\n",
+        "metaImage": {
+          "fileLocation": "spaceUserAssets",
+          "fileType": "stored",
+          "spaceId": "portal",
+          "fileName": "default-meta-H14noOKd.jpg",
+          "folder": "FALZQmkbeRMgHten7UM938OboZH3"
+        }
+      }
+    },
+    {
+      "spaceId": "hack-of-a-bear",
+      "meta": {
+        "hostName": "Hackatao x Christie's x MOCA x Breezy Art",
+        "metaImage": {
+          "folder": "ZQdz3sfgERdOx8uhdQvIi95MxVI3",
+          "fileName": "default-meta-06pQvvsk.jpg",
+          "spaceId": "hack-of-a-bear",
+          "fileType": "stored",
+          "fileLocation": "spaceUserAssets"
+        },
+        "welcomeHTML": "<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 14px;font-family: Arial;\">“This is the story of the continuum of art: a superior force that knows neither age nor place. A tale about the most contemporary art, once known as Renaissance art, today going by the name of crypto art.”</span> <br><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 14px;font-family: Arial;\"><em>~ Eleonora Brizi </em></span><em> </em></p>\n<p><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">The main idea behind this “collaboration” between Hackatao and Leonardo Da Vinci is the concept of the <em>continuum</em>, the fractal’s never-ending pattern, the continuous connection, the infinite circularity, the indivisible eternity of art.</span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">This isn’t the story of how we, as art lovers and experts, have always been trying to categorize art and compartmentalize it in boxes for our own pleasure.</span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">This is the story of how Art, that we love and worship so much, is a superior force that knows neither age nor place. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">And adjust like that, looking across the continuum of the universe and life, we extracted a tale that dates back to the far 1500 and reaches up to the present day. A tale about the most contemporary art, once known as Renaissance art, today going by the name of crypto art. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">While </span><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">“truly marvellous and celestial was Leonardo”, experimenter and inventor, in the search of the new and hungry for knowledge; so the duo Hackatao has been experimenting with technology, believing in new means for artistic expression as well as in new forms of governance for the art world and the society. </span><br><br><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">The work “<em>Head of a Bear” </em>by Leonardo is reborn today in the metaverse, through the art of Hackatao, manifesting in its digital nature. </span></p>\n<p><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">While Leonardo spends his life looking for the truth, Hackatao gives the chance for his creations to come to life and become “real”. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">The bear literally gets “hacked” by Hackatao and finds its eternal second life, being forever engraved in the unconscious stream of their </span><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">oneiric </span><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">drawings. </span><br></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">This whole process of perpetuation is made possible by the help of technology. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">As an </span><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">umbilical cord, Augmented Reality inseparably links the paper drawing by Leonardo and the 3D model covered in digital drawings by Hackatao. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">From now on, at any time people from all over the world will be able to use their digital devices - such as cell phones or ipads - to scan Leonardo’s bear through the use of an App and enjoy the latter to get animated on their screens.</span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">The two souls of the bear, physical and digital, will never be separated again. They won’t exist without each other, the AR will keep them together, whether it is the original drawing by Leonardo to be scanned through <em>AR Aria</em> App, or its digital reproduction on the internet, social media and websites, or its photo printed on a catalog. Anywhere the image of </span><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">“<em>Head of a Bear” </em>will appear, so will its digital essence, signed by Hackatao. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">The transition from Leonardo’s drawing, through the mapped 3D head, to the final digital drawings by Hackatao resembles a wave. The bear’s fur is whirling, inspired by the numerous studies that Leonardo did on natural elements like the water and the air. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">Even throughout this very technical metamorphosis from physical to digital, the attention towards nature unites Leonardo and Hackatao. The meticulous observation of that nature, self-learning, the search for answers in experience and experimentation with it. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">In the last part of the animation, the bear opens its mouth and we enter its jaws. The tunnel of the “eternal return”, while the animation will forever play in a loop. </span></p>\n<p><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">Hackatao, <em>Hack of a Bear</em>, 2021</span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">Is an attempt by Hackatao to function as a “conductive” for Art, to put the most contemporary means of creative expression at its service and to fulfill their duties as artists to perpetuate it. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">While fluctuating and floating in the infinite flow of Hackatao’s motifs, maybe the<em> Vitruvian Man</em> appears in the shape of a woman, maybe the <em>Monalisa </em>is a Podmork, maybe the<em> Ermine</em> is a fetus hugging his Lady mother.</span></p>\n<p><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: 11pt;font-family: Arial;\">And perhaps it is time, as Leonardo did in trying to perfect it throughout his life, to \"change perspective\".</span><br></p>\n<p><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">We hope you enjoyed the show.</span><br><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">Eleonora Brizi </span><br> <br>&nbsp;</p>\n",
+        "name": "Hack of a Bear"
+      }
+    },
+    {
+      "spaceId": "pupila-dilatada",
+      "meta": {
+        "name": "Pupila Dilatada",
+        "metaImage": {
+          "spaceId": "pupila-dilatada",
+          "fileName": "default-meta-jNY6dcsl.jpg",
+          "fileType": "stored",
+          "fileLocation": "spaceUserAssets",
+          "folder": "3JgRiHjdmbOOTwAHcWE9ZjIMfo33"
+        },
+        "welcomeHTML": "<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 12pt;font-family: Arial;\">De onde surge o desejo humano de experimentar outras dimensões, de dilatar sua mente, alma e olhos? Onde esse desejo desperta e para onde ele nos desperta? Desde que o mundo é mundo, a humanidade faz uso de substâncias que levam a outros mundos, outros estados de consciência e percepção. A partir dessas experiências, criam-se novas conexões de símbolos e significados, mas também neurológicas. O estar fora de si e ao mesmo tempo estar muito para dentro de si, permite esse acesso a outras redes, tramas não visíveis a olho nu. Caminhos entrelaçados que nos conectam e são com um todo.</span><br><br><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 12pt;font-family: Arial;\">A arte psicodélica busca retomar esses caminhos e abarca inúmeras formas de registro e também criação de viagens, experiências por essas outras dimensões. Não se restringe a uma prática, processo ou linguagem específica. A expressão dessas vivências pode ser através de percepções visuais, sonoras, sinestésicas. As vivências, que são também compartilhadas e conectadas, têm cores vívidas, seres de outros mundos, formas derretidas e alguns elementos absurdos, gerando uma nuvem estética ao redor dessas formas que encontramos de nos expressar.O universo lá fora seduz a humanidade desde seu primórdio. O desejo de ir além, de dilatar-se, de ampliar o que se conhece, nos atravessa. Os astros guiaram os povos da antiguidade, as estrelas e a via láctea eram também deidades. Ao entrarmos na Pupila Dilatada, estamos entre as estrelas, em uma construção de cristais flutuantes sustentada por pilares. Os astros nos observam, seus olhos nos convidam a acessar diferentes portais. Nesse centro, temos a possibilidade de expandir, de dilatar nossa mente e nossos olhos para, assim, seguir para essas outras dimensões. Cada portal nos apresenta um metaverso diferente, dimensões outras que se conectam entre si. Nessa viagem, navegamos pelo deserto, pelas águas, chegando ao templo digital que nos leva ao templo cósmico e assim voltamos ao universo.</span></p>\n<p><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 12pt;font-family: Arial;\">- Taís Koshino</span></p>\n",
+        "hostName": "Pupila Dilatada"
+      }
+    },
+    {
+      "spaceId": "whale-community-hackatao",
+      "meta": {
+        "hostName": "Hackatao x Whale Community x Breezy Art",
+        "welcomeHTML": "<p>ENCOUNTER <br><br>Welcome to “Encounter,” where we are taking you through the journey of one of the most exciting creative processes of the crypto art scene, of the union of two different souls, natures, elements, identities, personalities, and styles.</p>\n<p>That of Hackatao is the incredible story of an encounter, that decided to manifest to humans in the form of art. The 15 pieces here displayed and collected in the Vault by $Whale speak for themselves, being a very comprehensive representation of the artists' body of work.&nbsp;</p>\n<p>Most of us have read many words about the pioneer artistic duo. I, myself, have written many about their art.  With “Encounter’, we want you to concentrate on the balance, the combination, the fusion, what could be considered natural “alchemy.”&nbsp;</p>\n<p>With Hackatao’s work, two identities blend into one. And we were lucky enough to witness the miracle in a space and a time which is the most precious of all gifts: community.</p>\n",
+        "metaImage": {
+          "fileType": "stored",
+          "folder": "Vnbelp2GOYPXiAwZyQzp6eWZIIJ3",
+          "fileLocation": "spaceUserAssets",
+          "spaceId": "whale-community-staging",
+          "fileName": "default-meta-N2QbBFMd.jpg"
+        },
+        "name": "Hackatao: Encounter"
+      }
+    },
+    {
+      "spaceId": "whale-community-xcopy",
+      "meta": {
+        "welcomeHTML": "<p>There are 24 artworks by Xcopy in The Vault collection; some of them date back to 2018. The iconic style, unimitable, fun, enthralling, colorful, flashing, and in eternal motion, is the aesthetic that Xcopy chose to present artworks that are death-themed and dystopia-themed.  Xcopy's works are a commentary on society and life in a very ironic and satirical way that will forever be recognizable at first sight.&nbsp;</p>\n<p>The art of Xcopy is thorny, inconvenient. But it's hypnotizing, and you can't stop looking at it while your eyes are getting painful. It's almost like the constant movement of the works is meant to make you feel uncomfortable, so now you are forced to stop and think about what you are seeing.&nbsp;</p>\n<p>The punk spirit of contrasting everyday problems through a very invasive art practice that almost makes you forget about them; the search of the \"error\" and the imperfection as a metaphor of the unexpected in life; the \"malfunction\" of the visual make his/her/their art to be like an addiction.</p>\n<p>Thank you, Xcopy. We will just make sure that when it gets too painful, we will buy glasses.&nbsp;</p>\n<p>Eleonora Brizi&nbsp;</p>\n",
+        "metaImage": {
+          "fileName": "default-meta-2YOcMZRO.jpg",
+          "fileLocation": "spaceUserAssets",
+          "folder": "FALZQmkbeRMgHten7UM938OboZH3",
+          "spaceId": "whale-community",
+          "fileType": "stored"
+        },
+        "hostName": "XCopy x Whale Community x Breezy Art",
+        "name": "The Vault: XCopy Collection"
+      }
+    },
+    {
+      "spaceId": "whale-community-giant-swan",
+      "meta": {
+        "welcomeHTML": "<p>This is the story of a kid who used to watch birds, of an artist who became a man, of a man who became an artist.</p>\n<p>“There are approximately ten thousand species of birds on the planet and no single individual has seen them all.” ― Bernd Brunner</p>\n<p>Giant Swan, a name that came from music and lives through movement, that breathes in the experience of art.</p>\n<p>The keywords in the art of Giant Swan are movement and experience.&nbsp;</p>\n<p>Movement, his essence, and his primordial creative force through which he gives life to shapes, characters, and new worlds inside the VR space. And experience, whether it is connective, immersive, embracing, playful, or just a place where to exist.&nbsp;</p>\n<p>The VR worlds that he creates for us to live and enjoy are that same scene where he shares his personal moments in relation to these spaces that he invents himself. Giant Swan’s art becomes a whole, an inclusive place where the relationship between the creator with the viewer and their personal connection with it is an essential part of the creation itself, its reason to exist.</p>\n<p>Giant Swan’s art is personal, but it speaks the universal language and his most intimate act of creation and feelings simply becomes our most intimate experience. His sculptures, which he creates in VR, don’t aim for perfection. On the contrary, his body movements generate that sparkle of imperfection that makes his art the most human and inclusive for the viewers, who feel comfortable and able to embrace their own imperfections.</p>\n<p>With Giant Swan, art is not “exclusive” anymore. It is an act of sharing this collective condition we are all living together.</p>\n<p>Welcome to THE INFINITE DANCE OF GIANT SWAN.</p>\n<p>Curator’s note</p>\n<p>And in my mind there will always be that little kid, shadowing bird watchers in the park and never stopping looking for as many as possible of almost ten thousand species of birds. Only now, he is able to fly with them.</p>\n<p>Eleonora Brizi</p>\n",
+        "hostName": "Giant Swan x Whale Community x Breezy Art",
+        "name": "The Infinite Dance of Giant Swan",
+        "metaImage": {
+          "fileName": "default-meta-oV6NMqp3.jpg",
+          "fileLocation": "spaceUserAssets",
+          "folder": "Vnbelp2GOYPXiAwZyQzp6eWZIIJ3",
+          "spaceId": "whale-community-staging",
+          "fileType": "stored"
+        }
+      }
+    },
+    {
+      "spaceId": "hidden",
+      "meta": {
+        "welcomeHTML": "<p><strong>H(ID)DEN<br></strong>A Collective hallucination<br><strong>Hackatao + Skygolpe </strong></p>\n<p>Curated by Eleonora Brizi and Serena Tabacchi&nbsp;</p>\n<p>What is the tree with the deepest roots in the world? <br>Unless all the trees of the planet will be eradicated,<br>this question is impossible to answer. <br>The roots, core and life source of a tree, are h/id/den.</p>\n<p>Can our unconscious produce convincing hallucinations?</p>\n<p>A line drawn on a canvas,<br>the electric excitement that shakes our bodies,<br>a fearless figure stands in front of the ocean.</p>\n<p>We are all connected.&nbsp;</p>\n",
+        "hostName": "Hackatao x Skygolpe x Breezy Art",
+        "name": "H(ID)DEN A Collective Hallucination",
+        "metaImage": {
+          "folder": "ZQdz3sfgERdOx8uhdQvIi95MxVI3",
+          "fileLocation": "spaceUserAssets",
+          "fileType": "stored",
+          "spaceId": "hidden",
+          "fileName": "default-meta-QuXSjL0N.jpg"
+        }
+      }
+    },
+    {
+      "spaceId": "whale-community-the-story-of-a-rebirth",
+      "meta": {
+        "welcomeHTML": "<p>THE STORY OF A REBIRTH&nbsp;</p>\n<p></p>\n<p>In this selection of artworks from the Vault, ten amazing artists take our hands and guide us through the journey of humanity as a whole, once again confirming their role as those who can intercept the future and interpret the present.&nbsp;</p>\n<p>For December, I thought about telling a story, our story. The tale of all of us sticking together and going towards the new year is always filled with the hope for a better one.&nbsp;</p>\n<p>As art often speaks more than many words, it is incredible to see how these art pieces, through their depth, colors, animations, and aesthetic gestures, depict the spirit of the crazy time that the entire world has been living in these past years. And even more incredible is to discover that these artworks weren’t necessarily created during the pandemic, to demonstrate that the fears and dramas of humanity are recurring and shared.</p>\n<p>While Coldie highlights the importance of having a healthy body but especially considers the healing condition, Reinhard Schmid’s elegant Ballerina is gracefully stuck on the same engine that keeps her alive. David Loblaw’s Lions Peak is a modern Wanderer above the sea of fog, as in these recent times we genuinely got lost again in front of the sublime power of nature.&nbsp;</p>\n<p>Frenetik Void’s piece is pretty symbolic of what we all have been experiencing; it’s an escape “for” freedom, accompanied by a feeling of alienation that becomes real when our Alien Mother comes back to nourish us before we hatch.&nbsp;</p>\n<p>In this path of self-isolation and quarantine of both the intimate self and the individual in the society, we are all shadows, invisible inhabitants that we never meet, Blinded by the diamonds in the sky. With Home Ascending by Monfa Cabrera, we are given the chance of floating away, with our houses, towards a space with no gravity nor smog. The foundations detached, we are suspended; the branches open, and we are Released.&nbsp;</p>\n<p>“Yet each man kills the thing he loves.”&nbsp;</p>\n<p>And we need to die before being reborn.&nbsp;</p>\n<p>We are dying swans, approaching death with the most intense joy of living. (Brendan Dawes)</p>\n<p>And eventually, in the collectivity within the community, we will see REBORN.&nbsp;</p>\n<p>Happy New Year,&nbsp;</p>\n<p>Eleonora Brizi</p>\n",
+        "hostName": "Whale Community x Breezy Art",
+        "metaImage": {
+          "fileLocation": "spaceUserAssets",
+          "fileType": "stored",
+          "folder": "Vnbelp2GOYPXiAwZyQzp6eWZIIJ3",
+          "fileName": "default-meta-r3SEy1H5.jpg",
+          "spaceId": "whale-community-staging"
+        },
+        "name": "The Story of a Rebirth"
+      }
+    },
+    {
+      "spaceId": "influences",
+      "meta": {
+        "metaImage": {
+          "spaceId": "influences",
+          "fileName": "default-meta-qKYEf7pr.jpg",
+          "folder": "OenzrguONKVmFvzWmxfbZAvcNO23",
+          "fileLocation": "spaceUserAssets",
+          "fileType": "stored"
+        },
+        "name": "Influences",
+        "hostName": "The Mynt x Aspekt"
+      }
+    },
+    {
+      "spaceId": "cambi-dystopianvisions",
+      "meta": {
+        "hostName": "CAMBI x Serena Tabacci x Bruno Pitzalis",
+        "metaImage": {
+          "fileType": "stored",
+          "fileName": "default-meta-msWqkHl0.jpg",
+          "folder": "ZQdz3sfgERdOx8uhdQvIi95MxVI3",
+          "fileLocation": "spaceUserAssets",
+          "spaceId": "cambi-dystopianvisions"
+        },
+        "name": "Cambi - Dystopian Visions",
+        "welcomeHTML": "<p><strong>Welcome to Dystopian Visions, a curated NFT digital art collection.</strong></p>\n<p>Curated by Serena Tabacchi</p>\n<p>The world is changing. Artists were the first to perceive this, understanding the dynamics of a movement in constant flux, facing towards an interconnected system between art and technology, laying the foundations of what is now seen as a global movement called crypto art: a creed that unites online communities and the spirit of each artist in a single, extremely real and visionary digital space.</p>\n"
+      }
+    },
+    {
+      "spaceId": "vca-residency-auction",
+      "meta": {
+        "metaImage": {
+          "fileName": "default-meta-e3azz0vS.jpg",
+          "spaceId": "vca-residency-auction",
+          "fileType": "stored",
+          "fileLocation": "spaceUserAssets",
+          "folder": "FALZQmkbeRMgHten7UM938OboZH3"
+        },
+        "name": "VCA Resident Artist Auction 2",
+        "welcomeHTML": "<p><strong>Welcome to the VCA Resident Artist Event </strong></p>\n<p>We invite you to enter the space, walk around, enjoy the atmosphere, the music and the surroundings.&nbsp;</p>\n<p>We are exhibiting &amp; auctioning 17 artworks made by the resident artists themselves, a celebration of the end of our 12 week program showcasing emerging talent in the digital and crypto art space.&nbsp;</p>\n<p><strong>The auction is live at: https://auction.verticalcrypto.art/</strong></p>\n<p><strong>Hop in &amp; enjoy the event!</strong></p>\n<p>Love,</p>\n<p>VCA</p>\n",
+        "hostName": "Vertical Crypto Art"
+      }
+    },
+    {
+      "spaceId": "vca",
+      "meta": {
+        "welcomeHTML": "<p style=\"text-align:center;\"><span style=\"color: rgb(0,0,0);background-color: rgba(255,255,255,0);font-size: 18px;font-family: Source Sans Pro;\"><strong>     The First VerticalCrypto Art </strong></span><br><span style=\"color: rgb(0,0,0);background-color: rgba(255,255,255,0);font-size: 18px;font-family: Source Sans Pro;\"><strong>            Resident Art Auction</strong></span></p>\n<p><span style=\"color: rgb(0,0,0);background-color: rgba(255,255,255,0);font-size: 18px;font-family: Source Sans Pro;\">A cross-chain NFT auction featuring 14 unique 1/1 artworks from the first cohort of our incredible resident artists:</span><br><br>Kalen Iwamoto <a href=\"https://twitter.com/KalenIwamoto\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@KalenIwamoto</span></a> <br>Walt Reunamo <a href=\"https://twitter.com/walt_artist\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@walt_artist</span></a> <br>Murat Atimtay <a href=\"https://twitter.com/atimtay\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@atimtay</span></a> <br>Cagri Taskin <a href=\"https://twitter.com/_cagritaskin\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@_cagritaskin</span></a> <br>Negar <a href=\"https://twitter.com/Egarsreal\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@Egarsreal</span></a> <br>Nedtzo <a href=\"https://twitter.com/NedtzoArt\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@NedtzoArt</span></a> <br>Andrea Balestrero <a href=\"https://twitter.com/abalestrero\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@abalestrero</span></a> <br>MABLAB <a href=\"https://twitter.com/MABLABART\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@MABLABart</span></a> <br>Warragwag <a href=\"https://twitter.com/jvlive_H\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@jvlive_H</span></a> <br>Linda Dounia <a href=\"https://twitter.com/LindaDouniaR\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@LindaDouniaR</span></a> <br>Will AK <a href=\"https://twitter.com/bywillak\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@bywillak</span></a> <br>Rose Jackson <a href=\"https://twitter.com/in_cloudlands\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@in_cloudlands</span></a> <br>Octavio Irving <a href=\"https://twitter.com/octavioirving2\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@octavioirving2</span></a> <br>Tù.úk'z <a href=\"https://twitter.com/tuukzs\" target=\"_self\"><span style=\"color: rgb(44,130,201);background-color: rgba(0,0,0,0);font-size: inherit;\">@tuukzs</span></a>&nbsp;</p>\n<p><span style=\"color: rgb(0,0,0);background-color: rgba(255,255,255,0);font-size: 18px;font-family: Source Sans Pro;\">Explore the main room, with the auctioned artworks as well as enter into the portal where you will be immersed in a conceptual collaborative piece by Kalen Iwamoto and Walt Reunamo. </span></p>\n<p><span style=\"color: rgb(0,0,0);background-color: rgba(255,255,255,0);font-size: 18px;font-family: Source Sans Pro;\">Enjoy!</span></p>\n<p></p>\n",
+        "metaImage": {
+          "fileType": "stored",
+          "fileName": "default-meta-637yvhF6.jpg",
+          "fileLocation": "spaceUserAssets",
+          "folder": "0ACAxOo0W5fGpnWmKjvJKNV4u7f2",
+          "spaceId": "vca"
+        },
+        "hostName": "Vertical Crypto Art",
+        "name": "The VCA Resident Artist Auction "
+      }
+    },
+    {
+      "spaceId": "hack-the-borders",
+      "meta": {
+        "welcomeHTML": "<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">This art series is part of the project HACK THE BORDERS, an artistic collaboration between pioneer crypto artist duo Hackatao and Chris Stein + Debbie Harry of the legendary punk rock band BLONDIE.</span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">“Hack the Borders” itself symbolizes a true act, from both Hackatao and Blondie, of hacking all borders and boundaries, and ultimately the limits of narrow-mindedness. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">36 years ago, Blondie frontwoman Debbie Harry and her friend Warhol created an everlasting cultural moment with the Commodore Amiga in 1985, as Debbie became the subject of his very first digital portrait, an image that is just as significant today as it was then. Today, the duo Hackatao continues that line and joins forces with Blondie to create the most pop portrait of her, in their own unique style, belonging to what could be currently considered the most contemporary art movement: crypto art.  </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">The drop on Nifty Gateway is happening on August 6th, the day of birth of both Andy Warhol and S. of Hackatao. </span></p>\n<p style=\"text-align:justify;\"><span style=\"color: rgb(15,20,25);background-color: transparent;font-size: 11pt;font-family: Arial;\"><em>\"What is the difference between the punk movement and crypto-art? Which one is distant from the social and political conventions and which one from the establishment?\" </em></span></p>\n<p><span style=\"color: rgb(0,0,0);background-color: transparent;font-size: 11pt;font-family: Arial;\">Eleonora Brizi</span></p>\n",
+        "metaImage": {
+          "folder": "ZQdz3sfgERdOx8uhdQvIi95MxVI3",
+          "fileLocation": "spaceUserAssets",
+          "fileName": "default-meta-unvKVHMY.jpg",
+          "fileType": "stored",
+          "spaceId": "hack-the-borders"
+        },
+        "name": "Hack the Borders",
+        "hostName": "Hackatao x Blondie x Breezy Art"
+      }
+    },
+    {
+      "spaceId": "erotika",
+      "meta": {
+        "name": "Erotika",
+        "metaImage": {
+          "folder": "Ll0fI28danZMq8eaIlHgCFxzQ843",
+          "fileType": "stored",
+          "spaceId": "erotika",
+          "fileLocation": "spaceUserAssets",
+          "fileName": "default-meta-IKvtKo5w.jpg"
+        },
+        "hostName": "ClitSplash",
+        "welcomeHTML": "<p>Accessible also physically at: Pleasuretown, 2160 Park Ave, Miami Beach</p>\n<p>The brainchild of the feminist NFTs collective ClitSplash, the show, which is part of Miami Art Week, features twelve crypto and visual artists from young and emergent to world-renowned. Scarcity of censorship and prejudices within the crypto realm yielded an interesting abundance of erotic art in the metaverse. Drawing from this particular characteristic, and elaborating on it, through EROTIKA ClitSplash aims at overcoming erotic art’s mainstream and opening the field to new narratives.</p>\n<p>Erotic pleasure has been a recurring theme since the beginning of the historyof artistic representation: fantasies, libido, obsessions prompted an infinite repertoire of images and expressions of identity. Yet, in Western culture, the supremacy of the heteronormative andpatriarchal thought in art primarily legitimized what is known as “the malegaze”. Thus, eroticism within art history has been anchored to a masculinevision in which the (re)presented object of desire is feminine and passive. This generated a hegemonic perspective that tends to overlook those artists whose expressions of the erotic is different in terms of both the object of desire and the bearers of the gaze. Through EROTIKA we are interested in challenging that vision with other views that may contradict and subvert it. The crypto space is the ideal setting for the existence and unfolding of these visions: the virtual is the field par excellence for performance, simulation, transformation and the emergence of otherness.</p>\n"
+      }
+    },
+    {
+      "spaceId": "transformations",
+      "meta": {
+        "welcomeHTML": "<p><strong>Institut presents Transformations, a historic IRL and URL exhibition of NFTs, offered exclusively for sale via Institut.</strong></p>\n<p><strong>Transformations</strong> marks the close of a year in which the advent of creative new technologies and an ongoing global pandemic have disrupted the global artistic community as well as our entire lives. From the algorithmic harmony of <strong>Maxim Zhestkov</strong> to the brave new aesthetics of <strong>Marjan Moghaddam</strong> and <strong>Ellen Sheidlin</strong>, Transformations brings together a diverse group of artists who embody these seismic cultural and social shifts.</p>\n<p>In <em>Passengers LHR</em>, <strong>Brendan Dawes</strong> creates a poignant record of the impact of COVID-19, visualising the undulating ebb and flow of passenger traffic through the vast international hub of Heathrow Airport over a period of nineteen months across 2020-2021. <strong>Serwah Attafuah</strong> offers a triumphant and needed image of rebirth and healing with <em>Asklepios</em>, a gleaming realisation of herself as the ancient Greek god of medicine.</p>\n<p>With the strikingly organic and yet deeply digital <em>Return</em> <em>Zero [Blue] 0.7</em>, <strong>Tyler Hobbs </strong>utilises code as a creative material in the same way that paint and marble have been wielded by past artists. A timely reminder that we stand at the beginning of a vital new chapter in the snaking and regenerative course of art history.</p>\n<p>Remaining true to Unit London’s meritocratic guiding principles, <strong>Transformations </strong>celebrates artists from diverse and unconventional backgrounds, from the pro-skateboarder <strong>Chad Knight</strong> to the self-taught <strong>Unskilled Worker</strong>. Transformations ultimately invites artists and creators to reflect on how the last tumultuous twelve months have impacted and reshaped their lives and careers, as well as our own.</p>\n<p>All works showcased in <strong>Transformations</strong> will be available for sale on the <ins>Institut </ins>platform (<a href=\"https://institut.co/drops/transformations/\" target=\"_blank\">institut.co</a> ), where collectors can freely purchase using either regular FIAT or cryptocurrency.</p>\n<p>Exhibition Opening: Tuesday 7 December, 6pm at Unit London, Mayfair.</p>\n<p>NFT Drop: Thursday 9 December, 6pm at Institut.co</p>\n",
+        "metaImage": {
+          "fileType": "stored",
+          "folder": "FALZQmkbeRMgHten7UM938OboZH3",
+          "spaceId": "transformations",
+          "fileName": "default-meta-2ff21Ab4.jpg",
+          "fileLocation": "spaceUserAssets"
+        },
+        "hostName": "Institut x Unit London",
+        "name": "Transformations"
+      }
+    },
+    {
+      "spaceId": "institut",
+      "meta": {
+        "metaImage": {
+          "fileType": "stored",
+          "folder": "UIrKVslOLKPa6ppcY1VmTOyhbRi2",
+          "fileLocation": "spaceUserAssets",
+          "spaceId": "institut-1",
+          "fileName": "default-meta-biI1H9pQ.jpg"
+        },
+        "name": "NFTIsm: No Fear in Trying",
+        "hostName": "Institut x Unit London x Kenny Schachter",
+        "welcomeHTML": "<p>Kenny Schachter cordially invites you to an exclusive preview of <strong>NFTism: No Fear in Trying </strong>- a major exhibition of nearly 100 international artists.</p>\n<p>Accessible by phone or by laptop from anywhere in the world, this historic virtual event celebrates the official launch of Institut, the premier art world platform for NFTs, built on the Ethereum blockchain and carefully designed to reimagine the future of contemporary art.</p>\n<p>Opening at 9.30pm BST on 11 September, this will be the first opportunity to view works in the Arium Metaverse, guided by the exhibition curator, Kenny Schachter.</p>\n<p>On display across five expansive Metaverse galleries are works from a truly diverse group of artists, with Schachter's vision to \"attempt to do what no one has done before! FOCUS ON THE ART, art from a wide, diverse universe of talent from all walks of life.\"</p>\n<p>The Institut platform goes live on 16 September. <br>Register at <a href=\"https://www.institut.co/\" target=\"_blank\">institut.co</a>  now to be notified.</p>\n<p><em>Don't forget to collect your POAP in one of our galleries </em></p>\n"
+      }
+    },
+    {
+      "spaceId": "breezy-art",
+      "meta": {
+        "name": "Hackatao: Promised Land",
+        "welcomeHTML": "<p><span style=\"color: rgba(0,0,0,0.87);background-color: rgb(255,255,255);font-size: 14px;font-family: Roboto, Helvetica, Arial, sans-serif;\"><strong>Breezy Art</strong> is a new concept of the art gallery that aims to create a more self-sustainable structure, wherein artists and art are made to own their own value and where a new form of open economy distances itself from the secrecy and closeness that have been characterizing the art world thus far. This shift is supported immeasurably by new technologies such as blockchain. </span></p>\n<p><span style=\"color: rgba(0,0,0,0.87);background-color: rgb(255,255,255);font-size: 14px;font-family: Roboto, Helvetica, Arial, sans-serif;\"><strong>Breezy Art</strong> is an attempt to create bridges between the worlds of technology and contemporary art. Accepting the fact that we live in a transitory time, our mission is that of proposing new aesthetics and systems through the use of an “older” language - one that everybody can understand  - to create a point of contact between the older and newest generations of the art world. This evolution of dialogue is a continuum that shouldn’t be divided or classified.</span></p>\n<p><span style=\"color: rgba(0,0,0,0.87);background-color: rgb(255,255,255);font-size: 14px;font-family: Roboto, Helvetica, Arial, sans-serif;\">Despite its strong presence on the web, one of the main missions of “Breezy Art” is to take digital art to physical spaces and curate art shows all over the world. Behind each location where the exhibitions take place there is a deep research of the artistic and cultural language of that specific locale. This research creates an environment that visitors understand and while feeling open to newness.</span></p>\n<p><span style=\"color: rgba(0,0,0,0.87);background-color: rgb(255,255,255);font-size: 14px;font-family: Roboto, Helvetica, Arial, sans-serif;\"><strong>Breezy Art</strong> ‘s remarkable peculiarity is curation. Curation is fundamental to create content and real value for art. Every project is curated; every artist has their stories told; every piece has a narration.</span></p>\n<p><span style=\"color: rgba(0,0,0,0.87);background-color: rgb(255,255,255);font-size: 14px;font-family: Roboto, Helvetica, Arial, sans-serif;\">We support digital art and the digital realm, although always keeping a physical component - either in the way of showing it or part of the art piece itself - which we believe to be an essential element of human nature. As all of us are containers of souls, the source from which art will continue to be birthed through new and exciting forms.</span></p>\n",
+        "metaImage": {
+          "spaceId": "breezy-art",
+          "fileName": "default-meta-1sDiOe0I.jpg",
+          "fileLocation": "spaceUserAssets",
+          "folder": "ZQdz3sfgERdOx8uhdQvIi95MxVI3"
+        },
+        "hostName": "Hackatao x Breezy Art"
+      }
+    }
+  ]
+}

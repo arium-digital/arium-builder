@@ -1,0 +1,99 @@
+[context.production]
+  command = "node postinstall.js && next build"
+  environment = { NEXT_PUBLIC_ASSETS_DOMAIN="https://assets.vlts.pw", NEXT_PUBLIC_VISUAL_MASSAGE_SETTINGS_DOC="production_contract"}
+
+[context.deploy-preview]
+  command = "node postinstall.js && next build"
+  environment = { NEXT_PUBLIC_ASSETS_DOMAIN="https://assets.vlts.pw", NEXT_PUBLIC_VISUAL_MASSAGE_SETTINGS_DOC="staging_contract"}
+
+# Branch deploy context:
+# All deploys that are not from a pull/merge request
+# or from the production branch will inherit these settings.
+[context.branch-deploy]
+  command = "node postinstall.js && next build"
+  environment = { NEXT_PUBLIC_ASSETS_DOMAIN="https://assets.vlts.pw", NEXT_PUBLIC_VISUAL_MASSAGE_SETTINGS_DOC="staging_contract" }
+
+[build]
+  command = "node postinstall.js && next build"
+  publish = ".next/"
+
+[build.environment]
+  NODE_OPTIONS = "--max_old_space_size=4096"
+  
+[[headers]]
+  for = "/*" # js files should be set this way
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "*.js" # js files should be set this way
+  [headers.values]
+    Cache-Control = "immutable"
+[[headers]]
+  for = "*.css" # css files too
+  [headers.values]
+    Cache-Control = "immutable"
+
+# [[redirects]]
+#   from = "/"
+#   to = "https://www.arium.xyz"
+#   status = 302
+#   force = true
+
+# [[redirects]]
+#   from = "/index.html"
+#   to = "https://www.arium.xyz"
+#   status = 302
+#   force = true 
+
+
+
+[[redirects]]
+  from = "/yungspace"
+  to = "/spaces/yungspace"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/yung-xmas"
+  to = "/spaces/yung-xmas"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/weather"
+  to = "/spaces/weather"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/showroom"
+  to = "/spaces/showroom"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/theccnyc"
+  to = "/spaces/theccnyc"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/admin"
+  to = "/editor"
+  status = 302
+  force = true 
+
+[[redirects]]
+  from= "https://www.arium.events/*"
+  to= "https://arium.xyz/:splat"
+  status= 301
+  force = true
+  
+[[redirects]]
+  from= "https://arium.events/*"
+  to= "https://arium.xyz/:splat"
+  status= 301
+  force = true
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

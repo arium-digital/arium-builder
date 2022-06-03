@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom.iterable",
+      "esnext",
+      "es6",
+      "dom",
+      "es2016",
+      "es2017",
+      "webworker"
+    ],
+    "baseUrl": "./src/",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "incremental": false
+  },
+  "include": [
+    "src",
+    "next-env.d.ts",
+    "typings/custom.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}

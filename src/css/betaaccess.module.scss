@@ -1,0 +1,191 @@
+@import "pages/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.root {
+  color: $arium-cream;
+  font-family: $primary-font;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+.logo {
+  width: 500px;
+
+  position: relative;
+  left: -20px;
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+
+    position: fixed;
+    top: 20px;
+    left: 0px;
+  }
+}
+.bgOverlay {
+  background: linear-gradient(
+    75.37deg,
+    rgba(26, 126, 225, 0.5) -7.9%,
+    rgba(227, 221, 209, 0.5) 32.45%,
+    rgba(111, 20, 184, 0.51) 74.94%,
+    rgba(227, 221, 209, 0.49) 104.38%
+  );
+  // background-blend-mode: lighten;
+  background-size: cover;
+  // opacity: 0.5;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  z-index: -99;
+}
+.bgVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+}
+
+.typewriter {
+  @include media-breakpoint-down(xs) {
+    height: 200px;
+  }
+}
+
+.titles {
+  width: 100vw;
+  padding: 6em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  @include media-breakpoint-down(md) {
+    padding: 2em;
+  }
+
+  & h1 {
+    font-weight: bold;
+    color: $arium-cream;
+    font-size: 6em;
+    width: 100%;
+    @include media-breakpoint-down(md) {
+      fontsize: 4em;
+    }
+  }
+
+  & h2 {
+    font-weight: bold;
+    color: $arium-cream;
+    font-size: 4em;
+    width: 100%;
+    @include media-breakpoint-down(md) {
+      font-size: 3em;
+    }
+    @include media-breakpoint-down(xs) {
+      font-size: 2em;
+    }
+  }
+  & a h3 {
+    width: 100%;
+    color: $arium-cream;
+    font-size: 1.75em;
+    cursor: pointer;
+  }
+}
+.footer {
+  padding-left: 6em;
+  @include media-breakpoint-down(md) {
+    padding-left: 2em;
+  }
+}
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modalPaper {
+  outline: 0px solid transparent;
+  background-color: rgba(48, 48, 48, 0.95);
+  max-height: 480px;
+  max-width: 640px;
+  width: 80%;
+  position: fixed;
+  z-index: 999;
+  border-radius: 5px;
+  color: black;
+  box-shadow: 5;
+  padding: 4em;
+  @include media-breakpoint-down(md) {
+    padding: 2em;
+  }
+  & p {
+    font-size: 1em;
+    color: $arium-cream;
+  }
+  & h1 {
+    font-size: 3em;
+    color: $arium-cream;
+
+    @include media-breakpoint-down(md) {
+      fontsize: 2.5em;
+    }
+  }
+  & h2 {
+    font-size: 2em;
+    color: $arium-cream;
+    @include media-breakpoint-down(md) {
+      fontsize: 1.5em;
+    }
+  }
+  & button {
+    text-transform: none;
+  }
+}
+.closeButton {
+  color: white;
+  position: absolute;
+  top: -30px;
+  right: -40px;
+  float: right;
+  pointer-events: stroke;
+}
+.submitButton {
+  color: #e5e5e5;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+.modalContent {
+  color: $arium-cream;
+
+  input {
+    color: $arium-cream !important;
+    border-color: $arium-cream !important;
+  }
+}
+.textField {
+  height: 3em;
+  font-size: 1.2em;
+}
+.inputLabel {
+  font-style: italic;
+  font-size: 1em;
+}
+
+.primaryCta {
+  background-color: $arium-cream;
+  color: $arium-black;
+  padding: 5px 15px;
+  border: $arium-black 1px solid;
+
+  @include media-breakpoint-down(xs) {
+    position: relative;
+    top: 20px;
+  }
+}

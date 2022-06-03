@@ -1,0 +1,39 @@
+@import "css/breakpoints.module.scss";
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .closeButton {
+    position: absolute;
+
+    // top: 0px;
+    @media (min-width: $sm) {
+      top: 16px;
+    }
+    @media (max-width: $sm) {
+      transform: scale(1.5);
+    }
+    right: 16px;
+    float: right;
+    pointer-events: stroke;
+    padding: 0;
+    min-width: 0;
+  }
+}
+.modalContainer {
+  height: 100%;
+  max-height: 100%;
+}
+.modalPaper {
+  @media (min-width: $xl) {
+    max-height: 90%;
+    max-width: 90%;
+  }
+  position: fixed;
+  z-index: 999;
+  color: black;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  outline: none; /*https://github.com/mui-org/material-ui/issues/11504*/
+}

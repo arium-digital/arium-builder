@@ -1,0 +1,94 @@
+@import "pages/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "css/controls.module.scss";
+
+.navbar {
+  margin: 0;
+  padding-left: 0;
+
+  font-size: 16px;
+  text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: $arium-cream !important;
+  }
+}
+
+.topNavbar {
+  @extend .navbar;
+  border-bottom: 1px solid $arium-cream;
+  height: 92px;
+}
+
+.topSpaceNavbar {
+  @extend .navbar;
+  height: 60px;
+  @include media-breakpoint-up(lg) {
+    padding-left: 10px;
+    padding-right: 20px;
+  }
+
+  // .navbar-brand {
+  //   padding-top: 0;
+  //   padding-bottom: 0;
+  // }
+
+  z-index: $onboarding-z-index - 1;
+}
+
+// .navbarCollapse {
+//   @include media-breakpoint-down(md) {
+//     display: none !important;
+//   }
+// }
+
+.text {
+  color: $arium-cream !important;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.photo {
+  margin-right: 5px;
+}
+
+.tooltipShortcuts {
+  & div {
+    max-width: none;
+  }
+}
+
+.dropDownArrowHolder {
+  position: relative;
+  width: 0px;
+}
+
+.dropDownArrow {
+  background: none;
+  position: absolute;
+  top: 0px;
+  left: -26px;
+  svg {
+    fill: white;
+  }
+}
+
+.dropDownMenu {
+  ul,
+  ul li {
+    background: none !important;
+  }
+  background: none !important;
+
+  border-radius: 0 !important;
+}
+
+.MuiMenu-paper {
+  position: relative;
+  top: 50px;
+}

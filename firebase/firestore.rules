@@ -1,0 +1,162 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /globalSettings/{document=**} {
+      allow read: if
+          request.time < timestamp.date(2022, 10, 24);
+    }
+    match /instances/{document=**} {
+      allow read: if
+          request.auth.uid != null;
+    }
+    match /spaces/{spaceId}/{document=**} {
+      allow read: if
+          request.auth.uid != null;
+
+    }
+    match /{path=**}/elementsTree/{elementId} {
+      allow read, write, create, update, delete:
+        if request.auth.token.admin == true 
+    }
+    match /{path=**}/settings/{settingId} {
+      allow read, write, create, update, delete:
+        if request.auth.token.admin == true 
+    }
+    match /spaces/{spaceId}/elementsTree/{document=**} {
+      allow write: if spaceId in request.auth.token.spaces || request.auth.token.spaceEditor[spaceId] == true || request.auth.token.admin == true || request.auth.token.spaceOwner[spaceId] == true
+    }
+    match /spaces/{spaceId}/elements/{document=**} {
+      allow write: if spaceId in request.auth.token.spaces || request.auth.token.spaceEditor[spaceId] == true || request.auth.token.admin == true || request.auth.token.spaceOwner[spaceId] == true
+    }
+    match /spaces/{spaceId}/settings/{document=**} {
+      allow write: if spaceId in request.auth.token.spaces || request.auth.token.spaceEditor[spaceId] == true || request.auth.token.admin == true || request.auth.token.spaceOwner[spaceId] == true
+    }
+    match /spaceRoles/{spaceId} {
+      allow read: if
+          request.auth.uid != null;
+      // allow read: if request.auth.userId in context.data.editors || request.auth.userId in context.data.owners
+    }
+    match /userRoles/{userId}/{document=**} {
+      allow read: if
+          request.auth.uid == userId;
+    }
+    match /communication/{userId}/{document=**} {
+      allow read: if
+          request.auth.uid == userId;
+      allow write: if
+          request.auth.uid == userId;
+
+    }
+    match /testAgentCalls/{document=**} {
+      allow read, write: if request.auth.token.admin == true
+    }
+
+    match /routerGroups/{document=**} {
+      allow read, list, write: if request.auth.token.admin == true
+    }
+
+    match /routerGroupSessions/{document=**} {
+      allow read: if request.auth.token.admin == true
+    }
+
+    match /users/{userId}/{document=**} {
+      allow create, read, write: if
+          request.auth.uid == userId;
+    }
+
+    match /joinRequests/{document=**} {
+      allow create: if
+          request.auth.uid != null;
+
+      allow read: if
+          resource.data.userId == request.auth.uid;
+    }
+
+    match /unjoinRequests/{document=**} {
+      allow create: if
+          request.auth.uid != null;
+    }
+
+    match /routerRtpCapabilities/{document=**} {
+      allow read: if
+          request.auth.uid != null;
+      
+    }
+
+    match /spaces/{spaceId}/spaceInvites/{document=**} {
+      // Applies to writes to nonexistent documents
+      allow create, write: if spaceId in request.auth.token.spaces || request.auth.token.admin == true;
+      allow read: if request.auth.uid != null;
+    }
+
+    // TODO: Delete?
+    // allow creation of new spaces by any non-anonymous authenticated user 
+    match /spaces/{spaceId} {
+      // Applies to writes to nonexistent documents
+      allow create: if 
+          request.auth != null && request.auth.token.firebase.sign_in_provider != 'anonymous';
+    }
+
+    // allow updating of profile information by a given user
+    match /userProfiles/{userId} {
+      allow write, update: if request.auth != null && request.auth.uid == userId;
+      allow read: if
+          request.auth.uid != null;
+    }
+
+    match /userAccounts/{userId}/{document=**} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // allow creation of beta sign up form documents by non-authenticated user
+    match /betaSignUps/{document=**} {
+      // Applies to writes to nonexistent documents
+      allow create: if 
+          request.auth != null;
+      allow read, write: if request.auth.token.admin == true
+    }
+
+    // allow creation of event registrations form documents by non-authenticated user
+    match /eventRegistrations/{document=**} {
+      // Applies to writes to nonexistent documents
+      allow create: if 
+          request.auth != null;
+      allow read, write: if request.auth.token.admin == true
+    }
+
+    match /invites/{document=**} {
+      allow create: if request.auth.token.admin == true
+      allow read, write: if request.auth != null
+    }
+
+    match /settings/{document=**} {
+      allow read: if
+          request.auth.uid != null;
+      
+    }
+    match /defaultSettings/{document=**} {
+      allow read, list: if
+          request.auth.uid != null;
+    }
+
+    match /chatMessages/{chatMessage} {
+      allow read: if
+          request.auth.uid != null;
+      allow create: if
+          request.auth.uid != null;
+    }
+
+    match /events/{document=**} {
+      function isSpaceEditor(spaceId) {
+        return request.auth.token.spaceEditor[spaceId] == true || request.auth.token.admin == true || request.auth.token.spaceOwner[spaceId] == true
+      }
+      allow write: if isSpaceEditor(resource.data.spaceId);
+      allow read: if isSpaceEditor(resource.data.spaceId);
+    }
+
+    match /homePageSettings/{document=**} {
+      allow read: if
+          request.auth.uid != null;
+    }
+  }
+}

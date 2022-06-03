@@ -1,0 +1,17 @@
+{
+  "short_name": "Arium",
+  "name": "Arium Events",
+  "description": "Arium - the 3d video chat platform for social events!",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "theme_color": "#000000",
+  "background_color": "#f9f910",
+  "display": "fullscreen",
+  "orientation": "landscape"
+}

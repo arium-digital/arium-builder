@@ -1,0 +1,25 @@
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - 'react-app'
+  # - 'eslint:recommended'
+  # - 'plugin:react/recommended'
+  # - 'plugin:@typescript-eslint/recommended'
+# parser: '@typescript-eslint/parser'
+# parserOptions:
+#   ecmaFeatures:
+#     jsx: true
+#   ecmaVersion: 12
+#   sourceType: module
+# plugins:
+#   - react
+  # - react-hooks
+  # - '@typescript-eslint'
+rules:
+  jsx-a11y/anchor-is-valid: 0
+  react/jsx-pascal-case: 0
+
+#   react/prop-types: 0
+#   react-hooks/exhaustive-deps: 1
