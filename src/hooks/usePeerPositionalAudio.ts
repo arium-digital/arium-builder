@@ -22,10 +22,7 @@ import {
 } from "rxjs/operators";
 import { spacePositionalAudioConfigDocument } from "shared/documentPaths";
 import { AudioListener, PositionalAudio } from "three";
-import {
-  BroadcastersAndAudioSettings,
-  ObservedConsumer,
-} from "../communicationTypes";
+import { BroadcastersAndAudioSettings } from "../communicationTypes";
 import { playOrPause } from "../components/Consumers/useStreamPlayer";
 import { store } from "../db";
 
@@ -183,6 +180,13 @@ const adjustPositionalAudioFromConfig = (
   positionalAudio.setRolloffFactor(soundConfig.rollOffFactor || 2);
   positionalAudio.setDistanceModel(soundConfig.distanceModel || "exponential");
   positionalAudio.setMaxDistance(soundConfig.maxDistance || 10000);
+};
+
+type ObservedConsumer = {
+  srcObject: MediaStream;
+  paused: boolean;
+  mediaElement: HTMLMediaElement;
+  producingSessionId: string;
 };
 
 const pauseOrResumeOrCreatePositionalAudio = (
@@ -502,7 +506,7 @@ export const usePeerPositionalAudio = ({
   useEffect(() => {
     consumers$
       .pipe(
-        filter((consumer) => consumer.kind === "webcamAudio"),
+        // filter((consumer) => consumer.kind === "webcamAudio"),
         groupBy((consumer) => consumer.producingSessionId),
         mergeMap((consumer$) => {
           const mediaElement$ = consumer$.pipe(
@@ -537,7 +541,7 @@ export const usePeerPositionalAudio = ({
 
     consumers$
       .pipe(
-        filter((consumer) => consumer.kind === "webcamAudio"),
+        // filter((consumer) => consumer.kind === "webcamAudio"),
         groupBy((consumer) => consumer.producingSessionId)
       )
       .pipe(

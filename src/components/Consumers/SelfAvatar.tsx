@@ -6,7 +6,7 @@ import { NameDisplay } from "components/Consumers/AvatarMesh";
 import AvatarCameraSurfaces from "./AvatarCameraSurfaces";
 import { Color, Material, Mesh, Object3D, Texture, Vector3 } from "three";
 import { imageTextureForPhotoUrl$ } from "hooks/usePeerInSpace";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { useFrame, useThree } from "@react-three/fiber";
 
@@ -16,6 +16,7 @@ export interface AvatarTextures {
 
 export interface SelfAvatar {
   textures: AvatarTextures;
+  volume$: Observable<number>;
 }
 
 export const useSelfAvatar = ({
@@ -26,6 +27,8 @@ export const useSelfAvatar = ({
   const [textures, setTextures] = useState<AvatarTextures>({
     imageTexture: null,
   });
+
+  const volume$ = useMemo(() => new BehaviorSubject(0), []);
 
   useEffect(() => {
     const imageTexture$ = imageTextureForPhotoUrl$(selfMetadata$);
@@ -39,6 +42,7 @@ export const useSelfAvatar = ({
 
   return {
     textures,
+    volume$,
   };
 };
 

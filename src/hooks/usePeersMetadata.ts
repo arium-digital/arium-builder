@@ -1,5 +1,5 @@
 import { PossiblyUndefinedStringDict, StringDict } from "../types";
-import { communicationDb } from "../db";
+import { realtimeDb } from "../db";
 import { useEffect, useState } from "react";
 import { PeersMetaData } from "../communicationTypes";
 import { subscribeToPeersMetadata } from "../stateFromDb";
@@ -28,7 +28,7 @@ export const useMetadata = ({
   sessionId$: Observable<string | undefined>;
 }) => {
   // const metadataRef = useMemo(
-  //   () => sessionId && communicationDb.ref(`userMetadata/${sessionId}`),
+  //   () => sessionId && realtimeDb.ref(`userMetadata/${sessionId}`),
   //   [sessionId]
   // );
 
@@ -44,7 +44,7 @@ export const useMetadata = ({
       userId$.pipe(filterUndefined()),
     ]).pipe(
       switchMap(async ([sessionId, userId]) => {
-        const ref = communicationDb.ref(`userMetadata/${sessionId}`);
+        const ref = realtimeDb.ref(`userMetadata/${sessionId}`);
 
         await ref.set({
           userId,

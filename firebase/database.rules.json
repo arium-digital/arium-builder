@@ -81,63 +81,14 @@
     "sessionsOnRouters": {
       ".indexOn": "routerId"
     },
-    "joinRequests": {
-      "$id": {
-          ".write": "newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid"
-      }
-    },
     "userCommunication": {
       "$user_id": {
         ".write": "$user_id === auth.uid",
         ".read": "$user_id === auth.uid"
       }
     },
-    "sharingScreen": {
-      "$space_id": {
-        "$media_path": {
-          "$user_id": {
-            ".write": "$user_id === auth.uid"
-          }
-        }
-
-      },
-      ".read": true
-    },    
-    "broadcastZones": {
-      "$space_id": {
-        "$path": {
-          "$session_id": {
-            ".write": "(newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid) || (data.child('userId').val() === auth.uid && !newData.exists()) "
-          },
-          ".indexOn": "inZone"
-        },
-        ".read": true
-      }
-    },
-    "peerRouters": {
-      ".read": true
-    },
-    "producerIds": {
-      ".read": true
-    },
-    "screenShares": {
-      ".read": true
-    },
     "sharedMedia": {
       ".read": true
-    },
-    "consumersPaused": {
-      ".read": true
-    },
-    "consumers": {
-      ".read": true
-    },
-    "disconnectedRouters": {
-      "$router_id": {
-        ".indexOn": "disconnected",
-        ".read": "auth.token.admin === true"
-      },
-      ".indexOn": "disconnected"
     },
     "timestamps": {
       "$user_id": {

@@ -1,7 +1,7 @@
 import { from, Observable } from "rxjs";
 import { producingPeers } from "../shared/dbPaths";
 import { bufferTime, filter, scan, switchMap } from "rxjs/operators";
-import { producingPeersDb, DataSnapshot } from "db";
+import { realtimeDb, DataSnapshot } from "db";
 import { MediaTrackKind } from "../../shared/communication";
 
 export const observeProducingPeers = ({
@@ -16,9 +16,7 @@ export const observeProducingPeers = ({
       if (!spaceId) {
         return from([new Set<string>()]);
       } else {
-        const toObserve = producingPeersDb.ref(
-          producingPeers({ spaceId, kind })
-        );
+        const toObserve = realtimeDb.ref(producingPeers({ spaceId, kind }));
 
         return new Observable<{
           peerId: string;

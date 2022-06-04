@@ -5,8 +5,6 @@ import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import ImageIcon from "@material-ui/icons/Image";
 import WbIncandescentIcon from "@material-ui/icons/WbIncandescent";
 import VideocamIcon from "@material-ui/icons/Videocam";
-import ScreenShareIcon from "@material-ui/icons/ScreenShare";
-import MicIcon from "@material-ui/icons/Mic";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import PhotoFilterIcon from "@material-ui/icons/PhotoFilter";
 import SubjectIcon from "@material-ui/icons/Subject";
@@ -34,11 +32,6 @@ const ElementIcon = ({
   if (elementType === "video") return <VideocamIcon htmlColor={color} />;
 
   if (elementType === "audio") return <MusicNoteIcon htmlColor={color} />;
-
-  if (elementType === "screen share")
-    return <ScreenShareIcon htmlColor={color} />;
-
-  if (elementType === "broadcast zone") return <MicIcon htmlColor={color} />;
 
   if (elementType === "reflector surface")
     return <PhotoFilterIcon htmlColor={color} />;

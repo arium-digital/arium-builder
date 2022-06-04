@@ -1,5 +1,5 @@
 import AudioLevelIndicator from "../AudioLevelIndicator";
-import SimpleVideoSelfView from "../Controls";
+// import SimpleVideoSelfView from "../Controls";
 import styles from "../styles/entranceFlow.module.scss";
 import clsx from "clsx";
 import { Row } from "react-bootstrap";
@@ -27,7 +27,7 @@ export const SelfViewRow: React.FC<{ showLogo?: boolean }> = ({
 const SelfView = ({ selfAvatar }: { selfAvatar: SelfAvatar }) => (
   <SelfViewRow>
     <AudioLevelIndicator volume$={selfAvatar.volume$} />
-    <SimpleVideoSelfView videoTrack={selfAvatar.videoTrack || undefined} />
+    {/* <SimpleVideoSelfView videoTrack={selfAvatar.videoTrack || undefined} /> */}
   </SelfViewRow>
 );
 

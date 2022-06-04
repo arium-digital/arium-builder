@@ -1,9 +1,7 @@
 import { PlayerPosition, PlayerQuaternion, StringDict } from "./types";
-import { communicationDb } from "./db";
+import { realtimeDb } from "./db";
 import { Dispatch, SetStateAction } from "react";
-import { MediaTrackKind } from "../shared/communication";
-import { PeersMetaData, PeerPresence, ProducerIds } from "./communicationTypes";
-import { PositionalAudioConfig } from "./spaceTypes";
+import { PeersMetaData, PeerPresence } from "./communicationTypes";
 import { Observable } from "rxjs";
 import { filter, map, withLatestFrom } from "rxjs/operators";
 
@@ -18,7 +16,7 @@ export const subscribeToActiveSessionChanges = (
   spaceId: string,
   serverTimeOffset$: Observable<number>
 ) => {
-  const sessionsRef = communicationDb
+  const sessionsRef = realtimeDb
     .ref("userSessions")
     .orderByChild("spaceId")
     .equalTo(spaceId);
@@ -115,7 +113,7 @@ export const observePeerSessionStateChanges = <T>({
   converter: (data: any) => T;
 }) => {
   return new Observable<StateRemoval | StateChange<T>>((subscribe) => {
-    const ref = communicationDb.ref(parentPath);
+    const ref = realtimeDb.ref(parentPath);
 
     ref.on("value", (snapshot) => {
       snapshot.forEach((child) => {
@@ -223,7 +221,7 @@ export const subscribeToPeersMetadata = ({
   spaceId: string;
   setPeersMetadata: Dispatch<SetStateAction<PeersMetaData>>;
 }) => {
-  const peersMetadataRef = communicationDb
+  const peersMetadataRef = realtimeDb
     .ref("userMetadata")
     .orderByChild("spaceId")
     .equalTo(spaceId);
@@ -281,138 +279,4 @@ export const subscribeToPeersMetadata = ({
   };
 
   return unsubscribe;
-};
-
-export const subscribeToProducerIds = ({
-  spaceId,
-  sessionId,
-  kind,
-  setProducerIds,
-}: {
-  spaceId: string;
-  sessionId: string;
-  kind: MediaTrackKind;
-  setProducerIds: Dispatch<SetStateAction<ProducerIds>>;
-}) => {
-  const producerIdsRef = communicationDb.ref(`producerIds/${spaceId}/${kind}`);
-
-  producerIdsRef.on("value", (snapshot) => {
-    const producerIds: { [peerId: string]: string } = {};
-    snapshot.forEach((child) => {
-      const key = child.key;
-      if (!key || key === sessionId) return;
-
-      producerIds[key] = child.val() as string;
-    });
-
-    setProducerIds((existing) => ({
-      ...existing,
-      [kind]: producerIds,
-    }));
-  });
-
-  const unsubscribe = () => {
-    producerIdsRef.off("value");
-  };
-
-  return unsubscribe;
-};
-
-const broadcasterRef = (sessionId: string) =>
-  communicationDb.ref(`broadcasters/${sessionId}`);
-
-export const setIsBroadcastingInZone = (
-  {
-    userId,
-    sessionId,
-    spaceId,
-    audio,
-    zonePath,
-  }: {
-    userId: string;
-    sessionId: string;
-    spaceId: string;
-    audio?: PositionalAudioConfig;
-    zonePath: string;
-  },
-  isInZone: boolean
-) => {
-  const fullZonePath = `zones/${zonePath}`;
-
-  const zoneBroadcastState: BroadcastingState = {
-    broadcast: isInZone,
-    audio: audio || null,
-  };
-
-  const toUpdate: BroadcastingRecord = {
-    userId,
-    spaceId,
-    [fullZonePath]: zoneBroadcastState,
-  };
-
-  broadcasterRef(sessionId).update(toUpdate);
-};
-
-export const updateIfAlwaysBroadcasting = (
-  {
-    spaceId,
-    sessionId,
-    userId,
-  }: {
-    spaceId: string;
-    sessionId: string;
-    userId: string;
-  },
-  alwaysBroadcast?: boolean
-) => {
-  const toUpdate: BroadcastingRecord = {
-    userId,
-    spaceId,
-    autoBroadcast: alwaysBroadcast,
-  };
-
-  broadcasterRef(sessionId).update(toUpdate);
-};
-
-interface BroadcastingState {
-  broadcast: boolean;
-  audio: PositionalAudioConfig | null;
-}
-
-export interface BroadcastingRecord {
-  userId: string;
-  spaceId: string;
-  autoBroadcast?: boolean;
-  zones?: {
-    [zonePath: string]: BroadcastingState;
-  };
-}
-
-export type BroadcastingRecords = {
-  [peerId: string]: BroadcastingRecord;
-};
-export const observeBroadcasters = ({ spaceId }: { spaceId: string }) => {
-  const broadcastersRef = communicationDb
-    .ref(`broadcasters`)
-    .orderByChild("spaceId")
-    .equalTo(spaceId);
-
-  return new Observable<BroadcastingRecords>((subscribe) => {
-    broadcastersRef.on("value", (snapshot) => {
-      const records: BroadcastingRecords = {};
-      snapshot.forEach((child) => {
-        const sessionId = child.key as string;
-
-        const record = child.val() as BroadcastingRecord;
-
-        records[sessionId] = record;
-      });
-
-      subscribe.next(records);
-    });
-
-    return () => {
-      broadcastersRef.off("value");
-    };
-  });
 };

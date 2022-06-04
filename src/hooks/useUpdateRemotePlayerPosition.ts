@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { PlayerLocation } from "../types";
-import { peersDb } from "../db";
+import { realtimeDb } from "../db";
 import { arraysEqual } from "../libs/utils";
 import { combineLatest, from, merge, Observable } from "rxjs";
 import {
@@ -43,10 +43,10 @@ const useUpdateRemotePlayerLocation = ({
           if (!spaceId || !userId || !sessionId || !enteredSpace)
             return from([undefined]);
 
-          const positionsRef = peersDb.ref(
+          const positionsRef = realtimeDb.ref(
             `userPositions/${spaceId}/${sessionId}`
           );
-          const quarternionsRef = peersDb.ref(
+          const quarternionsRef = realtimeDb.ref(
             `userRotations/${spaceId}/${sessionId}`
           );
 

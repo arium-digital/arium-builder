@@ -1,14 +1,6 @@
-import {
-  useState,
-  useEffect,
-  useMemo,
-  memo,
-  useCallback,
-  ReactChild,
-} from "react";
-import { HandleJoystickMove, UserMediaForDevice } from "../componentTypes";
+import { useState, useEffect, useMemo, memo, ReactChild } from "react";
+import { HandleJoystickMove } from "../componentTypes";
 import { Container } from "react-bootstrap";
-import { ToggleButton, DevicePauseAvatarProps } from "./DeviceSelects";
 import Tooltip from "@material-ui/core/Tooltip";
 
 import FullscreenIcon from "@material-ui/icons/Fullscreen";
@@ -87,24 +79,6 @@ export const Instructions = ({
     </>
   );
 };
-
-export const MediaDevicePauseAvatar = memo(
-  ({
-    userMedia,
-    ...rest
-  }: Omit<DevicePauseAvatarProps, "toggle" | "off"> & {
-    userMedia: UserMediaForDevice;
-  }) => {
-    const { paused, pause, resume } = userMedia;
-
-    const toggle = useCallback(() => {
-      if (paused) resume();
-      else pause();
-    }, [paused, pause, resume]);
-
-    return <ToggleButton {...rest} off={paused} toggle={toggle} />;
-  }
-);
 
 const IconContainer = ({ children }: { children: ReactChild }) => (
   <div className="mx-md-1 my-md-1">{children}</div>

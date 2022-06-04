@@ -1,11 +1,11 @@
-import { communicationDb } from "db";
+import { realtimeDb } from "db";
 import { useCallback, useEffect, useState } from "react";
 import { BehaviorSubject, Observable } from "rxjs";
 import { useCurrentValueFromObservable } from "./useObservable";
 
 const observeServerTimeOffset = () => {
   return new Observable<number>((subscribe) => {
-    const offsetRef = communicationDb.ref(".info/serverTimeOffset");
+    const offsetRef = realtimeDb.ref(".info/serverTimeOffset");
     offsetRef.on("value", (snap) => {
       const offset = snap.val();
       subscribe.next(offset);

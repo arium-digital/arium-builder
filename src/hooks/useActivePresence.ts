@@ -18,12 +18,12 @@ import {
   scan,
   switchMap,
 } from "rxjs/operators";
-import { communicationDb, DataSnapshot, serverTime } from "../db";
+import { realtimeDb, DataSnapshot, serverTime } from "../db";
 import { subscribeToActiveSessionChanges } from "../stateFromDb";
 
 const sessionPaths = () => `userSessions`;
 const sessionPath = (sessionId: string) =>
-  communicationDb.ref(`${sessionPaths()}/${sessionId}`);
+  realtimeDb.ref(`${sessionPaths()}/${sessionId}`);
 
 // how ofter the session should be updated with the last active time
 const activeUpdateInterval = 30000;
@@ -99,10 +99,10 @@ export const useUpdateActivePresence = ({
       });
     };
 
-    communicationDb.ref(".info/connected").on("value", onConnectionChanged);
+    realtimeDb.ref(".info/connected").on("value", onConnectionChanged);
 
     return () => {
-      communicationDb.ref(".info/connected").off("value", onConnectionChanged);
+      realtimeDb.ref(".info/connected").off("value", onConnectionChanged);
     };
   }, [sessionId, userId, invisible]);
 

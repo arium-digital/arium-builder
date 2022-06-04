@@ -25,10 +25,10 @@ const communicationApp = !firebase.apps.length
 
 const store = firebase.firestore();
 
-const communicationDb = communicationApp.database(communicationUrl);
+const realtimeDb = communicationApp.database(communicationUrl);
 
 if (process.env.NEXT_PUBLIC_DB_EMULATOR_PORT) {
-  communicationDb.useEmulator(
+  realtimeDb.useEmulator(
     "localhost",
     +process.env.NEXT_PUBLIC_DB_EMULATOR_PORT
   );
@@ -71,7 +71,7 @@ export declare type DocumentReference = firebase.firestore.DocumentReference;
 
 export const increment = firebase.firestore.FieldValue.increment;
 
-export { communicationDb, store };
+export { realtimeDb, store };
 export declare type DocumentRef = Omit<
   firebase.firestore.DocumentReference,
   "listCollections" | "create"

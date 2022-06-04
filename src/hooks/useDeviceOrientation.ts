@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BehaviorSubject, combineLatest, EMPTY, Observable } from "rxjs";
 import { map, switchMap } from "rxjs/operators";
-import { peersDb } from "../db";
+import { realtimeDb } from "../db";
 import isMobile from "../libs/deviceDetect";
 import { filterUndefined } from "../libs/rx";
 import { useTakeUntilUnmount } from "./useObservable";
@@ -69,7 +69,7 @@ export const useObserveAndSendDeviceOrientation = ({
       .pipe(takeUntilUnmount())
       .subscribe({
         next: ([orientation, sessionId, userId]) => {
-          const orientationRef = peersDb.ref(
+          const orientationRef = realtimeDb.ref(
             `userDeviceOrientations/${sessionId}`
           );
 
@@ -100,7 +100,7 @@ export const useObservePeerDeviceOrientation = ({
         switchMap(([peerId, paused]) => {
           if (paused) return EMPTY;
           return new Observable<number>((subscribe) => {
-            const orientationRef = peersDb.ref(
+            const orientationRef = realtimeDb.ref(
               `userDeviceOrientations/${peerId}`
             );
 
