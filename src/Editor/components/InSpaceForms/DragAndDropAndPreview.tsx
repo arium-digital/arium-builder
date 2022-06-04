@@ -14,7 +14,7 @@ import firebase from "firebase";
 import { extractExt } from "fileUtils";
 import { useDropzone } from "react-dropzone";
 import { placeholderImageFile } from "defaultConfigs";
-import { useUploadAndSetAsset } from "../../../components/InSpaceEditor/hooks/useUploadAndSetAsset";
+import { useUploadAndSetAsset } from "../../../Space/InSpaceEditor/hooks/useUploadAndSetAsset";
 import { ProgressBar } from "./SimplifiedFormBaseAndUtils";
 import { useSlackbarErrorMessage } from "hooks/useSlackbarErrorMessage";
 import { StoredVideoPreview } from "Editor/components/Form/VideoPreview";

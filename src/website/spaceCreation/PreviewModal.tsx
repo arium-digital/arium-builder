@@ -1,10 +1,10 @@
 import { Box, Button, IconButton } from "@material-ui/core";
-import SpacePreview from "components/SpacePreview";
+import SpacePreview from "Space/SpacePreview";
 import React, { useCallback, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import styles from "website/css/flow.module.scss";
 import { AriumCloseIcon } from "website/home/Icons";
-import { LoadingLinear } from "components/Loading";
+import { LoadingLinear } from "Space/Loading";
 import { Centered, IconBetaSignUp } from "website/home/utils";
 import cta from "css/cta.module.scss";
 import { usePrimaryColor } from "website/themes/hooks";

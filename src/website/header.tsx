@@ -2,7 +2,7 @@ import Navbar from "react-bootstrap/Navbar";
 import clsx from "clsx";
 import styles from "./css/header.module.scss";
 import { useAuthentication } from "hooks/auth/useAuthentication";
-import CircularImageClip from "components/UserInterface/CircularImageClip";
+import CircularImageClip from "Space/UserInterface/CircularImageClip";
 import React, { useCallback, useState, MouseEvent } from "react";
 import { auth, User } from "db";
 import { Nav, OverlayTrigger, Table, Tooltip } from "react-bootstrap";

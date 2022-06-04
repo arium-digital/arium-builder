@@ -1,4 +1,4 @@
-import { AnimatedAriumLogo } from "components/AnimatedAriumLogo";
+import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 import dynamic from "next/dynamic";
 
 const DynamicRoute = dynamic(() => import("../../website/login"), {

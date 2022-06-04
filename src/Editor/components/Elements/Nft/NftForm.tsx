@@ -26,7 +26,7 @@ import {
   useTokenMetadata,
   getMediaFileAndType,
   TokenMedia,
-} from "components/Elements/Nft/tokenConversion";
+} from "Space/Elements/Nft/tokenConversion";
 import { Editors, FormDescription } from "Editor/types";
 import useFormFields from "Editor/hooks/useFormFields";
 import { functions } from "db";
@@ -53,7 +53,7 @@ import AdvancedNftSettingsForm from "./AdvancedNftSettingsForm";
 import { HasFrameForm } from "Editor/components/Elements/FrameForm";
 import VideoSettingsForm from "../Video/VideoSettingsForm";
 import { ImageSettingsForm } from "../ImageForm";
-import { fetchAndUpdateSuperrareToken } from "components/Elements/Nft/apis/superrareApi";
+import { fetchAndUpdateSuperrareToken } from "Space/Elements/Nft/apis/superrareApi";
 
 const ModelPreview = ({ url }: { url: string }) => {
   const modelConfig: ModelConfig = useMemo(() => {

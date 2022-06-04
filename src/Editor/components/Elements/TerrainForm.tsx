@@ -10,7 +10,7 @@ import * as FileSelect from "../Files/FileSelect";
 import MaterialForm from "./MaterialForm";
 import { defaultMaterialConfig } from "defaultConfigs";
 import ElementPreview from "../Form/ElementPreview";
-import GeneratedTerrain from "components/Elements/GeneratedTerrain";
+import GeneratedTerrain from "Space/Elements/GeneratedTerrain";
 import { useState } from "react";
 import FormSection from "Editor/components/Form/FormSection";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";

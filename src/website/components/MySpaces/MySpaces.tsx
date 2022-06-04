@@ -1,5 +1,5 @@
 import { Button, Divider, Grid, Typography } from "@material-ui/core";
-import { AnimatedAriumLogo } from "components/AnimatedAriumLogo";
+import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 import { useAuthentication } from "hooks/auth/useAuthentication";
 import React from "react";
 import { Layout2, NavProps } from "website/Layout/Layout2";
@@ -7,7 +7,7 @@ import { LoginModal } from "website/LoginModal";
 import { SpaceList } from "./SpaceList";
 import styles from "./styles.module.scss";
 import { useSpaceAccess } from "hooks/auth/useSpaceAccess";
-import { LoadingLinear } from "components/Loading";
+import { LoadingLinear } from "Space/Loading";
 import useSpaceCreationStatus from "website/spaceCreation/useSpaceCreationStatus";
 
 const navProps: NavProps = { navItems: ["documentation", "my-spaces"] };

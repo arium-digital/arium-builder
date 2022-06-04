@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { AnimatedAriumLogo } from "components/AnimatedAriumLogo";
+import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 import dynamic from "next/dynamic";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 

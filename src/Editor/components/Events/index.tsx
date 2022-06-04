@@ -10,7 +10,7 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
-import { HasSpaceId } from "components/InSpaceEditor/types";
+import { HasSpaceId } from "Space/InSpaceEditor/types";
 import { EventInfo } from "../../../../shared/sharedTypes";
 import { store } from "db";
 import { useFileDownloadUrl } from "fileUtils";

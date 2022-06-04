@@ -6,7 +6,7 @@ import * as Forms from "../Form";
 import { useStyles } from "../../styles";
 import { Button, Typography } from "@material-ui/core";
 
-import { TransitionsModal } from "components/Elements/Model/interactable";
+import { TransitionsModal } from "Space/Elements/Model/interactable";
 import * as Text from "../VisualElements/Text";
 import {
   InteractionConfig,

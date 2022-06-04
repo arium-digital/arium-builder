@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-import VideoTexture from "../components/utils/VideoTexture";
+import VideoTexture from "../Space/utils/VideoTexture";
 
 export const useVideoTexture = ({
   video,

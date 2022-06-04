@@ -4,7 +4,7 @@ import { useDrop } from "react-dnd";
 import firestore from "@google-cloud/firestore";
 import { getUpdatedTransform } from "../utils/transform";
 import { ElementConfig } from "spaceTypes";
-import { CurrentEditingElementAndPath } from "components/InSpaceEditor/types";
+import { CurrentEditingElementAndPath } from "Space/InSpaceEditor/types";
 import { Optional } from "types";
 
 const useElementDrop = ({

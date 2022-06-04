@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { AnimatedAriumLogo } from "components/AnimatedAriumLogo";
+import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 
 const Routes = dynamic(() => import("../../../Editor/Routes"), {
   loading: () => <AnimatedAriumLogo hint="Loading editor..." />,

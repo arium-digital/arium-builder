@@ -9,10 +9,10 @@ import {
   PeersMetaData,
   ProducingPeers,
 } from "communicationTypes";
-import { EditorState } from "components/InSpaceEditor/types";
-import { SelfAvatar } from "components/Consumers/SelfAvatar";
+import { EditorState } from "Space/InSpaceEditor/types";
+import { SelfAvatar } from "Space/Consumers/SelfAvatar";
 import { Theme } from "spaceTypes/theme";
-import { AvatarMeshes } from "components/Consumers/AvatarMesh";
+import { AvatarMeshes } from "Space/Consumers/AvatarMesh";
 export type Setter<T> = (val: T) => void;
 export interface GlobalSettings {
   activeSpaceID: string;

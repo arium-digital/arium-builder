@@ -4,7 +4,7 @@ import { merge } from "lodash";
 import { Color } from "@material-ui/lab/Alert";
 import { useState } from "react";
 import { getElementsCollectionRef } from "shared/documentPaths";
-import { CurrentEditingElementAndPath } from "components/InSpaceEditor/types";
+import { CurrentEditingElementAndPath } from "Space/InSpaceEditor/types";
 import { Optional } from "types";
 
 export type setAlert = (args: { message: string; severity: Color }) => void;

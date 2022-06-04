@@ -1,4 +1,4 @@
-import { AnimatedAriumLogo } from "components/AnimatedAriumLogo";
+import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 import dynamic from "next/dynamic";
 import React from "react";
 const MySpaces = dynamic(() => import("../website/components/MySpaces"), {

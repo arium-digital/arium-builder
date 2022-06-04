@@ -1,5 +1,5 @@
-import { useIsEditorOpen } from "components/InSpaceEditor/hooks/useEditorStatus";
-import { HasEditorState } from "../../../components/InSpaceEditor/types";
+import { useIsEditorOpen } from "Space/InSpaceEditor/hooks/useEditorStatus";
+import { HasEditorState } from "../../../Space/InSpaceEditor/types";
 import InSpaceElementForm from "./InSpaceElementForm";
 import InSpaceSettingsForm from "./InSpaceSettingsForm";
 

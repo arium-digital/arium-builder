@@ -10,7 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import { getElementRef } from "./ElementForm";
 import Root from "./Tree/Root";
 import useDuplicateElement from "Editor/hooks/useDuplicateElement";
-import { CurrentEditingElementAndPath } from "components/InSpaceEditor/types";
+import { CurrentEditingElementAndPath } from "Space/InSpaceEditor/types";
 import { Optional } from "types";
 
 const Elements: FC<{ spaceId: string }> = ({ spaceId }) => {

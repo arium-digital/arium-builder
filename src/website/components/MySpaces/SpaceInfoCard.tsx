@@ -4,7 +4,7 @@ import { AriumOrange } from "website/themes/lightTheme";
 import { IconBetaSignUp } from "website/home/utils";
 import styles from "./styles.module.scss";
 import { CombinedSpaceInfo } from "./types";
-import { editModeQueryParamKey } from "components/InSpaceEditor/hooks/useEditorState";
+import { editModeQueryParamKey } from "Space/InSpaceEditor/hooks/useEditorState";
 import SpaceUrlForm from "Editor/components/SpaceSettings/SpaceUrlForm";
 import { ariumBlack } from "css/styleVariables";
 import Link from "next/link";

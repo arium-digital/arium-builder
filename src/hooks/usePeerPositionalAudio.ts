@@ -23,7 +23,7 @@ import {
 import { spacePositionalAudioConfigDocument } from "shared/documentPaths";
 import { AudioListener, PositionalAudio } from "three";
 import { BroadcastersAndAudioSettings } from "../communicationTypes";
-import { playOrPause } from "../components/Consumers/useStreamPlayer";
+import { playOrPause } from "../Space/Consumers/useStreamPlayer";
 import { store } from "../db";
 
 import { filterUndefined } from "../libs/rx";

@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { spaceEffectsDoc } from "shared/documentPaths";
 import Grid from "@material-ui/core/Grid/Grid";
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
-import { Effect, Effects, SpaceEffects } from "components/PostProcessing/types";
+import { Effect, Effects, SpaceEffects } from "Space/PostProcessing/types";
 import { NestedFormPropWithUpdatedId } from "Editor/components/Form";
 import * as Forms from "Editor/components/Form";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";

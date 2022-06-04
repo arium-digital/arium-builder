@@ -8,7 +8,7 @@ import * as Forms from "../Form";
 import { useStyles } from "../../styles";
 import { Paper } from "@material-ui/core";
 import ElementPreview from "../Form/ElementPreview";
-import WaterWrapper from "components/Elements/Water";
+import WaterWrapper from "Space/Elements/Water";
 import { Transform } from "spaceTypes/shared";
 import { defaultTransform } from "defaultConfigs";
 import { useConfigOrDefaultRecursive } from "hooks/spaceHooks";

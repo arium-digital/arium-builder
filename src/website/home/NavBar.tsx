@@ -12,7 +12,7 @@ import {
   Typography,
   useScrollTrigger,
 } from "@material-ui/core";
-import { FooterElementID } from "components/EventRoute/Footer";
+import { FooterElementID } from "Events/Footer";
 import { AuthState, useAuthentication } from "hooks/auth/useAuthentication";
 import React, { MouseEventHandler, useCallback, useState } from "react";
 import { UserInfo } from "website/header";

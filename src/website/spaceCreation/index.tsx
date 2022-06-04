@@ -1,5 +1,5 @@
 import { Typography } from "@material-ui/core";
-import { LoadingLinear } from "components/Loading";
+import { LoadingLinear } from "Space/Loading";
 import { functions } from "db";
 import { useAuthentication } from "hooks/auth/useAuthentication";
 import React, { useCallback, useState } from "react";

@@ -25,7 +25,7 @@ import {
   DistanceCalculations,
   toDistanceCalculations,
 } from "./libs/distanceCalculations";
-import ThreeContext from "components/ThreeContext";
+import ThreeContext from "Space/ThreeContext";
 
 export const usePeerLocations = ({
   spaceId$,

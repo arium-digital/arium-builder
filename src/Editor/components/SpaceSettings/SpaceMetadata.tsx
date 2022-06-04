@@ -25,7 +25,7 @@ import { useChangeHandlers } from "Editor/hooks/useChangeHandlers";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
 import * as yup from "yup";
 import FormSection from "../Form/FormSection";
-import ThreeContext from "components/ThreeContext";
+import ThreeContext from "Space/ThreeContext";
 import { Skeleton } from "@material-ui/lab";
 
 interface IWrapperProps {

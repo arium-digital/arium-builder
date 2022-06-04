@@ -23,7 +23,7 @@ import {
 import { defaultPortalConfig } from "spaceTypes/portal";
 import { defaultOnesVector3 } from "../Form/EditVectorThree";
 import { Vector3 } from "three";
-import * as typeChecks from "components/Elements/elementTypeChecks";
+import * as typeChecks from "Space/Elements/elementTypeChecks";
 
 import * as Forms from "../Form";
 import PlacardForm from "./PlacardForm";
@@ -32,8 +32,8 @@ import NftForm from "./Nft/NftForm";
 import WaterForm from "./WaterForm";
 import { defaultWaterConfig } from "spaceTypes/water";
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
-import { ElementsContextType } from "components/Elements/Tree/ElementsTree";
-import { ElementsContext } from "components/Elements/Tree/ElementsTree";
+import { ElementsContextType } from "Space/Elements/Tree/ElementsTree";
+import { ElementsContext } from "Space/Elements/Tree/ElementsTree";
 import { useDefaultThemedConfigs } from "defaultConfigs/useDefaultNewElements";
 import { EditingElementContext } from "./EditiingElementContext";
 

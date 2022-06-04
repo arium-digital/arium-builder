@@ -1,4 +1,4 @@
-import { ControlsSettings, PhysicsSettings } from "components/componentTypes";
+import { ControlsSettings, PhysicsSettings } from "Space/componentTypes";
 import { useState, useEffect, useMemo } from "react";
 import { useConfigOrDefaultRecursive } from "./spaceHooks";
 import merge from "lodash/merge";

@@ -1,4 +1,4 @@
-import { MediaType } from "components/Elements/Nft/lib";
+import { MediaType } from "Space/Elements/Nft/lib";
 import { FileLocation } from "spaceTypes";
 import {
   HasEthNft,

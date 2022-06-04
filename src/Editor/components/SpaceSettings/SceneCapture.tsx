@@ -1,4 +1,4 @@
-import SpacePreview from "components/FullSpacePreview";
+import SpacePreview from "Space/FullSpacePreview";
 import React, { useCallback, useState } from "react";
 import { spaceUserAssetPath } from "Editor/hooks/useSpaceFiles";
 import randomString from "random-string";

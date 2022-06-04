@@ -4,10 +4,10 @@ import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { InferGetServerSidePropsType } from "next";
 import { SpaceMetaResult } from "../../../../shared/sharedTypes";
-import { AnimatedAriumLogo } from "components/AnimatedAriumLogo";
-import { SpaceRouteKeys } from "components/SpaceRoute/useSpaceQueryParams";
+import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
+import { SpaceRouteKeys } from "Space/SpaceRoute/useSpaceQueryParams";
 import { getFunctionsBaseUrl } from "libs/config";
-const SpaceRoute = dynamic(() => import("../../../components/SpaceRoute"), {
+const SpaceRoute = dynamic(() => import("../../../Space/SpaceRoute"), {
   loading: () => <AnimatedAriumLogo hint="Loading space..." />,
   ssr: false,
 });

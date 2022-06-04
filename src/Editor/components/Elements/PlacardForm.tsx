@@ -14,7 +14,7 @@ import {
 } from "./InteractableConfigForm";
 import ElementPreview from "../Form/ElementPreview";
 import { usePreviewElementValues } from "../Form/Previews";
-import Placard from "components/Elements/Placard";
+import Placard from "Space/Elements/Placard";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
 import FormSection, {
   FormSectionDisplaySettings,

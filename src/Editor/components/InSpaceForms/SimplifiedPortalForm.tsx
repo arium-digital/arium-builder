@@ -2,7 +2,7 @@
 // import { VideoConfig } from "spaceTypes";
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
-// import { OptionalSpaceId } from "components/InSpaceEditor/types";
+// import { OptionalSpaceId } from "Space/InSpaceEditor/types";
 
 import { PortalConfig } from "spaceTypes/portal";
 import {

@@ -3,7 +3,7 @@
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
-// import { OptionalSpaceId } from "components/InSpaceEditor/types";
+// import { OptionalSpaceId } from "Space/InSpaceEditor/types";
 import Grid from "@material-ui/core/Grid/Grid";
 import { LightConfig, PointLightConfig } from "spaceTypes";
 import {

@@ -30,11 +30,11 @@ import { sRGBEncoding, Texture, TextureLoader, Vector2 } from "three";
 import { METADATA_KEYS } from "./usePeersMetadata";
 import { observePeerPlayerQuarternions, StateChange } from "stateFromDb";
 import { useCurrentValueFromBehaviorSubject } from "./useObservable";
-import VideoTexture from "components/utils/VideoTexture";
+import VideoTexture from "Space/utils/VideoTexture";
 import {
   cropToOffsetAndScale,
   squareCropFromSize,
-} from "components/Elements/Video/videoUtils";
+} from "Space/Elements/Video/videoUtils";
 
 export interface QuaternionUpdate {
   sessionId: string;

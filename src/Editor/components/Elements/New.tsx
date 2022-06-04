@@ -10,7 +10,7 @@ import { useStyles } from "../../styles";
 import ElementForm from "./ElementForm";
 import { PushUndoItemFunction } from "Editor/hooks/useUndo";
 import { useEffect } from "react";
-import { CurrentEditingElementAndPath } from "components/InSpaceEditor/types";
+import { CurrentEditingElementAndPath } from "Space/InSpaceEditor/types";
 
 const defaultElementConfig = (): ElementConfig => ({
   active: true,

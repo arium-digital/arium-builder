@@ -30,14 +30,14 @@ import {
 import {
   useIsAddingElements$,
   useIsEditorOpen$,
-} from "../components/InSpaceEditor/hooks/useEditorStatus";
+} from "../Space/InSpaceEditor/hooks/useEditorStatus";
 import {
   EditorState,
   EditorStatus,
   OptionalElementGroup,
   HasDisableInteractivity$,
   HasEnablePointerOverLayer$,
-} from "components/InSpaceEditor/types";
+} from "Space/InSpaceEditor/types";
 import { ElementConfig, ElementType } from "spaceTypes";
 
 import styles from "css/controls.module.scss";

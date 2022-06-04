@@ -6,20 +6,20 @@ import {
 } from "spaceTypes";
 import { useFrame, useThree } from "@react-three/fiber";
 import { memo, useState, useCallback, useEffect } from "react";
-import ModelContainer from "components/Elements/Model";
+import ModelContainer from "Space/Elements/Model";
 import { OrbitControls as ThreeOrbitControls } from "three-stdlib/controls/OrbitControls";
 import ElementPreview from "./ElementPreview";
-import ImageDisplay from "components/Elements/ImageDisplay";
+import ImageDisplay from "Space/Elements/ImageDisplay";
 import VideoPlayer, {
   useRefreshVideoIfSourceChanged,
-} from "components/Elements/Video/VideoElement";
-import RawModelDisplay from "components/Elements/Model/RawModelDisplay";
+} from "Space/Elements/Video/VideoElement";
+import RawModelDisplay from "Space/Elements/Model/RawModelDisplay";
 import VolumeOffIcon from "@material-ui/icons/VolumeOff";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import IconButton from "@material-ui/core/IconButton";
 import { useFileDownloadUrl } from "fileUtils";
 import { NftConfig } from "spaceTypes/nftConfig";
-import NftDisplay from "components/Elements/Nft/NftDisplay";
+import NftDisplay from "Space/Elements/Nft/NftDisplay";
 import { useBehaviorSubjectFromCurrentValue } from "hooks/useObservable";
 
 export const Model = () => {

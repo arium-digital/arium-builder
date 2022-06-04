@@ -34,7 +34,9 @@ Most of the application is built in typescript and react.  It is serverless, rel
 
 ## Setting up Firebase
 
-ToDO: fill out
+Running this project **requires a *Firebase* account,** and using Firebase Cloud Functions which is core to much of the functinoality requires a **Blaze (paid)** account.
+
+**Create a new Firebase Project (here)[https://firebase.google.com/]**
 
 #### Generate a service account key
 

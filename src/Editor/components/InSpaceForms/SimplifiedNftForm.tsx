@@ -6,7 +6,7 @@ import {
 } from "Editor/hooks/useNullableChangeHandlers";
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React, { useCallback, useState } from "react";
-// import { OptionalSpaceId } from "components/InSpaceEditor/types";
+// import { OptionalSpaceId } from "Space/InSpaceEditor/types";
 import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
 import { NftConfig } from "spaceTypes/nftConfig";
 import {
@@ -14,10 +14,10 @@ import {
   TokenPreview,
   useExtractToken,
 } from "Editor/components/Elements/Nft/NftForm";
-import { isManualEntryToken } from "components/Elements/Nft/tokenConversion";
+import { isManualEntryToken } from "Space/Elements/Nft/tokenConversion";
 import VideoSettingsForm from "../Elements/Video/VideoSettingsForm";
 import * as themeDefaults from "defaultConfigs/theme";
-import { showFromConfig } from "components/Elements/Nft/NftMediaAndPlacardDisplay";
+import { showFromConfig } from "Space/Elements/Nft/NftMediaAndPlacardDisplay";
 import AdvancedNftSettingsForm from "../Elements/Nft/AdvancedNftSettingsForm";
 import { ImageSettingsForm } from "../Elements/ImageForm";
 import { HasFrameForm } from "../Elements/FrameForm";

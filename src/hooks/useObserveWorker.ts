@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Observable, Subject } from "rxjs";
 import createWorkerBlobUrl, {
   TRANSFERABLE_TYPE,
-} from "../components/Controls/workers/createWorkerBlobUrl";
+} from "../Space/Controls/workers/createWorkerBlobUrl";
 
 export const useObserveWorker = <T, K>(
   fn: (data: T) => void,

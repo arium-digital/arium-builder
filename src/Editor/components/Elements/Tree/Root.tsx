@@ -1,5 +1,5 @@
 import { CollectionReference } from "@google-cloud/firestore";
-import { CurrentEditingElementAndPath } from "components/InSpaceEditor/types";
+import { CurrentEditingElementAndPath } from "Space/InSpaceEditor/types";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Optional } from "types";

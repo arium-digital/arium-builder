@@ -1,7 +1,7 @@
 import { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { LiveStreamConfig, PlaySettings } from "spaceTypes";
-import { VideoSource } from "components/Elements/Video/VideoHtmlElement";
-import LiveStreamVideoSource from "components/Elements/Video/LiveStreamVideoSource";
+import { VideoSource } from "Space/Elements/Video/VideoHtmlElement";
+import LiveStreamVideoSource from "Space/Elements/Video/LiveStreamVideoSource";
 import { FileLocation } from "../../../../shared/sharedTypes";
 
 export type SingleOrMultipleVideoSource =

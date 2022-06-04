@@ -24,7 +24,7 @@ import {
   Side,
   ModelConfig,
 } from "../spaceTypes";
-import { PhysicsSettings } from "components/componentTypes";
+import { PhysicsSettings } from "Space/componentTypes";
 import { GraphicsConfig } from "../spaceTypes/environment";
 import { LightKind } from "../spaceTypes/light";
 import { FrameConfiguration } from "../spaceTypes/image";
@@ -57,7 +57,7 @@ import {
 } from "spaceTypes/video";
 import { NftType } from "../../shared/nftTypes";
 import { defaultPortalConfig } from "spaceTypes/portal";
-import { SpaceEffects } from "components/PostProcessing/types";
+import { SpaceEffects } from "Space/PostProcessing/types";
 import { defaultAudioConfig } from "./useDefaultNewElements";
 
 export const DEFAULT_MAX_CONSUMER_DISTANCE = 400;

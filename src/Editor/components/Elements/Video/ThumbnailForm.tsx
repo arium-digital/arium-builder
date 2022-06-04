@@ -10,7 +10,7 @@ import { Skeleton } from "@material-ui/lab";
 import { useCallback, useMemo, useState } from "react";
 import { FileLocation } from "spaceTypes";
 import { useEffect } from "react";
-import { videoThumbnailUrl } from "components/Elements/Video/videoUtils";
+import { videoThumbnailUrl } from "Space/Elements/Video/videoUtils";
 import FormSection, {
   FormSectionDisplaySettings,
 } from "Editor/components/Form/FormSection";

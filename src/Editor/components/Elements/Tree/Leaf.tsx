@@ -27,7 +27,7 @@ import { firestoreTimeNow } from "db";
 import ElementChildren from "./Children";
 import clsx from "clsx";
 import { Optional } from "types";
-import { CurrentEditingElementAndPath } from "components/InSpaceEditor/types";
+import { CurrentEditingElementAndPath } from "Space/InSpaceEditor/types";
 import useElementDrop from "./useElementDrop";
 import ElementIcon from "../ElementIcon";
 

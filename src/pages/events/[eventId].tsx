@@ -2,12 +2,12 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import { AnimatedAriumLogo } from "components/AnimatedAriumLogo";
+import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 import { EventInfo } from "../../../shared/sharedTypes";
-import { FourOFourSSR } from "components/404";
+import { FourOFourSSR } from "Space/404";
 import { getMetaImagePath } from "media/assetPaths";
 import { getFunctionsBaseUrl } from "libs/config";
-const EventRoute = dynamic(() => import("../../components/EventRoute"), {
+const EventRoute = dynamic(() => import("../../Events"), {
   loading: () => <AnimatedAriumLogo hint="Loading event..." />,
   ssr: true,
 });

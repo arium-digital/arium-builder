@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import { useValidateAndUpdate } from "Editor/hooks/updateAndCreate";
 import { spacePositionalPhysicsDocument } from "../../../shared/documentPaths";
 import Grid from "@material-ui/core/Grid";
-import { PhysicsSettings } from "components/componentTypes";
+import { PhysicsSettings } from "Space/componentTypes";
 import { defaultPhysicsSettings } from "defaultConfigs";
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
 import * as Forms from "../Form";

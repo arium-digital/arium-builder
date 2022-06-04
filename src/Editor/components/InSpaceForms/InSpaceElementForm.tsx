@@ -1,6 +1,6 @@
 import { ElementConfig, ElementType } from "spaceTypes";
-import { HasEditorState } from "../../../components/InSpaceEditor/types";
-import styles from "components/InSpaceEditor/styles.module.scss";
+import { HasEditorState } from "../../../Space/InSpaceEditor/types";
+import styles from "Space/InSpaceEditor/styles.module.scss";
 import React, { useCallback, useMemo } from "react";
 import { useChangeHandlers } from "Editor/hooks/useChangeHandlers";
 import {
@@ -44,7 +44,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import {
   useRefreshIfChanged,
   useRefreshOnObserved,
-} from "components/Elements/Nft/NftDisplay";
+} from "Space/Elements/Nft/NftDisplay";
 import { Observable } from "rxjs";
 import { SimplifiedAudioForm } from "./SimplifiedAudioForm";
 

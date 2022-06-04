@@ -17,7 +17,7 @@ import { useStyles } from "../../styles";
 import { useFormFields } from "../../hooks/useFormFields";
 import { defaultFrameConfig } from "defaultConfigs";
 import ElementPreview from "../Form/ElementPreview";
-import ReflectorSurface from "components/Elements/ReflectorSurface";
+import ReflectorSurface from "Space/Elements/ReflectorSurface";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
 import FormSection from "../Form/FormSection";
 

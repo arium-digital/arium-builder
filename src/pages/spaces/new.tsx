@@ -1,4 +1,4 @@
-import { AnimatedAriumLogo } from "components/AnimatedAriumLogo";
+import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 

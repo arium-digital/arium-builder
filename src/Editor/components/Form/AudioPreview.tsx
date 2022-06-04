@@ -1,6 +1,6 @@
 import { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { FileLocation, LiveStreamConfig, PlaySettings } from "spaceTypes";
-import LiveStreamVideoSource from "components/Elements/Video/LiveStreamVideoSource";
+import LiveStreamVideoSource from "Space/Elements/Video/LiveStreamVideoSource";
 import { useFileDownloadUrl } from "fileUtils";
 
 export const StoredAudioPreview = ({

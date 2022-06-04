@@ -5,7 +5,7 @@ import { OrbitControls, useContextBridge } from "@react-three/drei";
 import { Stage } from "@react-three/drei";
 import { useState, useEffect } from "react";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
-import { ElementsContext } from "components/Elements/Tree/ElementsTree";
+import { ElementsContext } from "Space/Elements/Tree/ElementsTree";
 import { PresetsType } from "@react-three/drei/helpers/environment-assets";
 import { ErrorBoundary } from "react-error-boundary";
 

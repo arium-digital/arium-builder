@@ -8,7 +8,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FormatClearIcon from "@material-ui/icons/FormatClear";
 import { NestedFormProp } from ".";
 import { useCallback, useContext, useEffect, useState } from "react";
-import { EditorContext } from "components/InSpaceEditor/hooks/useEditorState";
+import { EditorContext } from "Space/InSpaceEditor/hooks/useEditorState";
 
 function RevertToDefaultsButton<T>({
   nestedForm,

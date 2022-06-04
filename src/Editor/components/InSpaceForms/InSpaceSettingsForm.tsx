@@ -2,10 +2,10 @@ import { Toolbar } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import { useCallback } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { HasEditorState } from "../../../components/InSpaceEditor/types";
+import { HasEditorState } from "../../../Space/InSpaceEditor/types";
 import InSpaceEffectsForm from "./InSpaceEffectsForm";
 import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
-import styles from "components/InSpaceEditor/styles.module.scss";
+import styles from "Space/InSpaceEditor/styles.module.scss";
 import InSpaceSkyBoxForm from "./InSpaceSkyboxForm";
 
 const InSpaceSettingsForm = ({ editorState }: HasEditorState) => {

@@ -6,10 +6,10 @@ import * as Forms from "../../Form";
 import { ArtworkDisplayConfig } from "spaceTypes/nftConfig";
 import * as themeDefaults from "defaultConfigs/theme";
 import { FileLocation } from "spaceTypes";
-import { MediaType } from "components/Elements/Nft/lib";
+import { MediaType } from "Space/Elements/Nft/lib";
 import FormSection from "Editor/components/Form/FormSection";
 import NftPlacardSettingsForm from "Editor/components/ThemeSettings/NftPlacardSettingsForm";
-import { showFromConfig } from "components/Elements/Nft/NftMediaAndPlacardDisplay";
+import { showFromConfig } from "Space/Elements/Nft/NftMediaAndPlacardDisplay";
 
 const defaultWhatToShowConfig = (): Pick<
   ArtworkDisplayConfig,
