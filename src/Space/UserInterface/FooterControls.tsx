@@ -18,7 +18,7 @@ import JoystickController from "./JoystickController";
 // import AudioLevelIndicator from "./AudioLevelIndicator";
 import { PossiblyNullStringDict } from "types";
 // import { METADATA_KEYS } from "hooks/usePeersMetadata";
-import SelfView from "Space/Consumers/SelfView";
+import SelfView from "Space/Peers/SelfView";
 import { useCurrentValueFromObservable } from "hooks/useObservable";
 import { useFullScreen } from "Space/Controls/FullScreenToggle";
 import SendIcon from "@material-ui/icons/Send";

@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { ElementConfig, ElementType } from "../../../../spaceTypes";
+import { ElementConfig, ElementType } from "../../../spaceTypes";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Switch from "@material-ui/core/Switch";
@@ -17,11 +17,11 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import { useStyles } from "../../../styles";
-import { arraysEqual } from "../../../../libs/utils";
+import { useStyles } from "../../styles";
+import { arraysEqual } from "../../../libs/utils";
 import { useDrag } from "react-dnd";
 import firestore from "@google-cloud/firestore";
-import { theme } from "../../../../shared/theme";
+import { theme } from "../../../shared/theme";
 
 import { firestoreTimeNow } from "db";
 import ElementChildren from "./Children";
@@ -29,7 +29,7 @@ import clsx from "clsx";
 import { Optional } from "types";
 import { CurrentEditingElementAndPath } from "Space/InSpaceEditor/types";
 import useElementDrop from "./useElementDrop";
-import ElementIcon from "../ElementIcon";
+import ElementIcon from "./ElementIcon";
 
 const CreateElementNode = ({
   path,

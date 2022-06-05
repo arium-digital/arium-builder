@@ -1,5 +1,5 @@
 import { Box, Button, IconButton } from "@material-ui/core";
-import SpacePreview from "Space/SpacePreview";
+import SpacePreview from "Space/Previews/SpacePreview";
 import React, { useCallback, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import styles from "website/css/flow.module.scss";

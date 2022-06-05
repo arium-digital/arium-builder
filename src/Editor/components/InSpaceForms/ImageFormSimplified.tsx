@@ -2,12 +2,12 @@ import { ImageConfig } from "spaceTypes";
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 import {
   ImageContentForm,
   ImageSettingsForm,
 } from "Editor/components/SharedForms/ImageForm";
-import { InteractableElementForm } from "Editor/components/AdvancedEditor/ModelForm";
+import { InteractableElementForm } from "Editor/components/SharedForms/ModelForms";
 import * as themeDefaults from "defaultConfigs/theme";
 import { HasFrameForm } from "Editor/components/SharedForms/HasFrameForm";
 

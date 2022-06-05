@@ -2,14 +2,14 @@ import {
   AuthenticatedAuthState,
   useAuthentication,
 } from "hooks/auth/useAuthentication";
-import { AnimatedAriumLogo } from "./AnimatedAriumLogo";
-import Space from ".";
+import { AnimatedAriumLogo } from "../AnimatedAriumLogo";
+import Space from "../SpaceContainer";
 import dynamic from "next/dynamic";
 import { useBehaviorSubjectAndSetterFromCurrentValue } from "hooks/useObservable";
 import { defaultPlayerLocation } from "hooks/useUpdateRemotePlayerPosition";
 import { PlayerLocation } from "types";
 
-const SpaceWithWeb3 = dynamic(() => import("./SpaceRoute/SpaceWithWeb3"));
+const SpaceWithWeb3 = dynamic(() => import("../SpaceContainerWithWeb3"));
 
 const FullSpacePreview = ({ spaceId }: { spaceId: string }) => {
   const authState = useAuthentication({ ensureSignedInAnonymously: true });

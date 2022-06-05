@@ -30,7 +30,7 @@ import useVideoOrImageTexture from "./useVideoOrImageTexture";
 import isEqual from "lodash/isEqual";
 import ManualPlayButton from "./ManualPlayButton";
 import { isIOS, isIPad } from "libs/deviceDetect";
-import { tryPlayWithBackoffRetry } from "Space/Consumers/useStreamPlayer";
+import { tryPlayWithBackoffRetry } from "Space/Peers/useStreamPlayer";
 import { useContext } from "react";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
 import {

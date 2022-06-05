@@ -1,17 +1,9 @@
 import { useStyles } from "../../styles";
-import Paper from "@material-ui/core/Paper";
-import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
-import * as Forms from "../Form";
 import Grid from "@material-ui/core/Grid/Grid";
 import { FormDescription, Editors } from "../../types";
 import { TerrainConfig } from "spaceTypes/terrain";
 import useFormFields from "Editor/hooks/useFormFields";
 import * as FileSelect from "../Files/FileSelect";
-import MaterialForm from "../SharedForms/MaterialForm";
-import { defaultMaterialConfig } from "defaultConfigs";
-import ElementPreview from "../Form/ElementPreview";
-import GeneratedTerrain from "Space/Elements/GeneratedTerrain";
-import { useState } from "react";
 import FormSection from "Editor/components/Form/FormSection";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
 
@@ -135,51 +127,3 @@ export const TerrainContentForm = ({
     </FormSection>
   );
 };
-
-const TerrainForm = ({
-  nestedForm,
-  defaults: defaultValues,
-}: Forms.StandardFormPropsNullable<TerrainConfig>) => {
-  const classes = useStyles();
-
-  const changeHandlers = useNullableChangeHandlersWithDefaults({
-    nestedForm,
-    defaultValues,
-  });
-
-  const { values, makeNestedFormProps } = changeHandlers;
-
-  // hack to get around isGround default to false - in future use recursive
-  const [loaded, setLoaded] = useState(false);
-
-  return (
-    <>
-      <Grid container>
-        <Grid item xs={12} lg={6}>
-          <TerrainContentForm {...changeHandlers} />
-          <MaterialForm
-            title="Terrain Material"
-            nestedForm={makeNestedFormProps("materialConfig")}
-            defaults={defaultMaterialConfig}
-            showColor
-          />
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <Paper className={classes.paper}>
-            {values.heightMapFile && (
-              <ElementPreview
-                loaded={loaded}
-                environment="forest"
-                preset="soft"
-              >
-                <GeneratedTerrain config={values} handleLoaded={setLoaded} />
-              </ElementPreview>
-            )}
-          </Paper>
-        </Grid>
-      </Grid>
-    </>
-  );
-};
-
-export default TerrainForm;

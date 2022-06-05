@@ -4,14 +4,14 @@ import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableC
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
 // import { OptionalSpaceId } from "Space/InSpaceEditor/types";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 import { ModelConfig } from "spaceTypes";
 import {
   MaterialFormSection,
   ModelAppearanceForm,
   ModelContentForm,
   InteractableElementForm,
-} from "Editor/components/AdvancedEditor/ModelForm";
+} from "Editor/components/SharedForms/ModelForms";
 
 const SimplifiedModelForm = ({
   nestedForm,

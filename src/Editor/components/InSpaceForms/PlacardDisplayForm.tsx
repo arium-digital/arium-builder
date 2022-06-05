@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { useThemeableChangeHandlers } from "Editor/hooks/useNullableChangeHandlers";
 import { useFormFields } from "Editor/hooks/useFormFields";
 import { Editors, FormDescription } from "Editor/types";
-import { SimplifiedBackingAndFrameForm } from "./PlacardForm";
+import { SimplifiedBackingAndFrameForm } from "../SharedForms/PlacardForms";
 import FormSection from "../Form/FormSection";
 import { PlacardDisplayConfig } from "spaceTypes/placard";
 

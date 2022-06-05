@@ -3,7 +3,7 @@ import { Canvas, RootState } from "@react-three/fiber";
 import { PossiblyNullStringDict } from "../../types";
 
 // import floorTextureFile from "../../assets/images/floor-tiles.jpg";
-import SelfAvatar from "Space/Consumers/SelfAvatar";
+import SelfAvatar from "Space/Peers/SelfAvatar";
 import { useContextBridge } from "@react-three/drei";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
 

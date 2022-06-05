@@ -4,7 +4,7 @@ import Onboarding from "./Onboarding";
 
 import styles from "css/ui.module.scss";
 import { EntranceFlowProps } from "Space/componentTypes";
-import LegalLinks from "Space/LegalLinks";
+import LegalLinks from "Space/UserInterface/LegalLinks";
 
 const EntranceFlow = ({
   initialize,

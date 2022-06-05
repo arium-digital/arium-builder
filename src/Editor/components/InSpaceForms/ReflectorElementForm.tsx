@@ -4,14 +4,14 @@ import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableC
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
 // import { OptionalSpaceId } from "Space/InSpaceEditor/types";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 
 import { ReflectorSurfaceConfig } from "spaceTypes/reflectorSurface";
 import Grid from "@material-ui/core/Grid";
 import {
   ReflectorSettingsForm,
   ReflectorFrameForm,
-} from "Editor/components/AdvancedEditor/ReflectorSurfaceForm";
+} from "Editor/components/SharedForms/ReflectorSurfaceForms";
 
 const SimplifiedReflectorForm = ({
   nestedForm,

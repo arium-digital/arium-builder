@@ -10,9 +10,9 @@ import {
   PortalTargetForm,
   ToAnotherSpaceForm,
   usePortalFields,
-} from "Editor/components/AdvancedEditor/PortalForm";
+} from "Editor/components/SharedForms/PortalForms";
 import Grid from "@material-ui/core/Grid/Grid";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 
 const SimplifiedPortalForm = (
   props: StandardFormPropsNullable<PortalConfig>

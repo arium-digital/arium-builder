@@ -43,7 +43,7 @@ import {
 } from "@material-ui/core";
 import { DeleteRounded } from "@material-ui/icons";
 import { WithConfirmationDialog } from "../Form";
-import { Centered } from "Editor/components/InSpaceForms/SimplifiedFormBaseAndUtils";
+import { Centered } from "Editor/components/InSpaceForms/ElementFormBaseAndUtils";
 
 interface FileUploadStatus {
   progress: number;

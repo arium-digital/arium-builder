@@ -1,7 +1,7 @@
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 import { AudioConfig } from "spaceTypes/audio";
 import { AudioContentForm } from "../SharedForms/Audio/AudioForm";
 

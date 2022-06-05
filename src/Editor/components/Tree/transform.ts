@@ -1,7 +1,7 @@
 import * as THREE from "three";
-import { store } from "../../../../db";
-import { toNonNullVector3, asIVector3, last } from "../../../../libs/utils";
-import { ElementConfig } from "../../../../spaceTypes";
+import { store } from "../../../db";
+import { toNonNullVector3, asIVector3, last } from "../../../libs/utils";
+import { ElementConfig } from "../../../spaceTypes";
 
 const getElementConfig = async ({
   id,

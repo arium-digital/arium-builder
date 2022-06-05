@@ -7,7 +7,7 @@ import {
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React, { useCallback, useState } from "react";
 // import { OptionalSpaceId } from "Space/InSpaceEditor/types";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 import { NftConfig } from "spaceTypes/nftConfig";
 import {
   TokenConfigForm,

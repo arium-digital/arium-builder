@@ -1,26 +1,13 @@
-import { useState } from "react";
 import { HasBackingAndFrameConfig, PlacardConfig } from "spaceTypes/text";
-import { useStyles } from "../../styles";
-import Paper from "@material-ui/core/Paper";
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
 import * as Forms from "../Form";
-import * as Text from "../VisualElements/Text";
 import Grid from "@material-ui/core/Grid/Grid";
 import { defaultFrameConfig, defaultMaterialConfig } from "defaultConfigs";
-import FrameForm from "../SharedForms/HasFrameForm";
-import {
-  defaultInteractableConfig,
-  InteractableConfigForm,
-} from "../SharedForms/InteractableConfigForm";
-import ElementPreview from "../Form/ElementPreview";
-import { usePreviewElementValues } from "../Form/Previews";
-import Placard from "Space/Elements/Placard";
+import FrameForm from "./HasFrameForm";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
 import FormSection, {
   FormSectionDisplaySettings,
 } from "Editor/components/Form/FormSection";
-import PlacardDisplayForm from "./PlacardDisplayForm";
-import * as themeDefaults from "defaultConfigs/theme";
 
 const anchorXOptions: string[] = ["left", "center", "right"];
 const anchorYOptions: string[] = [
@@ -174,76 +161,3 @@ export const PlacardContentForm = ({
     </Grid>
   );
 };
-
-const PlacardForm = ({
-  nestedForm,
-  defaults: defaultValues,
-}: Forms.StandardFormPropsNullable<PlacardConfig>) => {
-  const classes = useStyles();
-
-  const changeHandlers = useNullableChangeHandlersWithDefaults({
-    nestedForm,
-    defaultValues,
-  });
-
-  const { values, handleFieldChanged, makeNestedFormProps } = changeHandlers;
-
-  const [loaded, setLoaded] = useState(false);
-
-  const previewValues = usePreviewElementValues();
-
-  return (
-    <>
-      <Grid container>
-        <Grid item xs={12} lg={6}>
-          <Grid item xs={12}>
-            <FormSection title="Placard Content" defaultExpanded>
-              <PlacardContentForm {...changeHandlers} />
-            </FormSection>
-          </Grid>
-          <Grid item xs={12}>
-            <PlacardDisplayForm
-              nestedForm={makeNestedFormProps("display")}
-              getThemeDefault={themeDefaults.placardDisplay}
-            />
-          </Grid>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <Text.SubElementHeader>
-              Placard Element Preview
-            </Text.SubElementHeader>
-            <ElementPreview loaded={loaded}>
-              <Placard
-                config={values}
-                {...previewValues}
-                handleLoaded={setLoaded}
-              />
-            </ElementPreview>
-          </Paper>
-        </Grid>
-      </Grid>
-
-      <Grid container>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Forms.Switch
-              label="Interactable"
-              value={values.interactable}
-              setValue={handleFieldChanged("interactable")}
-            />
-
-            {values.interactable && (
-              <InteractableConfigForm
-                nestedForm={makeNestedFormProps("interactableConfig")}
-                defaults={defaultInteractableConfig}
-              />
-            )}
-          </Paper>
-        </Grid>
-      </Grid>
-    </>
-  );
-};
-
-export default PlacardForm;

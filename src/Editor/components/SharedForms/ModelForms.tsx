@@ -1,14 +1,14 @@
 import { ModelConfig } from "../../../spaceTypes";
 import { useStyles } from "../../styles";
 import { modelFileExtensions } from "../Files/extensions";
-import MaterialForm from "../SharedForms/MaterialForm";
+import MaterialForm from "./MaterialForm";
 import Grid from "@material-ui/core/Grid/Grid";
-import ShadowForm, { defaultShadowConfig } from "../SharedForms/ShadowForm";
+import ShadowForm, { defaultShadowConfig } from "./ShadowForm";
 import * as Forms from "../Form";
 import {
   defaultInteractableConfig,
   InteractableConfigForm,
-} from "../SharedForms/InteractableConfigForm";
+} from "./InteractableConfigForm";
 import { defaultMaterialConfig } from "defaultConfigs";
 import React from "react";
 import * as FileSelect from "../Files/FileSelect";

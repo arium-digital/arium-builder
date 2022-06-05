@@ -20,17 +20,17 @@ import {
   defaultTerrainConfig,
   defaultLightConfig,
 } from "defaultConfigs";
-import { SimplifiedVideoForm } from "./SimplifiedVideoForm";
-import { SimplifiedNftForm } from "./SimplifiedNftForm";
-import SimplifiedTerrainForm from "./SimplifiedTerrainForm";
-import SimplifiedModelForm from "./SimplifiedModelForm";
-import SimplifiedPlacardForm from "./SimplifiedPlacardForm";
+import { SimplifiedVideoForm } from "./VideoElementForm";
+import { SimplifiedNftForm } from "./NftElementForm";
+import SimplifiedTerrainForm from "./TerrainElementForm";
+import SimplifiedModelForm from "./ModelElementForm";
+import SimplifiedPlacardForm from "./PlacardElementForm";
 import { defaultPortalConfig } from "spaceTypes/portal";
-import SimplifiedPortalForm from "./SimplifiedPortalForm";
-import SimplifiedLightForm from "./SimplifiedLightForm";
-import SimplifiedWaterForm from "./SimplifiedWaterForm";
+import SimplifiedPortalForm from "./PortalElemenetForm";
+import SimplifiedLightForm from "./LightElementForm";
+import SimplifiedWaterForm from "./WaterElementForm";
 import { defaultWaterConfig } from "spaceTypes/water";
-import SimplifiedReflectorForm from "./SimplifiedReflectorForm";
+import SimplifiedReflectorForm from "./ReflectorElementForm";
 import { defaultReflectorSurfaceConfig } from "spaceTypes/reflectorSurface";
 import { FileCopy } from "@material-ui/icons";
 import { CircularProgress } from "@material-ui/core";
@@ -39,14 +39,14 @@ import {
   defaultAudioConfig,
   useDefaultThemedConfigs,
 } from "defaultConfigs/useDefaultNewElements";
-import { EditingElementContext } from "Editor/components/AdvancedEditor/EditiingElementContext";
+import { EditingElementContext } from "Editor/components/SharedForms/EditiingElementContext";
 import { ErrorBoundary } from "react-error-boundary";
 import {
   useRefreshIfChanged,
   useRefreshOnObserved,
 } from "Space/Elements/Nft/NftDisplay";
 import { Observable } from "rxjs";
-import { SimplifiedAudioForm } from "./SimplifiedAudioForm";
+import { SimplifiedAudioForm } from "./AudioElementForm";
 
 const SupportedElementTypes = new Set([
   ElementType.image,

@@ -1,5 +1,5 @@
 import { Provider } from "wagmi";
-import Space, { SpaceComponentProps } from "Space";
+import Space, { SpaceComponentProps } from "Space/SpaceContainer";
 import { chain } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { providers } from "ethers";

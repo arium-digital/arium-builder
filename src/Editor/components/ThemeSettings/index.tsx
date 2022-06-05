@@ -13,7 +13,7 @@ import { useValidateAndUpdate } from "Editor/hooks/updateAndCreate";
 import { Theme } from "spaceTypes/theme";
 // import { ArtworkDisplayConfig } from "spaceTypes/nftConfig";
 import { HasFrameForm } from "../SharedForms/HasFrameForm";
-import PlacardDisplayForm from "../AdvancedEditor/PlacardDisplayForm";
+import PlacardDisplayForm from "../InSpaceForms/PlacardDisplayForm";
 import FormSection from "Editor/components/Form/FormSection";
 import NftPlacardSettingsForm from "./NftPlacardSettingsForm";
 import { CommonVideoSettingsForm } from "../SharedForms/Video/VideoSettingsForm";

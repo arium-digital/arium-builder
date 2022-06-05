@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styles from "../css/legalLinks.module.scss";
+import styles from "css/legalLinks.module.scss";
 import Hidden from "@material-ui/core/Hidden";
 
 const LegalLinks = React.memo(() => (

@@ -22,7 +22,7 @@ import {
 } from "three";
 
 import { UserInfo, PeerAndDistance } from "../../communicationTypes";
-import SetRaycasterFromMouse from "../SetRaycasterFromMouse";
+import SetRaycasterFromMouse from "../utils/SetRaycasterFromMouse";
 import { ControlsSettings, IJoystickUpdateEvent } from "../componentTypes";
 import "../../hooks/useBroadcasters";
 import { EnvironmentConfig, IVector3, SpawnConfig } from "../../spaceTypes";
@@ -35,7 +35,7 @@ import { useConfigOrDefault } from "../../hooks/spaceHooks";
 import { ShadowMapType } from "../../spaceTypes/environment";
 import { useMemo } from "react";
 import { Observable } from "rxjs";
-import PeerAvatars from "../Consumers/PeerAvatars";
+import PeerAvatars from "../Peers/PeerAvatars";
 import useMeshes from "../../hooks/useMeshes";
 import ElementsTree from "../Elements/Tree/ElementsTree";
 import { useAttachCameraToListener } from "../../hooks/useListener";

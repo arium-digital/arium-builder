@@ -18,7 +18,7 @@ import {
   useInitEditorState,
 } from "Space/InSpaceEditor/hooks/useEditorState";
 import { SpaceAccessContext, useSpaceAccess } from "hooks/auth/useSpaceAccess";
-import Space from "..";
+import Space from "../SpaceContainer";
 import { useShouldWeb3BeEnabled } from "web3/contexts";
 import dynamic from "next/dynamic";
 import { spaceIdForSlug } from "hooks/useSpaceIdForSlug";
@@ -27,7 +27,7 @@ import { PartialRootState, PlayerLocation, ThreeContextType } from "types";
 import { defaultPlayerLocation } from "hooks/useUpdateRemotePlayerPosition";
 import ThreeContext from "Space/ThreeContext";
 
-const SpaceWithWeb3 = dynamic(() => import("./SpaceWithWeb3"));
+const SpaceWithWeb3 = dynamic(() => import("../SpaceContainerWithWeb3"));
 
 type BaseSpaceRouteProps = {
   spaceId: string;

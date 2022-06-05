@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { HasEditorState } from "../../../Space/InSpaceEditor/types";
 import InSpaceEffectsForm from "./InSpaceEffectsForm";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 import styles from "Space/InSpaceEditor/styles.module.scss";
 import InSpaceSkyBoxForm from "./InSpaceSkyboxForm";
 

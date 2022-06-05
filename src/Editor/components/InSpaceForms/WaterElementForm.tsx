@@ -4,12 +4,12 @@ import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableC
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
 // import { OptionalSpaceId } from "Space/InSpaceEditor/types";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 import { WaterConfig } from "spaceTypes/water";
 import {
   WaterSettingsForm,
   WaterGeometryForm,
-} from "Editor/components/AdvancedEditor/WaterForm";
+} from "Editor/components/SharedForms/WaterForms";
 
 const SimplifiedWaterForm = ({
   nestedForm,

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useStyles } from "../../../styles";
+import { useStyles } from "../../styles";
 import firestore from "@google-cloud/firestore";
 import { useElementsOfChildren } from "hooks/useElementsOfChildren";
 import List from "@material-ui/core/List";

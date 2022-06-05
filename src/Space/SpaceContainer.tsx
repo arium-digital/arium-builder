@@ -54,9 +54,9 @@ import {
 import { SpaceContextType } from "types";
 import { useRouter } from "next/router";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
-import { useSelfAvatar } from "./Consumers/SelfAvatar";
+import { useSelfAvatar } from "./Peers/SelfAvatar";
 import useTheme from "hooks/useTheme";
-import { useAvatarMeshes } from "./Consumers/AvatarMesh";
+import { useAvatarMeshes } from "./Peers/AvatarMesh";
 import useReloadIfUserIdChanged from "hooks/auth/useReloadIfUserIdChanged";
 import { AnimatedAriumLogo } from "./AnimatedAriumLogo";
 import { useElementsLoadedProgress } from "./Elements/Tree/useLoadedState";

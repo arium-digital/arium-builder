@@ -15,7 +15,7 @@ import { extractExt } from "fileUtils";
 import { useDropzone } from "react-dropzone";
 import { placeholderImageFile } from "defaultConfigs";
 import { useUploadAndSetAsset } from "../../../Space/InSpaceEditor/hooks/useUploadAndSetAsset";
-import { ProgressBar } from "./SimplifiedFormBaseAndUtils";
+import { ProgressBar } from "./ElementFormBaseAndUtils";
 import { useSlackbarErrorMessage } from "hooks/useSlackbarErrorMessage";
 import { StoredVideoPreview } from "Editor/components/Form/VideoPreview";
 import {

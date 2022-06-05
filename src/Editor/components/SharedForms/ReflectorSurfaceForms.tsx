@@ -8,16 +8,12 @@ import {
 } from "../../../spaceTypes/reflectorSurface";
 import { FormDescription, Editors } from "../../types";
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
-import FrameForm from "../SharedForms/HasFrameForm";
+import FrameForm from "./HasFrameForm";
 import * as Text from "../VisualElements/Text";
 import * as Forms from "../Form";
 import Grid from "@material-ui/core/Grid/Grid";
-import Paper from "@material-ui/core/Paper/Paper";
-import { useStyles } from "../../styles";
 import { useFormFields } from "../../hooks/useFormFields";
 import { defaultFrameConfig } from "defaultConfigs";
-import ElementPreview from "../Form/ElementPreview";
-import ReflectorSurface from "Space/Elements/ReflectorSurface";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
 import FormSection from "../Form/FormSection";
 
@@ -282,49 +278,3 @@ export const ReflectorFrameForm = ({
     </Grid>
   );
 };
-
-const ReflectorSurfaceForm: FC<
-  Forms.StandardFormPropsNullable<ReflectorSurfaceConfig>
-> = ({ nestedForm, defaults: defaultValues }) => {
-  // const values = useConfigOrDefaultRecursive(
-  //   config,
-  //   defaultReflectorSurfaceConfig
-  // );
-  const changeHandlers = useNullableChangeHandlersWithDefaults({
-    nestedForm,
-    defaultValues,
-  });
-
-  const { values } = changeHandlers;
-
-  const classes = useStyles();
-
-  return (
-    <>
-      <Grid container>
-        <Grid item xs={6}>
-          <Grid container>
-            <Grid item xs={12}>
-              <ReflectorSettingsForm {...changeHandlers} />
-            </Grid>
-            <Grid item xs={12}>
-              <ReflectorFrameForm {...changeHandlers} />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <Text.SubElementHeader>
-              Reflector Element Preview
-            </Text.SubElementHeader>
-            <ElementPreview loaded={true}>
-              <ReflectorSurface config={values} />
-            </ElementPreview>
-          </Paper>
-        </Grid>
-      </Grid>
-    </>
-  );
-};
-
-export default ReflectorSurfaceForm;

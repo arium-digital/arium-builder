@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { Row } from "react-bootstrap";
 import { useContext } from "react";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
-import { SelfAvatar } from "Space/Consumers/SelfAvatar";
+import { SelfAvatar } from "Space/Peers/SelfAvatar";
 
 export const SelfViewRow: React.FC<{ showLogo?: boolean }> = ({
   children,

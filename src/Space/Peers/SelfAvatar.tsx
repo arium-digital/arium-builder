@@ -2,7 +2,7 @@ import React, { useEffect, useState, memo, useMemo } from "react";
 import { PossiblyNullStringDict } from "../../types";
 import { AvatarMeshes } from "./AvatarMesh";
 import { METADATA_KEYS } from "hooks/usePeersMetadata";
-import { NameDisplay } from "Space/Consumers/AvatarMesh";
+import { NameDisplay } from "Space/Peers/AvatarMesh";
 import AvatarCameraSurfaces from "./AvatarCameraSurfaces";
 import { Color, Material, Mesh, Object3D, Texture, Vector3 } from "three";
 import { imageTextureForPhotoUrl$ } from "hooks/usePeerInSpace";

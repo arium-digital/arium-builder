@@ -4,12 +4,12 @@ import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableC
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
 // import { OptionalSpaceId } from "Space/InSpaceEditor/types";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 
 import { PlacardConfig } from "spaceTypes/text";
-import { PlacardContentForm } from "Editor/components/AdvancedEditor/PlacardForm";
+import { PlacardContentForm } from "Editor/components/SharedForms/PlacardForms";
 import * as themeDefaults from "defaultConfigs/theme";
-import PlacardDisplayForm from "Editor/components/AdvancedEditor/PlacardDisplayForm";
+import PlacardDisplayForm from "Editor/components/InSpaceForms/PlacardDisplayForm";
 
 const SimplifiedPlacardForm = ({
   nestedForm,

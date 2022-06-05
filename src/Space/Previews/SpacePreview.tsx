@@ -3,7 +3,7 @@ import { useAuthentication } from "hooks/auth/useAuthentication";
 import { useConfigOrDefault } from "hooks/spaceHooks";
 import useEnvironment from "hooks/useEnvironment";
 import React, { useMemo, useRef, useEffect } from "react";
-import { toInitialPosition, toShadowMapType } from "./Scene/SceneContainer";
+import { toInitialPosition, toShadowMapType } from "../Scene/SceneContainer";
 import { Canvas, useThree } from "@react-three/fiber";
 import {
   //   Camera,
@@ -15,22 +15,22 @@ import {
   //   BasicShadowMap,
   //   VSMShadowMap,
 } from "three";
-import KeyboardTurnControls from "./Controls/KeyboardTurnControls";
-import FirstPersonKeyboardMovementControls from "./Controls/KeyboardMovementControls";
-import ElementsTree from "./Elements/Tree/ElementsTree";
+import KeyboardTurnControls from "../Controls/KeyboardTurnControls";
+import FirstPersonKeyboardMovementControls from "../Controls/KeyboardMovementControls";
+import ElementsTree from "../Elements/Tree/ElementsTree";
 import useMeshes from "hooks/useMeshes";
 import { EnvironmentConfig } from "spaceTypes";
 import SphericalDragControls from "Space/Controls/SphericalDragControls";
-import SetRaycasterFromMouse from "Space/SetRaycasterFromMouse";
+import SetRaycasterFromMouse from "Space/utils/SetRaycasterFromMouse";
 import Environment from "Space/Environment/EnvironmentAndFodAndAmbientLight";
-import SyncCameraAndPlayerPosition from "./Controls/SyncCameraPositionAndPlayerState";
+import SyncCameraAndPlayerPosition from "../Controls/SyncCameraPositionAndPlayerState";
 import spaceStyles from "css/space.module.scss";
-import { FullScreenTopRightContainer } from "./Controls/FullScreenToggle";
-import usePressedKeyboardKeys from "./Controls/useKeyboardMovementKeys";
+import { FullScreenTopRightContainer } from "../Controls/FullScreenToggle";
+import usePressedKeyboardKeys from "../Controls/useKeyboardMovementKeys";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
 import useMinimalSpaceContext from "hooks/useMinimalSpaceContext";
-import { useElementsLoadedProgress } from "./Elements/Tree/useLoadedState";
-import { AnimatedAriumLogo } from "./AnimatedAriumLogo";
+import { useElementsLoadedProgress } from "../Elements/Tree/useLoadedState";
+import { AnimatedAriumLogo } from "../AnimatedAriumLogo";
 
 const SpacePreview = ({
   spaceId,

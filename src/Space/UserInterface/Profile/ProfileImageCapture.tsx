@@ -5,7 +5,7 @@ import cta from "css/cta.module.scss";
 import clsx from "clsx";
 import { Row, Col } from "react-bootstrap";
 import UploadPhotoDialog from "./UploadPhotoDialog";
-import SelfView from "../../Consumers/SelfView";
+import SelfView from "../../Peers/SelfView";
 import { PossiblyNullStringDict } from "types";
 import { useBooleanQueryParam, useQuery } from "libs/pathUtils";
 import { usePhotoCapture } from "./hooks";

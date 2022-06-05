@@ -245,27 +245,3 @@ export const usePortalFields = ({
 
   return { formFieldsAndProps, values, makeNestedFormProps };
 };
-const PortalForm: FC<StandardFormPropsNullable<PortalConfig>> = (props) => {
-  const { formFieldsAndProps, values, makeNestedFormProps } = usePortalFields(
-    props
-  );
-
-  return (
-    <>
-      <Grid container>
-        <PortalSettingsForm {...formFieldsAndProps} />
-
-        {values.toAnotherSpace && (
-          <ToAnotherSpaceForm {...formFieldsAndProps} />
-        )}
-        {!(values.toAnotherSpace && !values.specifyLandingPosition) && (
-          <Grid item xs={12} lg={6}>
-            <PortalTargetForm makeNestedFormProps={makeNestedFormProps} />
-          </Grid>
-        )}
-      </Grid>
-    </>
-  );
-};
-
-export default PortalForm;

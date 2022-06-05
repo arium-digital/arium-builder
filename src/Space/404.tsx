@@ -3,7 +3,7 @@ import { Canvas, extend } from "@react-three/fiber";
 import { Vector3Tuple } from "three";
 import { Text } from "troika-three-text";
 import { ariumMint } from "css/styleVariables";
-import { Centered } from "../Editor/components/InSpaceForms/SimplifiedFormBaseAndUtils";
+import { Centered } from "../Editor/components/InSpaceForms/ElementFormBaseAndUtils";
 import { Typography } from "@material-ui/core";
 
 export const FourOFourSSR = ({

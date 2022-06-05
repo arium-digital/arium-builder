@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import { useDrop } from "react-dnd";
 import firestore from "@google-cloud/firestore";
-import { getUpdatedTransform } from "../utils/transform";
+import { getUpdatedTransform } from "./transform";
 import { ElementConfig } from "spaceTypes";
 import { CurrentEditingElementAndPath } from "Space/InSpaceEditor/types";
 import { Optional } from "types";

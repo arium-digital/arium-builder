@@ -14,7 +14,7 @@ import * as Previews from "../Form/Previews";
 import {} from "defaultConfigs/theme";
 import React, { useCallback, useMemo } from "react";
 import FormSection, { FormSectionDisplaySettings } from "../Form/FormSection";
-import { InteractableElementForm } from "../AdvancedEditor/ModelForm";
+import { InteractableElementForm } from "./ModelForms";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
 import { HasFrameForm } from "./HasFrameForm";
 import { ImageSettings } from "spaceTypes/image";

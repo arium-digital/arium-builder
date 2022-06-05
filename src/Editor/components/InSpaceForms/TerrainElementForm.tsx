@@ -4,11 +4,11 @@ import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableC
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
 // import { OptionalSpaceId } from "Space/InSpaceEditor/types";
-import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
+import { SimplifiedFormBase } from "./ElementFormBaseAndUtils";
 import { TerrainConfig } from "spaceTypes/terrain";
 import { defaultMaterialConfig } from "defaultConfigs";
 import MaterialForm from "Editor/components/SharedForms/MaterialForm";
-import { TerrainContentForm } from "Editor/components/AdvancedEditor/TerrainForm";
+import { TerrainContentForm } from "Editor/components/SharedForms/TerrainForms";
 
 const SimplifiedTerrainForm = ({
   nestedForm,
