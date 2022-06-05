@@ -15,7 +15,7 @@ import { LoginButton } from "website/home/NavBar";
 import { lightTheme } from "website/themes/lightTheme";
 import { DivGrow } from "website/home/utils";
 import styles from "./styles.module.scss";
-import { Footer } from "Events/Footer";
+import { Footer } from "website/Layout/Footer";
 import { useAuthentication } from "hooks/auth/useAuthentication";
 type NavItemKey = "documentation" | "my-spaces";
 

@@ -1,21 +1,17 @@
 import { ModelConfig } from "../../../spaceTypes";
 import { useStyles } from "../../styles";
 import { modelFileExtensions } from "../Files/extensions";
-import MaterialForm from "./MaterialForm";
+import MaterialForm from "../SharedForms/MaterialForm";
 import Grid from "@material-ui/core/Grid/Grid";
-import Paper from "@material-ui/core/Paper";
-import ShadowForm, { defaultShadowConfig } from "./ShadowForm";
+import ShadowForm, { defaultShadowConfig } from "../SharedForms/ShadowForm";
 import * as Forms from "../Form";
-import * as Text from "../VisualElements/Text";
-import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
 import {
   defaultInteractableConfig,
   InteractableConfigForm,
-} from "./InteractableConfigForm";
+} from "../SharedForms/InteractableConfigForm";
 import { defaultMaterialConfig } from "defaultConfigs";
 import React from "react";
 import * as FileSelect from "../Files/FileSelect";
-import * as Previews from "../Form/Previews";
 import Divider from "@material-ui/core/Divider";
 import FormSection, { FormSectionDisplaySettings } from "../Form/FormSection";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
@@ -168,39 +164,3 @@ export const ModelContentForm = ({
     </Grid>
   );
 };
-
-const ModelForm = ({
-  nestedForm,
-  defaults: defaultValues,
-}: Forms.StandardFormPropsNullable<ModelConfig>) => {
-  const classes = useStyles();
-  const useChangeHandlerResult = useNullableChangeHandlersWithDefaults({
-    nestedForm,
-    defaultValues,
-  });
-
-  return (
-    <>
-      <Grid container>
-        <Grid item xs={12} lg={6}>
-          <ModelContentForm {...useChangeHandlerResult} />
-          <InteractableElementForm
-            {...useChangeHandlerResult}
-            defaultExpanded
-          />
-          <MaterialFormSection {...useChangeHandlerResult} />
-          <ModelAppearanceForm {...useChangeHandlerResult} />
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <Paper className={classes.paper}>
-            <Text.SubElementHeader>Model Element Preview</Text.SubElementHeader>
-            <Previews.ModelElement config={useChangeHandlerResult.values} />
-          </Paper>
-        </Grid>
-      </Grid>
-      <Grid container></Grid>
-    </>
-  );
-};
-
-export default ModelForm;

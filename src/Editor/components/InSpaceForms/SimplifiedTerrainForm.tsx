@@ -7,8 +7,8 @@ import React from "react";
 import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
 import { TerrainConfig } from "spaceTypes/terrain";
 import { defaultMaterialConfig } from "defaultConfigs";
-import MaterialForm from "Editor/components/Elements/MaterialForm";
-import { TerrainContentForm } from "Editor/components/Elements/TerrainForm";
+import MaterialForm from "Editor/components/SharedForms/MaterialForm";
+import { TerrainContentForm } from "Editor/components/AdvancedEditor/TerrainForm";
 
 const SimplifiedTerrainForm = ({
   nestedForm,

@@ -13,14 +13,14 @@ import {
   TokenConfigForm,
   TokenPreview,
   useExtractToken,
-} from "Editor/components/Elements/Nft/NftForm";
+} from "Editor/components/SharedForms/Nft/NftForm";
 import { isManualEntryToken } from "Space/Elements/Nft/tokenConversion";
-import VideoSettingsForm from "../Elements/Video/VideoSettingsForm";
+import VideoSettingsForm from "../SharedForms/Video/VideoSettingsForm";
 import * as themeDefaults from "defaultConfigs/theme";
 import { showFromConfig } from "Space/Elements/Nft/NftMediaAndPlacardDisplay";
-import AdvancedNftSettingsForm from "../Elements/Nft/AdvancedNftSettingsForm";
-import { ImageSettingsForm } from "../Elements/ImageForm";
-import { HasFrameForm } from "../Elements/FrameForm";
+import AdvancedNftSettingsForm from "../SharedForms/Nft/AdvancedNftSettingsForm";
+import { ImageSettingsForm } from "../SharedForms/ImageForm";
+import { HasFrameForm } from "../SharedForms/HasFrameForm";
 import * as Forms from "Editor/components/Form";
 import FormSection from "../Form/FormSection";
 

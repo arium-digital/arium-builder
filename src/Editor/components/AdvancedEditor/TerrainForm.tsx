@@ -7,7 +7,7 @@ import { FormDescription, Editors } from "../../types";
 import { TerrainConfig } from "spaceTypes/terrain";
 import useFormFields from "Editor/hooks/useFormFields";
 import * as FileSelect from "../Files/FileSelect";
-import MaterialForm from "./MaterialForm";
+import MaterialForm from "../SharedForms/MaterialForm";
 import { defaultMaterialConfig } from "defaultConfigs";
 import ElementPreview from "../Form/ElementPreview";
 import GeneratedTerrain from "Space/Elements/GeneratedTerrain";

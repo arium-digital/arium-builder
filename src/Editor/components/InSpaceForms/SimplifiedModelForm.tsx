@@ -11,7 +11,7 @@ import {
   ModelAppearanceForm,
   ModelContentForm,
   InteractableElementForm,
-} from "Editor/components/Elements/ModelForm";
+} from "Editor/components/AdvancedEditor/ModelForm";
 
 const SimplifiedModelForm = ({
   nestedForm,

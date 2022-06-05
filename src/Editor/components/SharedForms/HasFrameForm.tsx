@@ -4,7 +4,6 @@ import {
   useThemeableChangeHandlers,
 } from "Editor/hooks/useNullableChangeHandlers";
 import * as Forms from "../Form";
-import { FrameConfiguration } from "../../../spaceTypes/image";
 import {
   defaultFrameConfig,
   defaultMaterialConfig,
@@ -13,6 +12,7 @@ import FormSection, {
   FormSectionDisplaySettings,
 } from "Editor/components/Form/FormSection";
 import { HasFrameConfig } from "spaceTypes/text";
+import { FrameConfiguration } from "spaceTypes/image";
 // import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
 
 export const HasFrameForm = ({

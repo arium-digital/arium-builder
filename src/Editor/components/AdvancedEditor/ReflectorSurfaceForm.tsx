@@ -8,7 +8,7 @@ import {
 } from "../../../spaceTypes/reflectorSurface";
 import { FormDescription, Editors } from "../../types";
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";
-import FrameForm from "./FrameForm";
+import FrameForm from "../SharedForms/HasFrameForm";
 import * as Text from "../VisualElements/Text";
 import * as Forms from "../Form";
 import Grid from "@material-ui/core/Grid/Grid";

@@ -1,4 +1,3 @@
-import { saveNewElement } from "Editor/components/Elements/New";
 import { useIsEditorOpen } from "Space/InSpaceEditor/hooks/useEditorStatus";
 import { asIVector3 } from "libs/utils";
 import { last, merge } from "lodash";
@@ -8,6 +7,7 @@ import { Object3D } from "three";
 import { EditorState, EditorStatus } from "../types";
 import { PushUndoItemFunction } from "Editor/hooks/useUndo";
 import { useCurrentValueFromObservable } from "hooks/useObservable";
+import saveNewElement from "./saveNewElement";
 
 export const useStartAddingNewElementAction = ({
   editorState,

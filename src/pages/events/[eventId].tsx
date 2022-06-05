@@ -7,7 +7,7 @@ import { EventInfo } from "../../../shared/sharedTypes";
 import { FourOFourSSR } from "Space/404";
 import { getMetaImagePath } from "media/assetPaths";
 import { getFunctionsBaseUrl } from "libs/config";
-const EventRoute = dynamic(() => import("../../Events"), {
+const EventRoute = dynamic(() => import("../../Event"), {
   loading: () => <AnimatedAriumLogo hint="Loading event..." />,
   ssr: true,
 });

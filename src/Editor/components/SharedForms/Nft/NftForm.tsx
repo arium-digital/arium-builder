@@ -50,7 +50,7 @@ import { ModelConfig } from "spaceTypes";
 import FormSection from "Editor/components/Form/FormSection";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import AdvancedNftSettingsForm from "./AdvancedNftSettingsForm";
-import { HasFrameForm } from "Editor/components/Elements/FrameForm";
+import { HasFrameForm } from "Editor/components/SharedForms/HasFrameForm";
 import VideoSettingsForm from "../Video/VideoSettingsForm";
 import { ImageSettingsForm } from "../ImageForm";
 import { fetchAndUpdateSuperrareToken } from "Space/Elements/Nft/apis/superrareApi";

@@ -14,7 +14,7 @@ import {
   DeleteElement,
   ToggleElementActive,
   ToggleElementLocked,
-} from "Editor/components/Elements/Edit";
+} from "Editor/components/SharedForms/ElementForms";
 import {
   defaultModel,
   defaultTerrainConfig,
@@ -39,7 +39,7 @@ import {
   defaultAudioConfig,
   useDefaultThemedConfigs,
 } from "defaultConfigs/useDefaultNewElements";
-import { EditingElementContext } from "Editor/components/Elements/EditiingElementContext";
+import { EditingElementContext } from "Editor/components/AdvancedEditor/EditiingElementContext";
 import { ErrorBoundary } from "react-error-boundary";
 import {
   useRefreshIfChanged,

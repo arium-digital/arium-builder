@@ -7,9 +7,9 @@ import React from "react";
 import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
 
 import { PlacardConfig } from "spaceTypes/text";
-import { PlacardContentForm } from "Editor/components/Elements/PlacardForm";
+import { PlacardContentForm } from "Editor/components/AdvancedEditor/PlacardForm";
 import * as themeDefaults from "defaultConfigs/theme";
-import PlacardDisplayForm from "Editor/components/Elements/PlacardDisplayForm";
+import PlacardDisplayForm from "Editor/components/AdvancedEditor/PlacardDisplayForm";
 
 const SimplifiedPlacardForm = ({
   nestedForm,

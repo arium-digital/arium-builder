@@ -7,11 +7,11 @@ import * as Forms from "../Form";
 import * as Text from "../VisualElements/Text";
 import Grid from "@material-ui/core/Grid/Grid";
 import { defaultFrameConfig, defaultMaterialConfig } from "defaultConfigs";
-import FrameForm from "./FrameForm";
+import FrameForm from "../SharedForms/HasFrameForm";
 import {
   defaultInteractableConfig,
   InteractableConfigForm,
-} from "./InteractableConfigForm";
+} from "../SharedForms/InteractableConfigForm";
 import ElementPreview from "../Form/ElementPreview";
 import { usePreviewElementValues } from "../Form/Previews";
 import Placard from "Space/Elements/Placard";

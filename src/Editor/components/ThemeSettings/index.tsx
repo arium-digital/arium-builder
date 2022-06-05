@@ -12,11 +12,11 @@ import * as themeDefaults from "defaultConfigs/theme";
 import { useValidateAndUpdate } from "Editor/hooks/updateAndCreate";
 import { Theme } from "spaceTypes/theme";
 // import { ArtworkDisplayConfig } from "spaceTypes/nftConfig";
-import { HasFrameForm } from "../Elements/FrameForm";
-import PlacardDisplayForm from "../Elements/PlacardDisplayForm";
+import { HasFrameForm } from "../SharedForms/HasFrameForm";
+import PlacardDisplayForm from "../AdvancedEditor/PlacardDisplayForm";
 import FormSection from "Editor/components/Form/FormSection";
 import NftPlacardSettingsForm from "./NftPlacardSettingsForm";
-import { CommonVideoSettingsForm } from "../Elements/Video/VideoSettingsForm";
+import { CommonVideoSettingsForm } from "../SharedForms/Video/VideoSettingsForm";
 
 const ThemeForm = ({ nestedForm }: Forms.StandardFormProps<Theme>) => {
   const { makeNestedFormProps } = useChangeHandlers(nestedForm);

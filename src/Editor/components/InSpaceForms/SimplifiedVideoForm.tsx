@@ -3,11 +3,11 @@ import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableC
 import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
 import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
-import { VideoContentForm } from "Editor/components/Elements/Video/VideoForm";
-import { InteractableElementForm } from "Editor/components/Elements/ModelForm";
-import VideoSettingsForm from "Editor/components/Elements/Video/VideoSettingsForm";
+import { VideoContentForm } from "Editor/components/SharedForms/Video/VideoContentForm";
+import { InteractableElementForm } from "Editor/components/AdvancedEditor/ModelForm";
+import VideoSettingsForm from "Editor/components/SharedForms/Video/VideoSettingsForm";
 import * as themeDefaults from "defaultConfigs/theme";
-import { HasFrameForm } from "Editor/components/Elements/FrameForm";
+import { HasFrameForm } from "Editor/components/SharedForms/HasFrameForm";
 
 export const SimplifiedVideoForm = ({
   nestedForm,

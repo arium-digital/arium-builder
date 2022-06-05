@@ -16,7 +16,7 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import React, { useCallback, useEffect, useMemo, memo } from "react";
-import { Footer } from "./Footer";
+import { Footer } from "website/Layout/Footer";
 import styles from "css/eventLandingPage.module.scss";
 import router from "next/router";
 import { useState } from "react";

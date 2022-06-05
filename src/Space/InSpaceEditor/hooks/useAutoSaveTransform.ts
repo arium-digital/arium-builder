@@ -1,4 +1,4 @@
-import { defaultTransform } from "Editor/components/Elements/ElementForm";
+import { defaultTransform } from "Editor/components/SharedForms/elementUtils";
 import { NestedFormProp } from "Editor/components/Form";
 import { useChangeHandlers } from "Editor/hooks/useChangeHandlers";
 import { useNullableChangeHandlersWithDefaults } from "Editor/hooks/useNullableChangeHandlers";

@@ -3,7 +3,7 @@ import { StandardFormPropsNullable } from "Editor/components/Form";
 import React from "react";
 import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
 import { AudioConfig } from "spaceTypes/audio";
-import { AudioContentForm } from "../Elements/Audio/AudioForm";
+import { AudioContentForm } from "../SharedForms/Audio/AudioForm";
 
 export const SimplifiedAudioForm = ({
   nestedForm,

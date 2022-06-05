@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
-import { hicetnuncContract } from "Editor/components/Elements/Nft/NftForm";
+import { hicetnuncContract } from "Editor/components/SharedForms/Nft/NftForm";
 import { memo } from "react";
 import { NftConfig } from "spaceTypes/nftConfig";
 import {

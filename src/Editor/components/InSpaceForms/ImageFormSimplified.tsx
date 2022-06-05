@@ -6,10 +6,10 @@ import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
 import {
   ImageContentForm,
   ImageSettingsForm,
-} from "Editor/components/Elements/ImageForm";
-import { InteractableElementForm } from "Editor/components/Elements/ModelForm";
+} from "Editor/components/SharedForms/ImageForm";
+import { InteractableElementForm } from "Editor/components/AdvancedEditor/ModelForm";
 import * as themeDefaults from "defaultConfigs/theme";
-import { HasFrameForm } from "Editor/components/Elements/FrameForm";
+import { HasFrameForm } from "Editor/components/SharedForms/HasFrameForm";
 
 export const SimplifiedImageForm = ({
   nestedForm,

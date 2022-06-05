@@ -8,7 +8,7 @@ import FormSection, {
 } from "Editor/components/Form/FormSection";
 import { MediaGeometryConfig } from "spaceTypes/mediaDisplay";
 import { useChangeHandlers } from "Editor/hooks/useChangeHandlers";
-import CurvedPlaySurfaceForm from "../Media/CurvePlaySurfaceForm";
+import CurvedPlaySurfaceForm from "./CurvePlaySurfaceForm";
 
 const MediaGeometryForm = ({
   nestedForm,

@@ -11,7 +11,7 @@ import Grid from "@material-ui/core/Grid";
 import {
   ReflectorSettingsForm,
   ReflectorFrameForm,
-} from "Editor/components/Elements/ReflectorSurfaceForm";
+} from "Editor/components/AdvancedEditor/ReflectorSurfaceForm";
 
 const SimplifiedReflectorForm = ({
   nestedForm,

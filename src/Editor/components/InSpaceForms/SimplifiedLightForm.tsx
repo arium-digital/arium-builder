@@ -11,15 +11,15 @@ import {
   isSpotLight,
   isDirectionalLight,
   LightSettingsForm,
-} from "Editor/components/Elements/Light/LightForm";
+} from "Editor/components/SharedForms/Light/LightForm";
 import FormSection from "Editor/components/Form/FormSection";
-import DirectionalLightForm from "Editor/components/Elements/Light/DirectionalLightForm";
+import DirectionalLightForm from "Editor/components/SharedForms/Light/DirectionalLightForm";
 import {
   defaultDirectionalConfig,
   defaultSpotLightConfig,
 } from "defaultConfigs";
-import SpotLightForm from "Editor/components/Elements/Light/SpotLightForm";
-import PointLightForm from "Editor/components/Elements/Light/PointLightForm";
+import SpotLightForm from "Editor/components/SharedForms/Light/SpotLightForm";
+import PointLightForm from "Editor/components/SharedForms/Light/PointLightForm";
 import * as Forms from "Editor/components/Form";
 
 const SimplifiedLightForm = ({

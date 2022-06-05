@@ -1,23 +1,14 @@
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import React, { FC, useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import { ElementConfig } from "../../../spaceTypes";
-import { useStyles } from "../../styles";
-import ElementForm from "./ElementForm";
 import { Delete } from "@material-ui/icons";
-import { NestedFormProp, WithConfirmationDialog } from "../Form";
-import { Button, Grid, IconButton, Tooltip } from "@material-ui/core";
+import { WithConfirmationDialog } from "../Form";
+import { Button, IconButton, Tooltip } from "@material-ui/core";
 import { DialogConfig } from "../Form/WithConfirmationDialog";
-
-import { useValidateAndUpdate } from "Editor/hooks/updateAndCreate";
-import { ElementSchema } from "Editor/formAndSchema";
 import { UseChangeHandlerResult } from "Editor/hooks/useChangeHandlers";
-import { DocumentReference } from "db";
 import RemoveRedEyeIcon from "@material-ui/icons/RemoveRedEye";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
-import { TopToolbarForm } from "Editor/components/InSpaceForms/InSpaceElementForm";
 // import { extractElementConfig } from "defaultConfigs/conversions";
 
 const deletionDialogConfig: DialogConfig = {
@@ -109,85 +100,3 @@ export const ToggleElementLocked = ({
     </>
   );
 };
-
-const EditHeader = ({
-  elementConfig,
-  nestedForm,
-  handleDuplicate,
-  duplicating,
-}: {
-  elementConfig: ElementConfig;
-  nestedForm: NestedFormProp<ElementConfig> | null;
-  handleDuplicate: () => void;
-  duplicating: boolean;
-}) => {
-  const deleted = useMemo(() => elementConfig?.deleted === true, [
-    elementConfig?.deleted,
-  ]);
-
-  return (
-    <Grid container justify="space-between">
-      <Grid>
-        <Typography variant="h4">
-          {!deleted
-            ? `Editing ${elementConfig.name}`
-            : `${elementConfig.name} (deleted)`}
-        </Typography>
-      </Grid>
-      <Grid>
-        {nestedForm && (
-          <>
-            <TopToolbarForm
-              nestedForm={nestedForm}
-              duplicate={handleDuplicate}
-              duplicating={duplicating}
-            />
-          </>
-        )}
-      </Grid>
-    </Grid>
-  );
-};
-
-const Edit: FC<{
-  spaceId: string;
-  elementRef: DocumentReference;
-  handleDuplicate: () => void;
-  duplicating: boolean;
-}> = ({ spaceId, elementRef, handleDuplicate, duplicating }) => {
-  const { nestedForm } = useValidateAndUpdate<ElementConfig>({
-    ref: elementRef,
-    schema: ElementSchema,
-    autoSave: true,
-    // converter: extractElementConfig,
-  });
-
-  const elementConfig = nestedForm?.values;
-
-  const classes = useStyles();
-
-  if (!elementConfig) return null;
-
-  return (
-    <>
-      <Paper className={classes.paper}>
-        <EditHeader
-          elementConfig={elementConfig}
-          nestedForm={nestedForm}
-          handleDuplicate={handleDuplicate}
-          duplicating={duplicating}
-        />
-      </Paper>
-      {elementConfig.deleted !== true && nestedForm && (
-        <ElementForm
-          nestedForm={nestedForm}
-          spaceId={spaceId}
-          disableTypeChanged={true}
-          elementId={elementRef.id}
-        />
-      )}
-    </>
-  );
-};
-
-export default Edit;

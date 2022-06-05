@@ -9,7 +9,7 @@ import { WaterConfig } from "spaceTypes/water";
 import {
   WaterSettingsForm,
   WaterGeometryForm,
-} from "Editor/components/Elements/WaterForm";
+} from "Editor/components/AdvancedEditor/WaterForm";
 
 const SimplifiedWaterForm = ({
   nestedForm,

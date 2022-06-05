@@ -10,7 +10,7 @@ import {
   PortalTargetForm,
   ToAnotherSpaceForm,
   usePortalFields,
-} from "Editor/components/Elements/PortalForm";
+} from "Editor/components/AdvancedEditor/PortalForm";
 import Grid from "@material-ui/core/Grid/Grid";
 import { SimplifiedFormBase } from "./SimplifiedFormBaseAndUtils";
 

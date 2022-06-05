@@ -1,7 +1,7 @@
 import { Grid, Hidden, IconButton, Typography } from "@material-ui/core";
 import { Instagram, Twitter } from "@material-ui/icons";
 import React from "react";
-import { AriumLogo } from "../website/AriumLogo";
+import { AriumLogo } from "../AriumLogo";
 import { FaDiscord } from "react-icons/fa";
 import styles from "css/eventLandingPage.module.scss";
 export const FooterElementID = "Footer";

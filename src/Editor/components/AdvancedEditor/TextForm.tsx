@@ -7,7 +7,7 @@ import * as Forms from "../Form";
 import FreeTextField from "../Form/FreeTextField";
 import ColorPickerField from "../Form/ColorPickerField";
 import NumberField from "../Form/NumberField";
-import ShadowForm, { defaultShadowConfig } from "./ShadowForm";
+import ShadowForm, { defaultShadowConfig } from "../SharedForms/ShadowForm";
 import { useCallback } from "react";
 import { defaultTextSize } from "defaultConfigs";
 

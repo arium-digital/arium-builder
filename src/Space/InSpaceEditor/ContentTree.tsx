@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
-import Root from "Editor/components/Elements/Tree/Root";
+import Root from "Editor/components/AdvancedEditor/Tree/Root";
 import { CurrentEditingElementAndPath, HasEditorState } from "./types";
 import { getElementsCollectionRef } from "shared/documentPaths";
 import Drawer from "@material-ui/core/Drawer";

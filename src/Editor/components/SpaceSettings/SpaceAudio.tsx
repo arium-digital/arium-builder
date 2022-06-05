@@ -5,7 +5,7 @@ import { PositionalAudioConfig } from "../../../spaceTypes";
 import { useValidateAndUpdate } from "Editor/hooks/updateAndCreate";
 import { spacePositionalAudioConfigDocument } from "../../../shared/documentPaths";
 import Grid from "@material-ui/core/Grid";
-import PositionalAudioForm from "Editor/components/Elements/PositionalAudioForm";
+import PositionalAudioForm from "Editor/components/SharedForms/PositionalAudioForm";
 import { defaultPositionalAudioConfig } from "defaultConfigs";
 
 const SpaceAudioSettings = ({ spaceId }: { spaceId: string }) => {
