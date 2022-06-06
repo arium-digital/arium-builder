@@ -54,7 +54,12 @@ Running this project **requires a *Firebase* account,** and using Firebase Cloud
 
     cd functions && yarn build
 
-#### Copy firebase data down to your computer
+
+#### Deploy the cloud functions
+
+    firebase deploy --only functions
+
+#### Copy sample starter data down to your computer
 
     yarn db:copy-export-data
 
@@ -130,18 +135,3 @@ Build the sdk into a minified bundle:
 
 ### To deploy
 
-cd into `sdk`
-
-Bump the `version` in package.json
-
-Run:
-
-    npm publish
-
-Cd into exampleSite, and update the version to be the version that was published.
-
-To push changes to github, save all files, and commit them, both in the submodule and root module.
-
-Then, in root module:
-
-    git push --recurse-submodules=on-demand
