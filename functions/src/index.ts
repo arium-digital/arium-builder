@@ -1,5 +1,4 @@
 import runTestAgent from "./functions/runTestAgent";
-import scheduledFirestoreExport from "./functions/scheduledFirestoreExport";
 import {
   createUserProfile,
   createUserAccount,
@@ -26,7 +25,6 @@ import sendSpaceInvitation from "./functions/space/sendSpaceInvitation";
 import { updateTokenMedia } from "./functions/nft/updateTokenMedia";
 
 export {
-  scheduledFirestoreExport as scheduleFirestoreExport,
   runTestAgent,
   createUserProfile,
   createUserAccount,

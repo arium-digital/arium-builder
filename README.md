@@ -28,7 +28,6 @@ Most of the application is built in typescript and react.  It is serverless, rel
 * [react](https://reactjs.org/)
 * [next](https://nextjs.org/)
 * [rxjs](https://rxjs.dev/)
-* [typescript]
 
 ## Setup
 
@@ -36,7 +35,10 @@ Most of the application is built in typescript and react.  It is serverless, rel
 
 Running this project **requires a *Firebase* account,** and using Firebase Cloud Functions which is core to much of the functinoality requires a **Blaze (paid)** account.
 
-**Create a new Firebase Project (here)[https://firebase.google.com/]**
+1. **Create a new Firebase project [here](https://firebase.google.com/)**
+2. [Upgrade to the *Blaze* plan](https://docs.firerun.io/getting-started/upgrading-from-the-firebase-spark-plan-to-the-blaze-plan-tled)
+3. [Install the firebase cli](https://firebase.google.com/docs/cli#install-cli-mac-linux)
+4. In the root of the directory, run: "firebase init".  Check the options: Realtime Database, Firestore, Functions, Hosting, Storage.
 
 #### Generate a service account key
 
@@ -48,12 +50,10 @@ Running this project **requires a *Firebase* account,** and using Firebase Cloud
 #### Setup environment variables
 
 1. Copy `.env.example` to `.env`
-2. In `.env` Replace the value next to `MEDIASOUP_ANNOUNCED_IP` with your local network ip adddress.
 
 #### Build the cloud functions
 
     cd functions && yarn build
-
 
 #### Deploy the cloud functions
 

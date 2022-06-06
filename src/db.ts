@@ -5,27 +5,23 @@ import "firebase/database";
 import "firebase/storage";
 import "firebase/functions";
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyAAt0MULwXlRJiMq4V2_LE7mUIre1Na94M",
-  authDomain: "volta-events-294715.firebaseapp.com",
-  projectId: "volta-events-294715",
-  storageBucket: "volta-events-294715.appspot.com",
-  messagingSenderId: "309430825062",
-  appId: "1:309430825062:web:4c42eaec39b1b719c17da7",
-};
+// export const firebaseConfig = {
+//   apiKey: "AIzaSyAAt0MULwXlRJiMq4V2_LE7mUIre1Na94M",
+//   authDomain: "volta-events-294715.firebaseapp.com",
+//   projectId: "volta-events-294715",
+//   storageBucket: "volta-events-294715.appspot.com",
+//   messagingSenderId: "309430825062",
+//   appId: "1:309430825062:web:4c42eaec39b1b719c17da7",
+// };
 
-const communicationUrl = "https://arium-communication.firebaseio.com";
+// const communicationUrl = "https://arium-communication.firebaseio.com";
 
 // Initialize Firebase
-const communicationApp = !firebase.apps.length
-  ? firebase.initializeApp({
-      ...firebaseConfig,
-    })
-  : firebase.app();
+const firebaseApp = firebase.app();
 
 const store = firebase.firestore();
 
-const realtimeDb = communicationApp.database(communicationUrl);
+const realtimeDb = firebaseApp.database();
 
 if (process.env.NEXT_PUBLIC_DB_EMULATOR_PORT) {
   realtimeDb.useEmulator(

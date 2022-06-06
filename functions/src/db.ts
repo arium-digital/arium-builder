@@ -7,8 +7,6 @@ const communicationApp = admin.initializeApp({
   databaseURL: communicationUrl,
 });
 
-export const communicationDb = communicationApp.database();
-
 const store = communicationApp.firestore();
 store.settings({ ignoreUndefinedProperties: true });
 
