@@ -2,7 +2,7 @@ import { Grid, Button, Typography } from "@material-ui/core";
 import useSpaceImage from "hooks/useSpaceImage";
 import React, { useCallback } from "react";
 import { placeHolderImageUrl } from "website/components/MySpaces/SpaceInfoCard";
-import { IconBetaSignUp } from "website/home/utils";
+import { IconBetaSignUp } from "website/shared/utils";
 import { SpaceTemplateConfig } from "./types";
 import styles from "../components/MySpaces/styles.module.scss";
 import { usePrimaryColor } from "website/themes/hooks";

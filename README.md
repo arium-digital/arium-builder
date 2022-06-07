@@ -38,14 +38,17 @@ Running this project **requires a *Firebase* account,** and using Firebase Cloud
 1. **Create a new Firebase project [here](https://firebase.google.com/)**
 2. [Upgrade to the *Blaze* plan](https://docs.firerun.io/getting-started/upgrading-from-the-firebase-spark-plan-to-the-blaze-plan-tled)
 3. [Install the firebase cli](https://firebase.google.com/docs/cli#install-cli-mac-linux)
-4. In the root of the directory, run: "firebase init".  Check the options: Realtime Database, Firestore, Functions, Hosting, Storage.
+4. Set firebase cli to use your project: `firebase use {firebase project name}`
+5. In the firebase admin panel, create a Firestore Database, and a Realtime Database
+6. Update the file `.firebaserc` to change the project name from `arium-builder-example` to your project name.
+7. Open src/db.ts and replace the `firebaseConfig` with firebase config from your project.
+8. In the firebase admin panel, enable email auth.
 
 #### Generate a service account key
 
 1. Go to firebase admin -> settings -> Service Accounts.
 2. Click 'Generate new Private Key'
-3. Download the file to the root of this source code, and name it `serviceAccount.json`
-4. Run `./setCredentials.sh`
+3. Download the file to the root of this source code folder, and name it `serviceAccount.json`
 
 #### Setup environment variables
 

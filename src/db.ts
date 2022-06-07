@@ -5,19 +5,38 @@ import "firebase/database";
 import "firebase/storage";
 import "firebase/functions";
 
-// export const firebaseConfig = {
-//   apiKey: "AIzaSyAAt0MULwXlRJiMq4V2_LE7mUIre1Na94M",
-//   authDomain: "volta-events-294715.firebaseapp.com",
-//   projectId: "volta-events-294715",
-//   storageBucket: "volta-events-294715.appspot.com",
-//   messagingSenderId: "309430825062",
-//   appId: "1:309430825062:web:4c42eaec39b1b719c17da7",
-// };
+/*
+ * // Retrieve your own options values by adding a web app on
+ * // https://console.firebase.google.com
+ * firebase.initializeApp({
+ *   apiKey: "AIza....",                             // Auth / General Use
+ *   appId: "1:27992087142:web:ce....",              // General Use
+ *   projectId: "my-firebase-project",               // General Use
+ *   authDomain: "YOUR_APP.firebaseapp.com",         // Auth with popup/redirect
+ *   databaseURL: "https://YOUR_APP.firebaseio.com", // Realtime Database
+ *   storageBucket: "YOUR_APP.appspot.com",          // Storage
+ *   messagingSenderId: "123456789",                 // Cloud Messaging
+ *   measurementId: "G-12345"                        // Analytics
+ * });
+ * `
+ */
 
-// const communicationUrl = "https://arium-communication.firebaseio.com";
+// Replace the below with configuration from your project.
+const firebaseConfig = {
+  apiKey: "AIzaSyAoPz3c-2OHJzl9qPy6IzzSlROHIUeAvS4",
+  authDomain: "arium-builder-example.firebaseapp.com",
+  databaseURL: "https://arium-builder-example-default-rtdb.firebaseio.com",
+  projectId: "arium-builder-example",
+  storageBucket: "arium-builder-example.appspot.com",
+  messagingSenderId: "346607153918",
+  appId: "1:346607153918:web:105d693144732ee7a22baf",
+};
 
-// Initialize Firebase
-const firebaseApp = firebase.app();
+const firebaseApp = !firebase.apps.length
+  ? firebase.initializeApp({
+      ...firebaseConfig,
+    })
+  : firebase.app();
 
 const store = firebase.firestore();
 

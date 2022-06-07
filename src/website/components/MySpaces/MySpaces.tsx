@@ -3,7 +3,7 @@ import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 import { useAuthentication } from "hooks/auth/useAuthentication";
 import React from "react";
 import { Layout2, NavProps } from "website/Layout/Layout2";
-import { LoginModal } from "website/LoginModal";
+import { LoginModal } from "website/shared/LoginModal";
 import { SpaceList } from "./SpaceList";
 import styles from "./styles.module.scss";
 import { useSpaceAccess } from "hooks/auth/useSpaceAccess";

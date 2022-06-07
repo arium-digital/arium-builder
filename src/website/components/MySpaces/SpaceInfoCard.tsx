@@ -1,7 +1,7 @@
 import { Button, Grid, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import { AriumOrange } from "website/themes/lightTheme";
-import { IconBetaSignUp } from "website/home/utils";
+import { IconBetaSignUp } from "website/shared/utils";
 import styles from "./styles.module.scss";
 import { CombinedSpaceInfo } from "./types";
 import { editModeQueryParamKey } from "Space/InSpaceEditor/hooks/useEditorState";

@@ -1,6 +1,5 @@
 {
   "database": [{
-    "target": "main",
     "rules": "firebase/database.rules.json"
   }],
   "firestore": {

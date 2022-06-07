@@ -10,40 +10,10 @@ module.exports = withPlugins([withTM], {
   target: "serverless",
   async redirects() {
     return [
-      //  {
-      //   source: "/",
-      //   destination: "https://www.arium.xuz",
-      //   permanent: false,
-      // },
       {
-        source: "/home",
-        destination: "/spaces/home",
-        permanent: true,
-      },
-      {
-        source: "/weather",
-        destination: "/spaces/weather",
-        permanent: true,
-      },
-      {
-        source: "/yungspace",
-        destination: "/spaces/yungspace",
-        permanent: true,
-      },
-      {
-        source: "/showroom",
-        destination: "/spaces/showroom",
-        permanent: true,
-      },
-      {
-        source: "/yung-xmas",
-        destination: "/spaces/yung-xmas",
-        permanent: true,
-      },
-      {
-        source: "/theccnyc",
-        destination: "/spaces/theccnyc",
-        permanent: true,
+        source: "/",
+        destination: "/my-spaces",
+        permanent: false,
       },
     ];
   },

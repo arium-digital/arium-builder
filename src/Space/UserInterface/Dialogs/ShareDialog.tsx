@@ -2,7 +2,7 @@ import { Button, Grid, ModalProps, Typography } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import React, { useCallback, useState, MouseEvent, ChangeEvent } from "react";
 import styles from "./dialog.module.scss";
-import { IconBetaSignUp } from "website/home/utils";
+import { IconBetaSignUp } from "website/shared/utils";
 import { EditorState } from "Space/InSpaceEditor/types";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";

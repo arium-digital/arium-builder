@@ -5,7 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import styles from "website/css/flow.module.scss";
 import { AriumCloseIcon } from "website/home/Icons";
 import { LoadingLinear } from "Space/Loading";
-import { Centered, IconBetaSignUp } from "website/home/utils";
+import { Centered, IconBetaSignUp } from "website/shared/utils";
 import cta from "css/cta.module.scss";
 import { usePrimaryColor } from "website/themes/hooks";
 import { SpaceTemplateConfig } from "./types";
