@@ -1,19 +1,5 @@
 {
   "projects": {
-    "default": "volta-events-294715"
-  },
-  "targets": {
-    "volta-events-294715": {
-      "database": {
-        "main": [
-          "arium-communication",
-          "arium-producing-peers",
-          "arium-consumers",
-          "arium-created-consumers",
-          "arium-peers",
-          "arium-metrics"
-        ]
-      }
-    }
+    "default": "arium-builder-example"
   }
 }
