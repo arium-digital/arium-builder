@@ -43,6 +43,9 @@ Running this project **requires a *Firebase* account,** and using Firebase Cloud
 6. Update the file `.firebaserc` to change the project name from `arium-builder-example` to your project name.
 7. Open src/db.ts and replace the `firebaseConfig` with firebase config from your project.
 8. In the firebase admin panel, enable email auth.
+9. Open the site: [http://localhost:3000](http://localhost:3000) - it should redirect you to sign in or register.
+10. Register with an email address.
+11. Make your user an admin; to do this, in the root folder where this code sits, in the terminal:  `yarn makeAdmin {yourEmailAddress}`
 
 #### Generate a service account key
 

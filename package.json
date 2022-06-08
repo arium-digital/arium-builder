@@ -15,6 +15,7 @@
     "start-https": "node nextDevelopmentServer.js",
     "build": "node postinstall.js && next build",
     "build-performance": "node postinstall.js && next build --profile",
+    "makeAdmin": "cd admin && yarn && yarn cli makeAdmin",
     "serve": "next start -p 3001",
     "db:clear-export": "gsutil -m rm -r gs://arium-backups/exports",
     "start:emulator": "firebase emulators:start --import ./exports --only functions,hosting,database,firestore",

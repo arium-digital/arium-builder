@@ -4,8 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "cli": "ts-node cli",
-    "startboids": "ts-node oneOffs/runBoids.ts"
+    "cli": "ts-node cli"
   },
   "author": "",
   "license": "ISC",
