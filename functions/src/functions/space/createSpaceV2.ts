@@ -40,6 +40,8 @@ export const createSpace = functions.https.onCall(async (data, context) => {
   const userId = context.auth?.uid;
   if (!userId) throw new Error("must be authorized");
 
+  // TODO: check if user can create a space
+
   const {
     slug: desiredSlug,
     templateId,

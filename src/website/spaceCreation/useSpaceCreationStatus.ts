@@ -39,9 +39,11 @@ export interface SpaceCreationStatus {
 function toSpaceCreationStatus({
   numberOfCreatedSpace,
   maxSpaces,
+  isAdmin,
 }: {
   numberOfCreatedSpace: number | null;
   maxSpaces: number;
+  isAdmin: boolean;
 }): SpaceCreationStatus {
   if (numberOfCreatedSpace === null)
     return {
@@ -58,6 +60,13 @@ function toSpaceCreationStatus({
       availableToCreate: 0,
     };
   }
+
+  if (isAdmin)
+    return {
+      canCreate: true,
+      text: `You are an admin, and can create an unlimited number of spaces.`,
+      availableToCreate: maxSpaces,
+    };
 
   if (numberOfCreatedSpace === 0) {
     return {
@@ -83,6 +92,16 @@ function toSpaceCreationStatus({
   };
 }
 
+const getMaxSpaces = (
+  spaceAccess: SpaceAccess,
+  userAccount: Optional<UserAccount>,
+  numberOfCreatedSpace: Optional<number>
+) => {
+  if (spaceAccess.isAdmin) return (numberOfCreatedSpace || 0) + 1;
+
+  return userAccount?.maxSpaces || 0;
+};
+
 const useSpaceCreationStatus = ({
   userId,
   spaceAccess,
@@ -96,9 +115,16 @@ const useSpaceCreationStatus = ({
     ? null
     : spaceAccess.ownedSpaces.length;
 
+  const maxSpaces = getMaxSpaces(
+    spaceAccess,
+    userAccount,
+    numberOfCreatedSpace
+  );
+
   const createdSpacesStatus = toSpaceCreationStatus({
     numberOfCreatedSpace,
-    maxSpaces: userAccount?.maxSpaces || 0,
+    maxSpaces,
+    isAdmin: spaceAccess.isAdmin,
   });
 
   return createdSpacesStatus;
