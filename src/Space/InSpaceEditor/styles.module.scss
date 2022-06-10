@@ -1,0 +1,219 @@
+@import "pages/styles/variables.scss";
+.transformToolbar {
+  width: 100%;
+  position: fixed;
+  top: 5vh;
+}
+
+.fullSize {
+  width: 100%;
+  height: 100%;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.card {
+  background-color: #00000055;
+  height: 3em;
+  padding: 1em;
+}
+
+.info {
+  display: block;
+}
+
+.btnWarning {
+  color: $arium-red !important;
+}
+
+.btnOrange {
+  color: $arium-orange !important;
+}
+
+.root {
+  // border: 1px dashed blue; //debug
+  position: fixed;
+  top: 64px;
+  left: 64px;
+  right: 64px;
+  bottom: 64px;
+  button {
+    pointer-events: auto;
+  }
+}
+
+.tinyEditorContainer {
+  position: fixed;
+  width: 375px;
+  max-height: calc(100vh - 300px);
+  top: 80px;
+  right: 32px;
+  pointer-events: all;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.iconBtnWithShadow {
+  background-color: #fffffa !important;
+  border-radius: 0% !important;
+  width: 47px !important;
+  height: 47px !important;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s ease-in-out;
+  z-index: 998;
+  &:hover {
+    z-index: 999;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+}
+
+.iconBtnWithBorder {
+  background-color: #fffffa !important;
+  border-radius: 0% !important;
+  width: 47px !important;
+  height: 47px !important;
+  border: 2px solid rgba(0, 0, 0, 0) !important;
+  transition: border 0.3s ease-in-out;
+  &:hover {
+    border: 2px solid rgba(0, 0, 0, 0.25) !important;
+    transition: border 0.3s ease-in-out;
+  }
+}
+
+$drawer-width: 300px;
+
+.drawer {
+  width: $drawer-width;
+  flex-shrink: 0;
+  pointer-events: auto;
+  opacity: 0.8;
+}
+
+.drawerPaper {
+  // opacity: 0.8;
+  z-index: 20000;
+  width: $drawer-width;
+}
+
+.drawerHeader {
+  display: "flex";
+  align-items: "center";
+  justify-content: "flex-end";
+}
+
+.content {
+  flex-grow: 1;
+  // padding: theme.spacing(3),
+  // transition: theme.transitions.create('margin', {
+  //   easing: theme.transitions.easing.sharp,
+  //   duration: theme.transitions.duration.leavingScreen,
+  // }),
+  margin-left: 0;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  // transition: margin-left 1s, ease-in-out;
+  // -webkit-transition: margin-left 1s, ease-in-out;;
+}
+.contentShift {
+  // transition: theme.transitions.create('margin', {
+  //   easing: theme.transitions.easing.easeOut,
+  //   duration: theme.transitions.duration.enteringScreen,
+  // }),
+  margin-left: $drawer-width;
+  // transition: margin-left 1s, ease-in-out;
+  // -webkit-transition: margin-left 1s, ease-in-out;;
+}
+
+.exitBtn {
+  background-color: transparent;
+  position: fixed;
+  top: 0px;
+  right: -15px;
+  border-radius: 0% !important;
+  border-top: 100px solid #fffffa;
+  border-left: 100px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  height: 0px !important;
+  width: 0px !important;
+  outline: none;
+  & img {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+  }
+}
+.toolbar {
+  position: fixed;
+  left: 60px;
+  top: 60px;
+}
+
+.btnAdd {
+  // background-color: black;
+  button {
+    border-radius: 0%;
+    width: 47px;
+    height: 47px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    &:hover {
+      background-color: #fffffa;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      transition: box-shadow 0.3s ease-in-out !important;
+    }
+  }
+}
+
+.btnDisabled {
+  box-shadow: none !important;
+  filter: grayscale(100%);
+  cursor: not-allowed !important;
+}
+
+.toolbarBtn {
+  button {
+    background-color: #fffffa;
+    border-radius: 0%;
+    width: 47px;
+    height: 47px;
+  }
+}
+
+.leftToolbar {
+  position: relative;
+  z-index: 100;
+}
+
+.messageDisplay {
+  position: fixed;
+  top: 32px;
+  left: 0px;
+  width: 100vw;
+  pointer-events: none;
+  table {
+    pointer-events: all;
+  }
+  p {
+    max-width: 240px;
+    text-align: center;
+    color: #fffffa;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  table {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  a {
+    color: #fffffa;
+    font-weight: bold;
+  }
+}
+
+.topToolbar {
+  button {
+    padding: 5px;
+  }
+}

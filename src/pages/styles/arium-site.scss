@@ -1,0 +1,93 @@
+@import "css/fontFamilies.module.scss";
+
+@font-face {
+  font-family: source;
+  src: url(../../assets/fonts/cera-gr-black.otf);
+}
+
+@import "./variables.scss";
+
+// overrride bootsrap styles
+$body-bg: $arium-black;
+$body-color: $arium-cream;
+
+$theme-colors: (
+  "primary": $arium-red,
+  "secondary": $arium-cream,
+  "success": $arium-green,
+  "warning": $arium-mustard,
+  "info": $arium-mint,
+  "light": $arium-cream,
+  "dark": $arium-black,
+);
+
+$border-radius: 0 !default;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.eyebrow {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 16px;
+  color: $arium-black;
+  font-family: $primary-font;
+}
+
+.main-cta {
+  color: $arium-cream;
+
+  button {
+    color: $arium-red;
+  }
+}
+
+.account-title {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 5rem;
+}
+
+.account-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.account-section-title {
+  font-size: 24px;
+  padding-bottom: 2rem;
+}
+
+.account-section-content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.clipped-image-container {
+  height: 200px;
+}
+
+.clipped-image {
+  clip-path: circle(closest-side);
+  width: auto;
+  height: 100%;
+}
+
+.clipped-image:hover {
+  opacity: 0.5;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main-container {
+  padding-top: 4.5rem;
+  min-height: 100%;
+  flex: 1;
+}

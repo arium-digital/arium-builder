@@ -1,0 +1,26 @@
+name: Run Jest and Eslint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: 
+
+jobs:
+  eslint:
+  
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install modules
+      run: yarn
+
+    - name: Run Jest
+      run: yarn run jest --verbose --config jest.client.config.js
+
+    - name: Run ESLint
+      run: yarn run eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0

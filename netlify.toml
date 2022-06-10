@@ -1,0 +1,34 @@
+[context.production]
+  command = "node postinstall.js && next build"
+
+[context.deploy-preview]
+  command = "node postinstall.js && next build"
+
+# Branch deploy context:
+# All deploys that are not from a pull/merge request
+# or from the production branch will inherit these settings.
+[context.branch-deploy]
+  command = "node postinstall.js && next build"
+
+[build]
+  command = "node postinstall.js && next build"
+  publish = ".next/"
+
+[build.environment]
+  NODE_OPTIONS = "--max_old_space_size=4096"
+  
+[[headers]]
+  for = "/*" # js files should be set this way
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "*.js" # js files should be set this way
+  [headers.values]
+    Cache-Control = "immutable"
+[[headers]]
+  for = "*.css" # css files too
+  [headers.values]
+    Cache-Control = "immutable"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

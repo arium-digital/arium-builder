@@ -1,0 +1,720 @@
+@import "pages/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "website/Layout/variables.module.scss";
+@import "website/Layout/styles.module.scss";
+
+.debugBorder {
+  // border: #b5b5b5 solid;
+  border: none;
+}
+
+.mt_NavHeight {
+  margin-top: calc(#{$nav-height} + 2rem);
+}
+
+.sectionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 2rem;
+  @include media-breakpoint-down(sm) {
+    padding: 0px $mobile-spacing;
+  }
+  & > div {
+    width: 100%;
+    max-width: $container-width;
+  }
+  hr {
+    border-top: 1px solid $arium-orange;
+  }
+}
+
+.logo {
+  filter: brightness(0.1888);
+}
+.mobileDivider {
+  margin: 40px 8.3% !important;
+}
+.desktopDivider {
+  margin: 50px 8.3% !important;
+}
+.pagination {
+  user-select: none;
+  padding: 17px 36px;
+  z-index: 1;
+  background-color: $arium-white;
+  a {
+    font-size: 2rem;
+    cursor: pointer;
+    color: $arium-green;
+  }
+}
+.positionRelative {
+  position: relative;
+}
+.grow {
+  flex-grow: 1;
+}
+
+.fullSize {
+  width: 100%;
+  height: 100%;
+}
+.atLeastFullSize {
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.mw1440 {
+  width: 100%;
+  // max-width: 1440px;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+.addPaddingMdDown {
+  @include media-breakpoint-down(sm) {
+    padding: $mobile-spacing;
+  }
+}
+
+.videoBackground {
+  height: 100%;
+  z-index: -1;
+  width: 100%;
+  video {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+.gridContainer {
+  @extend .fullSize;
+  @extend .addPaddingMdDown;
+
+  // max-width: 1440px;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  h1 {
+    @include media-breakpoint-down(sm) {
+      margin-top: $mobile-spacing;
+    }
+  }
+  video,
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: {
+      // top: 10px;
+    }
+  }
+}
+
+.mobileNavContainer {
+  width: 100%;
+  .mobileNavPaper {
+    width: 100%;
+    background-color: $arium-black !important;
+  }
+  .closeButton {
+    color: $arium-white;
+    position: absolute;
+    right: 64px;
+    top: 48px;
+  }
+  .mobileNavBtn {
+    width: 320px;
+    span {
+      color: $arium-white;
+      font-family: Secular One;
+      // font-family: 'Inknut Antiqua', serif;
+      font-size: 40px !important;
+      line-height: 40px !important;
+      letter-spacing: -0.02em !important;
+      text-align: left !important;
+    }
+    justify-content: start;
+    margin-bottom: 1rem;
+  }
+}
+
+.mainContainer {
+  margin-top: $nav-height;
+  overflow-x: hidden;
+}
+
+.actNatural {
+  @extend .debugBorder;
+  padding: {
+    top: 62px;
+    bottom: 62px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: {
+      top: 0px;
+      bottom: 0px;
+    }
+  }
+
+  .section1 {
+    padding: {
+      top: 78px;
+      bottom: 78px;
+      left: 20%;
+    }
+    background: linear-gradient(
+      to right,
+      $arium-black,
+      $arium-black 62%,
+      transparent 62%
+    );
+    @include media-breakpoint-down(sm) {
+      margin-right: -2rem;
+      padding: {
+        top: 45px;
+        bottom: 45px;
+        left: 0px;
+        right: 2rem;
+      }
+      background: linear-gradient(
+        to left,
+        $arium-mint,
+        $arium-mint 62%,
+        transparent 62%
+      );
+    }
+    position: relative;
+  }
+
+  h1 {
+    @include media-breakpoint-down(sm) {
+      margin-top: 3rem;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100% !important;
+    background: transparent;
+    height: auto;
+  }
+}
+
+.artInContext {
+  padding: {
+    top: 100px;
+    bottom: 100px;
+  }
+  @extend .debugBorder;
+  @include media-breakpoint-down(sm) {
+    height: auto;
+    background: transparent;
+    flex-direction: column-reverse;
+    height: auto;
+    padding: {
+      top: 0px;
+      bottom: 0px;
+    }
+  }
+  .section2 {
+    @extend .fullSize;
+    display: grid;
+    grid-template-columns: 54% 1fr 10%;
+    grid-template-rows: 142px 1fr 142px;
+    position: relative;
+
+    @include media-breakpoint-down(sm) {
+      grid-template-columns: 54% 1fr 31%;
+      grid-template-rows: 42px 1fr 42px;
+      margin-bottom: $mobile-spacing;
+    }
+    .media {
+      grid-area: 2 / 1 / 3 / 3;
+      z-index: 100;
+      @extend .fullSize;
+      @include media-breakpoint-down(sm) {
+        grid-area: 2 / 1 / 3 / 4;
+      }
+    }
+    .orangeBg {
+      grid-area: 1 / 2 / 4 / 4;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 1rem;
+      img {
+        display: inline-block;
+      }
+      color: $arium-white;
+      background-color: $arium-orange;
+
+      @include media-breakpoint-down(sm) {
+        grid-area: 1 / 1 / 4 / 4;
+        position: relative;
+        left: -6rem;
+      }
+    }
+  }
+}
+
+.asItWasMeantToBeSeen {
+  @extend .debugBorder;
+  color: $arium-white;
+  padding: {
+    top: 50px;
+    bottom: 50px;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: {
+      top: 0px;
+      bottom: 0px;
+    }
+    height: auto;
+    flex-direction: column;
+    left: 0px;
+  }
+
+  .grid {
+    background: linear-gradient(
+      to left,
+      $arium-black,
+      $arium-black 62%,
+      transparent 62%
+    );
+    @include media-breakpoint-down(sm) {
+      color: $arium-black;
+      background: transparent;
+    }
+  }
+
+  .section1 {
+    position: relative;
+
+    .bg {
+      z-index: -1;
+      width: 100%;
+      height: calc(100%);
+      background: transparent;
+      @include media-breakpoint-down(sm) {
+        position: absolute;
+        right: -$mobile-spacing;
+        background: linear-gradient(
+          to left,
+          $arium-black,
+          $arium-black 71%,
+          transparent 71%
+        );
+      }
+    }
+  }
+
+  .section2 {
+    background-color: $arium-black;
+    @include media-breakpoint-down(sm) {
+      background-color: transparent;
+    }
+  }
+  h1,
+  button {
+    color: $arium-white;
+    @include media-breakpoint-down(sm) {
+      color: $arium-black;
+    }
+  }
+}
+
+.smoothSimpleSharing {
+  @extend .debugBorder;
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include media-breakpoint-down(sm) {
+    flex-direction: column-reverse !important;
+    padding: {
+      top: 16px;
+      bottom: 64px;
+    }
+  }
+
+  .media {
+    position: relative;
+    @include media-breakpoint-down(sm) {
+      padding-right: 0vw;
+    }
+    video {
+      position: relative;
+      top: -3vw;
+      z-index: 100;
+    }
+    .circle {
+      background-color: $arium-mint;
+      float: right;
+      border-radius: 50%;
+      z-index: 99;
+      position: relative;
+      right: -6vw;
+      width: 10vw;
+      height: 10vw;
+    }
+  }
+}
+
+.getAReminder {
+  @extend .debugBorder;
+  background-color: $arium-orange;
+  color: $arium-white !important;
+
+  padding: {
+    top: 120px;
+    bottom: 120px;
+  }
+  @include media-breakpoint-down(sm) {
+    flex-direction: column !important;
+    padding: {
+      top: 16px;
+      bottom: 64px;
+    }
+  }
+
+  .emailSignUp {
+    width: 100%;
+    @include media-breakpoint-down(sm) {
+      padding-right: 0vw;
+    }
+  }
+}
+
+.hostYourOwn {
+  @extend .debugBorder;
+  position: relative;
+  background-color: $arium-black;
+  color: $arium-white;
+  padding: {
+    top: 100px;
+    bottom: 100px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    height: auto;
+    padding: {
+      top: 50px;
+      bottom: 100px;
+      left: 2rem;
+    }
+  }
+  .media {
+    padding: {
+      top: $mobile-spacing;
+      bottom: $mobile-spacing;
+    }
+    video {
+      margin-bottom: 0% !important;
+    }
+    @extend .fullSize;
+    background: linear-gradient(
+      to right,
+      $arium-orange,
+      $arium-orange 62%,
+      #ffffff00 62%
+    );
+
+    @include media-breakpoint-down(sm) {
+      padding: {
+        top: 0px;
+        bottom: 0px;
+      }
+      position: relative;
+
+      video {
+        position: relative;
+        left: $mobile-spacing;
+      }
+      background: none;
+    }
+  }
+}
+
+.footer {
+  hr {
+    width: 100%;
+    margin-bottom: 57px;
+    border-color: black;
+  }
+  padding: {
+    left: 120px;
+    right: 120px;
+    bottom: 71px;
+  }
+
+  flex-direction: row;
+  align-items: flex-start;
+  @include media-breakpoint-down(sm) {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: {
+      left: $mobile-spacing;
+      right: $mobile-spacing;
+      bottom: 71px;
+    }
+  }
+
+  .subtitle {
+    margin-bottom: $mobile-spacing;
+  }
+}
+
+.theArrow {
+  margin-right: 1rem;
+
+  @include media-breakpoint-down(sm) {
+    margin-right: 0.25rem;
+    svg {
+      transform: scale(0.75);
+    }
+  }
+}
+
+.ctaModal {
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .closeButton {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    @include media-breakpoint-down(sm) {
+      top: 0px;
+      right: 0px;
+    }
+  }
+  .backdrop {
+    background-color: #ffffffdd !important;
+  }
+  .modalContainer {
+    position: relative;
+    overflow-y: scroll;
+    max-width: 1200px;
+    // max-height: 700px;
+
+    .media {
+      background: linear-gradient(
+        to left,
+        $arium-mint,
+        $arium-mint 80%,
+        transparent 80%
+      );
+      height: 400px;
+      padding: {
+        top: 75px;
+        right: 99px;
+        bottom: 61px;
+      }
+    }
+
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    padding: {
+      left: 0px;
+      right: 0px;
+      top: 92px;
+      bottom: 92px;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 45px !important;
+    }
+    width: calc(100vw - 64px);
+    background: $arium-white;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    input {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.heroContainer {
+  width: 100%;
+  max-width: $container-width;
+  .heroMobileDivider {
+    border-top: 1px solid #b5b5b5 !important;
+    width: 90%;
+    margin: 40px auto;
+  }
+
+  .swipeable {
+    @extend .fullSize;
+  }
+
+  .heroAssetContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+    margin: {
+      bottom: 72px;
+    }
+    @include media-breakpoint-down(sm) {
+      height: 386px;
+      width: 100vw;
+      position: relative;
+      left: -2rem;
+      margin: {
+        bottom: 0px;
+      }
+    }
+    video {
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 100%;
+      pointer-events: none;
+      &::-webkit-media-controls {
+        display: none;
+        -webkit-appearance: none;
+      }
+
+      margin: {
+        left: auto;
+        right: auto;
+      }
+      object-fit: cover;
+    }
+  }
+
+  .heroH1 {
+    font-family: Secular One;
+    // font-family: 'Inknut Antiqua', serif;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 70px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    margin: {
+      top: 0px;
+      bottom: 48px;
+    }
+    @include media-breakpoint-down(sm) {
+      font-family: Secular One;
+      // font-family: 'Inknut Antiqua', serif;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: -0.02em;
+      text-align: left;
+      margin: {
+        top: 70px;
+        bottom: 48px;
+      }
+    }
+  }
+}
+
+.experienceCardRoot {
+  width: 100%;
+  padding: 0 !important;
+
+  a {
+    color: $arium-black;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.experienceCardMedia {
+  height: 250px;
+}
+
+.experienceName {
+  margin-bottom: 0;
+  line-height: 1em !important;
+}
+
+.experienceHostName {
+  text-transform: none !important;
+  line-height: 1em !important;
+}
+
+.experienceCardContent {
+  padding-bottom: 16px !important;
+}
+
+.currentExhibitionContainer {
+  width: 100%;
+  max-width: $container-width;
+  .title {
+    padding-bottom: 0em;
+  }
+
+  .subtitle {
+    padding-bottom: 2em;
+  }
+
+  .exhibitionCardGridItem {
+    padding-bottom: 2em;
+    // @include media-breakpoint-up(md) {
+    //   padding: 0.5em;
+    // }
+  }
+
+  .exhibitionCardInner {
+    border: 1px solid #00000022;
+    box-shadow: 5px 5px 10px #00000022;
+    // background-color: #333;
+    // color: #eee
+    img {
+      transition: 0.75s ease;
+      // filter: grayscale(100%);
+      // -webkit-filter: grayscale(100%);
+      // -webkit-transition: all 1s ease;
+    }
+    &:hover {
+      img {
+        transform: scale(1.05);
+        // filter: grayscale(0%);
+        // filter: gray;
+        // -webkit-filter: grayscale(0%);
+        // filter: none;
+        transition: 0.75s ease;
+      }
+    }
+  }
+
+  .exhibitionCardInfoContainer {
+    padding: 2em !important;
+  }
+
+  .welcomeText {
+    margin-top: 1em !important;
+    margin-bottom: 2em !important;
+  }
+
+  .longTextButton {
+    border: none;
+    background-color: #00000000;
+    color: red;
+  }
+
+  .metaImageContainer {
+    padding: 0px !important;
+    overflow: hidden;
+  }
+}

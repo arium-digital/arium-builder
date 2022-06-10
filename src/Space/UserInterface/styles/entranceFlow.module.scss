@@ -1,0 +1,130 @@
+@import "pages/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.lightText {
+  color: $arium-cream;
+}
+
+.skipLink {
+  text-align: center;
+  a {
+    color: $arium-cream;
+    // font-weight: bold;
+  }
+  // font-weight: bold;
+}
+
+.clickAllowContainer {
+  margin-top: 35%;
+}
+
+.container {
+  background-color: #303030bb;
+  min-height: 100%;
+}
+
+.videoContainer {
+  height: 250px;
+  position: relative;
+  @media screen and (max-height: 800px) {
+    height: 150px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 150px;
+  }
+}
+
+.videoElement {
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.video {
+  height: 200px;
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+.logo > img {
+  height: 300px;
+  transform: translate(-30%, -25%);
+}
+
+.profileImage {
+  transform: translate(-60%);
+  clip-path: circle(40%);
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  width: auto;
+  height: 200px;
+}
+
+.borderTop {
+  border-top: 0.5px solid $arium-cream;
+}
+
+.selectContainer {
+  background-color: #00000000;
+  // border: 0.5px solid $arium-cream;
+  border-bottom: 0.5px solid $arium-cream;
+  // border: none;
+
+  select {
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    background-color: #00000000 !important;
+    border: none !important;
+    color: $arium-cream;
+  }
+
+  input {
+    margin-top: auto;
+    background-color: #00000000 !important;
+    color: $arium-cream !important;
+    border: none !important;
+  }
+
+  input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $arium-cream;
+    opacity: 1; /* Firefox */
+  }
+}
+
+.eventDescriptionContainer {
+  background-color: $arium-cream;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+
+  @include media-breakpoint-down(md) {
+    height: 30%;
+    overflow-y: auto;
+  }
+
+  .type {
+    height: 40px;
+    text-transform: uppercase;
+    color: $arium-red;
+  }
+
+  .date {
+    color: $arium-black;
+    font-weight: 600;
+  }
+
+  .eventTitle {
+    font-family: $primary-font;
+    font-size: 54px;
+  }
+
+  .eventDescription {
+    font-family: $primary-font;
+    font-weight: normal;
+  }
+}

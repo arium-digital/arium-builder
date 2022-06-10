@@ -1,0 +1,99 @@
+@import "pages/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.ctaButton {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  z-index: 10;
+
+  border: none;
+
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+
+  border-radius: 0;
+  border: none;
+  font-family: $secondary-font;
+  position: relative;
+  left: -10px;
+
+  outline: 1px solid $arium-red;
+  :hover {
+    outline: 2px solid $arium-red;
+  }
+
+  &.disabled {
+    opacity: 0.4;
+    outline-width: 0px;
+
+    :hover {
+      outline: 1px solid $arium-red;
+    }
+  }
+
+  &.secondaryContainer {
+    outline: 1px solid $arium-cream;
+    :hover {
+      outline: 2px solid $arium-cream;
+    }
+  }
+
+  .primary {
+    @extend .ctaButton;
+
+    background-color: $arium-red;
+    color: $arium-cream;
+  }
+
+  .secondary {
+    @extend .ctaButton;
+    background-color: $arium-cream;
+    color: $arium-red;
+  }
+}
+
+.bottomFixedOnSmall {
+  @media (max-height: 570px) {
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+
+    .primary,
+    .secondary {
+      top: 0;
+      left: 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+
+    .primary,
+    .secondary {
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.profileImageButtons {
+  position: relative;
+  top: 10px;
+}

@@ -1,0 +1,100 @@
+{
+  "rules": {
+    "userLocations": {
+      "$space_id":  {
+        "$session_id": {
+          ".write": "newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid"
+        },
+        ".read": true,
+        ".indexOn": "active"
+      }
+    },
+    "userPositions": {
+      "$space_id":  {
+        "$session_id": {
+          ".write": "newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid"
+        },
+        ".read": true
+      }
+    },
+    "userRotations": {
+      "$space_id":  {
+        "$session_id": {
+          ".write": "newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid"
+        },
+        ".read": true
+      }
+    },
+    "userOrientations": {
+      "$space_id":  {
+        "$session_id": {
+          ".write": "newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid"
+        },
+        ".read": true
+      }
+    },
+    "userDeviceOrientations": {
+      "$session_id": {
+        ".write": "newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid"
+      },
+      ".read": true
+    },
+    "producingPeers": {
+      "$space_id": {
+        "$kind": {
+          "$session_id": {
+            ".write": "(newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid) || (data.exists() && data.child('userId').val() === auth.uid)"
+          }
+        }
+      },
+      ".read": true
+    },
+    "userSessions": {
+      "$session_id": {
+        ".write": "(!data.exists() && newData.child('userId').val() === auth.uid) || (data.exists() && data.child('userId').val() === auth.uid)",
+      },
+      ".read": true,
+      ".indexOn": "spaceId"
+    },
+    "userMetadata": {
+      "$session_id": {
+        ".write": "newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid",
+      },
+      ".read": true,
+      ".indexOn": "spaceId"
+    },
+    "spaceSessions": {
+      "$space_id": {
+        "$session_id": {
+          ".write": "(newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid) || (data.child('userId').val() === auth.uid && !newData.exists()) "
+        },
+        ".read": true
+      }
+    },
+    "broadcasters": {
+      "$session_id": {
+          ".write": "newData.child('userId').val() !== null && newData.child('userId').val() === auth.uid"
+      },
+      ".read": true,
+      ".indexOn": "spaceId"
+    },
+    "sessionsOnRouters": {
+      ".indexOn": "routerId"
+    },
+    "userCommunication": {
+      "$user_id": {
+        ".write": "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid"
+      }
+    },
+    "sharedMedia": {
+      ".read": true
+    },
+    "timestamps": {
+      "$user_id": {
+        ".write": "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid"
+      }
+    }
+  }
+}

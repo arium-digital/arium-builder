@@ -1,0 +1,482 @@
+@import "../pages/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$onboarding-z-index: 10;
+
+.root {
+  z-index: $onboarding-z-index;
+  pointer-events: none;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.buttonGridItem {
+  text-align: center;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.videoContainer {
+  @include media-breakpoint-down(md) {
+    // height: 150px;
+    position: relative;
+    left: -30px;
+  }
+}
+
+.clickable {
+  pointer-events: auto;
+}
+
+.clickIcons {
+  @include media-breakpoint-up(lg) {
+    button {
+      margin-left: 20px;
+      margin-right: 0;
+    }
+  }
+}
+
+.icon {
+  color: #303030;
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+.withPadding {
+  padding: 2%;
+}
+
+.drawerOpenButton {
+  height: 100%;
+  width: auto;
+  background-color: #00000000;
+  background: none;
+  border: none;
+}
+
+.buttonContainer {
+  height: 48px;
+  pointer-events: all;
+  width: auto;
+  margin: auto;
+  display: flex;
+  z-index: 11;
+  padding: 0 30px;
+}
+
+.clickableMenu {
+  pointer-events: all;
+  z-index: rootZIndex + 1;
+}
+
+.clipImage {
+  clip-path: circle(40%);
+  width: auto;
+  height: 100%;
+}
+.flipVideo {
+  transform: rotateY(180deg);
+}
+.clipCircle {
+  @extend .clipImage;
+  @extend .flipVideo;
+}
+
+.hidden {
+  display: none;
+}
+
+.sidebarContainer {
+  padding: 0px;
+  margin: 0px;
+  transition: all 0.4s;
+  // font-family: $primary-font;
+
+  .sidebarColumn {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+
+    background-color: #303030aa;
+    pointer-events: all;
+    color: $arium-cream;
+    height: 100%;
+    width: 400px;
+    top: 0px;
+    left: 0px;
+    transition: all 0.4s;
+  }
+
+  input {
+    color: $arium-cream;
+  }
+
+  select {
+    color: $arium-cream;
+  }
+
+  .sidebarColumnHidden {
+    margin-left: -400px;
+  }
+
+  .sidebarLogo {
+    width: 85%;
+    height: auto;
+  }
+
+  .sidebarExitButton {
+    border: none;
+    background-color: #fffff100;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    color: $arium-cream;
+  }
+
+  .sidebar-clipped-image-container {
+    height: 200px;
+    width: auto;
+    position: relative;
+  }
+
+  .betaSignUp {
+    font-family: $primary-font;
+    position: absolute;
+    bottom: 0;
+
+    a {
+      color: $arium-cream;
+      text-decoration: underline;
+      &:hover {
+        color: $arium-mint;
+      }
+    }
+
+    form {
+      width: 100%;
+    }
+
+    .bottomBorder {
+      border-bottom: 1px solid $arium-cream;
+    }
+
+    input {
+      background-color: #00000000;
+      color: $arium-cream;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid $arium-cream;
+    }
+
+    .signUpCta {
+      width: 100px;
+      height: 30px;
+    }
+  }
+
+  .sidebar-clipped-image {
+    clip-path: circle(closest-side);
+    width: auto;
+    height: 150px;
+    position: absolute;
+    top: 0;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%, -50%);
+  }
+
+  .sidebar-beta-signup-button {
+    background-color: $arium-red;
+    color: $arium-cream;
+    border: none;
+    padding: 0.5rem;
+  }
+}
+
+.sidebarDisplaynameInput {
+  color: #303030 !important;
+  background-color: none !important;
+  transition: ease-in-out, opacity 0.35s ease-in-out;
+  height: 100%;
+  line-height: 100%;
+
+  :focus {
+    opacity: 0;
+    border: none;
+    border-bottom: 1px solid $arium-cream;
+  }
+}
+
+.sidebarButtonContainer {
+  position: absolute;
+  left: 0px;
+  bottom: 60px;
+  width: 60px;
+  height: 60px;
+  z-index: 10003;
+
+  .sidebarContainerButtonElement {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100%;
+  }
+
+  .sidebarButtonIcon {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    width: auto;
+    height: 100%;
+    z-index: 20;
+  }
+}
+
+.pause-resume-button-avatar {
+  width: 50px !important;
+  height: 50px !important;
+  pointer-events: all;
+  z-index: 21;
+  color: #303030 !important;
+  background-color: #fffff1 !important;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.sign-up-form {
+  font-family: $primary-font;
+  background-color: none !important;
+  border-radius: 0px !important;
+}
+
+// main controls
+.mainControlsVideoContainer {
+  height: 150px;
+  // width: 150px;
+  // position: absolute;
+  // right: 50px;
+  // top: 20px;
+  .mainControlsVideoElement {
+    // // width: auto;
+    // position: absolute;
+    // @include media-breakpoint-up(lg) {
+    //   right: auto;
+    // }
+    cursor: pointer;
+  }
+
+  .mainControlsVideo {
+    height: 150px;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  }
+}
+
+.footerControlsCol {
+  height: 170px;
+}
+
+.joystickWrapper {
+  pointer-events: all;
+  position: relative;
+  // z-index: 1000;
+  // height: 100%;
+}
+.joystickContainer {
+  position: relative;
+  left: 64px;
+  height: 100%;
+
+  // z-index: 1000;
+  width: 100%;
+  text-align: center;
+}
+
+.topLeftIcon {
+  width: 100px;
+  height: 100px;
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.bottomBar {
+  transition: all 0.4s;
+  @include no-select;
+
+  .controls {
+    height: 20%;
+  }
+}
+
+.bottomBarOffset {
+  @include media-breakpoint-down(sm) {
+    bottom: 50px;
+  }
+}
+
+.instructions {
+  background-color: #303030aa;
+  color: $arium-cream;
+  width: auto;
+  padding: 10px;
+  position: relative;
+  top: 20px;
+}
+
+.instructionsText {
+  font-size: 14px;
+  text-align: left;
+}
+
+$footerControlsButtonSize: 40px;
+.footerControlButton {
+  border: none;
+  width: $footerControlsButtonSize;
+  height: $footerControlsButtonSize;
+  border-radius: 50%;
+  // border: 0px solid $arium-cream;
+  // background-color: $arium-cream;
+  pointer-events: auto;
+  margin-right: 5px;
+
+  background-color: $arium-black;
+  color: $arium-cream;
+  svg {
+    color: $arium-cream;
+  }
+
+  &:hover {
+    background-color: $arium-cream;
+    color: $arium-black;
+    svg {
+      color: $arium-black;
+    }
+  }
+}
+
+.resumeButton {
+  @extend .footerControlButton;
+}
+
+.pauseButton {
+  @extend .footerControlButton;
+}
+
+.alertButtonOn {
+  background-color: $arium-red !important;
+}
+
+.settingsButton {
+  @extend .footerControlButton;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.shareButton {
+  @extend .footerControlButton;
+  width: auto;
+  border-radius: $footerControlsButtonSize/2;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+
+  svg {
+    font-size: 1.2rem;
+  }
+}
+
+.fullScreenButton {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.alertOn {
+  svg {
+    color: $arium-red !important;
+  }
+}
+
+.fullScreenButtonWrapper {
+  position: absolute;
+  top: 28px;
+  right: 5px;
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.fullscreenButtonContainer {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  z-index: 1;
+
+  button {
+    background: none;
+    border: none;
+
+    img {
+      width: 30px;
+      height: 30px;
+      filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+    }
+
+    &:focus {
+      outline: 0 !important;
+    }
+  }
+}
+
+.betaSignUpLogo {
+  pointer-events: all;
+}
+
+.betaSignUpText {
+  font-weight: 600;
+  position: relative;
+  top: -2px;
+  left: -4px;
+
+  span {
+    color: $arium-mint;
+  }
+
+  a {
+    color: $arium-mint;
+    font-weight: 400;
+  }
+}
+
+.cursorCrosshair {
+  cursor: crosshair !important;
+}
+
+.cursorPointer {
+  cursor: pointer !important;
+}
+.cursorGrab {
+  cursor: grab !important;
+}
+.cursorGrabbing {
+  cursor: grabbing !important;
+}

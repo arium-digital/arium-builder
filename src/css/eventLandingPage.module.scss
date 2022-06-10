@@ -1,0 +1,272 @@
+@import "pages/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$arium-white: #fffffa;
+$arium-dark-grey: #303030;
+$nav-height: 90px;
+$mobile-spacing: 2rem;
+
+$max-width: 1440px;
+
+.topLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: $nav-height;
+  @include media-breakpoint-down(sm) {
+    height: 50px;
+    img {
+      transform: scale(0.5);
+    }
+  }
+}
+.cover {
+  // margin-top: $nav-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: $max-width !important;
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+    max-height: 400px;
+    @include media-breakpoint-down(sm) {
+      max-height: 300px;
+    }
+  }
+}
+
+.abstract {
+  width: 75%;
+  margin-top: 64px !important;
+  margin-bottom: 100px !important;
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+  }
+}
+
+.mainContainer {
+  max-width: $max-width !important;
+  @include media-breakpoint-down(sm) {
+    padding: 0px $mobile-spacing !important;
+  }
+  hr {
+    margin: 0px;
+    border-top: 1px solid $arium-white;
+    @include media-breakpoint-down(sm) {
+      opacity: 0.5;
+    }
+  }
+}
+.fullSize {
+  width: 100%;
+  height: 100%;
+}
+
+.addPaddingMdDown {
+  @include media-breakpoint-down(sm) {
+    padding: $mobile-spacing;
+  }
+}
+
+.gridContainer {
+  @extend .fullSize;
+  @extend .addPaddingMdDown;
+
+  // max-width: 1440px;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  h1 {
+    @include media-breakpoint-down(sm) {
+      margin-top: $mobile-spacing;
+    }
+  }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: {
+      top: 10px;
+    }
+  }
+}
+
+.appBar {
+  height: $nav-height;
+  padding: 0px !important;
+
+  .toolBar {
+    height: $nav-height;
+    // gap: 48px;
+    background: $arium-white;
+    .navBtn {
+      color: $arium-dark-grey;
+      //styleName: L / Arium text;
+      font-family: Source Sans Pro;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+  }
+}
+
+.mobileNavContainer {
+  width: 100%;
+  .mobileNavPaper {
+    width: 100%;
+    background-color: $arium-black !important;
+  }
+  .closeButton {
+    color: $arium-white;
+    position: absolute;
+    right: 64px;
+    top: 48px;
+  }
+  .mobileNavBtn {
+    width: 320px;
+    span {
+      color: $arium-white;
+      font-family: Secular One;
+      font-size: 40px !important;
+      line-height: 40px !important;
+      letter-spacing: -0.02em !important;
+      text-align: left !important;
+    }
+    justify-content: start;
+    margin-bottom: 1rem;
+  }
+}
+
+.footerLogoContainer {
+  justify-content: center;
+  // width: 200px;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    // width:100px;
+  }
+}
+
+.footer {
+  hr {
+    width: 100%;
+    margin-bottom: 57px;
+    border-top: 1px solid $arium-white;
+    opacity: 0.5;
+  }
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.submitEmailContainer {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  .textField {
+    flex-grow: 1;
+  }
+  .buttonSubmitEmail {
+    background-color: #f4501b !important;
+    color: #fffffa;
+    border-radius: 0% !important;
+  }
+}
+
+.resources {
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    align-items: center;
+    p {
+      text-align: center;
+    }
+  }
+  a {
+    color: $arium-white;
+    text-decoration: none;
+    &:hover {
+      color: $arium-white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.eventTypeText {
+  margin-top: 48px !important;
+  @include media-breakpoint-down(sm) {
+    margin-top: 29px;
+  }
+}
+
+.eventNameText {
+  margin-top: 12px !important;
+  @include media-breakpoint-down(sm) {
+    margin-top: 0px;
+  }
+}
+.eventHostNameText {
+  margin-top: 8px !important;
+}
+
+.eventTimeText {
+  margin: {
+    top: 36px !important;
+    bottom: 23px !important;
+  }
+  @include media-breakpoint-down(sm) {
+    margin: {
+      top: 24px !important;
+      bottom: 18px !important;
+    }
+  }
+}
+
+.addToCalendarButton {
+  margin: 0px !important;
+  padding: 0px !important;
+  max-height: 2px !important;
+}
+
+.addToCalendarText {
+  margin: 0px !important;
+  padding: 0px !important;
+  max-height: 2px !important;
+}
+
+.ctaContainer {
+  margin-top: 48px;
+  @include media-breakpoint-down(sm) {
+    margin: {
+      top: 41px;
+      bottom: 50px;
+    }
+  }
+}
+.formContainer {
+  margin: {
+    top: 72px;
+    bottom: 100px;
+  }
+  @include media-breakpoint-down(sm) {
+    margin: {
+      top: 50px;
+      bottom: 72px;
+    }
+  }
+}

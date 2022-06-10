@@ -1,0 +1,79 @@
+// material ui breakpoints:
+@import "css/breakpoints.module.scss";
+
+.modalPaperWithDetails {
+  width: 90%;
+  height: 90%;
+  @media (max-width: $lg) {
+    width: 92%;
+    height: 92%;
+  }
+}
+.modalPaperWithoutDetails {
+  width: 640px;
+  @media (max-width: $sm) {
+    width: 100%;
+    height: 100%;
+  }
+}
+.modelScrollingWrapper {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+
+  .closeBtn {
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    right: 0%;
+  }
+}
+
+.padText {
+  padding-left: 16px;
+}
+.detailsColumn {
+  display: flex;
+  flex-direction: column;
+
+  /* // overflow: hidden; */
+  width: 100%;
+}
+.assetColumn {
+  align-items: center;
+  padding: 0;
+
+  justify-content: center;
+  @media (max-width: $sm) {
+    height: 50%;
+    border-top: black 1px solid;
+  }
+  @media (min-width: $xl) {
+    padding: 0 $padding;
+  }
+}
+.contentColumn {
+  // height: 50%;
+  padding: $padding;
+  position: relative;
+  @media (max-width: $sm) {
+    padding-top: 0;
+  }
+  @media (min-width: $sm) {
+    padding: $padding * 2;
+    height: 100%;
+  }
+  padding: $padding;
+}
+
+.contentColumnCenter {
+  @media (min-width: $sm) {
+    justify-content: center;
+  }
+}
+
+.contentContents {
+  // @media (max-width: $lg) {
+  overflow-y: scroll;
+  // }
+}

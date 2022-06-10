@@ -1,0 +1,55 @@
+@import "./variables.module.scss";
+@import "pages/styles/variables.scss";
+.mt_NavHeight {
+  margin-top: calc(#{$nav-height} + 2rem);
+}
+
+.layout2MainContainer {
+  @extend .mt_NavHeight;
+  min-height: 50vh;
+
+  p a {
+    color: $arium-orange;
+  }
+}
+
+.appBar {
+  height: $nav-height;
+  padding: 0px !important;
+  .toolBar {
+    width: calc(100vw - 4rem);
+    max-width: $container-width;
+    margin: 0 auto;
+    height: $nav-height;
+    gap: 48px;
+    background: $arium-white;
+  }
+}
+
+.navBtn {
+  //styleName: L / Arium text;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.logoutBtn {
+  @extend .navBtn;
+  margin-left: -48px !important;
+}
+.footerContainer {
+  color: $arium-black !important;
+  a {
+    color: $arium-black !important;
+    &:hover {
+      color: $arium-orange !important;
+    }
+  }
+  hr {
+    border-top: 1px solid #b5b5b5 !important;
+  }
+}

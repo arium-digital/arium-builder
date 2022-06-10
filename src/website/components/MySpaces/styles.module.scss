@@ -1,0 +1,64 @@
+.fullSize {
+  width: 100%;
+  height: 100%;
+}
+
+.textOverflowEllipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.cursorPointerOnHover {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.cardContainer {
+  @extend .fullSize;
+
+  .metaImage {
+    @extend .fullSize;
+    height: 274px;
+    img {
+      @extend .fullSize;
+      object-fit: cover;
+    }
+  }
+
+  .metaImageFeatured {
+    @extend .fullSize;
+    height: 390px;
+    img {
+      @extend .fullSize;
+      object-fit: cover;
+    }
+  }
+
+  .titleText {
+    font-family: Secular One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 150%;
+    /* identical to box height, or 30px */
+
+    /* Arium black */
+
+    color: #303030;
+  }
+  .bodyText {
+    // @extend .textOverflowEllipsis;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    margin: 20px 0px;
+  }
+}
