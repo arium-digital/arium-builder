@@ -15,11 +15,11 @@ const SpaceRoute = dynamic(() => import("../../../Space/SpaceRoute"), {
 const generateTitle = (name: string | undefined, spaceId: string) => {
   const titleToUse = name || spaceId;
 
-  return `${titleToUse} in Arium`;
+  return `${titleToUse}`;
 };
 
 const generateMetaDescription = (name: string | undefined, spaceId: string) =>
-  `Join ${name || spaceId} hosted in Arium.`;
+  `Join ${name || spaceId}`;
 
 const getFunctionUrl = (slug: string) =>
   `${getFunctionsBaseUrl()}/metadataFromSlug/${slug}`;

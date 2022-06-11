@@ -92,7 +92,7 @@ export const SpaceTemplateCard = ({
               >
                 <IconBetaSignUp color={primaryColor} />
                 {spaceId === "empty"
-                  ? "Start with an empty space"
+                  ? "Create a space"
                   : `Start with a space from the ${title} template`}
               </Button>
             </Grid>

@@ -24,12 +24,6 @@ import {
 import { HDRI_QUALITY, SKYBOX_QUALITY } from "config";
 import { SkyBoxType } from "spaceTypes/environment";
 
-const defaultHDRI = {
-  hdri:
-    "https://firebasestorage.googleapis.com/v0/b/volta-events-294715.appspot.com/o/standardAssets%2Fhdri%2Fkloppenheim_06%2Fkloppenheim_06_8k.jpg?alt=media&token=add96adf-3fd5-47c4-a0d3-d6d3dc68dbdb",
-  skybox:
-    "https://firebasestorage.googleapis.com/v0/b/volta-events-294715.appspot.com/o/hdri%2Fkloppenheim_06%2Fkloppenheim_06_4k.hdr?alt=media&token=beed0875-d5e7-4153-9645-1e8a0f11a13a",
-};
 const fileNames = [
   "posx.jpg",
   "negx.jpg",
@@ -89,7 +83,7 @@ const createCubeTextureFromEquirectangularHDRIUrl = async (
 
 const getHDRIUrlByPreset = async (
   HDRI: EnvironmentConfig["HDRI"]
-): Promise<[string, string]> => {
+): Promise<[string, string] | null> => {
   if (HDRI) {
     const basePath = getAssetPath(HDRI as StoredFileLocation);
     if (basePath) {
@@ -103,7 +97,7 @@ const getHDRIUrlByPreset = async (
       return [hdriUrl, backgroundUrl];
     }
   }
-  return [defaultHDRI.hdri, defaultHDRI.skybox];
+  return null;
 };
 
 enum SupportedExtensions {
@@ -206,17 +200,17 @@ const HDRIPreset = ({
   const [bgTexture, setBgTexture] = useState<Texture>();
 
   useEffect(() => {
-    getHDRIUrlByPreset(HDRI)
-      .then(([hdriUrl, backgroundUrl]) =>
-        Promise.all([
-          createCubeTextureFromEquirectangularHDRIUrl(hdriUrl, gl),
-          createCubemapTextureFromEquatangularJpegUrl(backgroundUrl, gl),
-        ])
-      )
-      .then(([hdriTexture, bgTexture]) => {
-        setBgTexture(bgTexture);
-        setHdriTexture(hdriTexture);
-      });
+    (async () => {
+      const hdriResult = await getHDRIUrlByPreset(HDRI);
+      if (!hdriResult) return;
+      const [hdriUrl, backgroundUrl] = hdriResult;
+      const [hdriTexture, bgTexture] = await Promise.all([
+        createCubeTextureFromEquirectangularHDRIUrl(hdriUrl, gl),
+        createCubemapTextureFromEquatangularJpegUrl(backgroundUrl, gl),
+      ]);
+      setBgTexture(bgTexture);
+      setHdriTexture(hdriTexture);
+    })();
   }, [gl, HDRI, environmentMapping]);
 
   if (!visible) return null;

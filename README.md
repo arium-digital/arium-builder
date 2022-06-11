@@ -35,17 +35,19 @@ Most of the application is built in typescript and react.  It is serverless, rel
 
 Running this project **requires a *Firebase* account,** and using Firebase Cloud Functions which is core to much of the functinoality requires a **Blaze (paid)** account.
 
-1. **Create a new Firebase project [here](https://firebase.google.com/)**
-2. [Upgrade to the *Blaze* plan](https://docs.firerun.io/getting-started/upgrading-from-the-firebase-spark-plan-to-the-blaze-plan-tled)
-3. [Install the firebase cli](https://firebase.google.com/docs/cli#install-cli-mac-linux)
-4. Set firebase cli to use your project: `firebase use {firebase project name}`
-5. In the firebase admin panel, create a Firestore Database, and a Realtime Database
-6. Update the file `.firebaserc` to change the project name from `arium-builder-example` to your project name.
-7. Open src/db.ts and replace the `firebaseConfig` with firebase config from your project.
-8. In the firebase admin panel, enable email auth.
-9. Open the site: [http://localhost:3000](http://localhost:3000) - it should redirect you to sign in or register.
-10. Register with an email address.
-11. Make your user an admin; to do this, in the root folder where this code sits, in the terminal:  `yarn makeAdmin {yourEmailAddress}`
+* **Create a new Firebase project [here](https://firebase.google.com/)**
+* [Upgrade to the *Blaze* plan](https://docs.firerun.io/getting-started/upgrading-from-the-firebase-spark-plan-to-the-blaze-plan-tled)
+* [Install the firebase cli](https://firebase.google.com/docs/cli#install-cli-mac-linux)
+* Set firebase cli to use your project: `firebase use {firebase project name}`
+* In the firebase admin panel, create a Firestore Database, and a Realtime Database
+* Update the file `.firebaserc` to change the project name from `arium-builder-example` to your project name.
+* Deploy the cloud functions, firestore database rules, realtime database rules, and storage rules: `firebase deploy`
+* Setup CORS on your firebase   storage bucket, there is an example cors.json config in admin.  To use it: `gsutil cors set firebase/cors.json {your bucket url}`
+* Open src/config.ts and replace the `firebaseConfig` structure with firebase config from your project.
+* In the firebase admin panel, enable email auth.
+* Open the site: [http://localhost:3000](http://localhost:3000) - it should redirect you to sign in or register.
+* Register with an email address.
+* Make your user an admin; to do this, in the root folder where this code sits, in the terminal:  `yarn makeAdmin {yourEmailAddress}`
 
 #### Generate a service account key
 

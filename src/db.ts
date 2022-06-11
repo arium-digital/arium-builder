@@ -4,6 +4,7 @@ import "firebase/firestore";
 import "firebase/database";
 import "firebase/storage";
 import "firebase/functions";
+import { firebaseConfig } from "config";
 
 /*
  * // Retrieve your own options values by adding a web app on
@@ -20,17 +21,6 @@ import "firebase/functions";
  * });
  * `
  */
-
-// Replace the below with configuration from your project.
-const firebaseConfig = {
-  apiKey: "AIzaSyAoPz3c-2OHJzl9qPy6IzzSlROHIUeAvS4",
-  authDomain: "arium-builder-example.firebaseapp.com",
-  databaseURL: "https://arium-builder-example-default-rtdb.firebaseio.com",
-  projectId: "arium-builder-example",
-  storageBucket: "arium-builder-example.appspot.com",
-  messagingSenderId: "346607153918",
-  appId: "1:346607153918:web:105d693144732ee7a22baf",
-};
 
 const firebaseApp = !firebase.apps.length
   ? firebase.initializeApp({

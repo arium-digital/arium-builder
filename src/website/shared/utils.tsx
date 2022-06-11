@@ -94,15 +94,6 @@ export const CurvyDivider = () => {
   );
 };
 
-const placeholderVideoUrl =
-  "https://firebasestorage.googleapis.com/v0/b/volta-events-294715.appspot.com/o/public%2FAriumHighlightsv3.webm?alt=media&token=541c8489-7642-4d8b-9435-e2288033a3ac";
-export const PlaceHolderVideo = () => {
-  return (
-    <video autoPlay crossOrigin="anonymous" loop>
-      <source src={placeholderVideoUrl} type="video/webm" />
-    </video>
-  );
-};
 export const PlaceHolderMedia = ({ width, height }: OptionalWidthHeight) => {
   const myId = useComponentId();
   return (
