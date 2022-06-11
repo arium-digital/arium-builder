@@ -1,6 +1,6 @@
 // import { Cloudinary } from "@cloudinary/base";
 // import { scale } from "@cloudinary/base/actions/resize";
-import { mediaHostUrl, imageKitBaseUrl } from "config";
+import { imageKitBaseUrl } from "config";
 import {
   DEFAULT_IN_SPACE_IMAGE_QUALITY,
   DEFAULT_IN_SPACE_IMAGE_RESOLUTION,
@@ -61,7 +61,7 @@ function getExternalFileResizeUrl(
 }
 
 const getThumbnailBaseUrl = () => {
-  const mediaDomain = process.env.NEXT_PUBLIC_MEDIA_HOST || mediaHostUrl;
+  const mediaDomain = process.env.NEXT_PUBLIC_THUMBNAIL_HOST;
 
   return `${mediaDomain}/thumbnail`;
 };

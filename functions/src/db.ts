@@ -1,4 +1,5 @@
 import * as admin from "firebase-admin";
+import { firebaseConfig } from "../../src/config";
 
 const communicationUrl = "https://arium-communication.firebaseio.com";
 
@@ -26,4 +27,4 @@ const auth = admin.auth;
 export declare type DocumentReference = FirebaseFirestore.DocumentReference;
 
 export const storage = () => app.storage();
-export { admin, store, app, firestore, auth };
+export { admin, store, app, firestore, auth, firebaseConfig };

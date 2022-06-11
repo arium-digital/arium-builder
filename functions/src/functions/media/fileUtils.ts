@@ -4,7 +4,7 @@ import {
   StoredFileLocation,
 } from "../../../../shared/sharedTypes";
 import * as temp from "temp";
-import { storage } from "../../db";
+import { storage, firebaseConfig } from "../../db";
 
 export const isStoredFile = (
   file: FileLocation
@@ -31,7 +31,7 @@ export const getAssetPath = (file: StoredFileLocation | undefined) => {
   return `standardAssets/${addFolder(file.folder)}${file.fileName}`;
 };
 
-export const bucket = () => storage().bucket("volta-events-294715.appspot.com");
+export const bucket = () => storage().bucket(firebaseConfig.storageBucket);
 
 export async function getFileDownloadUrl(fileLocation: FileLocation) {
   //   const spaceId = await getSpaceId();
