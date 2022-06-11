@@ -24,7 +24,6 @@
   "author": "Arium",
   "license": "ISC",
   "dependencies": {
-    "@cloudinary/url-gen": "^1.1.0",
     "@derschmale/io-rgbe": "^0.1.1",
     "@google-cloud/compute": "^2.4.1",
     "@material-ui/core": "^4.11.0",

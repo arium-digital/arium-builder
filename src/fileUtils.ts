@@ -187,5 +187,12 @@ export const extractFileName = (name: string): string => {
   return name;
 };
 
-export const getCDNUrl = (path: string): string =>
+export const getAriumCDNUrl = (path: string): string =>
   `https://assets.vlts.pw/${path}`;
+
+export const getMetaImagePath = async (
+  fileLocation?: FileLocation
+): Promise<string | undefined> => {
+  if (!fileLocation) return undefined;
+  return await getFileDownloadUrlAsync(fileLocation);
+};

@@ -40,5 +40,7 @@ export const firebaseConfig = {
   appId: "1:346607153918:web:105d693144732ee7a22baf",
 };
 
-export const firebaseFunctionsBaseUrl = `https://us-central1-${firebaseConfig.projectId}.cloudfunctions.net`;
-// export const FirebaseFunctionsBaseUrl = "https://us-central1-arium-builder-example.cloudfunctions.net";
+export const mediaHostUrl = "https://arium-builder-example.web.app";
+
+// Replace the below with configuration from your project.
+export const imageKitBaseUrl = "https://ik.imagekit.io/ariumbuilderexample/";

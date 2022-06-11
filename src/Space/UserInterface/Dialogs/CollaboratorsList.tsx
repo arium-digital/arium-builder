@@ -17,8 +17,6 @@ import { useFormik } from "formik";
 import { error as logError } from "firebase-functions/lib/logger";
 import { spaceInvitesCollection, userProfilesDoc } from "shared/documentPaths";
 import { firestoreTimeNow, functions } from "db";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Input from "@material-ui/core/Input";
 import {
   SpaceInvite,
   SpaceRoleProfile,
@@ -30,19 +28,13 @@ import List from "@material-ui/core/List";
 import { MdOutlineEditOff, MdOutlineModeEditOutline } from "react-icons/md";
 import CopyPopover from "./shared/CopyPopover";
 import Grid from "@material-ui/core/Grid";
-import FormGroup from "@material-ui/core/FormGroup";
 import LinkIcon from "@material-ui/icons/Link";
 import Tooltip from "@material-ui/core/Tooltip";
 import { SpaceRouteKeys } from "Space/SpaceRoute/useSpaceQueryParams";
 
 type FormData = Pick<SpaceInvite, "role" | "email">;
 
-const validationSchema = yup.object({
-  email: yup
-    .string()
-    .email("Enter a valid email")
-    .required("Email is required"),
-});
+const validationSchema = yup.object({});
 
 const addInvite = ({
   vals,
@@ -118,38 +110,15 @@ const CollaboratorInviteForm = ({
         className={styles.listForm}
       >
         <Grid container>
-          <Grid item xs={8} style={{ paddingRight: "10px" }}>
-            <FormGroup>
-              <Input
-                id="email"
-                type="email"
-                value={formik.values.email}
-                placeholder="Email"
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                // helperText={formik.touched.email ? formik.errors.email : ""}
-                style={{ lineHeight: "40px" }}
-                disabled={saving}
-                endAdornment={
-                  <InputAdornment
-                    position="end"
-                    style={{ marginRight: "10px" }}
-                  >
-                    <span>can edit</span>
-                  </InputAdornment>
-                }
-              />
-            </FormGroup>
-          </Grid>
           <Grid item xs={4}>
             <div className={styles.formButtonContainer}>
               <button
                 className={styles.formButton}
                 id="enter"
-                disabled={formik.isSubmitting}
+                disabled={formik.isSubmitting || saving}
                 type="submit"
               >
-                Send Invite
+                Create Invite
               </button>
             </div>
           </Grid>

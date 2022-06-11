@@ -1,4 +1,6 @@
-import { firebaseFunctionsBaseUrl } from "config";
+import { firebaseConfig } from "config";
+
+const firebaseFunctionsBaseUrl = `https://us-central1-${firebaseConfig.projectId}.cloudfunctions.net`;
 
 export const getFunctionsBaseUrl = () => {
   if (process.env.NEXT_PUBLIC_FUNCTIONS_PORT)

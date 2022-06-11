@@ -1,5 +1,6 @@
 // import { Cloudinary } from "@cloudinary/base";
 // import { scale } from "@cloudinary/base/actions/resize";
+import { mediaHostUrl, imageKitBaseUrl } from "config";
 import {
   DEFAULT_IN_SPACE_IMAGE_QUALITY,
   DEFAULT_IN_SPACE_IMAGE_RESOLUTION,
@@ -12,14 +13,6 @@ import {
   StoredFileLocation,
 } from "../../shared/sharedTypes";
 import { getAssetFolder, getAssetPath } from "./assetPaths";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { scale } from "@cloudinary/url-gen/actions/resize";
-
-// const cld = new Cloudinary({
-//   cloud: {
-//     cloudName: "arium",
-//   },
-// });
 
 interface MediaOptions {
   maxWidth?: number;
@@ -39,11 +32,7 @@ export const getImageResizeUrl = (
 
   // return null;
 };
-export const cld = new Cloudinary({
-  cloud: {
-    cloudName: "arium",
-  },
-});
+
 const getStoredFileResizeUrl = (
   fileLocation: StoredFileLocation,
   options: MediaOptions
@@ -59,7 +48,7 @@ const getStoredFileResizeUrl = (
 
   const path = `${folder || ""}${fileLocation.fileName || ""}`;
 
-  return `https://ik.imagekit.io/arium/tr:w-${maxWidth}${
+  return `${imageKitBaseUrl}tr:w-${maxWidth}${
     quality < 100 ? `,q-${quality}` : ""
   }/${path}`;
 };
@@ -68,34 +57,11 @@ function getExternalFileResizeUrl(
   fileLocation: ExternalFileLocation,
   options: MediaOptions
 ) {
-  if (!fileLocation.url) return null;
-  const {
-    quality = DEFAULT_IN_SPACE_IMAGE_QUALITY,
-    maxWidth = DEFAULT_IN_SPACE_IMAGE_RESOLUTION,
-  } = options;
-  return cld
-    .image(fileLocation.url)
-    .setDeliveryType("fetch")
-    .setAssetType("image")
-    .resize(scale().width(maxWidth))
-    .quality(quality)
-    .toURL();
-}
-
-export function gifToVideoUrl(fileUrl: string): any {
-  const result = cld
-    .video(fileUrl)
-    .setDeliveryType("fetch")
-    .setAssetType("image")
-    .format("mp4")
-    .toURL();
-
-  return result;
+  return fileLocation.url;
 }
 
 const getThumbnailBaseUrl = () => {
-  const mediaDomain =
-    process.env.NEXT_PUBLIC_MEDIA_HOST || "https://im.vlts.pw";
+  const mediaDomain = process.env.NEXT_PUBLIC_MEDIA_HOST || mediaHostUrl;
 
   return `${mediaDomain}/thumbnail`;
 };
@@ -136,21 +102,4 @@ export const getThumbnailUrl = (
   url.searchParams.append("w", resolutionWidth.toString());
 
   return url.toString();
-};
-// const image = cld
-//   .image(`${ folder } ${ fileLocation.fileName } `)
-//   .resize(scale().width(options.maxWidth || defaultImageSize));
-
-// return image.toURL(); //`https://res.cloudinary.com/arium/image/upload/w_${options.maxWidth || 1280}/${folder}${fileLocation.fileName}`;
-// };
-
-export const getImageResizeFromExternalUrl = (
-  imageUrl: string,
-  options: MediaOptions = {
-    maxWidth: 1280,
-  }
-) => {
-  return `https://res.cloudinary.com/demo/image/fetch/w_${
-    options.maxWidth || 1280
-  }/${imageUrl}`;
 };

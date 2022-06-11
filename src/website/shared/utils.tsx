@@ -122,25 +122,3 @@ export const SectionContainer = ({
     </div>
   );
 };
-
-export const getImgSrcAndSet = (
-  assetName:
-    | "actNatural"
-    | "marble-theater"
-    | "asItWasMeantToBeSeen"
-    | "smoothSimpleSharing"
-    | "weAreReady"
-    | "formImg",
-  ext: "jpg" | "png" = "png"
-): {
-  imgSrc: string;
-  imgSrcSet: string;
-} => {
-  const imgSrcBase = `https://assets.vlts.pw/public/marketing-site-assets/${assetName}`;
-  const imgSrc = `${imgSrcBase}/1x.${ext}`;
-  const imgSrcSet = `
-${imgSrcBase}/1x.${ext} 1x,
-${imgSrcBase}/2x.${ext} 2x
-`;
-  return { imgSrc, imgSrcSet };
-};

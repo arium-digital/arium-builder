@@ -153,7 +153,7 @@ const SpaceInvite = ({
     >
       <>
         <div className={styles.centeredContents}>
-          <Typography variant="h2">Welcome to Arium</Typography>
+          <Typography variant="h2">Welcome</Typography>
           <Typography variant="h3">
             You've been invited to collaborate on and edit the space {spaceName}
             !

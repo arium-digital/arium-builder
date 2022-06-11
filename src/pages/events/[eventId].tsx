@@ -5,8 +5,8 @@ import { GetServerSideProps } from "next";
 import { AnimatedAriumLogo } from "Space/AnimatedAriumLogo";
 import { EventInfo } from "../../../shared/sharedTypes";
 import { FourOFourSSR } from "Space/404";
-import { getMetaImagePath } from "media/assetPaths";
 import { getFunctionsBaseUrl } from "libs/config";
+import { getMetaImagePath } from "fileUtils";
 const EventRoute = dynamic(() => import("../../Event"), {
   loading: () => <AnimatedAriumLogo hint="Loading event..." />,
   ssr: true,
@@ -36,7 +36,7 @@ const queryEvent = async (eventId: string): Promise<EventQueryResult> => {
     if (event.startTimestamp && event.endTimestamp === undefined)
       event.endTimestamp = event.startTimestamp + 3600000;
 
-    const coverUrl = getMetaImagePath(event.coverImage);
+    const coverUrl = await getMetaImagePath(event.coverImage);
     if (event.coverImage) return { exist: true, event: { ...event, coverUrl } };
   }
   return { exist: false, eventId };
