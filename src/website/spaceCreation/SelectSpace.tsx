@@ -7,10 +7,14 @@ import { SpaceTemplateConfig } from "./types";
 export const spaceTemplates: SpaceTemplateConfig[] = [
   {
     spaceId: "empty",
-    title: "",
+    title: "An Empty Space",
     description:
-      "Create a space from a totally blank canvas.  Drop whatever you want into this space and make it your own.",
-    idealCapacity: "?",
+      "A totally blank canvas.  Drop whatever you want into this space and make it your own.",
+  },
+  {
+    spaceId: "marble-theater",
+    title: "Marble Theater",
+    description: "Theater of Marble on a Mountain",
   },
 ];
 
@@ -30,7 +34,9 @@ const SelectSpace = ({
   return (
     <>
       <div className="text-center">
-        <Typography variant="body1">Create a space</Typography>
+        <Typography variant="body1">
+          Choose from one of our template or spaces or start from scratch.{" "}
+        </Typography>
         <br />
         <Divider />
         <br />

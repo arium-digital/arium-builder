@@ -3,6 +3,5 @@ export interface SpaceTemplateConfig {
   spaceId: string;
   title: string;
   description: string;
-  idealCapacity: string;
   thumbnailPath?: string;
 }
