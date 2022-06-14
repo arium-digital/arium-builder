@@ -41,6 +41,7 @@ import {
   ModelElementConfig,
   PortalElementConfig,
   TerrainElementConfig,
+  WaterElementConfig,
 } from "spaceTypes/Element";
 import { TerrainConfig } from "spaceTypes/terrain";
 import { HasFrameConfig } from "spaceTypes/text";
@@ -59,6 +60,7 @@ import { NftType } from "../../shared/nftTypes";
 import { defaultPortalConfig } from "spaceTypes/portal";
 import { SpaceEffects } from "Space/PostProcessing/types";
 import { defaultAudioConfig } from "./useDefaultNewElements";
+import { defaultWaterConfig } from "spaceTypes/water";
 
 export const DEFAULT_MAX_CONSUMER_DISTANCE = 400;
 export const DEFAULT_MAX_VISIBLE_PEERS = 50;
@@ -374,6 +376,13 @@ export const defaultTerrainElement = (): TerrainElementConfig => ({
   elementType: ElementType.terrain,
   active: true,
   terrain: defaultTerrainConfig(),
+});
+
+export const defaultWaterElement = (): WaterElementConfig => ({
+  name: `water`,
+  elementType: ElementType.water,
+  active: true,
+  water: defaultWaterConfig(),
 });
 
 export const defaultPortalElement = (): PortalElementConfig => ({
