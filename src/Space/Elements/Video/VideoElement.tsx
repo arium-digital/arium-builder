@@ -77,18 +77,14 @@ export const useMediaElementAndPlay = ({
       if (play) {
         if (!media.paused) return;
         try {
-          console.log("playing video");
           await media.play();
           setFailedToPlay(false);
           return;
         } catch (e) {
-          console.log("failed to play video...retrying");
           try {
             await media.play();
-            console.log("succeeded to play video after retry");
             setFailedToPlay(false);
           } catch (e) {
-            console.error("failed to play after retry");
             setFailedToPlay(true);
             console.error(e);
           }
@@ -105,7 +101,6 @@ export const useMediaElementAndPlay = ({
         }
       } else {
         if (media.paused) return;
-        console.log("pausing video");
         media.pause();
       }
     },

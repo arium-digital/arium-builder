@@ -25,11 +25,9 @@ function backoff(maxTries: number, ms: number) {
   return pipe(
     retryWhen((attempts) =>
       range(1, maxTries).pipe(
-        // tap((x) => console.log("retry #", x)),
         zip(attempts, (i) => i),
         map((i) => i * i),
         mergeMap((i) => timer(i * ms))
-        // tap((x) => console.log("retry at end"))
       )
     )
   );

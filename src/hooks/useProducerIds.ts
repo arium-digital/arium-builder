@@ -26,13 +26,9 @@ export const observeProducingPeers = ({
             const peerId = snapshot.key as string;
 
             const { paused } = snapshot.val() as { paused: boolean };
-            // console.log("child added", peerId, peerProducingState);
 
             subscribe.next({ peerId, paused });
           };
-          // toObserve.once("value", (allSnapshots) => {
-          //   allSnapshots.forEach(peerProducerChanged);
-          // });
           toObserve.on("child_added", peerProducerChanged);
           toObserve.on("child_changed", peerProducerChanged);
           toObserve.on("child_removed", (snapshot) => {
@@ -40,7 +36,6 @@ export const observeProducingPeers = ({
 
             const { paused } = snapshot.val() as { paused: boolean };
 
-            // console.log("child remove", peerId);
             subscribe.next({ peerId, paused });
           });
 
@@ -61,8 +56,6 @@ export const observeProducingPeers = ({
                 acc.add(update.peerId);
               }
             });
-            // console.log("latest acc", acc, current, result);
-
             return acc;
           }, new Set<string>())
         );

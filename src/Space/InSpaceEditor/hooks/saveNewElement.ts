@@ -9,13 +9,11 @@ const saveNewElement = async (
   newElement: ElementConfig,
   pushUndoItem?: PushUndoItemFunction
 ) => {
-  // console.log("getting collection ref");
   const collectionRef = store
     .collection("spaces")
     .doc(spaceId)
     .collection("elementsTree");
 
-  // console.log("saving new to ", collectionRef.path);
   const parentId = path.length > 0 ? path[path.length - 1] : null;
 
   const toInsert = stripUndefined({

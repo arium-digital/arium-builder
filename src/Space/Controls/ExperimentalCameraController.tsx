@@ -77,7 +77,6 @@ const ExperimentalCameraControllerInner = ({ spaceId }: HasSpaceId) => {
       unsub();
     };
   }, [camera, defaultCameraConfig, spaceId]);
-  // console.log("animationFinished", animationFinished);
   if (animationFinished) return null;
   if (camera.type !== "PerspectiveCamera") return null;
 

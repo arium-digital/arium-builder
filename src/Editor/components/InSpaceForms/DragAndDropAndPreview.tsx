@@ -155,7 +155,6 @@ export const PreviewAndUploadImage = (
   });
 
   const isRGBE = useMemo<boolean>(() => {
-    // console.log(currentFile?.fileName);
     if (currentFile?.fileType === "stored")
       return extractExt(currentFile.fileName) === "hdr";
     return false;

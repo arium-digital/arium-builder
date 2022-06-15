@@ -51,8 +51,6 @@ const BtnAddElements = ({ editorState }: { editorState: EditorState }) => {
         ...(newElementConfig ? newElementConfig() : {}),
       };
 
-      console.log({ newElement });
-
       setPreviewElement({
         defaults: merge({}, defaultElementConfig(), newElement),
         toSave: newElement,

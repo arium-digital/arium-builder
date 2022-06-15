@@ -96,10 +96,6 @@ export const useConfigOrThemeDefault = <T>(
 ): Concrete<T> => {
   const themeDefault = useThemeOrDefault(getThemeDefault);
 
-  // useEffect(() => {
-  //   console.log({ themeDefault, getDefault: getThemeDefault, });
-  // }, [themeDefault, getThemeDefault])
-
   const result = useMemo(() => merge({}, themeDefault, config), [
     themeDefault,
     config,

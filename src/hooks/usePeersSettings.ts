@@ -41,7 +41,6 @@ const usePeersSettings = ({
         peerSettingsOverride?.maxVisiblePeers ||
         peersWithDefaults.maxVisiblePeers,
     };
-    // console.log("final peer settinsg", peerSettingsWithOverrides);
     return peerSettingsWithOverrides;
   }, [peersWithDefaults, peerSettingsOverride]);
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { useDrop } from "react-dnd";
 import firestore from "@google-cloud/firestore";
@@ -28,7 +28,6 @@ const useElementDrop = ({
 
   const onDrop = useCallback(
     async ({ name: id }: { name: string }) => {
-      // console.log('on drop', { elementConfig: !!elementConfig })
       setIsMoving(true);
 
       const { transform, elementConfig } = await getUpdatedTransform({
@@ -74,10 +73,6 @@ const useElementDrop = ({
       canDrop: monitor.canDrop(),
     }),
   });
-
-  useEffect(() => {
-    if (isOver) console.log({ isOver, canDrop, allowDrop, path });
-  }, [isOver, canDrop, allowDrop, path]);
 
   return {
     isOver,

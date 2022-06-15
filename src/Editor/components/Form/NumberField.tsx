@@ -231,7 +231,6 @@ const NumberField: FC<NumberProps> = ({
       )
       .subscribe({
         next: (value) => {
-          // console.log("saving to db", value);
           saveValueToDB(value);
         },
       });

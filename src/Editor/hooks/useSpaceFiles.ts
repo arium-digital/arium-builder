@@ -126,7 +126,6 @@ export const useFiles = ({
       });
 
       if (includeFolders) {
-        // console.log("including folders");
         for (const folder of filesResults.prefixes) {
           files.push({
             fullPath: folder.fullPath,

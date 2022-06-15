@@ -87,7 +87,6 @@ const ValueEditor = ({
         if (mode === "translate") {
           object.position[axis] = value;
         } else if (mode === "rotate") {
-          // console.log(value);
           object.rotation[axis] = value;
         } else {
           object.scale[axis] = value;
@@ -166,8 +165,6 @@ const MessageDisplayInner = ({
     }
 
     const applyValues = () => {
-      // const mode = controls.getMode();
-      // console.log('apply')
       // @ts-ignore
       const obj = currentEditingElement;
       if (!obj) return;

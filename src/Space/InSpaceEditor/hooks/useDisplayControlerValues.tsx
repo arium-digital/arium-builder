@@ -35,12 +35,10 @@ export const useDisplayControlerValues = (editorState: EditorState) => {
       // let axis = controls._axis;
       // @ts-ignore
       const obj = controls.object;
-      // console.log({ obj, axis });
       if (!obj) return setMessage(null);
 
       const values = getValuesByMode(mode, obj);
       if (!values) return setMessage(null);
-      // if (axis.endsWith("E")) axis = axis.slice(0, axis.length - 1);
       const msg = <RenderAllAxesValues mode={mode} vector={values} />;
       setMessage(msg);
     };

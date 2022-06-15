@@ -18,7 +18,6 @@ export function getProtooUrl({
   const formattedPort = port ? `:${port}` : "";
 
   let builtUrl = `wss://${domain}${formattedPort}/?spaceId=${spaceId}&peerId=${peerId}&userId=${userId}`;
-  // console.log("url: ", builtUrl);
   if (forceH264) builtUrl = `${domain}&forceH264=true`;
   else if (forceVP9) builtUrl = `${domain}&forceVP9=true`;
 

@@ -80,24 +80,11 @@ const ElementPreview = ({
         distance.copy(mouseDirection).multiplyScalar(5);
 
         targetPosition.add(distance);
-        // console.log({
-        //   mouseOrigin,
-        //   mouseDirection,
-        //   targetPosition
-        // })
         group.position.copy(targetPosition);
         group.rotation.set(0, 0, 0);
       }
     }
   });
-
-  // useEffect(() => {
-  //   console.log({
-  //     toShow,
-  //     defaults: elementToRender.defaults,
-  //     toSave: elementToRender.toSave,
-  //   });
-  // }, [toShow, elementToRender]);
 
   const isGroup = toShow.elementType === ElementType.group;
 

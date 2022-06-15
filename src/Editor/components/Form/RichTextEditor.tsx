@@ -147,7 +147,6 @@ export const useEditorAndSaveButton = (
   handleSave: (value: string) => void,
   initHtml: string
 ) => {
-  // console.log(initHtml);
   const [html, setHtml] = useState<string>(initHtml);
 
   const [dirty, setDirty] = useState(false);

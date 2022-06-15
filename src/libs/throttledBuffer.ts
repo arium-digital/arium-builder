@@ -14,21 +14,18 @@ const throttledBuffer = <T>(throttleTimeMs: number) => {
   return pipe(
     publish((observable$: Observable<T>) => {
       const throttleCalls$ = observable$.pipe(
-        // tap((v) => console.log("in throttle", v)),
         throttleTime(throttleTimeMs, asyncScheduler, {
           leading: true,
           trailing: true,
         })
-        // tap(() => console.log("after throttle"))
       );
 
       const src$ = observable$.pipe(share());
       return merge(
         src$.pipe(ignoreElements()),
-        src$.pipe(/* tap(console.log), */ buffer(throttleCalls$))
+        src$.pipe(buffer(throttleCalls$))
       );
     })
-    /*  tap(x => console.log('throttled:', x))*/
   );
 };
 

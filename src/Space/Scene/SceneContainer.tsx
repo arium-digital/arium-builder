@@ -244,9 +244,6 @@ const SceneContainer = ({
   const [userInfo, setUserInfo] = useState<UserInfo>();
 
   useEffect(() => {
-    // console.log({
-    //   ksessionId: !!sessionId, spaceId: !!spaceId, userId: !!userId
-    // });
     if (spaceId && userId)
       setUserInfo({
         spaceId,

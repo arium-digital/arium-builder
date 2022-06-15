@@ -5,15 +5,12 @@ import { MaterialConfig } from "spaceTypes";
 import { Object3D, sRGBEncoding } from "three";
 
 export function dispose(model: Object3D) {
-  // console.log("Removing Model: ", model);
   model.traverse((child: Object3D) => {
     // https://discourse.threejs.org/t/dispose-things-correctly-in-three-js/6534
     //@ts-ignore
     if (child.geometry) {
       //@ts-ignore
       child.geometry.dispose();
-      //@ts-ignore
-      // console.log("dispose geometry ", child.geometry);
     }
 
     //@ts-ignore
@@ -25,13 +22,11 @@ export function dispose(model: Object3D) {
           //@ts-ignore
           child.material[i].dispose();
           //@ts-ignore
-          // console.log("dispose material ", child.material[i]);
         }
       } else {
         //@ts-ignore
         child.material.dispose();
         //@ts-ignore
-        // console.log("dispose material ", child.material);
       }
     }
   });

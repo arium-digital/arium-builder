@@ -82,7 +82,6 @@ export const useDuplicateElement = ({
       }
       const parentPath = selection.slice(0, selection.length - 1);
       const newPath = [...parentPath, newId];
-      // console.log('new element id', elementId, newPath)
       // @ts-ignore
       setSelection({
         path: newPath,

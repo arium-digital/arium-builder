@@ -100,7 +100,6 @@ const SpaceRoute = ({
     defaultPlayerLocation
   );
 
-  // console.log(authState.authenticated, authState.userId);
   if (!spaceExist) return <FourOFourCSR type="space" id={spaceId} />;
   const authenticatedAuthState = authState as AuthenticatedAuthState;
   if (!spaceIdToUse || !authState.authenticated)

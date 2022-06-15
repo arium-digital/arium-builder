@@ -302,10 +302,6 @@ const LeftToolBar = ({
   } = editorState;
   const elementIsLocked = !!editorState.nestedForm?.sourceValues?.locked;
 
-  // const spaceSlug = useSpaceSlugForId(editorState.spaceId);
-
-  // console.log({ spaceSlug });
-
   const [spaceSlug, setSpaceSlug] = useState<string>();
 
   const spaceId = editorState.spaceId;

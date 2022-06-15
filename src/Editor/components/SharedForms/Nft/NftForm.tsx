@@ -487,11 +487,6 @@ export const TokenConfigForm = (
   const updatingOnServer =
     sourceProps.sourceValues?.updateStatus === "updating";
 
-  // useEffect(() => {
-
-  //   console.log('object', { status: sourceProps.values?.updateStatus })
-  // }, [sourceProps.sourceValues?.updateStatus])
-
   const nftPlacardSettings = useConfigOrThemeDefault(
     props.values.display?.nftPlacardSettings,
     themeDefaults.nftPlacard
