@@ -6,7 +6,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useStyles } from "../styles";
-import HomeWorkIcon from "@material-ui/icons/HomeWork";
 import StorageIcon from "@material-ui/icons/Storage";
 import TerrainIcon from "@material-ui/icons/Terrain";
 import Link from "next/link";
@@ -57,11 +56,6 @@ const SideNav = ({
         path: "theme",
       },
       {
-        title: "Elements",
-        icon: <HomeWorkIcon />,
-        path: "elements",
-      },
-      {
         title: "Environment",
         icon: <TerrainIcon />,
         path: "environment",
@@ -71,13 +65,6 @@ const SideNav = ({
         icon: <StorageIcon />,
         path: "files",
       },
-      // hide this nav item for it's still WIP
-      // Yang, Aug 1, 2021
-      // {
-      //   title: "Events",
-      //   icon: <Event />,
-      //   path: "events",
-      // },
     ];
 
     return items;
