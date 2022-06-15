@@ -10,6 +10,8 @@ import { useThemeableChangeHandlers } from "Editor/hooks/useNullableChangeHandle
 import { VideoSettings } from "spaceTypes/video";
 import { defaultPositionalAudioConfig } from "defaultConfigs";
 import MediaGeometryForm from "../Media/MediaGeometryForm";
+import { getThumbnailDomain } from "media/mediaUrls";
+import { useMemo } from "react";
 
 export const CommonVideoSettingsForm = ({
   getThemeDefault,
@@ -60,6 +62,8 @@ const VideoSettingsForm = ({
 
   const { nestedForm } = props;
 
+  const thumbnailDomain = useMemo(() => getThumbnailDomain(), []);
+
   return (
     <>
       <PositionalAudioForm
@@ -73,7 +77,7 @@ const VideoSettingsForm = ({
         getThemeDefault={playSettings}
         title="When the video should play"
       />
-      {!nestedForm.values?.playSettings?.auto && (
+      {!nestedForm.values?.playSettings?.auto && thumbnailDomain && (
         <ThumbnailForm
           title={"Thumbnail (shown when video is not playing)"}
           videoType={type}

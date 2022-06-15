@@ -60,8 +60,10 @@ function getExternalFileResizeUrl(
   return fileLocation.url;
 }
 
+export const getThumbnailDomain = () => process.env.NEXT_PUBLIC_THUMBNAIL_HOST;
+
 const getThumbnailBaseUrl = () => {
-  const mediaDomain = process.env.NEXT_PUBLIC_THUMBNAIL_HOST;
+  const mediaDomain = getThumbnailDomain();
 
   if (!mediaDomain) return null;
 
