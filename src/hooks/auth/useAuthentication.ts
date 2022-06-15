@@ -128,8 +128,8 @@ export const buildConfig = (): firebaseui.auth.Config => {
       auth.GoogleAuthProvider.PROVIDER_ID,
       auth.TwitterAuthProvider.PROVIDER_ID,
     ],
-    tosUrl: "https://www.arium.xyz/terms",
-    privacyPolicyUrl: "https://arium.xyz/privacy",
+    // tosUrl: "https://www.arium.xyz/terms",
+    // privacyPolicyUrl: "https://arium.xyz/privacy",
   };
 
   return config;
@@ -159,8 +159,8 @@ export const buildSignUpConfig = (
         fullLabel: `Sign up with Email`,
       },
     ],
-    tosUrl: "https://www.arium.xyz/terms",
-    privacyPolicyUrl: "https://arium.xyz/privacy",
+    // tosUrl: "https://www.arium.xyz/terms",
+    // privacyPolicyUrl: "https://arium.xyz/privacy",
     callbacks: {
       // Avoid redirects after sign-in.
       signInSuccessWithAuthResult: function (authResult, redirectUrl) {

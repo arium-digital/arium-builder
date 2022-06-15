@@ -36,8 +36,8 @@ export const Footer = ({ lightTheme }: { lightTheme?: boolean }) => {
       </Grid>
       <Grid item xs={12} md={3} className={styles.resources}>
         <Typography variant="body2">
-          <a href="/terms">Terms of Service</a> <br />{" "}
-          <a href="/privacy">Privacy Policy</a> <br />
+          {/* <a href="/terms">Terms of Service</a> <br />{" "}
+          <a href="/privacy">Privacy Policy</a> <br /> */}
           &copy;2021 Arium Virtual Technologies Inc.
         </Typography>
       </Grid>
