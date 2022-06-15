@@ -94,15 +94,6 @@ export const CurvyDivider = () => {
   );
 };
 
-const placeholderVideoUrl =
-  "https://firebasestorage.googleapis.com/v0/b/volta-events-294715.appspot.com/o/public%2FAriumHighlightsv3.webm?alt=media&token=541c8489-7642-4d8b-9435-e2288033a3ac";
-export const PlaceHolderVideo = () => {
-  return (
-    <video autoPlay crossOrigin="anonymous" loop>
-      <source src={placeholderVideoUrl} type="video/webm" />
-    </video>
-  );
-};
 export const PlaceHolderMedia = ({ width, height }: OptionalWidthHeight) => {
   const myId = useComponentId();
   return (
@@ -130,26 +121,4 @@ export const SectionContainer = ({
       <div>{children}</div>
     </div>
   );
-};
-
-export const getImgSrcAndSet = (
-  assetName:
-    | "actNatural"
-    | "marble-theater"
-    | "asItWasMeantToBeSeen"
-    | "smoothSimpleSharing"
-    | "weAreReady"
-    | "formImg",
-  ext: "jpg" | "png" = "png"
-): {
-  imgSrc: string;
-  imgSrcSet: string;
-} => {
-  const imgSrcBase = `https://assets.vlts.pw/public/marketing-site-assets/${assetName}`;
-  const imgSrc = `${imgSrcBase}/1x.${ext}`;
-  const imgSrcSet = `
-${imgSrcBase}/1x.${ext} 1x,
-${imgSrcBase}/2x.${ext} 2x
-`;
-  return { imgSrc, imgSrcSet };
 };

@@ -1,6 +1,6 @@
 import * as functions from "firebase-functions";
 import { UserRoles, UserAuthClaims } from "../../../../shared/sharedTypes";
-import { admin } from "../../db";
+import { admin, firebaseConfig } from "../../db";
 
 /**
  * When roles are updated, updates the auth claims to
@@ -15,7 +15,7 @@ const updateSpaceAccessTokenOnRolesUpdate = functions.firestore
     const roles = change.after.data() as UserRoles;
     // console.log("updating claims for", { userId, spaceId, roles });
 
-    process.env.GCLOUD_PROJECT = "volta-events-294715";
+    process.env.GCLOUD_PROJECT = firebaseConfig.projectId;
 
     const allSpaces = new Set([
       ...(roles.editor || []),

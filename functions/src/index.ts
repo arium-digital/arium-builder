@@ -19,7 +19,6 @@ import updateSlug from "./functions/space/updateSlug";
 import thumbnail from "./functions/media/thumbnail";
 import updateSpaceRoles from "./functions/space/updateSpaceRoles";
 import acceptSpaceInvitation from "./functions/space/acceptSpaceInvitation";
-import sendSpaceInvitation from "./functions/space/sendSpaceInvitation";
 import { updateTokenMedia } from "./functions/nft/updateTokenMedia";
 
 export {
@@ -40,6 +39,5 @@ export {
   updateSlug,
   updateSpaceRoles,
   acceptSpaceInvitation,
-  sendSpaceInvitation,
   updateUserProfile,
 };

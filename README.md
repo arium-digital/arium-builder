@@ -35,17 +35,20 @@ Most of the application is built in typescript and react.  It is serverless, rel
 
 Running this project **requires a *Firebase* account,** and using Firebase Cloud Functions which is core to much of the functinoality requires a **Blaze (paid)** account.
 
-1. **Create a new Firebase project [here](https://firebase.google.com/)**
-2. [Upgrade to the *Blaze* plan](https://docs.firerun.io/getting-started/upgrading-from-the-firebase-spark-plan-to-the-blaze-plan-tled)
-3. [Install the firebase cli](https://firebase.google.com/docs/cli#install-cli-mac-linux)
-4. Set firebase cli to use your project: `firebase use {firebase project name}`
-5. In the firebase admin panel, create a Firestore Database, and a Realtime Database
-6. Update the file `.firebaserc` to change the project name from `arium-builder-example` to your project name.
-7. Open src/db.ts and replace the `firebaseConfig` with firebase config from your project.
-8. In the firebase admin panel, enable email auth.
-9. Open the site: [http://localhost:3000](http://localhost:3000) - it should redirect you to sign in or register.
-10. Register with an email address.
-11. Make your user an admin; to do this, in the root folder where this code sits, in the terminal:  `yarn makeAdmin {yourEmailAddress}`
+* **Create a new Firebase project [here](https://firebase.google.com/)**
+* [Upgrade to the *Blaze* plan](https://docs.firerun.io/getting-started/upgrading-from-the-firebase-spark-plan-to-the-blaze-plan-tled)
+* [Install the firebase cli](https://firebase.google.com/docs/cli#install-cli-mac-linux)
+* Set firebase cli to use your project: `firebase use {firebase project name}`
+* In the firebase admin panel, create a Firestore Database, and a Realtime Database
+* Update the file `.firebaserc` to change the project name from `arium-builder-example` to your project name.
+* Deploy the cloud functions, firestore database rules, realtime database rules, and storage rules: `firebase deploy`
+* Setup CORS on your firebase   storage bucket, there is an example cors.json config in admin.  To use it: `gsutil cors set firebase/cors.json {your bucket url}`
+* Open src/config.ts and replace the `firebaseConfig` structure with firebase config from your project.
+* [ImageKit](https://imagekit.io/) is used for resizing images; Create a free account, then Add an External storage, and connect it to the google cloud storage bucket in your Firebase project.  For service account key and email, you can generate one in your firebase admin panel under Project Settings -> Service Accounts.  This can generate a servicAccount json file which you can upload in the ImageKit add external storage dialog.  Once you have configured imageKit, set `imageKitBaseUrl` property in `config.ts`
+* In the firebase admin panel, enable *email* and *anonymous* auth.
+* Open the site: [http://localhost:3000](http://localhost:3000) - it should redirect you to sign in or register.
+* Register with an email address.
+* Make your user an admin; to do this, in the root folder where this code sits, in the terminal:  `yarn makeAdmin {yourEmailAddress}`
 
 #### Generate a service account key
 
@@ -73,7 +76,7 @@ Running this project **requires a *Firebase* account,** and using Firebase Cloud
 
     yarn start:emulator
 
-### Running just the front-end
+### Running the application
 
 If you don't need any back-end functionality, you can easily start just the front end development server:
 
@@ -97,47 +100,9 @@ Or if using npm:
 
 Open the page at `https://localhost:3000`
 
-
-
-## Deploying
-
-### Prerequisites
-
-Follow the direction to [install and initialize the gcloud compute sdk](https://cloud.google.com/sdk/docs/quickstart)
-
-Ensure [you have docker installed.](https://docs.docker.com/get-docker/)
-
-### Deployment scripts
-
-All deployment scripts should be called with the environment at the end.
-
-Build the staging docker container, and push it to the Google Container Registry:
-
-    ./ops/build.sh staging
-
-Create a managed instance group that users a container, where the environment is `staging` and instance group name is `shared`:
-
-    ./ops/create_mig.sh staging shared
-
-Deploy a container to a managed instance group, where the environment is `staging` and instance group name is `shared`:
-
-    ./ops/deploy_mig.sh staging shared
-
-For `production` instance group deployment - substitute `staging` above with `production`
-
-## Building the bundled sdk
-
-Make sure to clone the repository with:
-
-    git clone git@github.com:arium-digital/arium.git --recursive
-
-If you already have the repository cloned, then:
-
-    git submodule update --init --recursive
-
-Build the sdk into a minified bundle:
-
-    yarn build-package
-
 ### To deploy
+
+The project is setup to be freely deployed on netlify.
+
+We will add instructions here later that guide you on how to do this.
 

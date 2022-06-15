@@ -17,16 +17,11 @@ import { DivGrow } from "website/shared/utils";
 import styles from "./styles.module.scss";
 import { Footer } from "website/Layout/Footer";
 import { useAuthentication } from "hooks/auth/useAuthentication";
-type NavItemKey = "documentation" | "my-spaces";
+type NavItemKey = "my-spaces";
 
 export type NavProps = { navItems?: NavItemKey[] };
 
 const navItemMappings: Record<NavItemKey, React.ReactNode> = {
-  documentation: (
-    <Button target="_blank" href="https://docs.arium.xyz/space_setup/">
-      <Typography variant="body1">Documentation</Typography>
-    </Button>
-  ),
   "my-spaces": (
     <Button target="_blank" href="/my-spaces">
       <Typography variant="body1">Your Spaces</Typography>

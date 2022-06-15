@@ -1,4 +1,4 @@
-import { FileLocation, StoredFileLocation } from "../../shared/sharedTypes";
+import { StoredFileLocation } from "../../shared/sharedTypes";
 
 const addFolder = (folder?: string) => (folder ? `${folder}/` : "");
 
@@ -23,12 +23,4 @@ export const getAssetPath = (file: StoredFileLocation | undefined) => {
   const folder = getAssetFolder(file);
 
   return `${folder || ""}${file.fileName || ""}`;
-};
-
-export const getMetaImagePath = (
-  fileLocation?: FileLocation
-): string | undefined => {
-  if (!fileLocation) return undefined;
-  const assetPath = getAssetPath(fileLocation as StoredFileLocation);
-  return `https://assets.vlts.pw/${assetPath}`;
 };

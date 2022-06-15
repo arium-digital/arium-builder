@@ -7,13 +7,14 @@ import {
 } from "../shared/sharedTypes";
 import { storage } from "db";
 import { Optional } from "types";
+import { firebaseConfig } from "config";
 // import { Loader, useLoader } from "@react-three/fiber";
 // TODO there has got to be a better way of doing this...
 
 export async function getBucketUrl(filePath: string) {
   const firebaseStorage = storage();
   const gsReference = firebaseStorage.refFromURL(
-    `gs://volta-events-294715.appspot.com/${filePath}`
+    `gs://${firebaseConfig.storageBucket}/${filePath}`
   );
   const downloadURL = await gsReference.getDownloadURL();
   return downloadURL;
@@ -186,5 +187,12 @@ export const extractFileName = (name: string): string => {
   return name;
 };
 
-export const getCDNUrl = (path: string): string =>
+export const getAriumCDNUrl = (path: string): string =>
   `https://assets.vlts.pw/${path}`;
+
+export const getMetaImagePath = async (
+  fileLocation?: FileLocation
+): Promise<string | undefined> => {
+  if (!fileLocation) return undefined;
+  return await getFileDownloadUrlAsync(fileLocation);
+};

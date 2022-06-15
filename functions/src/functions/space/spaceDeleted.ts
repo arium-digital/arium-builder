@@ -1,5 +1,5 @@
 import * as functions from "firebase-functions";
-import { admin } from "../../db";
+import { admin, firebaseConfig } from "../../db";
 import { Space } from "../../../../shared/sharedTypes";
 
 const removeOwnerTokenFromSpaceCreator = async ({
@@ -37,7 +37,7 @@ const spaceDeleted = functions.firestore
 
     const space = snapshot.data() as Space;
 
-    process.env.GCLOUD_PROJECT = "volta-events-294715";
+    process.env.GCLOUD_PROJECT = firebaseConfig.projectId;
 
     const userId = space.ownerId;
     if (userId) {

@@ -1,4 +1,4 @@
-import { getCDNUrl, getFileDownloadUrl } from "fileUtils";
+import { getAriumCDNUrl, getFileDownloadUrl } from "fileUtils";
 import { useGlobalPointerOverLayer } from "hooks/useLayers";
 import { useSetIsGroundAndIsCollidable } from "hooks/useSetIsGroundAndIsCollidable";
 import {
@@ -44,7 +44,7 @@ const getWaterNormalUrls = (resolution: number) => {
   return [
     `standardAssets/textures/water_normal_1/Water_1_M_Normal${suffix}.jpeg`,
     `standardAssets/textures/water_normal_1/Water_2_M_Normal${suffix}.jpeg`,
-  ].map(getCDNUrl) as [string, string];
+  ].map(getAriumCDNUrl) as [string, string];
 };
 
 type WaterProps = {

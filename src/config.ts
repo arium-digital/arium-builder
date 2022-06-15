@@ -28,3 +28,19 @@ export const DEFAULT_CAMERA_FOV = 75;
 export const DEFAULT_CAMERA_FAR = 1000;
 export const DEFAULT_FOV_TRANSITION_SPEED_SECONDS = 1;
 export const DEFAULT_FAR_TRANSITION_SPEED_SECONDS = 1;
+
+// Replace the below with configuration from your project.
+export const firebaseConfig = {
+  apiKey: "AIzaSyAoPz3c-2OHJzl9qPy6IzzSlROHIUeAvS4",
+  authDomain: "arium-builder-example.firebaseapp.com",
+  databaseURL: "https://arium-builder-example-default-rtdb.firebaseio.com",
+  projectId: "arium-builder-example",
+  storageBucket: "arium-builder-example.appspot.com",
+  messagingSenderId: "346607153918",
+  appId: "1:346607153918:web:105d693144732ee7a22baf",
+};
+
+export const mediaHostUrl = "https://arium-builder-example.web.app";
+
+// Replace the below with configuration from your project.
+export const imageKitBaseUrl = "https://ik.imagekit.io/ariumbuilderexample/";

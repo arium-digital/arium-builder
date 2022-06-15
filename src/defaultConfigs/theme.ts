@@ -11,7 +11,6 @@ import { MaterialConfig } from "spaceTypes";
 import { AvatarConfig } from "spaceTypes/AvatarConfig";
 import { FrameConfiguration, ImageSettings } from "spaceTypes/image";
 import {
-  // ImageMediaDisplayConfig,
   HasInSpaceQualityConfig,
   MediaGeometryConfig,
 } from "spaceTypes/mediaDisplay";
@@ -27,10 +26,8 @@ import {
 
 export const defaultAvatarConfig = (): Concrete<AvatarConfig> => ({
   avatarFile: {
-    fileType: "stored",
-    fileLocation: "standardAssets",
-    folder: "avatars",
-    fileName: "classic_v10.glb",
+    fileType: "external",
+    url: "/models/defaultAvatar.glb",
   },
   selfViewPosition: null,
   selfViewRotation: null,
@@ -193,23 +190,3 @@ export const imageInSpaceQuality: GetThemeOrDefault<HasInSpaceQualityConfig> = (
     fromTheme: theme.image,
   };
 };
-
-// export const artworkDisplay: GetThemeOrDefault<ArtworkDisplayConfig> = (
-//   theme: Theme
-// ) => {
-//   return {
-//     defaults: {
-//       image: defaultImageSettings(),
-//       mediaFrame: defaultHasFrameConfig(),
-//       nftPlacardSettings: defaultNftPlacardSettings(),
-//       placardDisplay: defaultPlacardDisplayConfig(),
-//       showMedia: true,
-//       showPlacard: true,
-//       video: defaultVideoSettings()
-//     },
-//     fromTheme: (theme: Theme): ArtworkDisplayConfig => ({
-//       showMedia: true,
-//       showPlacard: true,
-//     })
-//   }
-// }

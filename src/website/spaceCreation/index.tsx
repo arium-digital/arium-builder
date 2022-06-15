@@ -17,8 +17,7 @@ const CannotCreateSpaceError = () => {
   return (
     <Typography variant="h4">
       We're sorry, but it look like you've create the maximum number of spaces
-      available to your account. If you want to create more spaces, email us at{" "}
-      <a href="mailto:info@arium.xyz">info@arium.xyz</a>
+      available to your account.
     </Typography>
   );
 };

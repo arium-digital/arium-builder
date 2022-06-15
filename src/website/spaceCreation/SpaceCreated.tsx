@@ -53,7 +53,7 @@ const SpaceCreated = ({ spaceId }: { spaceId: string }) => {
   return (
     <Layout2 navProps={{ navItems: ["documentation", "my-spaces"] }}>
       <Typography variant="h4" align="center">
-        Your Arium Space has Been Created
+        Your Space has Been Created
       </Typography>
       <Row className="justify-content-md-center">
         <Col xs={12} md={8} lg={8}>

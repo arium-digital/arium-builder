@@ -28,10 +28,6 @@ const defaultImageConfig = (theme: Theme): ImageConfig => ({
 });
 
 export const baseDefaultVideoConfig = (): VideoConfig => ({
-  // storedVideo: {
-  //   fileType: "external",
-  //   url: "https://assets.vlts.pw/public/videoPlaceholder.mp4",
-  // },
   type: "stored video",
   storedVideo: null,
 });

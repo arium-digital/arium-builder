@@ -20,7 +20,6 @@ export type InteractableConfigFormProps = Forms.StandardFormPropsNullable<Intera
 const defaultContent = `
 <p>Hello!</p>
 <p>What you write here would appear on the screen when they click this model</p>
-<p>You can add things here like 🎉 and <a href="https://arium.xyz/home" target="_blank">this</a> and
 <span style="color: rgb(44,130,201);"> t</span>
 <span style="color: rgb(247,218,100);">h</span>
 <span style="color: rgb(0,168,133);">i</span>

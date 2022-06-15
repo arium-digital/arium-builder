@@ -8,6 +8,7 @@ import {
   defaultLightElement,
   defaultGroupElement,
   defaultAudioElement,
+  defaultWaterElement,
 } from "defaultConfigs";
 import { ElementType, MaterialConfig } from "spaceTypes";
 import {
@@ -183,6 +184,12 @@ const useAddElementOptions = () => {
         elementType: ElementType.terrain,
         toolTip: "Add Terrain",
         defaultElementConfig: defaultTerrainElement,
+        newElementConfig: newTerrainConfig,
+      },
+      {
+        elementType: ElementType.water,
+        toolTip: "Add Water",
+        defaultElementConfig: defaultWaterElement,
         newElementConfig: newTerrainConfig,
       },
       {

@@ -16,7 +16,7 @@ import { useStyles } from "Editor/styles";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CancelIcon from "@material-ui/icons/Cancel";
 
-const spacePrefix = "https://arium.xyz/spaces/";
+const spacePrefix = "/spaces/";
 
 const generateSpaceUrl = (spaceSlug: string | undefined) => {
   return `${spacePrefix}${spaceSlug || ""}`;

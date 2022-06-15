@@ -1,4 +1,4 @@
-import { getMetaImagePath } from "media/assetPaths";
+import { getMetaImagePath } from "fileUtils";
 import { useEffect, useState } from "react";
 import { spaceDoc, spaceSettingsCollection } from "shared/documentPaths";
 import { SpaceMeta } from "spaceTypes";
@@ -12,10 +12,10 @@ const getSpaceMeta = async (
     .doc("meta")
     .get()
     .then((doc) => doc.data() as SpaceMeta)
-    .then((data) => {
+    .then(async (data) => {
       return {
         ...data,
-        metaImageUrl: getMetaImagePath(data?.metaImage),
+        metaImageUrl: await getMetaImagePath(data?.metaImage),
       };
     })
     .catch((err) => {

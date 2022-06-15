@@ -14,10 +14,8 @@ const allowedDomains: string[] = [
   "ipfs.pixura.io",
   "res.cloudinary.com",
   "gateway.pinata.cloud",
-  "visualmassage.mypinata.cloud",
   "img.rarible.com",
   "rarible.mypinata.cloud",
-  "verticalcrypto.mypinata.cloud",
   "ipfsgateway.makersplace.com",
 ];
 
@@ -41,8 +39,13 @@ const assertIsValidUrl = (url: string) => {
   } else throw new Error(`domain ${domain} is not allowed`);
 };
 
-const getBucketUrl = (file: string) => {
-  return bucket().file(file).publicUrl();
+const getBucketUrl = async (file: string) => {
+  const fileResponse = await bucket().file(file).getSignedUrl({
+    action: "read",
+    expires: "03-09-2491",
+  });
+
+  return fileResponse[0];
 };
 
 function shouldCopyToLocal(url: string): boolean {
@@ -90,7 +93,7 @@ const getFileUrl = async ({
   file: string | undefined;
   url: string | undefined;
 }): Promise<string> => {
-  if (file) return getBucketUrl(file);
+  if (file) return await getBucketUrl(file);
 
   if (!url) {
     throw new Error("url or file must be specified");

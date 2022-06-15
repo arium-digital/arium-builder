@@ -107,7 +107,7 @@ const SpaceInvite = ({
     if (spaceInvite?.claimed) {
       if (spaceInvite?.claimedByUserId !== userId) {
         setSpaceInviteError(
-          "Oops, it looks like this invite has already been claimed.  Please contact info@arium.xyz for further assistance."
+          "Oops, it looks like this invite has already been claimed."
         );
       } else {
         onComplete();
@@ -153,7 +153,7 @@ const SpaceInvite = ({
     >
       <>
         <div className={styles.centeredContents}>
-          <Typography variant="h2">Welcome to Arium</Typography>
+          <Typography variant="h2">Welcome</Typography>
           <Typography variant="h3">
             You've been invited to collaborate on and edit the space {spaceName}
             !

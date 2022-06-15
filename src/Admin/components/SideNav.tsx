@@ -7,7 +7,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useStyles } from "../../shared/styles";
 import Link from "next/link";
-import PersonPinCircleIcon from "@material-ui/icons/PersonPinCircle";
 import GroupAddIcon from "@material-ui/icons/GroupAdd";
 
 interface MenuItem {
@@ -21,11 +20,6 @@ const SideNav = ({ section }: { section: string }) => {
 
   const menuItems: MenuItem[] = useMemo(() => {
     const items: MenuItem[] = [
-      {
-        title: "Test Agents",
-        icon: <PersonPinCircleIcon />,
-        path: "test-agents",
-      },
       {
         title: "Invites",
         icon: <GroupAddIcon />,
