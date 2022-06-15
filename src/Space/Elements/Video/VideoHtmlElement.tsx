@@ -57,6 +57,7 @@ const StoredVideoElement = memo(
     handleVideoStartedPlaying,
     visible,
     muted = false,
+    preload,
   }: {
     videoConfig: StoredVideoConfig;
     videoRef: (video: HTMLVideoElement | null) => void;
@@ -64,6 +65,7 @@ const StoredVideoElement = memo(
     handleVideoStartedPlaying: () => void;
     visible?: boolean;
     muted?: boolean;
+    preload?: boolean;
   }) => {
     const { storedVideo, storedVideos } = videoConfig;
 
@@ -86,7 +88,8 @@ const StoredVideoElement = memo(
         onLoadedData={handleVideoMetadataLoaded}
         onPlaying={handleVideoStartedPlaying}
         ref={videoRef}
-        preload="metadata"
+        preload={preload ? "auto" : "metadata"}
+        // preload="metadata"
         muted={muted}
         src={videoSource}
       ></video>
@@ -154,6 +157,7 @@ type VideoHtmlElementProps = {
   visible?: boolean;
   muted?: boolean;
   playOrPauseMedia: (play: boolean) => void;
+  preload?: boolean;
 };
 
 export const usePlayAndSeek = (
@@ -222,6 +226,7 @@ const VideoHtmlElement = memo(
     playOrPauseMedia: playOrPauseVideo,
     visible,
     muted,
+    preload,
   }: VideoHtmlElementProps) => {
     usePlayAndSeek(
       {
@@ -244,6 +249,7 @@ const VideoHtmlElement = memo(
             handleVideoStartedPlaying={handleVideoStartedPlaying}
             visible={visible}
             muted={muted}
+            preload={preload}
           />
         </NonTransformedHtml>
       );

@@ -55,8 +55,7 @@ function toSpaceCreationStatus({
   if (maxSpaces === 0) {
     return {
       canCreate: false,
-      text:
-        "You cannot create any spaces.  Please contact info@arium.xyz or join our discord to request more spaces.",
+      text: "You cannot create any spaces.",
       availableToCreate: 0,
     };
   }
@@ -87,7 +86,7 @@ function toSpaceCreationStatus({
 
   return {
     canCreate: false,
-    text: `You have created the maxinum number of spaces available to your account. Please contact info@arium.xyz or join our discord to request more spaces.`,
+    text: `You have created the maxinum number of spaces available to your account.`,
     availableToCreate: 0,
   };
 }

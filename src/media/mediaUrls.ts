@@ -63,11 +63,15 @@ function getExternalFileResizeUrl(
 const getThumbnailBaseUrl = () => {
   const mediaDomain = process.env.NEXT_PUBLIC_THUMBNAIL_HOST;
 
+  if (!mediaDomain) return null;
+
   return `${mediaDomain}/thumbnail`;
 };
 
 function getThumbnailBaseUrlWithAssetPath(assetPath: string) {
   const baseUrl = getThumbnailBaseUrl();
+
+  if (!baseUrl) return null;
 
   return `${baseUrl}/${assetPath}`;
 }
@@ -78,11 +82,21 @@ function getThumbnailUrlPath(fileLocation: FileLocation) {
 
     if (!assetPath) return null;
 
-    return new URL(getThumbnailBaseUrlWithAssetPath(assetPath));
+    const thumbnailBaseUrlWithAssetPath = getThumbnailBaseUrlWithAssetPath(
+      assetPath
+    );
+
+    if (!thumbnailBaseUrlWithAssetPath) return null;
+
+    return new URL(thumbnailBaseUrlWithAssetPath);
   } else {
     if (!fileLocation.url) return null;
 
-    const url = new URL(getThumbnailBaseUrl());
+    const baseUrl = getThumbnailBaseUrl();
+
+    if (!baseUrl) return null;
+
+    const url = new URL(baseUrl);
     url.searchParams.append("url", fileLocation.url);
 
     return url;

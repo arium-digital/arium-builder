@@ -6,7 +6,6 @@ import { EnsureAuth } from "./Layout";
 import Alert from "@material-ui/lab/Alert";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { LogoutLink } from "../shared/components/LogoutButton";
 import { useSpaceAccess } from "hooks/auth/useSpaceAccess";
 import { spaceSlugForId } from "hooks/useSpaceIdForSlug";
 
@@ -36,8 +35,7 @@ const RedirectToDefaultSpace = ({
     return (
       <Alert severity="error">
         We're sorry, but it appears you do not have access to any spaces to
-        edit. If you believe this shouldn't be the case, please{" "}
-        <LogoutLink to="/editor" /> and login again, or email support@arium.xyz
+        edit.
       </Alert>
     );
 

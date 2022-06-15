@@ -46,9 +46,9 @@ export const Footer = ({ lightTheme }: { lightTheme?: boolean }) => {
           <Typography variant="body2" className={styles.subtitle}>
             Contact us!
           </Typography>
-          <a href="mailto:info@arium.xyz">
+          {/* <a href="mailto:info@arium.xyz">
             <Typography variant="body2">info@arium.xyz</Typography>
-          </a>
+          </a> */}
         </Grid>
       </Hidden>
     </Grid>

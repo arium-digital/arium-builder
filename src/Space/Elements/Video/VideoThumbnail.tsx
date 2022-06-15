@@ -1,9 +1,5 @@
-import { VideoConfig } from "spaceTypes";
 import { MetadataDetermined } from "./VideoHtmlElement";
 import { memo, useState, useEffect, Suspense } from "react";
-import { videoThumbnailUrl } from "./videoUtils";
-import { useMemo } from "react";
-import { VideoThumbnailConfig } from "spaceTypes/video";
 import { useTexture } from "@react-three/drei";
 import { Texture } from "three";
 
@@ -35,17 +31,15 @@ const ThumbnailImageElement = ({
 
 const VideoThumbnail = memo(
   ({
-    config,
     imageRef,
     metadataDetermined,
     visible = true,
-    settings,
+    imageUrl,
   }: {
-    config: VideoConfig;
     imageRef: (image: Texture) => void;
     metadataDetermined: MetadataDetermined;
     visible?: boolean;
-    settings: VideoThumbnailConfig | undefined;
+    imageUrl: string;
   }) => {
     const [shouldLoadMedia, setShouldLoadMedia] = useState(false);
 
@@ -54,24 +48,6 @@ const VideoThumbnail = memo(
         setShouldLoadMedia(true);
       }
     }, [visible]);
-
-    const imageUrl = useMemo(
-      () =>
-        videoThumbnailUrl({
-          storedVideo: config.storedVideo,
-          storedVideos: config.storedVideos,
-          liveStream: config.liveStream,
-          type: config.type,
-          thumbnailConfig: settings,
-        }),
-      [
-        config.storedVideo,
-        config.storedVideos,
-        config.liveStream,
-        config.type,
-        settings,
-      ]
-    );
 
     if (!imageUrl || !shouldLoadMedia) return null;
 

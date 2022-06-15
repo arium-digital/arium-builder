@@ -107,7 +107,7 @@ const SpaceInvite = ({
     if (spaceInvite?.claimed) {
       if (spaceInvite?.claimedByUserId !== userId) {
         setSpaceInviteError(
-          "Oops, it looks like this invite has already been claimed.  Please contact info@arium.xyz for further assistance."
+          "Oops, it looks like this invite has already been claimed."
         );
       } else {
         onComplete();

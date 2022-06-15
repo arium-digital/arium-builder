@@ -47,6 +47,7 @@ import { Optional } from "types";
 import PositionalAudioHelper from "../Audio/PositionalAudioHelper";
 import { usePlayVideo } from "./usePlay";
 import VideoPlaySettingsHelper from "./VideoPlaySettingsHelper";
+import { videoThumbnailUrl } from "./videoUtils";
 // const PIXEL_TO_SIZE_SCALE = 0.01;
 
 type VideoPlayerProps = {
@@ -279,15 +280,40 @@ const VideoPlayerInner = ({
     [values.width]
   );
 
+  const thumbnailUrl = useMemo(
+    () =>
+      videoThumbnailUrl({
+        storedVideo: values.storedVideo,
+        storedVideos: values.storedVideos,
+        liveStream: values.liveStream,
+        type: values.type,
+        thumbnailConfig: videoThumbnail,
+      }),
+    [
+      values.storedVideo,
+      values.storedVideos,
+      values.liveStream,
+      values.type,
+      videoThumbnail,
+    ]
+  );
+
   const { showThumbnail, play } = useMemo(() => {
     const play = shouldPlay && !modalOpen;
-    const showThumbnail = !play || !videoHasStartedPlaying || failedToPlay;
+    const showThumbnail =
+      !!thumbnailUrl && (!play || !videoHasStartedPlaying || failedToPlay);
 
     return {
       showThumbnail,
       play,
     };
-  }, [modalOpen, shouldPlay, failedToPlay, videoHasStartedPlaying]);
+  }, [
+    modalOpen,
+    shouldPlay,
+    failedToPlay,
+    videoHasStartedPlaying,
+    thumbnailUrl,
+  ]);
 
   const [groupRef, setGroupRef] = useState<Optional<THREE.Object3D>>();
 
@@ -308,7 +334,7 @@ const VideoPlayerInner = ({
 
   return (
     <group ref={setGroupRef}>
-      {shouldHavePlayedAtOnePoint && (
+      {(shouldHavePlayedAtOnePoint || !thumbnailUrl) && (
         <VideoHtmlElement
           videoConfig={values}
           play={play}
@@ -319,6 +345,7 @@ const VideoPlayerInner = ({
           seekTime={seekTime}
           media={video}
           muted={muted}
+          preload={!thumbnailUrl}
         />
       )}
       {failedToPlay && play && cannotPlayUnMutedWithoutManual && (
@@ -327,13 +354,14 @@ const VideoPlayerInner = ({
           legacyRotation={values.legacyRotation}
         />
       )}
-      <VideoThumbnail
-        config={values}
-        imageRef={setThumnailImage}
-        metadataDetermined={setImageSizeFromDimensions}
-        visible={visible}
-        settings={videoThumbnail}
-      />
+      {thumbnailUrl && (
+        <VideoThumbnail
+          imageRef={setThumnailImage}
+          metadataDetermined={setImageSizeFromDimensions}
+          visible={visible}
+          imageUrl={thumbnailUrl}
+        />
+      )}
       <PlaySurfaces
         planeDimensions={size}
         {...frame}
