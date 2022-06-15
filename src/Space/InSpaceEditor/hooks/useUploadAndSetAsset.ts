@@ -24,7 +24,7 @@ export const useUploadAndSetAsset = (
   const uploadFile = useCallback(
     async (file: File) => {
       if (!file) {
-        showError && showError("Unsupported media type");
+        showError && showError("Missing file / Unsupported media type");
         return;
       }
       if (!spaceId) {
@@ -42,6 +42,7 @@ export const useUploadAndSetAsset = (
           );
         return;
       }
+      console.log("starting to upload");
       setUploadStatus({
         progress: 1,
         uploading: true,
@@ -49,10 +50,16 @@ export const useUploadAndSetAsset = (
 
       const newFile = await renameFileIfSameNameExists(file, spaceId, storage);
       const destinationPath = spaceAssetPath(spaceId, newFile.name);
+      console.log("uploading file to ", destinationPath);
+      console.log(newFile.type);
       const task = storage.ref(destinationPath).put(newFile);
       task.on(
         "state_changed",
         (snapshot: firebase.storage.UploadTaskSnapshot) => {
+          console.log(
+            "got change",
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
           setUploadStatus({
             progress: (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
             uploading: true,

@@ -1,13 +1,6 @@
 import styles from "./styles.module.scss";
 import { PlaySettings } from "spaceTypes";
-import {
-  Suspense,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import ImagePreview from "Editor/components/Form/ImagePreview";
 import React from "react";
 import firebase from "firebase";
@@ -25,6 +18,7 @@ import {
 import { AcceptedFileTypes } from "types";
 import { SpaceContext } from "hooks/useCanvasAndModalContext";
 import { StoredAudioPreview } from "../Form/AudioPreview";
+import { ModelPreview } from "../Form/Previews";
 
 const acceptedImageExtensions = new Set(["jpg", "jpeg", "png"]);
 const acceptedVideoExtensions = new Set(["webm", "mp4"]);
@@ -73,6 +67,7 @@ function useUpdateFileAndName(props: {
     file
   );
   useEffect(() => {
+    console.log("setting current file", file);
     setCurrentFile(file);
   }, [file]);
 
@@ -80,6 +75,7 @@ function useUpdateFileAndName(props: {
 
   const uploadFile = useCallback(
     (data: firebase.storage.UploadTaskSnapshot) => {
+      console.log("uploading file");
       if (!spaceId) {
         console.error("space id is missing");
         return;
@@ -310,20 +306,19 @@ export const PreviewAndUploadModel = (props: PreviewAndUploadProps) => {
   const { file, handleUpdateFile } = props;
 
   const { showError, ErrorUI } = useSlackbarErrorMessage();
-
   const acceptedFileTypes = useAcceptedOrDefaul(
     props.dropzoneAcceptedTypesOverride,
     {
       extensions: acceptedModelExtensions,
-      MIMETypes: ".glb",
+      MIMETypes: "model/gltf-binary",
     }
   );
   const {
     progress,
     uploading,
     getRootProps,
-    currentFile,
     getInputProps,
+    currentFile,
   } = useUpdateFileAndName({
     acceptedExtensions: acceptedFileTypes.extensions,
     accept: acceptedFileTypes.MIMETypes,
@@ -332,22 +327,28 @@ export const PreviewAndUploadModel = (props: PreviewAndUploadProps) => {
     showError,
   });
 
+  const spaceId = useContext(SpaceContext)?.spaceId;
+
   return (
     <>
       {ErrorUI}
       <div {...getRootProps({ className: styles.dragAndDrop })}>
-        {!currentFile && <input {...getInputProps()} />}
-        <Suspense fallback={null}>
+        <input {...getInputProps()} />
+        <div>
           {uploading ? (
             <ProgressBar value={progress} />
-          ) : currentFile ? null : (
+          ) : currentFile ? (
+            spaceId && (
+              <ModelPreview fileLocation={currentFile} spaceId={spaceId} />
+            )
+          ) : (
             <ImagePreview
               file={placeholderImageFile("Drop+a+model+file+here")}
             />
           )}
-        </Suspense>
+        </div>
         <p>
-          Drag and drop a model
+          Drag and drop a model or click to select
           <br />
           {formatAcceptedTypes(acceptedFileTypes)}
         </p>
