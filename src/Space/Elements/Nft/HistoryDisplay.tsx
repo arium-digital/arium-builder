@@ -186,11 +186,6 @@ const HistoryDisplay = memo(
       });
     }, [thisReflow, parentReflow]);
 
-    // useEffect(() => {
-    //   console.log({ maxWidth });
-
-    // }, [maxWidth]);
-
     return (
       <>
         <>

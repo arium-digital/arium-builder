@@ -42,7 +42,6 @@ export const useIsInRange$ = (
     const newInterval = intervals[sortedIndex(breakpoints, newDistance)];
     setCheckInterval(newInterval);
     // turn on the log to see the interval of this trigger
-    // console.log("rerun", newDistance, newInterval);
     return newDistance < triggerDistanceSquared;
   }, [
     position,
@@ -97,6 +96,5 @@ export const useIsInRange = (
     intervalAdjustment
   );
   const isInRange = useCurrentValueFromBehaviorSubject(isInRange$);
-  // console.log("rerun useIsInRange ");
   return isInRange;
 };

@@ -171,8 +171,6 @@ export const fetchAndUpdateSuperrareToken = async ({
       "nft.fetchingMedia": true,
     });
 
-    console.log("updated token");
-
     return superrareToken;
   }
 

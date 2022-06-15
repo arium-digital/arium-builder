@@ -28,10 +28,6 @@ export const useClicked$AndPointerOver$ = (
   const clicked$: Subject<Event> = useMemo(() => new Subject(), []);
   const isMe = useCallback(
     (obj: Object3D | null) => {
-      // console.log({
-      //   name: obj?.name,
-      //   elementId,
-      // });
       if (!obj) return false;
       return obj.name === elementId;
     },

@@ -213,8 +213,6 @@ export function toDistanceCalculations({
     max: maxPeersToSee,
   });
 
-  // console.log(peersToSee, peersToHear);
-
   return {
     distancesByPeer: byDistance,
     allVisiblePeers: sortedPeersByDistance.slice(0, maxVisiblePeers),

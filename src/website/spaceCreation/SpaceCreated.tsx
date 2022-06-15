@@ -51,7 +51,7 @@ const SpaceCreated = ({ spaceId }: { spaceId: string }) => {
   // }, [spaceId, router]);
 
   return (
-    <Layout2 navProps={{ navItems: ["documentation", "my-spaces"] }}>
+    <Layout2 navProps={{ navItems: ["my-spaces"] }}>
       <Typography variant="h4" align="center">
         Your Space has Been Created
       </Typography>

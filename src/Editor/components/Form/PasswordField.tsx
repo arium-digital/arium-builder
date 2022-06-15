@@ -74,7 +74,6 @@ function PasswordField({
   );
 
   const handleClick = useCallback(() => {
-    // console.log("clicked");
     if (!valueChanged) {
       // clear displayed password on first click
       setStoredValue(undefined);

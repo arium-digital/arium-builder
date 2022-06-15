@@ -63,11 +63,6 @@ const SliderRangeField = ({
     (event: any, newValue: number | number[]) => {
       const newValueAsNumbers = newValue as [number, number];
       setInternalValues(newValueAsNumbers);
-      // console.log(
-      //   "internal value to value",
-      //   newValue,
-      //   internalValueToValue(newValue as number)
-      // );
       setTimeout(() => {
         setFirstValue(internalValueToValue(newValueAsNumbers[0]));
         setSecondValue(internalValueToValue(newValueAsNumbers[1]));

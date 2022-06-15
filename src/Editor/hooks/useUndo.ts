@@ -77,7 +77,6 @@ export const useUndo = (): UndoInstance => {
         isNew,
       });
 
-      // console.log(undoStackRef.current);
       setCanUndo(undoStackRef.current.length > 0);
       redoStackRef.current.length = 0;
       setCanRedo(false);

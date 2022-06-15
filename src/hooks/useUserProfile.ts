@@ -26,9 +26,7 @@ export const useUserProfile = () => {
       .then(() => {
         setSpaceIds(newSpaceIds);
       })
-      .catch(function (error) {
-        console.log("Error getting documents: ", error);
-      });
+      .catch(function (error) {});
   }, [user]);
 
   useEffect(() => {

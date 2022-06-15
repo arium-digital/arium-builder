@@ -47,7 +47,6 @@ const useSliderValue = ({
 
   const handleChange = (event: any, newValue: number | number[]) => {
     setSliderValue(newValue as number);
-    // console.log(newValue, internalValueToValue(newValue as number));
     setTimeout(() => setValue(internalValueToValue(newValue as number)));
   };
 

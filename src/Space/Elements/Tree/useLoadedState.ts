@@ -19,8 +19,6 @@ export const useElementsLoadedProgress = () => {
   };
 };
 
-const debug = false;
-
 const useLoadedState = ({
   totalInitialElements,
   initialElements,
@@ -58,18 +56,6 @@ const useLoadedState = ({
       };
     });
   }, []);
-
-  useEffect(() => {
-    if (!initialElements || !debug) return;
-
-    const loadedElements = Array.from(loadingState.loadedElements.values());
-
-    const initialArray = Array.from(initialElements.values());
-
-    const diff = initialArray.filter((v) => !loadedElements.includes(v));
-
-    console.log(diff);
-  }, [loadingState.loadedElements, initialElements]);
 
   const { numberLoaded } = loadingState;
 

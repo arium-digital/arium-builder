@@ -73,13 +73,6 @@ const SpaceCreation = () => {
     spaceAccess,
   });
 
-  // console.log(
-  //   "can create",
-  //   canCreateSpace,
-  //   userAccount?.maxSpaces,
-  //   userAccount?.createdSpaces
-  // );
-
   const [previewSpace, setPreviewSpace] = useState<SpaceTemplateConfig | null>(
     null
   );
@@ -90,7 +83,7 @@ const SpaceCreation = () => {
 
   return (
     <>
-      <Layout2 navProps={{ navItems: ["documentation", "my-spaces"] }}>
+      <Layout2 navProps={{ navItems: ["my-spaces"] }}>
         {previewSpace && (
           <PreviewModal
             createSpace={handleCreateSpace}

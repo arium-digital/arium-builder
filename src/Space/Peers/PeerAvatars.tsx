@@ -140,10 +140,6 @@ const PeerAvatars = memo(
       return () => sub.unsubscribe();
     }, [textVisiblePeers$, visiblePeersSortedByDistance$]);
 
-    // useEffect(() => {
-    //   console.log(nodes);
-
-    // }, [nodes]);
     return (
       <>
         {avatarMeshes && (

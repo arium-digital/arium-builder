@@ -45,14 +45,12 @@ export const runValidation = async <T>(
       abortEarly: false,
       strict: true,
     });
-    // console.log("succeeded, continuing");
 
     return {
       valid: true,
       errors: {},
     };
   } catch (e) {
-    // console.log("got errors");
     const asValidationError = e as ValidationError;
     return {
       errors: formatErrors(asValidationError.inner),

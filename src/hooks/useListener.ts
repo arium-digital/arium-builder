@@ -31,7 +31,6 @@ export const useAudioAndListener = ({
         distinct(),
         filter((initialized) => initialized),
         map(() => {
-          // console.log("made listener");
           return new THREE.AudioListener();
         }),
         takeUntilUnmount()
