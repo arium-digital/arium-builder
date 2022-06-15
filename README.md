@@ -55,7 +55,9 @@ Running this project **requires a *Firebase* account,** and using Firebase Cloud
 
 Get your cloud storage bucket url (this)
 
-Copy Assets to your Local Bucket:
+#### Copy Assets to your Local Bucket:
+
+This will copy both space templates and standard assets to your firestore storage bucket
 
 ```sh
 gsutil -m -cp -r gs://arium-open-source.appspot.com/export {yourBucketBaseUrl}
@@ -65,6 +67,18 @@ So for example if your bucket url is: `gs://my-metaverse-app.appspot.com` the co
 
 ```sh
 gsutil -m -cp -r gs://arium-open-source.appspot.com/export gs://my-metaverse-app.appspot.com
+```
+
+#### Load the default space templates to your firestore database:
+
+```sh
+gcloud firestore import {yourBucketBaseUrl}/db
+```
+
+So for example if your bucket url is: `gs://my-metaverse-app.appspot.com` the command would be:
+
+```sh
+gcloud firestore import gs://my-metaverse-app.appspot.com/db
 ```
 
 ### Setup ImageKit for Image Resizing

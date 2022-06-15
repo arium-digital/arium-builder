@@ -265,12 +265,7 @@ export const defaultGraphicsConfig = (): GraphicsConfig => ({
   antialias: true,
 });
 
-export const getDefaultWelcomeHTML = (): string => `<p>Arium is the 3D video chat platform for social events. Host, share, and attend gatherings in a 3D space as if you were in the same room together. In Arium, you and your guests will…</p>
-          <ul>
-            <li><strong>Share an experience in a 3D space:</strong> Meet friends and explore the world of Arium together.</li>
-            <li><strong>Flow naturally between conversations and have serendipitous interactions:</strong> No need to hassle with breakout rooms. If you want to talk to someone in Arium, you can simply walk over to them - making even the largest virtual events feel fun and natural.</li>
-            <li><strong>Make it your own:</strong> Customize the space for your community and your event. Project videos on the wall, invite your favorite DJs for a set, and dim the lights when it's time to dance!</li>
-          </ul>
+export const getDefaultWelcomeHTML = (): string => `<p></p>
 `;
 
 export const defaultPhongConfig = (): PhongConfig => ({

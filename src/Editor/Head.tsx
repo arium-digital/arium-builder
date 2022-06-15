@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 const title = ({ section, spaceId }: { section: string; spaceId: string }) =>
-  `Arium: Editing ${spaceId} ${section}`;
+  `Editing ${spaceId} ${section}`;
 
 const EditorHead = (props: { section: string; spaceId: string }) => (
   <Head>

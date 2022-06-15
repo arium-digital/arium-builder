@@ -75,7 +75,7 @@ const genPortalFormDescription = (
     editor: Editors.dropdownPicker,
     editorConfig: {
       label: "Space To Transport To",
-      description: "The Arium space to which this portal transports the user",
+      description: "The space to which this portal transports the user",
       options: availableSpaceOptions.map(({ spaceId, slug }) => ({
         label: slug,
         value: spaceId,

@@ -40,7 +40,7 @@ export const EnsureAuth = ({ children }: { children: React.ReactChild }) => {
   const router = useRouter();
 
   useEffect(() => {
-    document.title = "Arium Admin";
+    document.title = "Arium Builder Admin";
   }, []);
 
   const requiresLogin = useMemo(() => !authenticated || isAnonymous, [
