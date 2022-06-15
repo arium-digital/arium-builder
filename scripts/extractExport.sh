@@ -1,0 +1,1 @@
+cd .. && tar -xvzf ./backups/exports.tar.gz -C ./

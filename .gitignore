@@ -26,6 +26,7 @@ serviceAccountKey.json
 out/
 *.log
 exports
+exports.zip
 *.exe
 .node-version
 Makefile
