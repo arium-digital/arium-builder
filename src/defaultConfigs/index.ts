@@ -413,8 +413,8 @@ export const defaultAudioElement = (): AudioElementConfig => ({
 });
 
 export const DEFAULT_MOVEMENT_SPEED = 5;
-export const DEFAULT_JUMP_SPEED = 0.5;
-export const DEFAULT_GRAVITY = 5;
+export const DEFAULT_JUMP_SPEED = 0.7;
+export const DEFAULT_GRAVITY = 2.5;
 
 export const defaultPositionalAudioConfig = (): Concrete<PositionalAudioConfig> => ({
   volume: 100,
