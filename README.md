@@ -31,7 +31,7 @@ Most of the application is built in typescript and react.  It is serverless, rel
 
 ## Setup
 
-## Setting up Firebase
+### Setting up Firebase
 
 Running this project **requires a *Firebase* account,** and using Firebase Cloud Functions which is core to much of the functinoality requires a **Blaze (paid)** account.
 
@@ -44,33 +44,67 @@ Running this project **requires a *Firebase* account,** and using Firebase Cloud
 * Deploy the cloud functions, firestore database rules, realtime database rules, and storage rules: `firebase deploy`
 * Setup CORS on your firebase   storage bucket, there is an example cors.json config in admin.  To use it: `gsutil cors set firebase/cors.json {your bucket url}`
 * Open src/config.ts and replace the `firebaseConfig` structure with firebase config from your project.
+
+### Generate a service account key and loading it for node admin purposes.
+
+* Go to firebase admin -> settings -> Service Accounts.
+* Click 'Generate new Private Key'
+* Download the file to the root of this source code folder, and name it `serviceAccount.json`
+
+### Loading Starter Data (space templates and standard assets)
+
+Get your cloud storage bucket url (this)
+
+Copy Assets to your Local Bucket:
+
+```sh
+gsutil -m -cp -r gs://arium-open-source.appspot.com/export {yourBucketBaseUrl}
+```
+
+So for example if your bucket url is: `gs://my-metaverse-app.appspot.com` the command would be:
+
+```sh
+gsutil -m -cp -r gs://arium-open-source.appspot.com/export gs://my-metaverse-app.appspot.com
+```
+
+### Setup ImageKit for Image Resizing
+
 * [ImageKit](https://imagekit.io/) is used for resizing images; Create a free account, then Add an External storage, and connect it to the google cloud storage bucket in your Firebase project.  For service account key and email, you can generate one in your firebase admin panel under Project Settings -> Service Accounts.  This can generate a servicAccount json file which you can upload in the ImageKit add external storage dialog.  Once you have configured imageKit, set `imageKitBaseUrl` property in `config.ts`
+
+### Setup Authentication, Register and make yourself and admin user
+
 * In the firebase admin panel, enable *email* and *anonymous* auth.
 * Open the site: [http://localhost:3000](http://localhost:3000) - it should redirect you to sign in or register.
 * Register with an email address.
 * Make your user an admin; to do this, in the root folder where this code sits, in the terminal:  `yarn makeAdmin {yourEmailAddress}`
 
-#### Generate a service account key
-
-1. Go to firebase admin -> settings -> Service Accounts.
-2. Click 'Generate new Private Key'
-3. Download the file to the root of this source code folder, and name it `serviceAccount.json`
+## Setting up your Environment
 
 #### Setup environment variables
 
 1. Copy `.env.example` to `.env`
 
-#### Build the cloud functions
+## Deploying
 
-    cd functions && yarn build
+The entire application is deployed on a combination of Firebase and your front-end provider of choice, for now we will set it up with Netlify because this lines up with existing work.
 
-#### Deploy the cloud functions
+### Deploying Netlify
+
+ToDo: fill out
+
+### Deploying Firebase
+
+Deploy firestore rules and indexes, realtime db rules and indexes, storage rules, functions:
+
+    firestore deploy
+
+#### Deploy only the cloud functions
 
     firebase deploy --only functions
 
-#### Copy sample starter data down to your computer
+#### Build the cloud functions
 
-    yarn db:copy-export-data
+    cd functions && yarn build
 
 #### Start up the firebase emulator
 
@@ -78,7 +112,7 @@ Running this project **requires a *Firebase* account,** and using Firebase Cloud
 
 ### Running the application
 
-If you don't need any back-end functionality, you can easily start just the front end development server:
+Start local front-end development server:
 
 [Follow the instructions to install yarn](https://classic.yarnpkg.com/en/docs/install/)
 
@@ -99,10 +133,3 @@ Or if using npm:
     npm start
 
 Open the page at `https://localhost:3000`
-
-### To deploy
-
-The project is setup to be freely deployed on netlify.
-
-We will add instructions here later that guide you on how to do this.
-
