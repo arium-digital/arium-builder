@@ -1,0 +1,1 @@
+gcloud firestore export gs://arium-builder-example.appspot.com/dbExports --collection-ids=spaces
